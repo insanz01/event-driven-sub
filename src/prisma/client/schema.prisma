@@ -1,0 +1,49 @@
+generator client {
+  provider      = "prisma-client-js"
+  output        = "../src/prisma/client"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id @db.Char(36)
+  email     String    @unique
+  name      String
+  isActive  Boolean?  @default(false) @map("is_active")
+  createdAt DateTime  @default(now()) @map("created_at") @db.DateTime(0)
+  updatedAt DateTime  @default(now()) @map("updated_at") @db.DateTime(0)
+  deletedAt DateTime? @map("deleted_at") @db.DateTime(0)
+
+  @@map("users")
+}
+
+model Category {
+  id            Int           @id @default(autoincrement())
+  name          String        @unique(map: "name_unique") @db.VarChar(255)
+  isActive      Boolean       @default(false) @map("is_active")
+  createdAt     DateTime      @default(now()) @map("created_at") @db.DateTime(0)
+  updatedAt     DateTime      @default(now()) @map("updated_at") @db.DateTime(0)
+  deletedAt     DateTime?     @map("deleted_at") @db.DateTime(0)
+  subCategories SubCategory[]
+
+  @@map("categories")
+}
+
+model SubCategory {
+  id         Int       @id @default(autoincrement())
+  categoryId Int       @map("category_id")
+  name       String    @db.VarChar(255)
+  isActive   Boolean   @default(false) @map("is_active")
+  createdAt  DateTime  @default(now()) @map("created_at") @db.DateTime(0)
+  updatedAt  DateTime  @default(now()) @map("updated_at") @db.DateTime(0)
+  deletedAt  DateTime? @map("deleted_at") @db.DateTime(0)
+  category   Category  @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "sub_categories_ibfk_1")
+
+  @@unique([name, categoryId], map: "category_id_name_unique")
+  @@index([categoryId], map: "category_id")
+  @@map("sub_categories")
+}
