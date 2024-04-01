@@ -2,7 +2,7 @@ import { type NextFunction, type Request, type Response } from 'express'
 
 import { ERROR_CODE, type QueryParams } from '../../interface'
 import { AppError } from '../../middleware'
-import { ResponseHandler } from '../../utils'
+import { MESSAGES, ResponseHandler } from '../../utils'
 
 import * as roleService from './roles.service'
 
@@ -17,7 +17,7 @@ export const createRole = async (
 		next(role)
 		return
 	}
-	ResponseHandler.ok(res, null, 'Role created successfully')
+	ResponseHandler.ok(res, null, MESSAGES.SUCCESS.CREATED.ROLE)
 }
 
 export const getRoles = async (
@@ -34,7 +34,7 @@ export const getRoles = async (
 	ResponseHandler.ok(
 		res,
 		roles?.data,
-		'Roles fetched successfully',
+		MESSAGES.SUCCESS.GET.ROLE,
 		roles?.meta,
 	)
 }
@@ -48,7 +48,7 @@ export const getRole = async (
 	if (isNaN(Number(roleId))) {
 		const error = new AppError(
 			ERROR_CODE.BAD_REQUEST.code,
-			'Invalid roleId',
+			MESSAGES.ERROR.INVALID_REQUEST.ROLE_ID,
 		)
 		next(error)
 		return
@@ -58,7 +58,7 @@ export const getRole = async (
 		next(role)
 		return
 	}
-	ResponseHandler.ok(res, role, 'Role fetched successfully')
+	ResponseHandler.ok(res, role, MESSAGES.SUCCESS.GET.ROLE_DETAIL)
 }
 
 export const updateRole = async (
@@ -70,7 +70,7 @@ export const updateRole = async (
 	if (isNaN(Number(roleId))) {
 		const error = new AppError(
 			ERROR_CODE.BAD_REQUEST.code,
-			'Invalid roleId',
+			MESSAGES.ERROR.INVALID_REQUEST.ROLE_ID,
 		)
 		next(error)
 		return
@@ -84,7 +84,7 @@ export const updateRole = async (
 		next(role)
 		return
 	}
-	ResponseHandler.ok(res, null, 'Role updated successfully')
+	ResponseHandler.ok(res, null, MESSAGES.SUCCESS.UPDATED.ROLE)
 }
 
 export const deleteRole = async (
@@ -96,7 +96,7 @@ export const deleteRole = async (
 	if (isNaN(Number(roleId))) {
 		const error = new AppError(
 			ERROR_CODE.BAD_REQUEST.code,
-			'Invalid roleId',
+			MESSAGES.ERROR.INVALID_REQUEST.ROLE_ID,
 		)
 		next(error)
 		return
@@ -106,5 +106,5 @@ export const deleteRole = async (
 		next(role)
 		return
 	}
-	ResponseHandler.ok(res, null, 'Role deleted successfully')
+	ResponseHandler.ok(res, null, MESSAGES.SUCCESS.DELETED.ROLE)
 }

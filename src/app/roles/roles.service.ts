@@ -1,7 +1,7 @@
 import { ERROR_CODE, type QueryParams } from '../../interface'
 import { AppError } from '../../middleware'
 import { type Roles } from '../../prisma/client'
-import { metaPagination } from '../../utils'
+import { MESSAGES, metaPagination } from '../../utils'
 
 import { rolesDTOMapper, roleDTOMapper } from './roles.mapper'
 import * as roleRepository from './roles.repository'
@@ -31,7 +31,7 @@ export const getRoles = async (query: QueryParams) => {
 export const getRole = async (roleId: number) => {
 	const role = await roleRepository.getRole(roleId)
 	if (!role) {
-		return new AppError(ERROR_CODE.NOT_FOUND.code, 'Role not found')
+		return new AppError(ERROR_CODE.NOT_FOUND.code, MESSAGES.ERROR.NOT_FOUND.ROLE_ID)
 	}
 	return roleDTOMapper(role)
 }
@@ -39,7 +39,7 @@ export const getRole = async (roleId: number) => {
 export const updateRole = async (roleId: number, data: Roles) => {
 	const role = await roleRepository.getRole(roleId)
 	if (!role) {
-		return new AppError(ERROR_CODE.NOT_FOUND.code, 'Role not found')
+		return new AppError(ERROR_CODE.NOT_FOUND.code, MESSAGES.ERROR.NOT_FOUND.ROLE_ID)
 	}
 	return await roleRepository.updateRole(roleId, data)
 }
@@ -48,7 +48,7 @@ export const updateRole = async (roleId: number, data: Roles) => {
 export const deleteRole = async (roleId: number) => {
 	const role = await roleRepository.getRole(roleId)
 	if (!role) {
-		return new AppError(ERROR_CODE.NOT_FOUND.code, 'Role not found')
+		return new AppError(ERROR_CODE.NOT_FOUND.code, MESSAGES.ERROR.NOT_FOUND.ROLE_ID)
 	}
 	return await roleRepository.deleteRole(roleId)
 }
