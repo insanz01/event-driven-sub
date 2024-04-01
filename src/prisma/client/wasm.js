@@ -148,6 +148,15 @@ exports.Prisma.SubCategoryScalarFieldEnum = {
   deletedAt: 'deletedAt'
 };
 
+exports.Prisma.RolesScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -162,7 +171,8 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   User: 'User',
   Category: 'Category',
-  SubCategory: 'SubCategory'
+  SubCategory: 'SubCategory',
+  Roles: 'Roles'
 };
 
 /**
