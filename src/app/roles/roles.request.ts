@@ -7,3 +7,7 @@ export const createRoleSchema = Joi.object({
 	isActive: Joi.boolean().required().messages(joiGeneralMessage),
 })
 
+export const updateRoleSchema = Joi.object({
+	name: Joi.string().optional().messages(joiGeneralMessage),
+	isActive: Joi.boolean().optional().messages(joiGeneralMessage),
+})

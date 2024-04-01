@@ -60,3 +60,29 @@ export const getRole = async (
 	}
 	ResponseHandler.ok(res, role, 'Role fetched successfully')
 }
+
+export const updateRole = async (
+	req: Request,
+	res: Response,
+	next: NextFunction,
+) => {
+	const { roleId } = req.params
+	if (isNaN(Number(roleId))) {
+		const error = new AppError(
+			ERROR_CODE.BAD_REQUEST.code,
+			'Invalid roleId',
+		)
+		next(error)
+		return
+	}
+	const { body } = req
+	const role = await roleService.updateRole(
+		Number(roleId),
+		body,
+	)
+	if (role instanceof AppError) {
+		next(role)
+		return
+	}
+	ResponseHandler.ok(res, null, 'Role updated successfully')
+}

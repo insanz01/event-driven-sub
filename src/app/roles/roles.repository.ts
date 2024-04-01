@@ -63,3 +63,15 @@ export const getRole = async (roleId: number) => {
 		},
 	})
 }
+
+export const updateRole = async (roleId: number, data: Roles) => {
+	return await db.roles.update({
+		where: {
+			id: roleId,
+		},
+		data: {
+			name: data.name,
+			isActive: data.isActive,
+		},
+	})
+}
