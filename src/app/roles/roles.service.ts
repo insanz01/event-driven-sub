@@ -6,6 +6,11 @@ import { metaPagination } from '../../utils'
 import { rolesDTOMapper, roleDTOMapper } from './roles.mapper'
 import * as roleRepository from './roles.repository'
 
+export const createRole = async (data: Roles) => {
+	const role = await roleRepository.createRole(data)
+	return role
+}
+
 export const getRoles = async (query: QueryParams) => {
 	const { page = '1', perPage = '10' } = query
 	const [roles, totalData] = await Promise.all([

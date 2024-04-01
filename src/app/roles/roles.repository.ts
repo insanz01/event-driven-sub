@@ -4,6 +4,15 @@ import { queryStatus } from '../../utils'
 
 const db = new PrismaClient()
 
+export const createRole = async (data: Roles) => {
+	return await db.roles.create({
+		data: {
+			name: data.name,
+			isActive: data.isActive,
+		},
+	})
+}
+
 export const getRoles = async (query: QueryParams) => {
 	const { page = '1', perPage = '10', search = '', status } = query
 	const isActive = queryStatus(status)

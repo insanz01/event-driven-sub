@@ -6,6 +6,19 @@ import { ResponseHandler } from '../../utils'
 
 import * as roleService from './roles.service'
 
+export const createRole = async (
+	req: Request,
+	res: Response,
+	next: NextFunction,
+) => {
+	const { body } = req
+	const role = await roleService.createRole(body)
+	if (role instanceof AppError) {
+		next(role)
+		return
+	}
+	ResponseHandler.ok(res, null, 'Role created successfully')
+}
 
 export const getRoles = async (
 	req: Request & { query: QueryParams },
