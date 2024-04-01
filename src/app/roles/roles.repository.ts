@@ -75,3 +75,16 @@ export const updateRole = async (roleId: number, data: Roles) => {
 		},
 	})
 }
+
+export const deleteRole = async (roleId: number) => {
+	return await db.roles.update({
+		where: {
+			id: roleId,
+		},
+		data: {
+			isActive: false,
+			deletedAt: new Date(),
+		},
+	})
+}
+

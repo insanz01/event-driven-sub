@@ -43,3 +43,12 @@ export const updateRole = async (roleId: number, data: Roles) => {
 	}
 	return await roleRepository.updateRole(roleId, data)
 }
+
+
+export const deleteRole = async (roleId: number) => {
+	const role = await roleRepository.getRole(roleId)
+	if (!role) {
+		return new AppError(ERROR_CODE.NOT_FOUND.code, 'Role not found')
+	}
+	return await roleRepository.deleteRole(roleId)
+}

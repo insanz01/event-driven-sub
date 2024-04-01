@@ -86,3 +86,25 @@ export const updateRole = async (
 	}
 	ResponseHandler.ok(res, null, 'Role updated successfully')
 }
+
+export const deleteRole = async (
+	req: Request,
+	res: Response,
+	next: NextFunction,
+) => {
+	const { roleId } = req.params
+	if (isNaN(Number(roleId))) {
+		const error = new AppError(
+			ERROR_CODE.BAD_REQUEST.code,
+			'Invalid roleId',
+		)
+		next(error)
+		return
+	}
+	const role = await roleService.deleteRole(Number(roleId))
+	if (role instanceof AppError) {
+		next(role)
+		return
+	}
+	ResponseHandler.ok(res, null, 'Role deleted successfully')
+}

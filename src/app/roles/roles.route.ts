@@ -8,6 +8,7 @@ import {
 	getRole,
 	createRole,
 	updateRole,
+	deleteRole,
 } from './roles.controller'
 import {
 	createRoleSchema,
@@ -28,5 +29,6 @@ route.patch(
 	validateRequest(updateRoleSchema),
 	catchAsync(updateRole),
 )
+route.delete('/:roleId', catchAsync(deleteRole))
 
 export default route
