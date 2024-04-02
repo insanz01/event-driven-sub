@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "HSD Template for Express API with Prisma",
   "main": "src/index.js",
+  "prisma": {
+    "seed": "ts-node prisma/seeder/seed.ts"
+  },
   "scripts": {
     "build": "rm -rf dist && npx tsc && cp -r src/prisma dist/prisma",
     "start": "node dist/index.js",
@@ -12,6 +15,7 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "db.migrate": "npx prisma migrate dev",
     "db.generate": "npx prisma generate",
+    "db.seed": "npx prisma db seed",
     "db.push": "npx prisma db push",
     "db.pull": "npx prisma db pull",
     "deploy:dev": "gcloud app deploy api-dev.yaml --project=tuvnordcentral"
