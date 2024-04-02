@@ -123,6 +123,8 @@ exports.Prisma.UserScalarFieldEnum = {
   id: 'id',
   email: 'email',
   name: 'name',
+  phoneNumber: 'phoneNumber',
+  roleId: 'roleId',
   isActive: 'isActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
@@ -154,7 +156,8 @@ exports.Prisma.RolesScalarFieldEnum = {
   isActive: 'isActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt'
+  deletedAt: 'deletedAt',
+  userId: 'userId'
 };
 
 exports.Prisma.SortOrder = {
