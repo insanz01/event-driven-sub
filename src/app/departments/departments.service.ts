@@ -1,6 +1,6 @@
 import { ERROR_CODE, type QueryParams } from '../../interface'
 import { AppError } from '../../middleware'
-import { metaPagination } from '../../utils'
+import { metaPagination, MESSAGES } from '../../utils'
 
 import { departmentDTOMapper, departmentsDTOMapper } from './departments.mapper'
 import * as departmentRepository from './departments.repository'
@@ -25,7 +25,28 @@ export const getDepartments = async (query: QueryParams) => {
 export const getDepartment = async (departmentId: number) => {
 	const department = await departmentRepository.getDepartment(departmentId)
 	if (!department) {
-		return new AppError(ERROR_CODE.NOT_FOUND.code, 'Department not found')
+		return new AppError(ERROR_CODE.NOT_FOUND.code, MESSAGES.ERROR.NOT_FOUND.DEPARTMENT_ID)
 	}
 	return departmentDTOMapper(department)
+}
+
+export const createDepartment = async (data: any) => {
+	const department = await departmentRepository.createDepartment(data)
+	return department
+}
+
+export const updateDepartment = async (departmentId: number, data: any) => {
+	const department = await departmentRepository.getDepartment(departmentId)
+	if (!department) {
+		return new AppError(ERROR_CODE.NOT_FOUND.code, MESSAGES.ERROR.NOT_FOUND.DEPARTMENT_ID)
+	}
+	return await departmentRepository.updateDepartment(departmentId, data)
+}
+
+export const deleteDepartment = async (departmentId: number) => {
+	const department = await departmentRepository.getDepartment(departmentId)
+	if (!department) {
+		return new AppError(ERROR_CODE.NOT_FOUND.code, MESSAGES.ERROR.NOT_FOUND.DEPARTMENT_ID)
+	}
+	return await departmentRepository.deleteDepartment(departmentId)
 }

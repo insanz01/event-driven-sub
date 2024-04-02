@@ -5,16 +5,19 @@ export const MESSAGES = {
 			BUDGET_DETAIL: 'Budget detail berhasil ditambahkan',
 			CATEGORY: 'Kateogri berhasil dibuat',
 			SUBCATEGORY: 'Subkategori berhasil dibuat',
-			ROLE: 'Role berhasil dibuat'
+			ROLE: 'Role berhasil dibuat',
+			DEPARTMENT: 'Department berhasil dibuat',
 		},
 		UPDATED: {
 			BUDGET_DETAIL: 'Budget detail berhasil diupdate',
 			ROLE: 'Role berhasil diupdate',
+			DEPARTMENT: 'Department berhasil diupdate',
 		},
 		DELETED: {
 			BUDGET: 'Budget berhasil dihapus',
 			BUDGET_DETAIL: 'Budget detail berhasil dihapus',
 			ROLE: 'Role berhasil dihapus',
+			DEPARTMENT: 'Department berhasil dihapus',
 		},
 		GET: {
 			BUDGETS: 'Seluruh data Budget berhasil diambil',
@@ -25,6 +28,7 @@ export const MESSAGES = {
 			USERS: 'Seluruh data User berhasil di ambil',
 			ROLE: 'Seluruh data Role berhasil diambil',
 			ROLE_DETAIL: 'Role berhasil diambil',
+			DEPARTMENT_DETAIL: 'Department berhasil diambil',
 		},
 	},
 	ERROR: {
@@ -41,6 +45,7 @@ export const MESSAGES = {
 		INVALID_REQUEST: {
 			BUDGET_DETAIL_ID: 'Budget detail id tidak valid',
 			ROLE_ID: 'Role id tidak valid',
+			DEPARTMENT_ID: 'Department id tidak valid',
 		},
 		SERVER_ERROR: 'Internal server error',
 		SUBCATEGORY_ID_NOT_IN_CATEGORY_ID:
