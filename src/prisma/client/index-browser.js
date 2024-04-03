@@ -160,6 +160,13 @@ exports.Prisma.RolesScalarFieldEnum = {
   userId: 'userId'
 };
 
+exports.Prisma.OTPScalarFieldEnum = {
+  token: 'token',
+  email: 'email',
+  otp: 'otp',
+  expiry: 'expiry'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -175,7 +182,8 @@ exports.Prisma.ModelName = {
   User: 'User',
   Category: 'Category',
   SubCategory: 'SubCategory',
-  Roles: 'Roles'
+  Roles: 'Roles',
+  OTP: 'OTP'
 };
 
 /**

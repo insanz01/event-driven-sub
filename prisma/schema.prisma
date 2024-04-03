@@ -64,3 +64,13 @@ model Roles {
 
   @@map("roles")
 }
+
+model OTP {
+  token  String    @unique @db.Char(36)
+  email  String    @db.VarChar(16)
+  otp    String    @id @db.VarChar(60)
+  expiry DateTime?
+
+  @@index([email], map: "email")
+  @@map("otps")
+}
