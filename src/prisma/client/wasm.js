@@ -125,6 +125,7 @@ exports.Prisma.UserScalarFieldEnum = {
   name: 'name',
   phoneNumber: 'phoneNumber',
   roleId: 'roleId',
+  departmentId: 'departmentId',
   isActive: 'isActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
@@ -170,17 +171,20 @@ exports.Prisma.OTPScalarFieldEnum = {
 exports.Prisma.DepartmentsScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  isActive: 'isActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt',
-  userId: 'userId'
+  deletedAt: 'deletedAt'
 };
 
-exports.Prisma.OTPScalarFieldEnum = {
-  token: 'token',
-  email: 'email',
-  otp: 'otp',
-  expiry: 'expiry'
+exports.Prisma.DepartmentManagementScalarFieldEnum = {
+  id: 'id',
+  departmentId: 'departmentId',
+  divisionId: 'divisionId',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -199,7 +203,9 @@ exports.Prisma.ModelName = {
   Category: 'Category',
   SubCategory: 'SubCategory',
   Roles: 'Roles',
-  OTP: 'OTP'
+  OTP: 'OTP',
+  Departments: 'Departments',
+  DepartmentManagement: 'DepartmentManagement'
 };
 
 /**
