@@ -5362,7 +5362,7 @@ export namespace Prisma {
   }
 
   export type OTPGroupByOutputType = {
-    token: string
+    token: string | null
     email: string
     otp: string
     expiry: Date | null
@@ -5404,7 +5404,7 @@ export namespace Prisma {
     name: "OTP"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      token: string
+      token: string | null
       email: string
       otp: string
       expiry: Date | null
@@ -6507,14 +6507,14 @@ export namespace Prisma {
     AND?: OTPWhereInput | OTPWhereInput[]
     OR?: OTPWhereInput[]
     NOT?: OTPWhereInput | OTPWhereInput[]
-    token?: StringFilter<"OTP"> | string
+    token?: StringNullableFilter<"OTP"> | string | null
     email?: StringFilter<"OTP"> | string
     otp?: StringFilter<"OTP"> | string
     expiry?: DateTimeNullableFilter<"OTP"> | Date | string | null
   }
 
   export type OTPOrderByWithRelationInput = {
-    token?: SortOrder
+    token?: SortOrderInput | SortOrder
     email?: SortOrder
     otp?: SortOrder
     expiry?: SortOrderInput | SortOrder
@@ -6522,16 +6522,16 @@ export namespace Prisma {
 
   export type OTPWhereUniqueInput = Prisma.AtLeast<{
     token?: string
+    otp?: string
     AND?: OTPWhereInput | OTPWhereInput[]
     OR?: OTPWhereInput[]
     NOT?: OTPWhereInput | OTPWhereInput[]
     email?: StringFilter<"OTP"> | string
-    otp?: StringFilter<"OTP"> | string
     expiry?: DateTimeNullableFilter<"OTP"> | Date | string | null
-  }, "token" | "token">
+  }, "otp" | "token">
 
   export type OTPOrderByWithAggregationInput = {
-    token?: SortOrder
+    token?: SortOrderInput | SortOrder
     email?: SortOrder
     otp?: SortOrder
     expiry?: SortOrderInput | SortOrder
@@ -6544,7 +6544,7 @@ export namespace Prisma {
     AND?: OTPScalarWhereWithAggregatesInput | OTPScalarWhereWithAggregatesInput[]
     OR?: OTPScalarWhereWithAggregatesInput[]
     NOT?: OTPScalarWhereWithAggregatesInput | OTPScalarWhereWithAggregatesInput[]
-    token?: StringWithAggregatesFilter<"OTP"> | string
+    token?: StringNullableWithAggregatesFilter<"OTP"> | string | null
     email?: StringWithAggregatesFilter<"OTP"> | string
     otp?: StringWithAggregatesFilter<"OTP"> | string
     expiry?: DateTimeNullableWithAggregatesFilter<"OTP"> | Date | string | null
@@ -6835,49 +6835,49 @@ export namespace Prisma {
   }
 
   export type OTPCreateInput = {
-    token: string
+    token?: string | null
     email: string
     otp: string
     expiry?: Date | string | null
   }
 
   export type OTPUncheckedCreateInput = {
-    token: string
+    token?: string | null
     email: string
     otp: string
     expiry?: Date | string | null
   }
 
   export type OTPUpdateInput = {
-    token?: StringFieldUpdateOperationsInput | string
+    token?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     otp?: StringFieldUpdateOperationsInput | string
     expiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type OTPUncheckedUpdateInput = {
-    token?: StringFieldUpdateOperationsInput | string
+    token?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     otp?: StringFieldUpdateOperationsInput | string
     expiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type OTPCreateManyInput = {
-    token: string
+    token?: string | null
     email: string
     otp: string
     expiry?: Date | string | null
   }
 
   export type OTPUpdateManyMutationInput = {
-    token?: StringFieldUpdateOperationsInput | string
+    token?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     otp?: StringFieldUpdateOperationsInput | string
     expiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type OTPUncheckedUpdateManyInput = {
-    token?: StringFieldUpdateOperationsInput | string
+    token?: NullableStringFieldUpdateOperationsInput | string | null
     email?: StringFieldUpdateOperationsInput | string
     otp?: StringFieldUpdateOperationsInput | string
     expiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
