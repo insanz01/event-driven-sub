@@ -167,6 +167,48 @@ exports.Prisma.OTPScalarFieldEnum = {
   expiry: 'expiry'
 };
 
+exports.Prisma.DepartmentsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+};
+
+exports.Prisma.DepartmentManagementsScalarFieldEnum = {
+  id: 'id',
+  divisionId: 'divisionId',
+  departmentId: 'departmentId',
+  titleId: 'titleId',
+  isProfitCenter: 'isProfitCenter',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+};
+
+exports.Prisma.TitleOfDepartmentsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  isLeader: 'isLeader',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+};
+
+exports.Prisma.UserIdentityScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  divisionId: 'divisionId',
+  titleOfDivisionId: 'titleOfDivisionId',
+  DepartmentManagementId: 'DepartmentManagementId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -183,7 +225,11 @@ exports.Prisma.ModelName = {
   Category: 'Category',
   SubCategory: 'SubCategory',
   Roles: 'Roles',
-  OTP: 'OTP'
+  OTP: 'OTP',
+  Departments: 'Departments',
+  DepartmentManagements: 'DepartmentManagements',
+  TitleOfDepartments: 'TitleOfDepartments',
+  UserIdentity: 'UserIdentity'
 };
 
 /**
