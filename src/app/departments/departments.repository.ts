@@ -14,6 +14,13 @@ export const getDepartments = async (query: QueryParams) => {
 			},
 			deletedAt: null,
 		},
+		include: {
+			DepartmentManagement: {
+				include: {
+					title: true,
+				}
+			}
+		},
 		skip: (Number(page) - 1) * Number(perPage),
 		take: Number(perPage),
 	})
@@ -38,6 +45,13 @@ export const getDepartment = async (departmentId: number) => {
 		where: {
 			id: departmentId,
 		},
+		include: {
+			DepartmentManagement: {
+				include: {
+					title: true,
+				}
+			}
+		}
 	})
 }
 
@@ -46,27 +60,64 @@ export const createDepartment = async (data: any) => {
 		data: {
 			name: data.name,
 			isActive: data.isActive,
+			DepartmentManagement: {
+				create: [{
+					title: {
+						create: {
+							name: data.titleName,
+							isActive: data.isActive,
+							isLeader: data.isLeader,
+						},
+					},
+					divisionId: data.divisionId,
+					isActive: data.isActive,
+					isProfitCenter: data.isProfitCenter,
+				}],
+			},
 		},
-	})
-
-	await db.departmentManagements.create({
-		data: {
-			departmentId: department.id,
-			divisionId: data.divisionId,
-			isActive: data.isActive,
+		include: {
+			DepartmentManagement: {
+				include: {
+						title: true,
+				},
+			},
 		},
-	})
+	});
 
-	return department
-}
+	return department;
+};
 
-export const updateDepartment = async (departmentId: number, data: Departments) => {
+
+
+export const updateDepartment = async (departmentId: number, data: any) => {
 	return await db.departments.update({
 		where: {
 			id: departmentId,
 		},
 		data: {
 			name: data.name,
+			isActive: data.isActive,
+			DepartmentManagement: {
+				create: [{
+					title: {
+						create: {
+							name: data.titleName,
+							isActive: data.isActive,
+							isLeader: data.isLeader,
+						},
+					},
+					divisionId: data.divisionId,
+					isActive: data.isActive,
+					isProfitCenter: data.isProfitCenter,
+				}],
+			},
+		},
+		include: {
+			DepartmentManagement: {
+				include: {
+						title: true,
+				},
+			},
 		},
 	})
 }
@@ -78,6 +129,30 @@ export const deleteDepartment = async (departmentId: number) => {
 		},
 		data: {
 			deletedAt: new Date(),
+			isActive: false,
+			// delete department management and title of department too
+			DepartmentManagement: {
+				update: {
+					where: {
+						departmentId: departmentId,
+					},
+					data: {
+						deletedAt: new Date(),
+						isActive: false,
+						title: {
+							update: {
+								where: {
+									departmentId: departmentId,
+								},
+								data: {
+									deletedAt: new Date(),
+									isActive: false,
+								},
+							},
+						},
+					},
+				},
+			},
 		},
 	})
 }
