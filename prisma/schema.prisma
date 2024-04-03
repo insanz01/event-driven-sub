@@ -99,13 +99,13 @@ model DepartmentManagements {
   updatedAt     DateTime      @default(now()) @map("updated_at") @db.DateTime(0)
   deletedAt     DateTime?     @map("deleted_at") @db.DateTime(0)
   department    Departments   @relation(fields: [departmentId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "department_management_ibfk_1")
-  title        TitleOfDepartMents @relation(fields: [titleId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "department_management_ibfk_2")
+  title        TitleOfDepartments @relation(fields: [titleId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "department_management_ibfk_2")
   UserIdentity UserIdentity[]
 
   @@map("department_management")
 }
 
-model TitleOfDepartMents {
+model TitleOfDepartments {
   id        Int       @id @default(autoincrement())
   name      String    @unique(map: "name_unique") @db.VarChar(255)
   isLeader Boolean   @default(false) @map("is_leader")

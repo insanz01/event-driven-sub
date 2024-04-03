@@ -188,7 +188,7 @@ exports.Prisma.DepartmentManagementsScalarFieldEnum = {
   deletedAt: 'deletedAt'
 };
 
-exports.Prisma.TitleOfDepartMentsScalarFieldEnum = {
+exports.Prisma.TitleOfDepartmentsScalarFieldEnum = {
   id: 'id',
   name: 'name',
   isLeader: 'isLeader',
@@ -228,7 +228,7 @@ exports.Prisma.ModelName = {
   OTP: 'OTP',
   Departments: 'Departments',
   DepartmentManagements: 'DepartmentManagements',
-  TitleOfDepartMents: 'TitleOfDepartMents',
+  TitleOfDepartments: 'TitleOfDepartments',
   UserIdentity: 'UserIdentity'
 };
 
