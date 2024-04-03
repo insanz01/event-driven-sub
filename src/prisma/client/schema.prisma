@@ -15,20 +15,14 @@ model User {
   name        String
   phoneNumber String
   roleId      Int       @default(0) @map("role_id")
-  departmentId Int       @default(0) @map("department_id")
-  divisionId  Int       @default(0) @map("division_id")
-  titleId     Int       @default(0) @map("title_id")
   isActive    Boolean?  @default(false) @map("is_active")
   createdAt   DateTime  @default(now()) @map("created_at") @db.DateTime(0)
   updatedAt   DateTime  @default(now()) @map("updated_at") @db.DateTime(0)
   deletedAt   DateTime? @map("deleted_at") @db.DateTime(0)
   Roles       Roles[]
-  Department  Departments[]
-  Title      TitleOfUsers[]
+  UserIdentity UserIdentity[]
 
   @@index([roleId], map: "role_id")
-  @@index([departmentId], map: "department_id")
-  @@index([titleId], map: "title_id")
   @@map("users")
 }
 
@@ -90,23 +84,23 @@ model Departments {
   updatedAt DateTime  @default(now()) @map("updated_at") @db.DateTime(0)
   deletedAt DateTime? @map("deleted_at") @db.DateTime(0)
   DepartmentManagement DepartmentManagements[]
-  User      User[]
 
   @@map("departments")
 }
 
 model DepartmentManagements {
   id            Int           @id @default(autoincrement())
-  departmentId  Int           @map("department_id")
   divisionId    Int           @map("division_id")
+  departmentId  Int           @map("department_id")
   titleId       Int           @map("title_id")
-  isActive      Boolean       @default(false) @map("is_active")
   isProfitCenter Boolean      @default(false) @map("is_profit_center")
+  isActive      Boolean       @default(false) @map("is_active")
   createdAt     DateTime      @default(now()) @map("created_at") @db.DateTime(0)
   updatedAt     DateTime      @default(now()) @map("updated_at") @db.DateTime(0)
   deletedAt     DateTime?     @map("deleted_at") @db.DateTime(0)
   department    Departments   @relation(fields: [departmentId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "department_management_ibfk_1")
   title        TitleOfDepartMents @relation(fields: [titleId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "department_management_ibfk_2")
+  UserIdentity UserIdentity[]
 
   @@map("department_management")
 }
@@ -114,8 +108,8 @@ model DepartmentManagements {
 model TitleOfDepartMents {
   id        Int       @id @default(autoincrement())
   name      String    @unique(map: "name_unique") @db.VarChar(255)
-  isActive  Boolean   @default(false) @map("is_active")
   isLeader Boolean   @default(false) @map("is_leader")
+  isActive  Boolean   @default(false) @map("is_active")
   createdAt DateTime  @default(now()) @map("created_at") @db.DateTime(0)
   updatedAt DateTime  @default(now()) @map("updated_at") @db.DateTime(0)
   deletedAt DateTime? @map("deleted_at") @db.DateTime(0)
@@ -124,15 +118,17 @@ model TitleOfDepartMents {
   @@map("title_of_departments")
 }
 
-model TitleOfUsers {
+model UserIdentity {
   id        Int       @id @default(autoincrement())
-  name      String    @unique(map: "name_unique") @db.VarChar(255)
-  isActive  Boolean   @default(false) @map("is_active")
-  isLeader  Boolean   @default(false) @map("is_leader")
+  userId    String    @map("user_id") @db.Char(36)
+  divisionId Int      @map("division_id")
+  titleOfDivisionId Int @map("title_of_division_id")
+  DepartmentManagementId Int @map("department_management_id")
   createdAt DateTime  @default(now()) @map("created_at") @db.DateTime(0)
   updatedAt DateTime  @default(now()) @map("updated_at") @db.DateTime(0)
   deletedAt DateTime? @map("deleted_at") @db.DateTime(0)
-  User      User[]
+  User      User      @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_identity_ibfk_1")
+  DepartmentManagement DepartmentManagements @relation(fields: [DepartmentManagementId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_identity_ibfk_2")
 
-  @@map("title_of_users")
+  @@map("user_identity")
 }

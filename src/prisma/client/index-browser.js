@@ -125,9 +125,6 @@ exports.Prisma.UserScalarFieldEnum = {
   name: 'name',
   phoneNumber: 'phoneNumber',
   roleId: 'roleId',
-  departmentId: 'departmentId',
-  divisionId: 'divisionId',
-  titleId: 'titleId',
   isActive: 'isActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
@@ -181,11 +178,11 @@ exports.Prisma.DepartmentsScalarFieldEnum = {
 
 exports.Prisma.DepartmentManagementsScalarFieldEnum = {
   id: 'id',
-  departmentId: 'departmentId',
   divisionId: 'divisionId',
+  departmentId: 'departmentId',
   titleId: 'titleId',
-  isActive: 'isActive',
   isProfitCenter: 'isProfitCenter',
+  isActive: 'isActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   deletedAt: 'deletedAt'
@@ -194,18 +191,19 @@ exports.Prisma.DepartmentManagementsScalarFieldEnum = {
 exports.Prisma.TitleOfDepartMentsScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  isActive: 'isActive',
   isLeader: 'isLeader',
+  isActive: 'isActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   deletedAt: 'deletedAt'
 };
 
-exports.Prisma.TitleOfUsersScalarFieldEnum = {
+exports.Prisma.UserIdentityScalarFieldEnum = {
   id: 'id',
-  name: 'name',
-  isActive: 'isActive',
-  isLeader: 'isLeader',
+  userId: 'userId',
+  divisionId: 'divisionId',
+  titleOfDivisionId: 'titleOfDivisionId',
+  DepartmentManagementId: 'DepartmentManagementId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   deletedAt: 'deletedAt'
@@ -231,7 +229,7 @@ exports.Prisma.ModelName = {
   Departments: 'Departments',
   DepartmentManagements: 'DepartmentManagements',
   TitleOfDepartMents: 'TitleOfDepartMents',
-  TitleOfUsers: 'TitleOfUsers'
+  UserIdentity: 'UserIdentity'
 };
 
 /**

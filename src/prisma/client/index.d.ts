@@ -54,10 +54,10 @@ export type DepartmentManagements = $Result.DefaultSelection<Prisma.$DepartmentM
  */
 export type TitleOfDepartMents = $Result.DefaultSelection<Prisma.$TitleOfDepartMentsPayload>
 /**
- * Model TitleOfUsers
+ * Model UserIdentity
  * 
  */
-export type TitleOfUsers = $Result.DefaultSelection<Prisma.$TitleOfUsersPayload>
+export type UserIdentity = $Result.DefaultSelection<Prisma.$UserIdentityPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -262,14 +262,14 @@ export class PrismaClient<
   get titleOfDepartMents(): Prisma.TitleOfDepartMentsDelegate<ExtArgs>;
 
   /**
-   * `prisma.titleOfUsers`: Exposes CRUD operations for the **TitleOfUsers** model.
+   * `prisma.userIdentity`: Exposes CRUD operations for the **UserIdentity** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more TitleOfUsers
-    * const titleOfUsers = await prisma.titleOfUsers.findMany()
+    * // Fetch zero or more UserIdentities
+    * const userIdentities = await prisma.userIdentity.findMany()
     * ```
     */
-  get titleOfUsers(): Prisma.TitleOfUsersDelegate<ExtArgs>;
+  get userIdentity(): Prisma.UserIdentityDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -748,7 +748,7 @@ export namespace Prisma {
     Departments: 'Departments',
     DepartmentManagements: 'DepartmentManagements',
     TitleOfDepartMents: 'TitleOfDepartMents',
-    TitleOfUsers: 'TitleOfUsers'
+    UserIdentity: 'UserIdentity'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -765,7 +765,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'user' | 'category' | 'subCategory' | 'roles' | 'oTP' | 'departments' | 'departmentManagements' | 'titleOfDepartMents' | 'titleOfUsers'
+      modelProps: 'user' | 'category' | 'subCategory' | 'roles' | 'oTP' | 'departments' | 'departmentManagements' | 'titleOfDepartMents' | 'userIdentity'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -1297,69 +1297,69 @@ export namespace Prisma {
           }
         }
       }
-      TitleOfUsers: {
-        payload: Prisma.$TitleOfUsersPayload<ExtArgs>
-        fields: Prisma.TitleOfUsersFieldRefs
+      UserIdentity: {
+        payload: Prisma.$UserIdentityPayload<ExtArgs>
+        fields: Prisma.UserIdentityFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.TitleOfUsersFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TitleOfUsersPayload> | null
+            args: Prisma.UserIdentityFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserIdentityPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.TitleOfUsersFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TitleOfUsersPayload>
+            args: Prisma.UserIdentityFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserIdentityPayload>
           }
           findFirst: {
-            args: Prisma.TitleOfUsersFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TitleOfUsersPayload> | null
+            args: Prisma.UserIdentityFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserIdentityPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.TitleOfUsersFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TitleOfUsersPayload>
+            args: Prisma.UserIdentityFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserIdentityPayload>
           }
           findMany: {
-            args: Prisma.TitleOfUsersFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TitleOfUsersPayload>[]
+            args: Prisma.UserIdentityFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserIdentityPayload>[]
           }
           create: {
-            args: Prisma.TitleOfUsersCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TitleOfUsersPayload>
+            args: Prisma.UserIdentityCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserIdentityPayload>
           }
           createMany: {
-            args: Prisma.TitleOfUsersCreateManyArgs<ExtArgs>,
+            args: Prisma.UserIdentityCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.TitleOfUsersDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TitleOfUsersPayload>
+            args: Prisma.UserIdentityDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserIdentityPayload>
           }
           update: {
-            args: Prisma.TitleOfUsersUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TitleOfUsersPayload>
+            args: Prisma.UserIdentityUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserIdentityPayload>
           }
           deleteMany: {
-            args: Prisma.TitleOfUsersDeleteManyArgs<ExtArgs>,
+            args: Prisma.UserIdentityDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.TitleOfUsersUpdateManyArgs<ExtArgs>,
+            args: Prisma.UserIdentityUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.TitleOfUsersUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$TitleOfUsersPayload>
+            args: Prisma.UserIdentityUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$UserIdentityPayload>
           }
           aggregate: {
-            args: Prisma.TitleOfUsersAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateTitleOfUsers>
+            args: Prisma.UserIdentityAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateUserIdentity>
           }
           groupBy: {
-            args: Prisma.TitleOfUsersGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<TitleOfUsersGroupByOutputType>[]
+            args: Prisma.UserIdentityGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<UserIdentityGroupByOutputType>[]
           }
           count: {
-            args: Prisma.TitleOfUsersCountArgs<ExtArgs>,
-            result: $Utils.Optional<TitleOfUsersCountAggregateOutputType> | number
+            args: Prisma.UserIdentityCountArgs<ExtArgs>,
+            result: $Utils.Optional<UserIdentityCountAggregateOutputType> | number
           }
         }
       }
@@ -1523,14 +1523,12 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     Roles: number
-    Department: number
-    Title: number
+    UserIdentity: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Roles?: boolean | UserCountOutputTypeCountRolesArgs
-    Department?: boolean | UserCountOutputTypeCountDepartmentArgs
-    Title?: boolean | UserCountOutputTypeCountTitleArgs
+    UserIdentity?: boolean | UserCountOutputTypeCountUserIdentityArgs
   }
 
   // Custom InputTypes
@@ -1557,16 +1555,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountDepartmentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: DepartmentsWhereInput
-  }
-
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountTitleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TitleOfUsersWhereInput
+  export type UserCountOutputTypeCountUserIdentityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserIdentityWhereInput
   }
 
 
@@ -1611,12 +1601,10 @@ export namespace Prisma {
 
   export type DepartmentsCountOutputType = {
     DepartmentManagement: number
-    User: number
   }
 
   export type DepartmentsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     DepartmentManagement?: boolean | DepartmentsCountOutputTypeCountDepartmentManagementArgs
-    User?: boolean | DepartmentsCountOutputTypeCountUserArgs
   }
 
   // Custom InputTypes
@@ -1640,11 +1628,37 @@ export namespace Prisma {
   }
 
 
+
   /**
-   * DepartmentsCountOutputType without action
+   * Count Type DepartmentManagementsCountOutputType
    */
-  export type DepartmentsCountOutputTypeCountUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
+
+  export type DepartmentManagementsCountOutputType = {
+    UserIdentity: number
+  }
+
+  export type DepartmentManagementsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    UserIdentity?: boolean | DepartmentManagementsCountOutputTypeCountUserIdentityArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * DepartmentManagementsCountOutputType without action
+   */
+  export type DepartmentManagementsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DepartmentManagementsCountOutputType
+     */
+    select?: DepartmentManagementsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * DepartmentManagementsCountOutputType without action
+   */
+  export type DepartmentManagementsCountOutputTypeCountUserIdentityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserIdentityWhereInput
   }
 
 
@@ -1684,40 +1698,6 @@ export namespace Prisma {
 
 
   /**
-   * Count Type TitleOfUsersCountOutputType
-   */
-
-  export type TitleOfUsersCountOutputType = {
-    User: number
-  }
-
-  export type TitleOfUsersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | TitleOfUsersCountOutputTypeCountUserArgs
-  }
-
-  // Custom InputTypes
-
-  /**
-   * TitleOfUsersCountOutputType without action
-   */
-  export type TitleOfUsersCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TitleOfUsersCountOutputType
-     */
-    select?: TitleOfUsersCountOutputTypeSelect<ExtArgs> | null
-  }
-
-
-  /**
-   * TitleOfUsersCountOutputType without action
-   */
-  export type TitleOfUsersCountOutputTypeCountUserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
-  }
-
-
-
-  /**
    * Models
    */
 
@@ -1735,16 +1715,10 @@ export namespace Prisma {
 
   export type UserAvgAggregateOutputType = {
     roleId: number | null
-    departmentId: number | null
-    divisionId: number | null
-    titleId: number | null
   }
 
   export type UserSumAggregateOutputType = {
     roleId: number | null
-    departmentId: number | null
-    divisionId: number | null
-    titleId: number | null
   }
 
   export type UserMinAggregateOutputType = {
@@ -1753,9 +1727,6 @@ export namespace Prisma {
     name: string | null
     phoneNumber: string | null
     roleId: number | null
-    departmentId: number | null
-    divisionId: number | null
-    titleId: number | null
     isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -1768,9 +1739,6 @@ export namespace Prisma {
     name: string | null
     phoneNumber: string | null
     roleId: number | null
-    departmentId: number | null
-    divisionId: number | null
-    titleId: number | null
     isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -1783,9 +1751,6 @@ export namespace Prisma {
     name: number
     phoneNumber: number
     roleId: number
-    departmentId: number
-    divisionId: number
-    titleId: number
     isActive: number
     createdAt: number
     updatedAt: number
@@ -1796,16 +1761,10 @@ export namespace Prisma {
 
   export type UserAvgAggregateInputType = {
     roleId?: true
-    departmentId?: true
-    divisionId?: true
-    titleId?: true
   }
 
   export type UserSumAggregateInputType = {
     roleId?: true
-    departmentId?: true
-    divisionId?: true
-    titleId?: true
   }
 
   export type UserMinAggregateInputType = {
@@ -1814,9 +1773,6 @@ export namespace Prisma {
     name?: true
     phoneNumber?: true
     roleId?: true
-    departmentId?: true
-    divisionId?: true
-    titleId?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -1829,9 +1785,6 @@ export namespace Prisma {
     name?: true
     phoneNumber?: true
     roleId?: true
-    departmentId?: true
-    divisionId?: true
-    titleId?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -1844,9 +1797,6 @@ export namespace Prisma {
     name?: true
     phoneNumber?: true
     roleId?: true
-    departmentId?: true
-    divisionId?: true
-    titleId?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -1946,9 +1896,6 @@ export namespace Prisma {
     name: string
     phoneNumber: string
     roleId: number
-    departmentId: number
-    divisionId: number
-    titleId: number
     isActive: boolean | null
     createdAt: Date
     updatedAt: Date
@@ -1980,16 +1927,12 @@ export namespace Prisma {
     name?: boolean
     phoneNumber?: boolean
     roleId?: boolean
-    departmentId?: boolean
-    divisionId?: boolean
-    titleId?: boolean
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
     Roles?: boolean | User$RolesArgs<ExtArgs>
-    Department?: boolean | User$DepartmentArgs<ExtArgs>
-    Title?: boolean | User$TitleArgs<ExtArgs>
+    UserIdentity?: boolean | User$UserIdentityArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1999,9 +1942,6 @@ export namespace Prisma {
     name?: boolean
     phoneNumber?: boolean
     roleId?: boolean
-    departmentId?: boolean
-    divisionId?: boolean
-    titleId?: boolean
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -2010,8 +1950,7 @@ export namespace Prisma {
 
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Roles?: boolean | User$RolesArgs<ExtArgs>
-    Department?: boolean | User$DepartmentArgs<ExtArgs>
-    Title?: boolean | User$TitleArgs<ExtArgs>
+    UserIdentity?: boolean | User$UserIdentityArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -2020,8 +1959,7 @@ export namespace Prisma {
     name: "User"
     objects: {
       Roles: Prisma.$RolesPayload<ExtArgs>[]
-      Department: Prisma.$DepartmentsPayload<ExtArgs>[]
-      Title: Prisma.$TitleOfUsersPayload<ExtArgs>[]
+      UserIdentity: Prisma.$UserIdentityPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2029,9 +1967,6 @@ export namespace Prisma {
       name: string
       phoneNumber: string
       roleId: number
-      departmentId: number
-      divisionId: number
-      titleId: number
       isActive: boolean | null
       createdAt: Date
       updatedAt: Date
@@ -2403,9 +2338,7 @@ export namespace Prisma {
 
     Roles<T extends User$RolesArgs<ExtArgs> = {}>(args?: Subset<T, User$RolesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RolesPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    Department<T extends User$DepartmentArgs<ExtArgs> = {}>(args?: Subset<T, User$DepartmentArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DepartmentsPayload<ExtArgs>, T, 'findMany'> | Null>;
-
-    Title<T extends User$TitleArgs<ExtArgs> = {}>(args?: Subset<T, User$TitleArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TitleOfUsersPayload<ExtArgs>, T, 'findMany'> | Null>;
+    UserIdentity<T extends User$UserIdentityArgs<ExtArgs> = {}>(args?: Subset<T, User$UserIdentityArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserIdentityPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2440,9 +2373,6 @@ export namespace Prisma {
     readonly name: FieldRef<"User", 'String'>
     readonly phoneNumber: FieldRef<"User", 'String'>
     readonly roleId: FieldRef<"User", 'Int'>
-    readonly departmentId: FieldRef<"User", 'Int'>
-    readonly divisionId: FieldRef<"User", 'Int'>
-    readonly titleId: FieldRef<"User", 'Int'>
     readonly isActive: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
@@ -2780,44 +2710,23 @@ export namespace Prisma {
 
 
   /**
-   * User.Department
+   * User.UserIdentity
    */
-  export type User$DepartmentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$UserIdentityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Departments
+     * Select specific fields to fetch from the UserIdentity
      */
-    select?: DepartmentsSelect<ExtArgs> | null
+    select?: UserIdentitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: DepartmentsInclude<ExtArgs> | null
-    where?: DepartmentsWhereInput
-    orderBy?: DepartmentsOrderByWithRelationInput | DepartmentsOrderByWithRelationInput[]
-    cursor?: DepartmentsWhereUniqueInput
+    include?: UserIdentityInclude<ExtArgs> | null
+    where?: UserIdentityWhereInput
+    orderBy?: UserIdentityOrderByWithRelationInput | UserIdentityOrderByWithRelationInput[]
+    cursor?: UserIdentityWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: DepartmentsScalarFieldEnum | DepartmentsScalarFieldEnum[]
-  }
-
-
-  /**
-   * User.Title
-   */
-  export type User$TitleArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TitleOfUsers
-     */
-    select?: TitleOfUsersSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: TitleOfUsersInclude<ExtArgs> | null
-    where?: TitleOfUsersWhereInput
-    orderBy?: TitleOfUsersOrderByWithRelationInput | TitleOfUsersOrderByWithRelationInput[]
-    cursor?: TitleOfUsersWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: TitleOfUsersScalarFieldEnum | TitleOfUsersScalarFieldEnum[]
+    distinct?: UserIdentityScalarFieldEnum | UserIdentityScalarFieldEnum[]
   }
 
 
@@ -6857,7 +6766,6 @@ export namespace Prisma {
     updatedAt?: boolean
     deletedAt?: boolean
     DepartmentManagement?: boolean | Departments$DepartmentManagementArgs<ExtArgs>
-    User?: boolean | Departments$UserArgs<ExtArgs>
     _count?: boolean | DepartmentsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["departments"]>
 
@@ -6872,7 +6780,6 @@ export namespace Prisma {
 
   export type DepartmentsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     DepartmentManagement?: boolean | Departments$DepartmentManagementArgs<ExtArgs>
-    User?: boolean | Departments$UserArgs<ExtArgs>
     _count?: boolean | DepartmentsCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -6881,7 +6788,6 @@ export namespace Prisma {
     name: "Departments"
     objects: {
       DepartmentManagement: Prisma.$DepartmentManagementsPayload<ExtArgs>[]
-      User: Prisma.$UserPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -7257,8 +7163,6 @@ export namespace Prisma {
 
     DepartmentManagement<T extends Departments$DepartmentManagementArgs<ExtArgs> = {}>(args?: Subset<T, Departments$DepartmentManagementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DepartmentManagementsPayload<ExtArgs>, T, 'findMany'> | Null>;
 
-    User<T extends Departments$UserArgs<ExtArgs> = {}>(args?: Subset<T, Departments$UserArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findMany'> | Null>;
-
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7626,27 +7530,6 @@ export namespace Prisma {
 
 
   /**
-   * Departments.User
-   */
-  export type Departments$UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the User
-     */
-    select?: UserSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
-    cursor?: UserWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
-  }
-
-
-  /**
    * Departments without action
    */
   export type DepartmentsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7676,25 +7559,25 @@ export namespace Prisma {
 
   export type DepartmentManagementsAvgAggregateOutputType = {
     id: number | null
-    departmentId: number | null
     divisionId: number | null
+    departmentId: number | null
     titleId: number | null
   }
 
   export type DepartmentManagementsSumAggregateOutputType = {
     id: number | null
-    departmentId: number | null
     divisionId: number | null
+    departmentId: number | null
     titleId: number | null
   }
 
   export type DepartmentManagementsMinAggregateOutputType = {
     id: number | null
-    departmentId: number | null
     divisionId: number | null
+    departmentId: number | null
     titleId: number | null
-    isActive: boolean | null
     isProfitCenter: boolean | null
+    isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
@@ -7702,11 +7585,11 @@ export namespace Prisma {
 
   export type DepartmentManagementsMaxAggregateOutputType = {
     id: number | null
-    departmentId: number | null
     divisionId: number | null
+    departmentId: number | null
     titleId: number | null
-    isActive: boolean | null
     isProfitCenter: boolean | null
+    isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
@@ -7714,11 +7597,11 @@ export namespace Prisma {
 
   export type DepartmentManagementsCountAggregateOutputType = {
     id: number
-    departmentId: number
     divisionId: number
+    departmentId: number
     titleId: number
-    isActive: number
     isProfitCenter: number
+    isActive: number
     createdAt: number
     updatedAt: number
     deletedAt: number
@@ -7728,25 +7611,25 @@ export namespace Prisma {
 
   export type DepartmentManagementsAvgAggregateInputType = {
     id?: true
-    departmentId?: true
     divisionId?: true
+    departmentId?: true
     titleId?: true
   }
 
   export type DepartmentManagementsSumAggregateInputType = {
     id?: true
-    departmentId?: true
     divisionId?: true
+    departmentId?: true
     titleId?: true
   }
 
   export type DepartmentManagementsMinAggregateInputType = {
     id?: true
-    departmentId?: true
     divisionId?: true
+    departmentId?: true
     titleId?: true
-    isActive?: true
     isProfitCenter?: true
+    isActive?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -7754,11 +7637,11 @@ export namespace Prisma {
 
   export type DepartmentManagementsMaxAggregateInputType = {
     id?: true
-    departmentId?: true
     divisionId?: true
+    departmentId?: true
     titleId?: true
-    isActive?: true
     isProfitCenter?: true
+    isActive?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -7766,11 +7649,11 @@ export namespace Prisma {
 
   export type DepartmentManagementsCountAggregateInputType = {
     id?: true
-    departmentId?: true
     divisionId?: true
+    departmentId?: true
     titleId?: true
-    isActive?: true
     isProfitCenter?: true
+    isActive?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -7865,11 +7748,11 @@ export namespace Prisma {
 
   export type DepartmentManagementsGroupByOutputType = {
     id: number
-    departmentId: number
     divisionId: number
+    departmentId: number
     titleId: number
-    isActive: boolean
     isProfitCenter: boolean
+    isActive: boolean
     createdAt: Date
     updatedAt: Date
     deletedAt: Date | null
@@ -7896,25 +7779,27 @@ export namespace Prisma {
 
   export type DepartmentManagementsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    departmentId?: boolean
     divisionId?: boolean
+    departmentId?: boolean
     titleId?: boolean
-    isActive?: boolean
     isProfitCenter?: boolean
+    isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
     department?: boolean | DepartmentsDefaultArgs<ExtArgs>
     title?: boolean | TitleOfDepartMentsDefaultArgs<ExtArgs>
+    UserIdentity?: boolean | DepartmentManagements$UserIdentityArgs<ExtArgs>
+    _count?: boolean | DepartmentManagementsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["departmentManagements"]>
 
   export type DepartmentManagementsSelectScalar = {
     id?: boolean
-    departmentId?: boolean
     divisionId?: boolean
+    departmentId?: boolean
     titleId?: boolean
-    isActive?: boolean
     isProfitCenter?: boolean
+    isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
@@ -7923,6 +7808,8 @@ export namespace Prisma {
   export type DepartmentManagementsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     department?: boolean | DepartmentsDefaultArgs<ExtArgs>
     title?: boolean | TitleOfDepartMentsDefaultArgs<ExtArgs>
+    UserIdentity?: boolean | DepartmentManagements$UserIdentityArgs<ExtArgs>
+    _count?: boolean | DepartmentManagementsCountOutputTypeDefaultArgs<ExtArgs>
   }
 
 
@@ -7931,14 +7818,15 @@ export namespace Prisma {
     objects: {
       department: Prisma.$DepartmentsPayload<ExtArgs>
       title: Prisma.$TitleOfDepartMentsPayload<ExtArgs>
+      UserIdentity: Prisma.$UserIdentityPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      departmentId: number
       divisionId: number
+      departmentId: number
       titleId: number
-      isActive: boolean
       isProfitCenter: boolean
+      isActive: boolean
       createdAt: Date
       updatedAt: Date
       deletedAt: Date | null
@@ -8311,6 +8199,8 @@ export namespace Prisma {
 
     title<T extends TitleOfDepartMentsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TitleOfDepartMentsDefaultArgs<ExtArgs>>): Prisma__TitleOfDepartMentsClient<$Result.GetResult<Prisma.$TitleOfDepartMentsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
+    UserIdentity<T extends DepartmentManagements$UserIdentityArgs<ExtArgs> = {}>(args?: Subset<T, DepartmentManagements$UserIdentityArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserIdentityPayload<ExtArgs>, T, 'findMany'> | Null>;
+
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8340,11 +8230,11 @@ export namespace Prisma {
    */ 
   interface DepartmentManagementsFieldRefs {
     readonly id: FieldRef<"DepartmentManagements", 'Int'>
-    readonly departmentId: FieldRef<"DepartmentManagements", 'Int'>
     readonly divisionId: FieldRef<"DepartmentManagements", 'Int'>
+    readonly departmentId: FieldRef<"DepartmentManagements", 'Int'>
     readonly titleId: FieldRef<"DepartmentManagements", 'Int'>
-    readonly isActive: FieldRef<"DepartmentManagements", 'Boolean'>
     readonly isProfitCenter: FieldRef<"DepartmentManagements", 'Boolean'>
+    readonly isActive: FieldRef<"DepartmentManagements", 'Boolean'>
     readonly createdAt: FieldRef<"DepartmentManagements", 'DateTime'>
     readonly updatedAt: FieldRef<"DepartmentManagements", 'DateTime'>
     readonly deletedAt: FieldRef<"DepartmentManagements", 'DateTime'>
@@ -8660,6 +8550,27 @@ export namespace Prisma {
 
 
   /**
+   * DepartmentManagements.UserIdentity
+   */
+  export type DepartmentManagements$UserIdentityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserIdentity
+     */
+    select?: UserIdentitySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserIdentityInclude<ExtArgs> | null
+    where?: UserIdentityWhereInput
+    orderBy?: UserIdentityOrderByWithRelationInput | UserIdentityOrderByWithRelationInput[]
+    cursor?: UserIdentityWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserIdentityScalarFieldEnum | UserIdentityScalarFieldEnum[]
+  }
+
+
+  /**
    * DepartmentManagements without action
    */
   export type DepartmentManagementsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -8698,8 +8609,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsMinAggregateOutputType = {
     id: number | null
     name: string | null
-    isActive: boolean | null
     isLeader: boolean | null
+    isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
@@ -8708,8 +8619,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsMaxAggregateOutputType = {
     id: number | null
     name: string | null
-    isActive: boolean | null
     isLeader: boolean | null
+    isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
@@ -8718,8 +8629,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsCountAggregateOutputType = {
     id: number
     name: number
-    isActive: number
     isLeader: number
+    isActive: number
     createdAt: number
     updatedAt: number
     deletedAt: number
@@ -8738,8 +8649,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsMinAggregateInputType = {
     id?: true
     name?: true
-    isActive?: true
     isLeader?: true
+    isActive?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -8748,8 +8659,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsMaxAggregateInputType = {
     id?: true
     name?: true
-    isActive?: true
     isLeader?: true
+    isActive?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -8758,8 +8669,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsCountAggregateInputType = {
     id?: true
     name?: true
-    isActive?: true
     isLeader?: true
+    isActive?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
@@ -8855,8 +8766,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsGroupByOutputType = {
     id: number
     name: string
-    isActive: boolean
     isLeader: boolean
+    isActive: boolean
     createdAt: Date
     updatedAt: Date
     deletedAt: Date | null
@@ -8884,8 +8795,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    isActive?: boolean
     isLeader?: boolean
+    isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
@@ -8896,8 +8807,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsSelectScalar = {
     id?: boolean
     name?: boolean
-    isActive?: boolean
     isLeader?: boolean
+    isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
@@ -8917,8 +8828,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
-      isActive: boolean
       isLeader: boolean
+      isActive: boolean
       createdAt: Date
       updatedAt: Date
       deletedAt: Date | null
@@ -9319,8 +9230,8 @@ export namespace Prisma {
   interface TitleOfDepartMentsFieldRefs {
     readonly id: FieldRef<"TitleOfDepartMents", 'Int'>
     readonly name: FieldRef<"TitleOfDepartMents", 'String'>
-    readonly isActive: FieldRef<"TitleOfDepartMents", 'Boolean'>
     readonly isLeader: FieldRef<"TitleOfDepartMents", 'Boolean'>
+    readonly isActive: FieldRef<"TitleOfDepartMents", 'Boolean'>
     readonly createdAt: FieldRef<"TitleOfDepartMents", 'DateTime'>
     readonly updatedAt: FieldRef<"TitleOfDepartMents", 'DateTime'>
     readonly deletedAt: FieldRef<"TitleOfDepartMents", 'DateTime'>
@@ -9673,50 +9584,59 @@ export namespace Prisma {
 
 
   /**
-   * Model TitleOfUsers
+   * Model UserIdentity
    */
 
-  export type AggregateTitleOfUsers = {
-    _count: TitleOfUsersCountAggregateOutputType | null
-    _avg: TitleOfUsersAvgAggregateOutputType | null
-    _sum: TitleOfUsersSumAggregateOutputType | null
-    _min: TitleOfUsersMinAggregateOutputType | null
-    _max: TitleOfUsersMaxAggregateOutputType | null
+  export type AggregateUserIdentity = {
+    _count: UserIdentityCountAggregateOutputType | null
+    _avg: UserIdentityAvgAggregateOutputType | null
+    _sum: UserIdentitySumAggregateOutputType | null
+    _min: UserIdentityMinAggregateOutputType | null
+    _max: UserIdentityMaxAggregateOutputType | null
   }
 
-  export type TitleOfUsersAvgAggregateOutputType = {
+  export type UserIdentityAvgAggregateOutputType = {
     id: number | null
+    divisionId: number | null
+    titleOfDivisionId: number | null
+    DepartmentManagementId: number | null
   }
 
-  export type TitleOfUsersSumAggregateOutputType = {
+  export type UserIdentitySumAggregateOutputType = {
     id: number | null
+    divisionId: number | null
+    titleOfDivisionId: number | null
+    DepartmentManagementId: number | null
   }
 
-  export type TitleOfUsersMinAggregateOutputType = {
+  export type UserIdentityMinAggregateOutputType = {
     id: number | null
-    name: string | null
-    isActive: boolean | null
-    isLeader: boolean | null
+    userId: string | null
+    divisionId: number | null
+    titleOfDivisionId: number | null
+    DepartmentManagementId: number | null
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
   }
 
-  export type TitleOfUsersMaxAggregateOutputType = {
+  export type UserIdentityMaxAggregateOutputType = {
     id: number | null
-    name: string | null
-    isActive: boolean | null
-    isLeader: boolean | null
+    userId: string | null
+    divisionId: number | null
+    titleOfDivisionId: number | null
+    DepartmentManagementId: number | null
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
   }
 
-  export type TitleOfUsersCountAggregateOutputType = {
+  export type UserIdentityCountAggregateOutputType = {
     id: number
-    name: number
-    isActive: number
-    isLeader: number
+    userId: number
+    divisionId: number
+    titleOfDivisionId: number
+    DepartmentManagementId: number
     createdAt: number
     updatedAt: number
     deletedAt: number
@@ -9724,355 +9644,369 @@ export namespace Prisma {
   }
 
 
-  export type TitleOfUsersAvgAggregateInputType = {
+  export type UserIdentityAvgAggregateInputType = {
     id?: true
+    divisionId?: true
+    titleOfDivisionId?: true
+    DepartmentManagementId?: true
   }
 
-  export type TitleOfUsersSumAggregateInputType = {
+  export type UserIdentitySumAggregateInputType = {
     id?: true
+    divisionId?: true
+    titleOfDivisionId?: true
+    DepartmentManagementId?: true
   }
 
-  export type TitleOfUsersMinAggregateInputType = {
+  export type UserIdentityMinAggregateInputType = {
     id?: true
-    name?: true
-    isActive?: true
-    isLeader?: true
+    userId?: true
+    divisionId?: true
+    titleOfDivisionId?: true
+    DepartmentManagementId?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
   }
 
-  export type TitleOfUsersMaxAggregateInputType = {
+  export type UserIdentityMaxAggregateInputType = {
     id?: true
-    name?: true
-    isActive?: true
-    isLeader?: true
+    userId?: true
+    divisionId?: true
+    titleOfDivisionId?: true
+    DepartmentManagementId?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
   }
 
-  export type TitleOfUsersCountAggregateInputType = {
+  export type UserIdentityCountAggregateInputType = {
     id?: true
-    name?: true
-    isActive?: true
-    isLeader?: true
+    userId?: true
+    divisionId?: true
+    titleOfDivisionId?: true
+    DepartmentManagementId?: true
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
     _all?: true
   }
 
-  export type TitleOfUsersAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserIdentityAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which TitleOfUsers to aggregate.
+     * Filter which UserIdentity to aggregate.
      */
-    where?: TitleOfUsersWhereInput
+    where?: UserIdentityWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of TitleOfUsers to fetch.
+     * Determine the order of UserIdentities to fetch.
      */
-    orderBy?: TitleOfUsersOrderByWithRelationInput | TitleOfUsersOrderByWithRelationInput[]
+    orderBy?: UserIdentityOrderByWithRelationInput | UserIdentityOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: TitleOfUsersWhereUniqueInput
+    cursor?: UserIdentityWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` TitleOfUsers from the position of the cursor.
+     * Take `±n` UserIdentities from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` TitleOfUsers.
+     * Skip the first `n` UserIdentities.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned TitleOfUsers
+     * Count returned UserIdentities
     **/
-    _count?: true | TitleOfUsersCountAggregateInputType
+    _count?: true | UserIdentityCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: TitleOfUsersAvgAggregateInputType
+    _avg?: UserIdentityAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: TitleOfUsersSumAggregateInputType
+    _sum?: UserIdentitySumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: TitleOfUsersMinAggregateInputType
+    _min?: UserIdentityMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: TitleOfUsersMaxAggregateInputType
+    _max?: UserIdentityMaxAggregateInputType
   }
 
-  export type GetTitleOfUsersAggregateType<T extends TitleOfUsersAggregateArgs> = {
-        [P in keyof T & keyof AggregateTitleOfUsers]: P extends '_count' | 'count'
+  export type GetUserIdentityAggregateType<T extends UserIdentityAggregateArgs> = {
+        [P in keyof T & keyof AggregateUserIdentity]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateTitleOfUsers[P]>
-      : GetScalarType<T[P], AggregateTitleOfUsers[P]>
+        : GetScalarType<T[P], AggregateUserIdentity[P]>
+      : GetScalarType<T[P], AggregateUserIdentity[P]>
   }
 
 
 
 
-  export type TitleOfUsersGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: TitleOfUsersWhereInput
-    orderBy?: TitleOfUsersOrderByWithAggregationInput | TitleOfUsersOrderByWithAggregationInput[]
-    by: TitleOfUsersScalarFieldEnum[] | TitleOfUsersScalarFieldEnum
-    having?: TitleOfUsersScalarWhereWithAggregatesInput
+  export type UserIdentityGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserIdentityWhereInput
+    orderBy?: UserIdentityOrderByWithAggregationInput | UserIdentityOrderByWithAggregationInput[]
+    by: UserIdentityScalarFieldEnum[] | UserIdentityScalarFieldEnum
+    having?: UserIdentityScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: TitleOfUsersCountAggregateInputType | true
-    _avg?: TitleOfUsersAvgAggregateInputType
-    _sum?: TitleOfUsersSumAggregateInputType
-    _min?: TitleOfUsersMinAggregateInputType
-    _max?: TitleOfUsersMaxAggregateInputType
+    _count?: UserIdentityCountAggregateInputType | true
+    _avg?: UserIdentityAvgAggregateInputType
+    _sum?: UserIdentitySumAggregateInputType
+    _min?: UserIdentityMinAggregateInputType
+    _max?: UserIdentityMaxAggregateInputType
   }
 
-  export type TitleOfUsersGroupByOutputType = {
+  export type UserIdentityGroupByOutputType = {
     id: number
-    name: string
-    isActive: boolean
-    isLeader: boolean
+    userId: string
+    divisionId: number
+    titleOfDivisionId: number
+    DepartmentManagementId: number
     createdAt: Date
     updatedAt: Date
     deletedAt: Date | null
-    _count: TitleOfUsersCountAggregateOutputType | null
-    _avg: TitleOfUsersAvgAggregateOutputType | null
-    _sum: TitleOfUsersSumAggregateOutputType | null
-    _min: TitleOfUsersMinAggregateOutputType | null
-    _max: TitleOfUsersMaxAggregateOutputType | null
+    _count: UserIdentityCountAggregateOutputType | null
+    _avg: UserIdentityAvgAggregateOutputType | null
+    _sum: UserIdentitySumAggregateOutputType | null
+    _min: UserIdentityMinAggregateOutputType | null
+    _max: UserIdentityMaxAggregateOutputType | null
   }
 
-  type GetTitleOfUsersGroupByPayload<T extends TitleOfUsersGroupByArgs> = Prisma.PrismaPromise<
+  type GetUserIdentityGroupByPayload<T extends UserIdentityGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<TitleOfUsersGroupByOutputType, T['by']> &
+      PickEnumerable<UserIdentityGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof TitleOfUsersGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof UserIdentityGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], TitleOfUsersGroupByOutputType[P]>
-            : GetScalarType<T[P], TitleOfUsersGroupByOutputType[P]>
+              : GetScalarType<T[P], UserIdentityGroupByOutputType[P]>
+            : GetScalarType<T[P], UserIdentityGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type TitleOfUsersSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type UserIdentitySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
-    isActive?: boolean
-    isLeader?: boolean
+    userId?: boolean
+    divisionId?: boolean
+    titleOfDivisionId?: boolean
+    DepartmentManagementId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
-    User?: boolean | TitleOfUsers$UserArgs<ExtArgs>
-    _count?: boolean | TitleOfUsersCountOutputTypeDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["titleOfUsers"]>
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    DepartmentManagement?: boolean | DepartmentManagementsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["userIdentity"]>
 
-  export type TitleOfUsersSelectScalar = {
+  export type UserIdentitySelectScalar = {
     id?: boolean
-    name?: boolean
-    isActive?: boolean
-    isLeader?: boolean
+    userId?: boolean
+    divisionId?: boolean
+    titleOfDivisionId?: boolean
+    DepartmentManagementId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
   }
 
-  export type TitleOfUsersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | TitleOfUsers$UserArgs<ExtArgs>
-    _count?: boolean | TitleOfUsersCountOutputTypeDefaultArgs<ExtArgs>
+  export type UserIdentityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    User?: boolean | UserDefaultArgs<ExtArgs>
+    DepartmentManagement?: boolean | DepartmentManagementsDefaultArgs<ExtArgs>
   }
 
 
-  export type $TitleOfUsersPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "TitleOfUsers"
+  export type $UserIdentityPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "UserIdentity"
     objects: {
-      User: Prisma.$UserPayload<ExtArgs>[]
+      User: Prisma.$UserPayload<ExtArgs>
+      DepartmentManagement: Prisma.$DepartmentManagementsPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      name: string
-      isActive: boolean
-      isLeader: boolean
+      userId: string
+      divisionId: number
+      titleOfDivisionId: number
+      DepartmentManagementId: number
       createdAt: Date
       updatedAt: Date
       deletedAt: Date | null
-    }, ExtArgs["result"]["titleOfUsers"]>
+    }, ExtArgs["result"]["userIdentity"]>
     composites: {}
   }
 
 
-  type TitleOfUsersGetPayload<S extends boolean | null | undefined | TitleOfUsersDefaultArgs> = $Result.GetResult<Prisma.$TitleOfUsersPayload, S>
+  type UserIdentityGetPayload<S extends boolean | null | undefined | UserIdentityDefaultArgs> = $Result.GetResult<Prisma.$UserIdentityPayload, S>
 
-  type TitleOfUsersCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<TitleOfUsersFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: TitleOfUsersCountAggregateInputType | true
+  type UserIdentityCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<UserIdentityFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: UserIdentityCountAggregateInputType | true
     }
 
-  export interface TitleOfUsersDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TitleOfUsers'], meta: { name: 'TitleOfUsers' } }
+  export interface UserIdentityDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['UserIdentity'], meta: { name: 'UserIdentity' } }
     /**
-     * Find zero or one TitleOfUsers that matches the filter.
-     * @param {TitleOfUsersFindUniqueArgs} args - Arguments to find a TitleOfUsers
+     * Find zero or one UserIdentity that matches the filter.
+     * @param {UserIdentityFindUniqueArgs} args - Arguments to find a UserIdentity
      * @example
-     * // Get one TitleOfUsers
-     * const titleOfUsers = await prisma.titleOfUsers.findUnique({
+     * // Get one UserIdentity
+     * const userIdentity = await prisma.userIdentity.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends TitleOfUsersFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, TitleOfUsersFindUniqueArgs<ExtArgs>>
-    ): Prisma__TitleOfUsersClient<$Result.GetResult<Prisma.$TitleOfUsersPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends UserIdentityFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, UserIdentityFindUniqueArgs<ExtArgs>>
+    ): Prisma__UserIdentityClient<$Result.GetResult<Prisma.$UserIdentityPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one TitleOfUsers that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one UserIdentity that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {TitleOfUsersFindUniqueOrThrowArgs} args - Arguments to find a TitleOfUsers
+     * @param {UserIdentityFindUniqueOrThrowArgs} args - Arguments to find a UserIdentity
      * @example
-     * // Get one TitleOfUsers
-     * const titleOfUsers = await prisma.titleOfUsers.findUniqueOrThrow({
+     * // Get one UserIdentity
+     * const userIdentity = await prisma.userIdentity.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends TitleOfUsersFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, TitleOfUsersFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__TitleOfUsersClient<$Result.GetResult<Prisma.$TitleOfUsersPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends UserIdentityFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserIdentityFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__UserIdentityClient<$Result.GetResult<Prisma.$UserIdentityPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first TitleOfUsers that matches the filter.
+     * Find the first UserIdentity that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TitleOfUsersFindFirstArgs} args - Arguments to find a TitleOfUsers
+     * @param {UserIdentityFindFirstArgs} args - Arguments to find a UserIdentity
      * @example
-     * // Get one TitleOfUsers
-     * const titleOfUsers = await prisma.titleOfUsers.findFirst({
+     * // Get one UserIdentity
+     * const userIdentity = await prisma.userIdentity.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends TitleOfUsersFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, TitleOfUsersFindFirstArgs<ExtArgs>>
-    ): Prisma__TitleOfUsersClient<$Result.GetResult<Prisma.$TitleOfUsersPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends UserIdentityFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserIdentityFindFirstArgs<ExtArgs>>
+    ): Prisma__UserIdentityClient<$Result.GetResult<Prisma.$UserIdentityPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first TitleOfUsers that matches the filter or
+     * Find the first UserIdentity that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TitleOfUsersFindFirstOrThrowArgs} args - Arguments to find a TitleOfUsers
+     * @param {UserIdentityFindFirstOrThrowArgs} args - Arguments to find a UserIdentity
      * @example
-     * // Get one TitleOfUsers
-     * const titleOfUsers = await prisma.titleOfUsers.findFirstOrThrow({
+     * // Get one UserIdentity
+     * const userIdentity = await prisma.userIdentity.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends TitleOfUsersFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, TitleOfUsersFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__TitleOfUsersClient<$Result.GetResult<Prisma.$TitleOfUsersPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends UserIdentityFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserIdentityFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__UserIdentityClient<$Result.GetResult<Prisma.$UserIdentityPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
-     * Find zero or more TitleOfUsers that matches the filter.
+     * Find zero or more UserIdentities that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TitleOfUsersFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {UserIdentityFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all TitleOfUsers
-     * const titleOfUsers = await prisma.titleOfUsers.findMany()
+     * // Get all UserIdentities
+     * const userIdentities = await prisma.userIdentity.findMany()
      * 
-     * // Get first 10 TitleOfUsers
-     * const titleOfUsers = await prisma.titleOfUsers.findMany({ take: 10 })
+     * // Get first 10 UserIdentities
+     * const userIdentities = await prisma.userIdentity.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const titleOfUsersWithIdOnly = await prisma.titleOfUsers.findMany({ select: { id: true } })
+     * const userIdentityWithIdOnly = await prisma.userIdentity.findMany({ select: { id: true } })
      * 
     **/
-    findMany<T extends TitleOfUsersFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, TitleOfUsersFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TitleOfUsersPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends UserIdentityFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserIdentityFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserIdentityPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a TitleOfUsers.
-     * @param {TitleOfUsersCreateArgs} args - Arguments to create a TitleOfUsers.
+     * Create a UserIdentity.
+     * @param {UserIdentityCreateArgs} args - Arguments to create a UserIdentity.
      * @example
-     * // Create one TitleOfUsers
-     * const TitleOfUsers = await prisma.titleOfUsers.create({
+     * // Create one UserIdentity
+     * const UserIdentity = await prisma.userIdentity.create({
      *   data: {
-     *     // ... data to create a TitleOfUsers
+     *     // ... data to create a UserIdentity
      *   }
      * })
      * 
     **/
-    create<T extends TitleOfUsersCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, TitleOfUsersCreateArgs<ExtArgs>>
-    ): Prisma__TitleOfUsersClient<$Result.GetResult<Prisma.$TitleOfUsersPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends UserIdentityCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, UserIdentityCreateArgs<ExtArgs>>
+    ): Prisma__UserIdentityClient<$Result.GetResult<Prisma.$UserIdentityPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
-     * Create many TitleOfUsers.
-     *     @param {TitleOfUsersCreateManyArgs} args - Arguments to create many TitleOfUsers.
+     * Create many UserIdentities.
+     *     @param {UserIdentityCreateManyArgs} args - Arguments to create many UserIdentities.
      *     @example
-     *     // Create many TitleOfUsers
-     *     const titleOfUsers = await prisma.titleOfUsers.createMany({
+     *     // Create many UserIdentities
+     *     const userIdentity = await prisma.userIdentity.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends TitleOfUsersCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, TitleOfUsersCreateManyArgs<ExtArgs>>
+    createMany<T extends UserIdentityCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserIdentityCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a TitleOfUsers.
-     * @param {TitleOfUsersDeleteArgs} args - Arguments to delete one TitleOfUsers.
+     * Delete a UserIdentity.
+     * @param {UserIdentityDeleteArgs} args - Arguments to delete one UserIdentity.
      * @example
-     * // Delete one TitleOfUsers
-     * const TitleOfUsers = await prisma.titleOfUsers.delete({
+     * // Delete one UserIdentity
+     * const UserIdentity = await prisma.userIdentity.delete({
      *   where: {
-     *     // ... filter to delete one TitleOfUsers
+     *     // ... filter to delete one UserIdentity
      *   }
      * })
      * 
     **/
-    delete<T extends TitleOfUsersDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, TitleOfUsersDeleteArgs<ExtArgs>>
-    ): Prisma__TitleOfUsersClient<$Result.GetResult<Prisma.$TitleOfUsersPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends UserIdentityDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, UserIdentityDeleteArgs<ExtArgs>>
+    ): Prisma__UserIdentityClient<$Result.GetResult<Prisma.$UserIdentityPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one TitleOfUsers.
-     * @param {TitleOfUsersUpdateArgs} args - Arguments to update one TitleOfUsers.
+     * Update one UserIdentity.
+     * @param {UserIdentityUpdateArgs} args - Arguments to update one UserIdentity.
      * @example
-     * // Update one TitleOfUsers
-     * const titleOfUsers = await prisma.titleOfUsers.update({
+     * // Update one UserIdentity
+     * const userIdentity = await prisma.userIdentity.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -10082,34 +10016,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends TitleOfUsersUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, TitleOfUsersUpdateArgs<ExtArgs>>
-    ): Prisma__TitleOfUsersClient<$Result.GetResult<Prisma.$TitleOfUsersPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends UserIdentityUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, UserIdentityUpdateArgs<ExtArgs>>
+    ): Prisma__UserIdentityClient<$Result.GetResult<Prisma.$UserIdentityPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
-     * Delete zero or more TitleOfUsers.
-     * @param {TitleOfUsersDeleteManyArgs} args - Arguments to filter TitleOfUsers to delete.
+     * Delete zero or more UserIdentities.
+     * @param {UserIdentityDeleteManyArgs} args - Arguments to filter UserIdentities to delete.
      * @example
-     * // Delete a few TitleOfUsers
-     * const { count } = await prisma.titleOfUsers.deleteMany({
+     * // Delete a few UserIdentities
+     * const { count } = await prisma.userIdentity.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends TitleOfUsersDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, TitleOfUsersDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends UserIdentityDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, UserIdentityDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more TitleOfUsers.
+     * Update zero or more UserIdentities.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TitleOfUsersUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {UserIdentityUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many TitleOfUsers
-     * const titleOfUsers = await prisma.titleOfUsers.updateMany({
+     * // Update many UserIdentities
+     * const userIdentity = await prisma.userIdentity.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -10119,59 +10053,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends TitleOfUsersUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, TitleOfUsersUpdateManyArgs<ExtArgs>>
+    updateMany<T extends UserIdentityUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, UserIdentityUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one TitleOfUsers.
-     * @param {TitleOfUsersUpsertArgs} args - Arguments to update or create a TitleOfUsers.
+     * Create or update one UserIdentity.
+     * @param {UserIdentityUpsertArgs} args - Arguments to update or create a UserIdentity.
      * @example
-     * // Update or create a TitleOfUsers
-     * const titleOfUsers = await prisma.titleOfUsers.upsert({
+     * // Update or create a UserIdentity
+     * const userIdentity = await prisma.userIdentity.upsert({
      *   create: {
-     *     // ... data to create a TitleOfUsers
+     *     // ... data to create a UserIdentity
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the TitleOfUsers we want to update
+     *     // ... the filter for the UserIdentity we want to update
      *   }
      * })
     **/
-    upsert<T extends TitleOfUsersUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, TitleOfUsersUpsertArgs<ExtArgs>>
-    ): Prisma__TitleOfUsersClient<$Result.GetResult<Prisma.$TitleOfUsersPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends UserIdentityUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, UserIdentityUpsertArgs<ExtArgs>>
+    ): Prisma__UserIdentityClient<$Result.GetResult<Prisma.$UserIdentityPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
-     * Count the number of TitleOfUsers.
+     * Count the number of UserIdentities.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TitleOfUsersCountArgs} args - Arguments to filter TitleOfUsers to count.
+     * @param {UserIdentityCountArgs} args - Arguments to filter UserIdentities to count.
      * @example
-     * // Count the number of TitleOfUsers
-     * const count = await prisma.titleOfUsers.count({
+     * // Count the number of UserIdentities
+     * const count = await prisma.userIdentity.count({
      *   where: {
-     *     // ... the filter for the TitleOfUsers we want to count
+     *     // ... the filter for the UserIdentities we want to count
      *   }
      * })
     **/
-    count<T extends TitleOfUsersCountArgs>(
-      args?: Subset<T, TitleOfUsersCountArgs>,
+    count<T extends UserIdentityCountArgs>(
+      args?: Subset<T, UserIdentityCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], TitleOfUsersCountAggregateOutputType>
+          : GetScalarType<T['select'], UserIdentityCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a TitleOfUsers.
+     * Allows you to perform aggregations operations on a UserIdentity.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TitleOfUsersAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {UserIdentityAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -10191,13 +10125,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends TitleOfUsersAggregateArgs>(args: Subset<T, TitleOfUsersAggregateArgs>): Prisma.PrismaPromise<GetTitleOfUsersAggregateType<T>>
+    aggregate<T extends UserIdentityAggregateArgs>(args: Subset<T, UserIdentityAggregateArgs>): Prisma.PrismaPromise<GetUserIdentityAggregateType<T>>
 
     /**
-     * Group by TitleOfUsers.
+     * Group by UserIdentity.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {TitleOfUsersGroupByArgs} args - Group by arguments.
+     * @param {UserIdentityGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -10212,14 +10146,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends TitleOfUsersGroupByArgs,
+      T extends UserIdentityGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: TitleOfUsersGroupByArgs['orderBy'] }
-        : { orderBy?: TitleOfUsersGroupByArgs['orderBy'] },
+        ? { orderBy: UserIdentityGroupByArgs['orderBy'] }
+        : { orderBy?: UserIdentityGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -10268,23 +10202,25 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, TitleOfUsersGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTitleOfUsersGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, UserIdentityGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserIdentityGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the TitleOfUsers model
+   * Fields of the UserIdentity model
    */
-  readonly fields: TitleOfUsersFieldRefs;
+  readonly fields: UserIdentityFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for TitleOfUsers.
+   * The delegate class that acts as a "Promise-like" for UserIdentity.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__TitleOfUsersClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__UserIdentityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    User<T extends TitleOfUsers$UserArgs<ExtArgs> = {}>(args?: Subset<T, TitleOfUsers$UserArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findMany'> | Null>;
+    User<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    DepartmentManagement<T extends DepartmentManagementsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DepartmentManagementsDefaultArgs<ExtArgs>>): Prisma__DepartmentManagementsClient<$Result.GetResult<Prisma.$DepartmentManagementsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -10311,360 +10247,340 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the TitleOfUsers model
+   * Fields of the UserIdentity model
    */ 
-  interface TitleOfUsersFieldRefs {
-    readonly id: FieldRef<"TitleOfUsers", 'Int'>
-    readonly name: FieldRef<"TitleOfUsers", 'String'>
-    readonly isActive: FieldRef<"TitleOfUsers", 'Boolean'>
-    readonly isLeader: FieldRef<"TitleOfUsers", 'Boolean'>
-    readonly createdAt: FieldRef<"TitleOfUsers", 'DateTime'>
-    readonly updatedAt: FieldRef<"TitleOfUsers", 'DateTime'>
-    readonly deletedAt: FieldRef<"TitleOfUsers", 'DateTime'>
+  interface UserIdentityFieldRefs {
+    readonly id: FieldRef<"UserIdentity", 'Int'>
+    readonly userId: FieldRef<"UserIdentity", 'String'>
+    readonly divisionId: FieldRef<"UserIdentity", 'Int'>
+    readonly titleOfDivisionId: FieldRef<"UserIdentity", 'Int'>
+    readonly DepartmentManagementId: FieldRef<"UserIdentity", 'Int'>
+    readonly createdAt: FieldRef<"UserIdentity", 'DateTime'>
+    readonly updatedAt: FieldRef<"UserIdentity", 'DateTime'>
+    readonly deletedAt: FieldRef<"UserIdentity", 'DateTime'>
   }
     
 
   // Custom InputTypes
 
   /**
-   * TitleOfUsers findUnique
+   * UserIdentity findUnique
    */
-  export type TitleOfUsersFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserIdentityFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TitleOfUsers
+     * Select specific fields to fetch from the UserIdentity
      */
-    select?: TitleOfUsersSelect<ExtArgs> | null
+    select?: UserIdentitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TitleOfUsersInclude<ExtArgs> | null
+    include?: UserIdentityInclude<ExtArgs> | null
     /**
-     * Filter, which TitleOfUsers to fetch.
+     * Filter, which UserIdentity to fetch.
      */
-    where: TitleOfUsersWhereUniqueInput
+    where: UserIdentityWhereUniqueInput
   }
 
 
   /**
-   * TitleOfUsers findUniqueOrThrow
+   * UserIdentity findUniqueOrThrow
    */
-  export type TitleOfUsersFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserIdentityFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TitleOfUsers
+     * Select specific fields to fetch from the UserIdentity
      */
-    select?: TitleOfUsersSelect<ExtArgs> | null
+    select?: UserIdentitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TitleOfUsersInclude<ExtArgs> | null
+    include?: UserIdentityInclude<ExtArgs> | null
     /**
-     * Filter, which TitleOfUsers to fetch.
+     * Filter, which UserIdentity to fetch.
      */
-    where: TitleOfUsersWhereUniqueInput
+    where: UserIdentityWhereUniqueInput
   }
 
 
   /**
-   * TitleOfUsers findFirst
+   * UserIdentity findFirst
    */
-  export type TitleOfUsersFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserIdentityFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TitleOfUsers
+     * Select specific fields to fetch from the UserIdentity
      */
-    select?: TitleOfUsersSelect<ExtArgs> | null
+    select?: UserIdentitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TitleOfUsersInclude<ExtArgs> | null
+    include?: UserIdentityInclude<ExtArgs> | null
     /**
-     * Filter, which TitleOfUsers to fetch.
+     * Filter, which UserIdentity to fetch.
      */
-    where?: TitleOfUsersWhereInput
+    where?: UserIdentityWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of TitleOfUsers to fetch.
+     * Determine the order of UserIdentities to fetch.
      */
-    orderBy?: TitleOfUsersOrderByWithRelationInput | TitleOfUsersOrderByWithRelationInput[]
+    orderBy?: UserIdentityOrderByWithRelationInput | UserIdentityOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for TitleOfUsers.
+     * Sets the position for searching for UserIdentities.
      */
-    cursor?: TitleOfUsersWhereUniqueInput
+    cursor?: UserIdentityWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` TitleOfUsers from the position of the cursor.
+     * Take `±n` UserIdentities from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` TitleOfUsers.
+     * Skip the first `n` UserIdentities.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of TitleOfUsers.
+     * Filter by unique combinations of UserIdentities.
      */
-    distinct?: TitleOfUsersScalarFieldEnum | TitleOfUsersScalarFieldEnum[]
+    distinct?: UserIdentityScalarFieldEnum | UserIdentityScalarFieldEnum[]
   }
 
 
   /**
-   * TitleOfUsers findFirstOrThrow
+   * UserIdentity findFirstOrThrow
    */
-  export type TitleOfUsersFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserIdentityFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TitleOfUsers
+     * Select specific fields to fetch from the UserIdentity
      */
-    select?: TitleOfUsersSelect<ExtArgs> | null
+    select?: UserIdentitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TitleOfUsersInclude<ExtArgs> | null
+    include?: UserIdentityInclude<ExtArgs> | null
     /**
-     * Filter, which TitleOfUsers to fetch.
+     * Filter, which UserIdentity to fetch.
      */
-    where?: TitleOfUsersWhereInput
+    where?: UserIdentityWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of TitleOfUsers to fetch.
+     * Determine the order of UserIdentities to fetch.
      */
-    orderBy?: TitleOfUsersOrderByWithRelationInput | TitleOfUsersOrderByWithRelationInput[]
+    orderBy?: UserIdentityOrderByWithRelationInput | UserIdentityOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for TitleOfUsers.
+     * Sets the position for searching for UserIdentities.
      */
-    cursor?: TitleOfUsersWhereUniqueInput
+    cursor?: UserIdentityWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` TitleOfUsers from the position of the cursor.
+     * Take `±n` UserIdentities from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` TitleOfUsers.
+     * Skip the first `n` UserIdentities.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of TitleOfUsers.
+     * Filter by unique combinations of UserIdentities.
      */
-    distinct?: TitleOfUsersScalarFieldEnum | TitleOfUsersScalarFieldEnum[]
+    distinct?: UserIdentityScalarFieldEnum | UserIdentityScalarFieldEnum[]
   }
 
 
   /**
-   * TitleOfUsers findMany
+   * UserIdentity findMany
    */
-  export type TitleOfUsersFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserIdentityFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TitleOfUsers
+     * Select specific fields to fetch from the UserIdentity
      */
-    select?: TitleOfUsersSelect<ExtArgs> | null
+    select?: UserIdentitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TitleOfUsersInclude<ExtArgs> | null
+    include?: UserIdentityInclude<ExtArgs> | null
     /**
-     * Filter, which TitleOfUsers to fetch.
+     * Filter, which UserIdentities to fetch.
      */
-    where?: TitleOfUsersWhereInput
+    where?: UserIdentityWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of TitleOfUsers to fetch.
+     * Determine the order of UserIdentities to fetch.
      */
-    orderBy?: TitleOfUsersOrderByWithRelationInput | TitleOfUsersOrderByWithRelationInput[]
+    orderBy?: UserIdentityOrderByWithRelationInput | UserIdentityOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing TitleOfUsers.
+     * Sets the position for listing UserIdentities.
      */
-    cursor?: TitleOfUsersWhereUniqueInput
+    cursor?: UserIdentityWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` TitleOfUsers from the position of the cursor.
+     * Take `±n` UserIdentities from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` TitleOfUsers.
+     * Skip the first `n` UserIdentities.
      */
     skip?: number
-    distinct?: TitleOfUsersScalarFieldEnum | TitleOfUsersScalarFieldEnum[]
+    distinct?: UserIdentityScalarFieldEnum | UserIdentityScalarFieldEnum[]
   }
 
 
   /**
-   * TitleOfUsers create
+   * UserIdentity create
    */
-  export type TitleOfUsersCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserIdentityCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TitleOfUsers
+     * Select specific fields to fetch from the UserIdentity
      */
-    select?: TitleOfUsersSelect<ExtArgs> | null
+    select?: UserIdentitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TitleOfUsersInclude<ExtArgs> | null
+    include?: UserIdentityInclude<ExtArgs> | null
     /**
-     * The data needed to create a TitleOfUsers.
+     * The data needed to create a UserIdentity.
      */
-    data: XOR<TitleOfUsersCreateInput, TitleOfUsersUncheckedCreateInput>
+    data: XOR<UserIdentityCreateInput, UserIdentityUncheckedCreateInput>
   }
 
 
   /**
-   * TitleOfUsers createMany
+   * UserIdentity createMany
    */
-  export type TitleOfUsersCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserIdentityCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many TitleOfUsers.
+     * The data used to create many UserIdentities.
      */
-    data: TitleOfUsersCreateManyInput | TitleOfUsersCreateManyInput[]
+    data: UserIdentityCreateManyInput | UserIdentityCreateManyInput[]
     skipDuplicates?: boolean
   }
 
 
   /**
-   * TitleOfUsers update
+   * UserIdentity update
    */
-  export type TitleOfUsersUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserIdentityUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TitleOfUsers
+     * Select specific fields to fetch from the UserIdentity
      */
-    select?: TitleOfUsersSelect<ExtArgs> | null
+    select?: UserIdentitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TitleOfUsersInclude<ExtArgs> | null
+    include?: UserIdentityInclude<ExtArgs> | null
     /**
-     * The data needed to update a TitleOfUsers.
+     * The data needed to update a UserIdentity.
      */
-    data: XOR<TitleOfUsersUpdateInput, TitleOfUsersUncheckedUpdateInput>
+    data: XOR<UserIdentityUpdateInput, UserIdentityUncheckedUpdateInput>
     /**
-     * Choose, which TitleOfUsers to update.
+     * Choose, which UserIdentity to update.
      */
-    where: TitleOfUsersWhereUniqueInput
+    where: UserIdentityWhereUniqueInput
   }
 
 
   /**
-   * TitleOfUsers updateMany
+   * UserIdentity updateMany
    */
-  export type TitleOfUsersUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserIdentityUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update TitleOfUsers.
+     * The data used to update UserIdentities.
      */
-    data: XOR<TitleOfUsersUpdateManyMutationInput, TitleOfUsersUncheckedUpdateManyInput>
+    data: XOR<UserIdentityUpdateManyMutationInput, UserIdentityUncheckedUpdateManyInput>
     /**
-     * Filter which TitleOfUsers to update
+     * Filter which UserIdentities to update
      */
-    where?: TitleOfUsersWhereInput
+    where?: UserIdentityWhereInput
   }
 
 
   /**
-   * TitleOfUsers upsert
+   * UserIdentity upsert
    */
-  export type TitleOfUsersUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserIdentityUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TitleOfUsers
+     * Select specific fields to fetch from the UserIdentity
      */
-    select?: TitleOfUsersSelect<ExtArgs> | null
+    select?: UserIdentitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TitleOfUsersInclude<ExtArgs> | null
+    include?: UserIdentityInclude<ExtArgs> | null
     /**
-     * The filter to search for the TitleOfUsers to update in case it exists.
+     * The filter to search for the UserIdentity to update in case it exists.
      */
-    where: TitleOfUsersWhereUniqueInput
+    where: UserIdentityWhereUniqueInput
     /**
-     * In case the TitleOfUsers found by the `where` argument doesn't exist, create a new TitleOfUsers with this data.
+     * In case the UserIdentity found by the `where` argument doesn't exist, create a new UserIdentity with this data.
      */
-    create: XOR<TitleOfUsersCreateInput, TitleOfUsersUncheckedCreateInput>
+    create: XOR<UserIdentityCreateInput, UserIdentityUncheckedCreateInput>
     /**
-     * In case the TitleOfUsers was found with the provided `where` argument, update it with this data.
+     * In case the UserIdentity was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<TitleOfUsersUpdateInput, TitleOfUsersUncheckedUpdateInput>
+    update: XOR<UserIdentityUpdateInput, UserIdentityUncheckedUpdateInput>
   }
 
 
   /**
-   * TitleOfUsers delete
+   * UserIdentity delete
    */
-  export type TitleOfUsersDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserIdentityDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the TitleOfUsers
+     * Select specific fields to fetch from the UserIdentity
      */
-    select?: TitleOfUsersSelect<ExtArgs> | null
+    select?: UserIdentitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: TitleOfUsersInclude<ExtArgs> | null
+    include?: UserIdentityInclude<ExtArgs> | null
     /**
-     * Filter which TitleOfUsers to delete.
+     * Filter which UserIdentity to delete.
      */
-    where: TitleOfUsersWhereUniqueInput
+    where: UserIdentityWhereUniqueInput
   }
 
 
   /**
-   * TitleOfUsers deleteMany
+   * UserIdentity deleteMany
    */
-  export type TitleOfUsersDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserIdentityDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which TitleOfUsers to delete
+     * Filter which UserIdentities to delete
      */
-    where?: TitleOfUsersWhereInput
+    where?: UserIdentityWhereInput
   }
 
 
   /**
-   * TitleOfUsers.User
+   * UserIdentity without action
    */
-  export type TitleOfUsers$UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type UserIdentityDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the UserIdentity
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: UserIdentitySelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
-    cursor?: UserWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
-  }
-
-
-  /**
-   * TitleOfUsers without action
-   */
-  export type TitleOfUsersDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the TitleOfUsers
-     */
-    select?: TitleOfUsersSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: TitleOfUsersInclude<ExtArgs> | null
+    include?: UserIdentityInclude<ExtArgs> | null
   }
 
 
@@ -10689,9 +10605,6 @@ export namespace Prisma {
     name: 'name',
     phoneNumber: 'phoneNumber',
     roleId: 'roleId',
-    departmentId: 'departmentId',
-    divisionId: 'divisionId',
-    titleId: 'titleId',
     isActive: 'isActive',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
@@ -10763,11 +10676,11 @@ export namespace Prisma {
 
   export const DepartmentManagementsScalarFieldEnum: {
     id: 'id',
-    departmentId: 'departmentId',
     divisionId: 'divisionId',
+    departmentId: 'departmentId',
     titleId: 'titleId',
-    isActive: 'isActive',
     isProfitCenter: 'isProfitCenter',
+    isActive: 'isActive',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     deletedAt: 'deletedAt'
@@ -10779,8 +10692,8 @@ export namespace Prisma {
   export const TitleOfDepartMentsScalarFieldEnum: {
     id: 'id',
     name: 'name',
-    isActive: 'isActive',
     isLeader: 'isLeader',
+    isActive: 'isActive',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     deletedAt: 'deletedAt'
@@ -10789,17 +10702,18 @@ export namespace Prisma {
   export type TitleOfDepartMentsScalarFieldEnum = (typeof TitleOfDepartMentsScalarFieldEnum)[keyof typeof TitleOfDepartMentsScalarFieldEnum]
 
 
-  export const TitleOfUsersScalarFieldEnum: {
+  export const UserIdentityScalarFieldEnum: {
     id: 'id',
-    name: 'name',
-    isActive: 'isActive',
-    isLeader: 'isLeader',
+    userId: 'userId',
+    divisionId: 'divisionId',
+    titleOfDivisionId: 'titleOfDivisionId',
+    DepartmentManagementId: 'DepartmentManagementId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
     deletedAt: 'deletedAt'
   };
 
-  export type TitleOfUsersScalarFieldEnum = (typeof TitleOfUsersScalarFieldEnum)[keyof typeof TitleOfUsersScalarFieldEnum]
+  export type UserIdentityScalarFieldEnum = (typeof UserIdentityScalarFieldEnum)[keyof typeof UserIdentityScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -10870,16 +10784,12 @@ export namespace Prisma {
     name?: StringFilter<"User"> | string
     phoneNumber?: StringFilter<"User"> | string
     roleId?: IntFilter<"User"> | number
-    departmentId?: IntFilter<"User"> | number
-    divisionId?: IntFilter<"User"> | number
-    titleId?: IntFilter<"User"> | number
     isActive?: BoolNullableFilter<"User"> | boolean | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     deletedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     Roles?: RolesListRelationFilter
-    Department?: DepartmentsListRelationFilter
-    Title?: TitleOfUsersListRelationFilter
+    UserIdentity?: UserIdentityListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -10888,16 +10798,12 @@ export namespace Prisma {
     name?: SortOrder
     phoneNumber?: SortOrder
     roleId?: SortOrder
-    departmentId?: SortOrder
-    divisionId?: SortOrder
-    titleId?: SortOrder
     isActive?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
     Roles?: RolesOrderByRelationAggregateInput
-    Department?: DepartmentsOrderByRelationAggregateInput
-    Title?: TitleOfUsersOrderByRelationAggregateInput
+    UserIdentity?: UserIdentityOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -10909,16 +10815,12 @@ export namespace Prisma {
     name?: StringFilter<"User"> | string
     phoneNumber?: StringFilter<"User"> | string
     roleId?: IntFilter<"User"> | number
-    departmentId?: IntFilter<"User"> | number
-    divisionId?: IntFilter<"User"> | number
-    titleId?: IntFilter<"User"> | number
     isActive?: BoolNullableFilter<"User"> | boolean | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     deletedAt?: DateTimeNullableFilter<"User"> | Date | string | null
     Roles?: RolesListRelationFilter
-    Department?: DepartmentsListRelationFilter
-    Title?: TitleOfUsersListRelationFilter
+    UserIdentity?: UserIdentityListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -10927,9 +10829,6 @@ export namespace Prisma {
     name?: SortOrder
     phoneNumber?: SortOrder
     roleId?: SortOrder
-    departmentId?: SortOrder
-    divisionId?: SortOrder
-    titleId?: SortOrder
     isActive?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -10950,9 +10849,6 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"User"> | string
     phoneNumber?: StringWithAggregatesFilter<"User"> | string
     roleId?: IntWithAggregatesFilter<"User"> | number
-    departmentId?: IntWithAggregatesFilter<"User"> | number
-    divisionId?: IntWithAggregatesFilter<"User"> | number
-    titleId?: IntWithAggregatesFilter<"User"> | number
     isActive?: BoolNullableWithAggregatesFilter<"User"> | boolean | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -11214,7 +11110,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Departments"> | Date | string
     deletedAt?: DateTimeNullableFilter<"Departments"> | Date | string | null
     DepartmentManagement?: DepartmentManagementsListRelationFilter
-    User?: UserListRelationFilter
   }
 
   export type DepartmentsOrderByWithRelationInput = {
@@ -11225,7 +11120,6 @@ export namespace Prisma {
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
     DepartmentManagement?: DepartmentManagementsOrderByRelationAggregateInput
-    User?: UserOrderByRelationAggregateInput
   }
 
   export type DepartmentsWhereUniqueInput = Prisma.AtLeast<{
@@ -11239,7 +11133,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Departments"> | Date | string
     deletedAt?: DateTimeNullableFilter<"Departments"> | Date | string | null
     DepartmentManagement?: DepartmentManagementsListRelationFilter
-    User?: UserListRelationFilter
   }, "id" | "name">
 
   export type DepartmentsOrderByWithAggregationInput = {
@@ -11273,30 +11166,32 @@ export namespace Prisma {
     OR?: DepartmentManagementsWhereInput[]
     NOT?: DepartmentManagementsWhereInput | DepartmentManagementsWhereInput[]
     id?: IntFilter<"DepartmentManagements"> | number
-    departmentId?: IntFilter<"DepartmentManagements"> | number
     divisionId?: IntFilter<"DepartmentManagements"> | number
+    departmentId?: IntFilter<"DepartmentManagements"> | number
     titleId?: IntFilter<"DepartmentManagements"> | number
-    isActive?: BoolFilter<"DepartmentManagements"> | boolean
     isProfitCenter?: BoolFilter<"DepartmentManagements"> | boolean
+    isActive?: BoolFilter<"DepartmentManagements"> | boolean
     createdAt?: DateTimeFilter<"DepartmentManagements"> | Date | string
     updatedAt?: DateTimeFilter<"DepartmentManagements"> | Date | string
     deletedAt?: DateTimeNullableFilter<"DepartmentManagements"> | Date | string | null
     department?: XOR<DepartmentsRelationFilter, DepartmentsWhereInput>
     title?: XOR<TitleOfDepartMentsRelationFilter, TitleOfDepartMentsWhereInput>
+    UserIdentity?: UserIdentityListRelationFilter
   }
 
   export type DepartmentManagementsOrderByWithRelationInput = {
     id?: SortOrder
-    departmentId?: SortOrder
     divisionId?: SortOrder
+    departmentId?: SortOrder
     titleId?: SortOrder
-    isActive?: SortOrder
     isProfitCenter?: SortOrder
+    isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
     department?: DepartmentsOrderByWithRelationInput
     title?: TitleOfDepartMentsOrderByWithRelationInput
+    UserIdentity?: UserIdentityOrderByRelationAggregateInput
   }
 
   export type DepartmentManagementsWhereUniqueInput = Prisma.AtLeast<{
@@ -11304,25 +11199,26 @@ export namespace Prisma {
     AND?: DepartmentManagementsWhereInput | DepartmentManagementsWhereInput[]
     OR?: DepartmentManagementsWhereInput[]
     NOT?: DepartmentManagementsWhereInput | DepartmentManagementsWhereInput[]
-    departmentId?: IntFilter<"DepartmentManagements"> | number
     divisionId?: IntFilter<"DepartmentManagements"> | number
+    departmentId?: IntFilter<"DepartmentManagements"> | number
     titleId?: IntFilter<"DepartmentManagements"> | number
-    isActive?: BoolFilter<"DepartmentManagements"> | boolean
     isProfitCenter?: BoolFilter<"DepartmentManagements"> | boolean
+    isActive?: BoolFilter<"DepartmentManagements"> | boolean
     createdAt?: DateTimeFilter<"DepartmentManagements"> | Date | string
     updatedAt?: DateTimeFilter<"DepartmentManagements"> | Date | string
     deletedAt?: DateTimeNullableFilter<"DepartmentManagements"> | Date | string | null
     department?: XOR<DepartmentsRelationFilter, DepartmentsWhereInput>
     title?: XOR<TitleOfDepartMentsRelationFilter, TitleOfDepartMentsWhereInput>
+    UserIdentity?: UserIdentityListRelationFilter
   }, "id">
 
   export type DepartmentManagementsOrderByWithAggregationInput = {
     id?: SortOrder
-    departmentId?: SortOrder
     divisionId?: SortOrder
+    departmentId?: SortOrder
     titleId?: SortOrder
-    isActive?: SortOrder
     isProfitCenter?: SortOrder
+    isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
@@ -11338,11 +11234,11 @@ export namespace Prisma {
     OR?: DepartmentManagementsScalarWhereWithAggregatesInput[]
     NOT?: DepartmentManagementsScalarWhereWithAggregatesInput | DepartmentManagementsScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"DepartmentManagements"> | number
-    departmentId?: IntWithAggregatesFilter<"DepartmentManagements"> | number
     divisionId?: IntWithAggregatesFilter<"DepartmentManagements"> | number
+    departmentId?: IntWithAggregatesFilter<"DepartmentManagements"> | number
     titleId?: IntWithAggregatesFilter<"DepartmentManagements"> | number
-    isActive?: BoolWithAggregatesFilter<"DepartmentManagements"> | boolean
     isProfitCenter?: BoolWithAggregatesFilter<"DepartmentManagements"> | boolean
+    isActive?: BoolWithAggregatesFilter<"DepartmentManagements"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"DepartmentManagements"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"DepartmentManagements"> | Date | string
     deletedAt?: DateTimeNullableWithAggregatesFilter<"DepartmentManagements"> | Date | string | null
@@ -11354,8 +11250,8 @@ export namespace Prisma {
     NOT?: TitleOfDepartMentsWhereInput | TitleOfDepartMentsWhereInput[]
     id?: IntFilter<"TitleOfDepartMents"> | number
     name?: StringFilter<"TitleOfDepartMents"> | string
-    isActive?: BoolFilter<"TitleOfDepartMents"> | boolean
     isLeader?: BoolFilter<"TitleOfDepartMents"> | boolean
+    isActive?: BoolFilter<"TitleOfDepartMents"> | boolean
     createdAt?: DateTimeFilter<"TitleOfDepartMents"> | Date | string
     updatedAt?: DateTimeFilter<"TitleOfDepartMents"> | Date | string
     deletedAt?: DateTimeNullableFilter<"TitleOfDepartMents"> | Date | string | null
@@ -11365,8 +11261,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    isActive?: SortOrder
     isLeader?: SortOrder
+    isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
@@ -11379,8 +11275,8 @@ export namespace Prisma {
     AND?: TitleOfDepartMentsWhereInput | TitleOfDepartMentsWhereInput[]
     OR?: TitleOfDepartMentsWhereInput[]
     NOT?: TitleOfDepartMentsWhereInput | TitleOfDepartMentsWhereInput[]
-    isActive?: BoolFilter<"TitleOfDepartMents"> | boolean
     isLeader?: BoolFilter<"TitleOfDepartMents"> | boolean
+    isActive?: BoolFilter<"TitleOfDepartMents"> | boolean
     createdAt?: DateTimeFilter<"TitleOfDepartMents"> | Date | string
     updatedAt?: DateTimeFilter<"TitleOfDepartMents"> | Date | string
     deletedAt?: DateTimeNullableFilter<"TitleOfDepartMents"> | Date | string | null
@@ -11390,8 +11286,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-    isActive?: SortOrder
     isLeader?: SortOrder
+    isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
@@ -11408,78 +11304,86 @@ export namespace Prisma {
     NOT?: TitleOfDepartMentsScalarWhereWithAggregatesInput | TitleOfDepartMentsScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"TitleOfDepartMents"> | number
     name?: StringWithAggregatesFilter<"TitleOfDepartMents"> | string
-    isActive?: BoolWithAggregatesFilter<"TitleOfDepartMents"> | boolean
     isLeader?: BoolWithAggregatesFilter<"TitleOfDepartMents"> | boolean
+    isActive?: BoolWithAggregatesFilter<"TitleOfDepartMents"> | boolean
     createdAt?: DateTimeWithAggregatesFilter<"TitleOfDepartMents"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"TitleOfDepartMents"> | Date | string
     deletedAt?: DateTimeNullableWithAggregatesFilter<"TitleOfDepartMents"> | Date | string | null
   }
 
-  export type TitleOfUsersWhereInput = {
-    AND?: TitleOfUsersWhereInput | TitleOfUsersWhereInput[]
-    OR?: TitleOfUsersWhereInput[]
-    NOT?: TitleOfUsersWhereInput | TitleOfUsersWhereInput[]
-    id?: IntFilter<"TitleOfUsers"> | number
-    name?: StringFilter<"TitleOfUsers"> | string
-    isActive?: BoolFilter<"TitleOfUsers"> | boolean
-    isLeader?: BoolFilter<"TitleOfUsers"> | boolean
-    createdAt?: DateTimeFilter<"TitleOfUsers"> | Date | string
-    updatedAt?: DateTimeFilter<"TitleOfUsers"> | Date | string
-    deletedAt?: DateTimeNullableFilter<"TitleOfUsers"> | Date | string | null
-    User?: UserListRelationFilter
+  export type UserIdentityWhereInput = {
+    AND?: UserIdentityWhereInput | UserIdentityWhereInput[]
+    OR?: UserIdentityWhereInput[]
+    NOT?: UserIdentityWhereInput | UserIdentityWhereInput[]
+    id?: IntFilter<"UserIdentity"> | number
+    userId?: StringFilter<"UserIdentity"> | string
+    divisionId?: IntFilter<"UserIdentity"> | number
+    titleOfDivisionId?: IntFilter<"UserIdentity"> | number
+    DepartmentManagementId?: IntFilter<"UserIdentity"> | number
+    createdAt?: DateTimeFilter<"UserIdentity"> | Date | string
+    updatedAt?: DateTimeFilter<"UserIdentity"> | Date | string
+    deletedAt?: DateTimeNullableFilter<"UserIdentity"> | Date | string | null
+    User?: XOR<UserRelationFilter, UserWhereInput>
+    DepartmentManagement?: XOR<DepartmentManagementsRelationFilter, DepartmentManagementsWhereInput>
   }
 
-  export type TitleOfUsersOrderByWithRelationInput = {
+  export type UserIdentityOrderByWithRelationInput = {
     id?: SortOrder
-    name?: SortOrder
-    isActive?: SortOrder
-    isLeader?: SortOrder
+    userId?: SortOrder
+    divisionId?: SortOrder
+    titleOfDivisionId?: SortOrder
+    DepartmentManagementId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
-    User?: UserOrderByRelationAggregateInput
+    User?: UserOrderByWithRelationInput
+    DepartmentManagement?: DepartmentManagementsOrderByWithRelationInput
   }
 
-  export type TitleOfUsersWhereUniqueInput = Prisma.AtLeast<{
+  export type UserIdentityWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    name?: string
-    AND?: TitleOfUsersWhereInput | TitleOfUsersWhereInput[]
-    OR?: TitleOfUsersWhereInput[]
-    NOT?: TitleOfUsersWhereInput | TitleOfUsersWhereInput[]
-    isActive?: BoolFilter<"TitleOfUsers"> | boolean
-    isLeader?: BoolFilter<"TitleOfUsers"> | boolean
-    createdAt?: DateTimeFilter<"TitleOfUsers"> | Date | string
-    updatedAt?: DateTimeFilter<"TitleOfUsers"> | Date | string
-    deletedAt?: DateTimeNullableFilter<"TitleOfUsers"> | Date | string | null
-    User?: UserListRelationFilter
-  }, "id" | "name">
+    AND?: UserIdentityWhereInput | UserIdentityWhereInput[]
+    OR?: UserIdentityWhereInput[]
+    NOT?: UserIdentityWhereInput | UserIdentityWhereInput[]
+    userId?: StringFilter<"UserIdentity"> | string
+    divisionId?: IntFilter<"UserIdentity"> | number
+    titleOfDivisionId?: IntFilter<"UserIdentity"> | number
+    DepartmentManagementId?: IntFilter<"UserIdentity"> | number
+    createdAt?: DateTimeFilter<"UserIdentity"> | Date | string
+    updatedAt?: DateTimeFilter<"UserIdentity"> | Date | string
+    deletedAt?: DateTimeNullableFilter<"UserIdentity"> | Date | string | null
+    User?: XOR<UserRelationFilter, UserWhereInput>
+    DepartmentManagement?: XOR<DepartmentManagementsRelationFilter, DepartmentManagementsWhereInput>
+  }, "id">
 
-  export type TitleOfUsersOrderByWithAggregationInput = {
+  export type UserIdentityOrderByWithAggregationInput = {
     id?: SortOrder
-    name?: SortOrder
-    isActive?: SortOrder
-    isLeader?: SortOrder
+    userId?: SortOrder
+    divisionId?: SortOrder
+    titleOfDivisionId?: SortOrder
+    DepartmentManagementId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
-    _count?: TitleOfUsersCountOrderByAggregateInput
-    _avg?: TitleOfUsersAvgOrderByAggregateInput
-    _max?: TitleOfUsersMaxOrderByAggregateInput
-    _min?: TitleOfUsersMinOrderByAggregateInput
-    _sum?: TitleOfUsersSumOrderByAggregateInput
+    _count?: UserIdentityCountOrderByAggregateInput
+    _avg?: UserIdentityAvgOrderByAggregateInput
+    _max?: UserIdentityMaxOrderByAggregateInput
+    _min?: UserIdentityMinOrderByAggregateInput
+    _sum?: UserIdentitySumOrderByAggregateInput
   }
 
-  export type TitleOfUsersScalarWhereWithAggregatesInput = {
-    AND?: TitleOfUsersScalarWhereWithAggregatesInput | TitleOfUsersScalarWhereWithAggregatesInput[]
-    OR?: TitleOfUsersScalarWhereWithAggregatesInput[]
-    NOT?: TitleOfUsersScalarWhereWithAggregatesInput | TitleOfUsersScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"TitleOfUsers"> | number
-    name?: StringWithAggregatesFilter<"TitleOfUsers"> | string
-    isActive?: BoolWithAggregatesFilter<"TitleOfUsers"> | boolean
-    isLeader?: BoolWithAggregatesFilter<"TitleOfUsers"> | boolean
-    createdAt?: DateTimeWithAggregatesFilter<"TitleOfUsers"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"TitleOfUsers"> | Date | string
-    deletedAt?: DateTimeNullableWithAggregatesFilter<"TitleOfUsers"> | Date | string | null
+  export type UserIdentityScalarWhereWithAggregatesInput = {
+    AND?: UserIdentityScalarWhereWithAggregatesInput | UserIdentityScalarWhereWithAggregatesInput[]
+    OR?: UserIdentityScalarWhereWithAggregatesInput[]
+    NOT?: UserIdentityScalarWhereWithAggregatesInput | UserIdentityScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"UserIdentity"> | number
+    userId?: StringWithAggregatesFilter<"UserIdentity"> | string
+    divisionId?: IntWithAggregatesFilter<"UserIdentity"> | number
+    titleOfDivisionId?: IntWithAggregatesFilter<"UserIdentity"> | number
+    DepartmentManagementId?: IntWithAggregatesFilter<"UserIdentity"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"UserIdentity"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"UserIdentity"> | Date | string
+    deletedAt?: DateTimeNullableWithAggregatesFilter<"UserIdentity"> | Date | string | null
   }
 
   export type UserCreateInput = {
@@ -11488,16 +11392,12 @@ export namespace Prisma {
     name: string
     phoneNumber: string
     roleId?: number
-    departmentId?: number
-    divisionId?: number
-    titleId?: number
     isActive?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
     Roles?: RolesCreateNestedManyWithoutUserInput
-    Department?: DepartmentsCreateNestedManyWithoutUserInput
-    Title?: TitleOfUsersCreateNestedManyWithoutUserInput
+    UserIdentity?: UserIdentityCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -11506,16 +11406,12 @@ export namespace Prisma {
     name: string
     phoneNumber: string
     roleId?: number
-    departmentId?: number
-    divisionId?: number
-    titleId?: number
     isActive?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
     Roles?: RolesUncheckedCreateNestedManyWithoutUserInput
-    Department?: DepartmentsUncheckedCreateNestedManyWithoutUserInput
-    Title?: TitleOfUsersUncheckedCreateNestedManyWithoutUserInput
+    UserIdentity?: UserIdentityUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -11524,16 +11420,12 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     roleId?: IntFieldUpdateOperationsInput | number
-    departmentId?: IntFieldUpdateOperationsInput | number
-    divisionId?: IntFieldUpdateOperationsInput | number
-    titleId?: IntFieldUpdateOperationsInput | number
     isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     Roles?: RolesUpdateManyWithoutUserNestedInput
-    Department?: DepartmentsUpdateManyWithoutUserNestedInput
-    Title?: TitleOfUsersUpdateManyWithoutUserNestedInput
+    UserIdentity?: UserIdentityUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -11542,16 +11434,12 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     roleId?: IntFieldUpdateOperationsInput | number
-    departmentId?: IntFieldUpdateOperationsInput | number
-    divisionId?: IntFieldUpdateOperationsInput | number
-    titleId?: IntFieldUpdateOperationsInput | number
     isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     Roles?: RolesUncheckedUpdateManyWithoutUserNestedInput
-    Department?: DepartmentsUncheckedUpdateManyWithoutUserNestedInput
-    Title?: TitleOfUsersUncheckedUpdateManyWithoutUserNestedInput
+    UserIdentity?: UserIdentityUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -11560,9 +11448,6 @@ export namespace Prisma {
     name: string
     phoneNumber: string
     roleId?: number
-    departmentId?: number
-    divisionId?: number
-    titleId?: number
     isActive?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11575,9 +11460,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     roleId?: IntFieldUpdateOperationsInput | number
-    departmentId?: IntFieldUpdateOperationsInput | number
-    divisionId?: IntFieldUpdateOperationsInput | number
-    titleId?: IntFieldUpdateOperationsInput | number
     isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11590,9 +11472,6 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     roleId?: IntFieldUpdateOperationsInput | number
-    departmentId?: IntFieldUpdateOperationsInput | number
-    divisionId?: IntFieldUpdateOperationsInput | number
-    titleId?: IntFieldUpdateOperationsInput | number
     isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11851,7 +11730,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     deletedAt?: Date | string | null
     DepartmentManagement?: DepartmentManagementsCreateNestedManyWithoutDepartmentInput
-    User?: UserCreateNestedManyWithoutDepartmentInput
   }
 
   export type DepartmentsUncheckedCreateInput = {
@@ -11862,7 +11740,6 @@ export namespace Prisma {
     updatedAt?: Date | string
     deletedAt?: Date | string | null
     DepartmentManagement?: DepartmentManagementsUncheckedCreateNestedManyWithoutDepartmentInput
-    User?: UserUncheckedCreateNestedManyWithoutDepartmentInput
   }
 
   export type DepartmentsUpdateInput = {
@@ -11872,7 +11749,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     DepartmentManagement?: DepartmentManagementsUpdateManyWithoutDepartmentNestedInput
-    User?: UserUpdateManyWithoutDepartmentNestedInput
   }
 
   export type DepartmentsUncheckedUpdateInput = {
@@ -11883,7 +11759,6 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     DepartmentManagement?: DepartmentManagementsUncheckedUpdateManyWithoutDepartmentNestedInput
-    User?: UserUncheckedUpdateManyWithoutDepartmentNestedInput
   }
 
   export type DepartmentsCreateManyInput = {
@@ -11914,57 +11789,61 @@ export namespace Prisma {
 
   export type DepartmentManagementsCreateInput = {
     divisionId: number
-    isActive?: boolean
     isProfitCenter?: boolean
+    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
     department: DepartmentsCreateNestedOneWithoutDepartmentManagementInput
     title: TitleOfDepartMentsCreateNestedOneWithoutDepartmentManagementInput
+    UserIdentity?: UserIdentityCreateNestedManyWithoutDepartmentManagementInput
   }
 
   export type DepartmentManagementsUncheckedCreateInput = {
     id?: number
-    departmentId: number
     divisionId: number
+    departmentId: number
     titleId: number
-    isActive?: boolean
     isProfitCenter?: boolean
+    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
+    UserIdentity?: UserIdentityUncheckedCreateNestedManyWithoutDepartmentManagementInput
   }
 
   export type DepartmentManagementsUpdateInput = {
     divisionId?: IntFieldUpdateOperationsInput | number
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     isProfitCenter?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     department?: DepartmentsUpdateOneRequiredWithoutDepartmentManagementNestedInput
     title?: TitleOfDepartMentsUpdateOneRequiredWithoutDepartmentManagementNestedInput
+    UserIdentity?: UserIdentityUpdateManyWithoutDepartmentManagementNestedInput
   }
 
   export type DepartmentManagementsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    departmentId?: IntFieldUpdateOperationsInput | number
     divisionId?: IntFieldUpdateOperationsInput | number
+    departmentId?: IntFieldUpdateOperationsInput | number
     titleId?: IntFieldUpdateOperationsInput | number
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     isProfitCenter?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UserIdentity?: UserIdentityUncheckedUpdateManyWithoutDepartmentManagementNestedInput
   }
 
   export type DepartmentManagementsCreateManyInput = {
     id?: number
-    departmentId: number
     divisionId: number
+    departmentId: number
     titleId: number
-    isActive?: boolean
     isProfitCenter?: boolean
+    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -11972,8 +11851,8 @@ export namespace Prisma {
 
   export type DepartmentManagementsUpdateManyMutationInput = {
     divisionId?: IntFieldUpdateOperationsInput | number
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     isProfitCenter?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -11981,11 +11860,11 @@ export namespace Prisma {
 
   export type DepartmentManagementsUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    departmentId?: IntFieldUpdateOperationsInput | number
     divisionId?: IntFieldUpdateOperationsInput | number
+    departmentId?: IntFieldUpdateOperationsInput | number
     titleId?: IntFieldUpdateOperationsInput | number
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     isProfitCenter?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -11993,8 +11872,8 @@ export namespace Prisma {
 
   export type TitleOfDepartMentsCreateInput = {
     name: string
-    isActive?: boolean
     isLeader?: boolean
+    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -12004,8 +11883,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsUncheckedCreateInput = {
     id?: number
     name: string
-    isActive?: boolean
     isLeader?: boolean
+    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -12014,8 +11893,8 @@ export namespace Prisma {
 
   export type TitleOfDepartMentsUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     isLeader?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -12025,8 +11904,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     isLeader?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -12036,8 +11915,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsCreateManyInput = {
     id?: number
     name: string
-    isActive?: boolean
     isLeader?: boolean
+    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -12045,8 +11924,8 @@ export namespace Prisma {
 
   export type TitleOfDepartMentsUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     isLeader?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -12055,79 +11934,80 @@ export namespace Prisma {
   export type TitleOfDepartMentsUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     isLeader?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type TitleOfUsersCreateInput = {
-    name: string
-    isActive?: boolean
-    isLeader?: boolean
+  export type UserIdentityCreateInput = {
+    divisionId: number
+    titleOfDivisionId: number
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    User?: UserCreateNestedManyWithoutTitleInput
+    User: UserCreateNestedOneWithoutUserIdentityInput
+    DepartmentManagement: DepartmentManagementsCreateNestedOneWithoutUserIdentityInput
   }
 
-  export type TitleOfUsersUncheckedCreateInput = {
+  export type UserIdentityUncheckedCreateInput = {
     id?: number
-    name: string
-    isActive?: boolean
-    isLeader?: boolean
+    userId: string
+    divisionId: number
+    titleOfDivisionId: number
+    DepartmentManagementId: number
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    User?: UserUncheckedCreateNestedManyWithoutTitleInput
   }
 
-  export type TitleOfUsersUpdateInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
-    isLeader?: BoolFieldUpdateOperationsInput | boolean
+  export type UserIdentityUpdateInput = {
+    divisionId?: IntFieldUpdateOperationsInput | number
+    titleOfDivisionId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    User?: UserUpdateManyWithoutTitleNestedInput
+    User?: UserUpdateOneRequiredWithoutUserIdentityNestedInput
+    DepartmentManagement?: DepartmentManagementsUpdateOneRequiredWithoutUserIdentityNestedInput
   }
 
-  export type TitleOfUsersUncheckedUpdateInput = {
+  export type UserIdentityUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
-    isLeader?: BoolFieldUpdateOperationsInput | boolean
+    userId?: StringFieldUpdateOperationsInput | string
+    divisionId?: IntFieldUpdateOperationsInput | number
+    titleOfDivisionId?: IntFieldUpdateOperationsInput | number
+    DepartmentManagementId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    User?: UserUncheckedUpdateManyWithoutTitleNestedInput
   }
 
-  export type TitleOfUsersCreateManyInput = {
+  export type UserIdentityCreateManyInput = {
     id?: number
-    name: string
-    isActive?: boolean
-    isLeader?: boolean
+    userId: string
+    divisionId: number
+    titleOfDivisionId: number
+    DepartmentManagementId: number
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
   }
 
-  export type TitleOfUsersUpdateManyMutationInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
-    isLeader?: BoolFieldUpdateOperationsInput | boolean
+  export type UserIdentityUpdateManyMutationInput = {
+    divisionId?: IntFieldUpdateOperationsInput | number
+    titleOfDivisionId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type TitleOfUsersUncheckedUpdateManyInput = {
+  export type UserIdentityUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
-    isLeader?: BoolFieldUpdateOperationsInput | boolean
+    userId?: StringFieldUpdateOperationsInput | string
+    divisionId?: IntFieldUpdateOperationsInput | number
+    titleOfDivisionId?: IntFieldUpdateOperationsInput | number
+    DepartmentManagementId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -12191,16 +12071,10 @@ export namespace Prisma {
     none?: RolesWhereInput
   }
 
-  export type DepartmentsListRelationFilter = {
-    every?: DepartmentsWhereInput
-    some?: DepartmentsWhereInput
-    none?: DepartmentsWhereInput
-  }
-
-  export type TitleOfUsersListRelationFilter = {
-    every?: TitleOfUsersWhereInput
-    some?: TitleOfUsersWhereInput
-    none?: TitleOfUsersWhereInput
+  export type UserIdentityListRelationFilter = {
+    every?: UserIdentityWhereInput
+    some?: UserIdentityWhereInput
+    none?: UserIdentityWhereInput
   }
 
   export type SortOrderInput = {
@@ -12212,11 +12086,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type DepartmentsOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type TitleOfUsersOrderByRelationAggregateInput = {
+  export type UserIdentityOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -12226,9 +12096,6 @@ export namespace Prisma {
     name?: SortOrder
     phoneNumber?: SortOrder
     roleId?: SortOrder
-    departmentId?: SortOrder
-    divisionId?: SortOrder
-    titleId?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -12237,9 +12104,6 @@ export namespace Prisma {
 
   export type UserAvgOrderByAggregateInput = {
     roleId?: SortOrder
-    departmentId?: SortOrder
-    divisionId?: SortOrder
-    titleId?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -12248,9 +12112,6 @@ export namespace Prisma {
     name?: SortOrder
     phoneNumber?: SortOrder
     roleId?: SortOrder
-    departmentId?: SortOrder
-    divisionId?: SortOrder
-    titleId?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -12263,9 +12124,6 @@ export namespace Prisma {
     name?: SortOrder
     phoneNumber?: SortOrder
     roleId?: SortOrder
-    departmentId?: SortOrder
-    divisionId?: SortOrder
-    titleId?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -12274,9 +12132,6 @@ export namespace Prisma {
 
   export type UserSumOrderByAggregateInput = {
     roleId?: SortOrder
-    departmentId?: SortOrder
-    divisionId?: SortOrder
-    titleId?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -12557,17 +12412,7 @@ export namespace Prisma {
     none?: DepartmentManagementsWhereInput
   }
 
-  export type UserListRelationFilter = {
-    every?: UserWhereInput
-    some?: UserWhereInput
-    none?: UserWhereInput
-  }
-
   export type DepartmentManagementsOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type UserOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -12618,11 +12463,11 @@ export namespace Prisma {
 
   export type DepartmentManagementsCountOrderByAggregateInput = {
     id?: SortOrder
-    departmentId?: SortOrder
     divisionId?: SortOrder
+    departmentId?: SortOrder
     titleId?: SortOrder
-    isActive?: SortOrder
     isProfitCenter?: SortOrder
+    isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
@@ -12630,18 +12475,18 @@ export namespace Prisma {
 
   export type DepartmentManagementsAvgOrderByAggregateInput = {
     id?: SortOrder
-    departmentId?: SortOrder
     divisionId?: SortOrder
+    departmentId?: SortOrder
     titleId?: SortOrder
   }
 
   export type DepartmentManagementsMaxOrderByAggregateInput = {
     id?: SortOrder
-    departmentId?: SortOrder
     divisionId?: SortOrder
+    departmentId?: SortOrder
     titleId?: SortOrder
-    isActive?: SortOrder
     isProfitCenter?: SortOrder
+    isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
@@ -12649,11 +12494,11 @@ export namespace Prisma {
 
   export type DepartmentManagementsMinOrderByAggregateInput = {
     id?: SortOrder
-    departmentId?: SortOrder
     divisionId?: SortOrder
+    departmentId?: SortOrder
     titleId?: SortOrder
-    isActive?: SortOrder
     isProfitCenter?: SortOrder
+    isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
@@ -12661,16 +12506,16 @@ export namespace Prisma {
 
   export type DepartmentManagementsSumOrderByAggregateInput = {
     id?: SortOrder
-    departmentId?: SortOrder
     divisionId?: SortOrder
+    departmentId?: SortOrder
     titleId?: SortOrder
   }
 
   export type TitleOfDepartMentsCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    isActive?: SortOrder
     isLeader?: SortOrder
+    isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
@@ -12683,8 +12528,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    isActive?: SortOrder
     isLeader?: SortOrder
+    isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
@@ -12693,8 +12538,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    isActive?: SortOrder
     isLeader?: SortOrder
+    isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
@@ -12704,42 +12549,61 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type TitleOfUsersCountOrderByAggregateInput = {
+  export type UserRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
+  export type DepartmentManagementsRelationFilter = {
+    is?: DepartmentManagementsWhereInput
+    isNot?: DepartmentManagementsWhereInput
+  }
+
+  export type UserIdentityCountOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    isActive?: SortOrder
-    isLeader?: SortOrder
+    userId?: SortOrder
+    divisionId?: SortOrder
+    titleOfDivisionId?: SortOrder
+    DepartmentManagementId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
   }
 
-  export type TitleOfUsersAvgOrderByAggregateInput = {
+  export type UserIdentityAvgOrderByAggregateInput = {
     id?: SortOrder
+    divisionId?: SortOrder
+    titleOfDivisionId?: SortOrder
+    DepartmentManagementId?: SortOrder
   }
 
-  export type TitleOfUsersMaxOrderByAggregateInput = {
+  export type UserIdentityMaxOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    isActive?: SortOrder
-    isLeader?: SortOrder
+    userId?: SortOrder
+    divisionId?: SortOrder
+    titleOfDivisionId?: SortOrder
+    DepartmentManagementId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
   }
 
-  export type TitleOfUsersMinOrderByAggregateInput = {
+  export type UserIdentityMinOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    isActive?: SortOrder
-    isLeader?: SortOrder
+    userId?: SortOrder
+    divisionId?: SortOrder
+    titleOfDivisionId?: SortOrder
+    DepartmentManagementId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
   }
 
-  export type TitleOfUsersSumOrderByAggregateInput = {
+  export type UserIdentitySumOrderByAggregateInput = {
     id?: SortOrder
+    divisionId?: SortOrder
+    titleOfDivisionId?: SortOrder
+    DepartmentManagementId?: SortOrder
   }
 
   export type RolesCreateNestedManyWithoutUserInput = {
@@ -12749,16 +12613,11 @@ export namespace Prisma {
     connect?: RolesWhereUniqueInput | RolesWhereUniqueInput[]
   }
 
-  export type DepartmentsCreateNestedManyWithoutUserInput = {
-    create?: XOR<DepartmentsCreateWithoutUserInput, DepartmentsUncheckedCreateWithoutUserInput> | DepartmentsCreateWithoutUserInput[] | DepartmentsUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: DepartmentsCreateOrConnectWithoutUserInput | DepartmentsCreateOrConnectWithoutUserInput[]
-    connect?: DepartmentsWhereUniqueInput | DepartmentsWhereUniqueInput[]
-  }
-
-  export type TitleOfUsersCreateNestedManyWithoutUserInput = {
-    create?: XOR<TitleOfUsersCreateWithoutUserInput, TitleOfUsersUncheckedCreateWithoutUserInput> | TitleOfUsersCreateWithoutUserInput[] | TitleOfUsersUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: TitleOfUsersCreateOrConnectWithoutUserInput | TitleOfUsersCreateOrConnectWithoutUserInput[]
-    connect?: TitleOfUsersWhereUniqueInput | TitleOfUsersWhereUniqueInput[]
+  export type UserIdentityCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserIdentityCreateWithoutUserInput, UserIdentityUncheckedCreateWithoutUserInput> | UserIdentityCreateWithoutUserInput[] | UserIdentityUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserIdentityCreateOrConnectWithoutUserInput | UserIdentityCreateOrConnectWithoutUserInput[]
+    createMany?: UserIdentityCreateManyUserInputEnvelope
+    connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
   }
 
   export type RolesUncheckedCreateNestedManyWithoutUserInput = {
@@ -12768,16 +12627,11 @@ export namespace Prisma {
     connect?: RolesWhereUniqueInput | RolesWhereUniqueInput[]
   }
 
-  export type DepartmentsUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<DepartmentsCreateWithoutUserInput, DepartmentsUncheckedCreateWithoutUserInput> | DepartmentsCreateWithoutUserInput[] | DepartmentsUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: DepartmentsCreateOrConnectWithoutUserInput | DepartmentsCreateOrConnectWithoutUserInput[]
-    connect?: DepartmentsWhereUniqueInput | DepartmentsWhereUniqueInput[]
-  }
-
-  export type TitleOfUsersUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<TitleOfUsersCreateWithoutUserInput, TitleOfUsersUncheckedCreateWithoutUserInput> | TitleOfUsersCreateWithoutUserInput[] | TitleOfUsersUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: TitleOfUsersCreateOrConnectWithoutUserInput | TitleOfUsersCreateOrConnectWithoutUserInput[]
-    connect?: TitleOfUsersWhereUniqueInput | TitleOfUsersWhereUniqueInput[]
+  export type UserIdentityUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<UserIdentityCreateWithoutUserInput, UserIdentityUncheckedCreateWithoutUserInput> | UserIdentityCreateWithoutUserInput[] | UserIdentityUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserIdentityCreateOrConnectWithoutUserInput | UserIdentityCreateOrConnectWithoutUserInput[]
+    createMany?: UserIdentityCreateManyUserInputEnvelope
+    connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -12818,30 +12672,18 @@ export namespace Prisma {
     deleteMany?: RolesScalarWhereInput | RolesScalarWhereInput[]
   }
 
-  export type DepartmentsUpdateManyWithoutUserNestedInput = {
-    create?: XOR<DepartmentsCreateWithoutUserInput, DepartmentsUncheckedCreateWithoutUserInput> | DepartmentsCreateWithoutUserInput[] | DepartmentsUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: DepartmentsCreateOrConnectWithoutUserInput | DepartmentsCreateOrConnectWithoutUserInput[]
-    upsert?: DepartmentsUpsertWithWhereUniqueWithoutUserInput | DepartmentsUpsertWithWhereUniqueWithoutUserInput[]
-    set?: DepartmentsWhereUniqueInput | DepartmentsWhereUniqueInput[]
-    disconnect?: DepartmentsWhereUniqueInput | DepartmentsWhereUniqueInput[]
-    delete?: DepartmentsWhereUniqueInput | DepartmentsWhereUniqueInput[]
-    connect?: DepartmentsWhereUniqueInput | DepartmentsWhereUniqueInput[]
-    update?: DepartmentsUpdateWithWhereUniqueWithoutUserInput | DepartmentsUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: DepartmentsUpdateManyWithWhereWithoutUserInput | DepartmentsUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: DepartmentsScalarWhereInput | DepartmentsScalarWhereInput[]
-  }
-
-  export type TitleOfUsersUpdateManyWithoutUserNestedInput = {
-    create?: XOR<TitleOfUsersCreateWithoutUserInput, TitleOfUsersUncheckedCreateWithoutUserInput> | TitleOfUsersCreateWithoutUserInput[] | TitleOfUsersUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: TitleOfUsersCreateOrConnectWithoutUserInput | TitleOfUsersCreateOrConnectWithoutUserInput[]
-    upsert?: TitleOfUsersUpsertWithWhereUniqueWithoutUserInput | TitleOfUsersUpsertWithWhereUniqueWithoutUserInput[]
-    set?: TitleOfUsersWhereUniqueInput | TitleOfUsersWhereUniqueInput[]
-    disconnect?: TitleOfUsersWhereUniqueInput | TitleOfUsersWhereUniqueInput[]
-    delete?: TitleOfUsersWhereUniqueInput | TitleOfUsersWhereUniqueInput[]
-    connect?: TitleOfUsersWhereUniqueInput | TitleOfUsersWhereUniqueInput[]
-    update?: TitleOfUsersUpdateWithWhereUniqueWithoutUserInput | TitleOfUsersUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: TitleOfUsersUpdateManyWithWhereWithoutUserInput | TitleOfUsersUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: TitleOfUsersScalarWhereInput | TitleOfUsersScalarWhereInput[]
+  export type UserIdentityUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserIdentityCreateWithoutUserInput, UserIdentityUncheckedCreateWithoutUserInput> | UserIdentityCreateWithoutUserInput[] | UserIdentityUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserIdentityCreateOrConnectWithoutUserInput | UserIdentityCreateOrConnectWithoutUserInput[]
+    upsert?: UserIdentityUpsertWithWhereUniqueWithoutUserInput | UserIdentityUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserIdentityCreateManyUserInputEnvelope
+    set?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    disconnect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    delete?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    update?: UserIdentityUpdateWithWhereUniqueWithoutUserInput | UserIdentityUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserIdentityUpdateManyWithWhereWithoutUserInput | UserIdentityUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserIdentityScalarWhereInput | UserIdentityScalarWhereInput[]
   }
 
   export type RolesUncheckedUpdateManyWithoutUserNestedInput = {
@@ -12858,30 +12700,18 @@ export namespace Prisma {
     deleteMany?: RolesScalarWhereInput | RolesScalarWhereInput[]
   }
 
-  export type DepartmentsUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<DepartmentsCreateWithoutUserInput, DepartmentsUncheckedCreateWithoutUserInput> | DepartmentsCreateWithoutUserInput[] | DepartmentsUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: DepartmentsCreateOrConnectWithoutUserInput | DepartmentsCreateOrConnectWithoutUserInput[]
-    upsert?: DepartmentsUpsertWithWhereUniqueWithoutUserInput | DepartmentsUpsertWithWhereUniqueWithoutUserInput[]
-    set?: DepartmentsWhereUniqueInput | DepartmentsWhereUniqueInput[]
-    disconnect?: DepartmentsWhereUniqueInput | DepartmentsWhereUniqueInput[]
-    delete?: DepartmentsWhereUniqueInput | DepartmentsWhereUniqueInput[]
-    connect?: DepartmentsWhereUniqueInput | DepartmentsWhereUniqueInput[]
-    update?: DepartmentsUpdateWithWhereUniqueWithoutUserInput | DepartmentsUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: DepartmentsUpdateManyWithWhereWithoutUserInput | DepartmentsUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: DepartmentsScalarWhereInput | DepartmentsScalarWhereInput[]
-  }
-
-  export type TitleOfUsersUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<TitleOfUsersCreateWithoutUserInput, TitleOfUsersUncheckedCreateWithoutUserInput> | TitleOfUsersCreateWithoutUserInput[] | TitleOfUsersUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: TitleOfUsersCreateOrConnectWithoutUserInput | TitleOfUsersCreateOrConnectWithoutUserInput[]
-    upsert?: TitleOfUsersUpsertWithWhereUniqueWithoutUserInput | TitleOfUsersUpsertWithWhereUniqueWithoutUserInput[]
-    set?: TitleOfUsersWhereUniqueInput | TitleOfUsersWhereUniqueInput[]
-    disconnect?: TitleOfUsersWhereUniqueInput | TitleOfUsersWhereUniqueInput[]
-    delete?: TitleOfUsersWhereUniqueInput | TitleOfUsersWhereUniqueInput[]
-    connect?: TitleOfUsersWhereUniqueInput | TitleOfUsersWhereUniqueInput[]
-    update?: TitleOfUsersUpdateWithWhereUniqueWithoutUserInput | TitleOfUsersUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: TitleOfUsersUpdateManyWithWhereWithoutUserInput | TitleOfUsersUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: TitleOfUsersScalarWhereInput | TitleOfUsersScalarWhereInput[]
+  export type UserIdentityUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<UserIdentityCreateWithoutUserInput, UserIdentityUncheckedCreateWithoutUserInput> | UserIdentityCreateWithoutUserInput[] | UserIdentityUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: UserIdentityCreateOrConnectWithoutUserInput | UserIdentityCreateOrConnectWithoutUserInput[]
+    upsert?: UserIdentityUpsertWithWhereUniqueWithoutUserInput | UserIdentityUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: UserIdentityCreateManyUserInputEnvelope
+    set?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    disconnect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    delete?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    update?: UserIdentityUpdateWithWhereUniqueWithoutUserInput | UserIdentityUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: UserIdentityUpdateManyWithWhereWithoutUserInput | UserIdentityUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: UserIdentityScalarWhereInput | UserIdentityScalarWhereInput[]
   }
 
   export type SubCategoryCreateNestedManyWithoutCategoryInput = {
@@ -12971,23 +12801,11 @@ export namespace Prisma {
     connect?: DepartmentManagementsWhereUniqueInput | DepartmentManagementsWhereUniqueInput[]
   }
 
-  export type UserCreateNestedManyWithoutDepartmentInput = {
-    create?: XOR<UserCreateWithoutDepartmentInput, UserUncheckedCreateWithoutDepartmentInput> | UserCreateWithoutDepartmentInput[] | UserUncheckedCreateWithoutDepartmentInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutDepartmentInput | UserCreateOrConnectWithoutDepartmentInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-  }
-
   export type DepartmentManagementsUncheckedCreateNestedManyWithoutDepartmentInput = {
     create?: XOR<DepartmentManagementsCreateWithoutDepartmentInput, DepartmentManagementsUncheckedCreateWithoutDepartmentInput> | DepartmentManagementsCreateWithoutDepartmentInput[] | DepartmentManagementsUncheckedCreateWithoutDepartmentInput[]
     connectOrCreate?: DepartmentManagementsCreateOrConnectWithoutDepartmentInput | DepartmentManagementsCreateOrConnectWithoutDepartmentInput[]
     createMany?: DepartmentManagementsCreateManyDepartmentInputEnvelope
     connect?: DepartmentManagementsWhereUniqueInput | DepartmentManagementsWhereUniqueInput[]
-  }
-
-  export type UserUncheckedCreateNestedManyWithoutDepartmentInput = {
-    create?: XOR<UserCreateWithoutDepartmentInput, UserUncheckedCreateWithoutDepartmentInput> | UserCreateWithoutDepartmentInput[] | UserUncheckedCreateWithoutDepartmentInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutDepartmentInput | UserCreateOrConnectWithoutDepartmentInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
   }
 
   export type DepartmentManagementsUpdateManyWithoutDepartmentNestedInput = {
@@ -13004,19 +12822,6 @@ export namespace Prisma {
     deleteMany?: DepartmentManagementsScalarWhereInput | DepartmentManagementsScalarWhereInput[]
   }
 
-  export type UserUpdateManyWithoutDepartmentNestedInput = {
-    create?: XOR<UserCreateWithoutDepartmentInput, UserUncheckedCreateWithoutDepartmentInput> | UserCreateWithoutDepartmentInput[] | UserUncheckedCreateWithoutDepartmentInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutDepartmentInput | UserCreateOrConnectWithoutDepartmentInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutDepartmentInput | UserUpsertWithWhereUniqueWithoutDepartmentInput[]
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutDepartmentInput | UserUpdateWithWhereUniqueWithoutDepartmentInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutDepartmentInput | UserUpdateManyWithWhereWithoutDepartmentInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
-  }
-
   export type DepartmentManagementsUncheckedUpdateManyWithoutDepartmentNestedInput = {
     create?: XOR<DepartmentManagementsCreateWithoutDepartmentInput, DepartmentManagementsUncheckedCreateWithoutDepartmentInput> | DepartmentManagementsCreateWithoutDepartmentInput[] | DepartmentManagementsUncheckedCreateWithoutDepartmentInput[]
     connectOrCreate?: DepartmentManagementsCreateOrConnectWithoutDepartmentInput | DepartmentManagementsCreateOrConnectWithoutDepartmentInput[]
@@ -13031,19 +12836,6 @@ export namespace Prisma {
     deleteMany?: DepartmentManagementsScalarWhereInput | DepartmentManagementsScalarWhereInput[]
   }
 
-  export type UserUncheckedUpdateManyWithoutDepartmentNestedInput = {
-    create?: XOR<UserCreateWithoutDepartmentInput, UserUncheckedCreateWithoutDepartmentInput> | UserCreateWithoutDepartmentInput[] | UserUncheckedCreateWithoutDepartmentInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutDepartmentInput | UserCreateOrConnectWithoutDepartmentInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutDepartmentInput | UserUpsertWithWhereUniqueWithoutDepartmentInput[]
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutDepartmentInput | UserUpdateWithWhereUniqueWithoutDepartmentInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutDepartmentInput | UserUpdateManyWithWhereWithoutDepartmentInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
-  }
-
   export type DepartmentsCreateNestedOneWithoutDepartmentManagementInput = {
     create?: XOR<DepartmentsCreateWithoutDepartmentManagementInput, DepartmentsUncheckedCreateWithoutDepartmentManagementInput>
     connectOrCreate?: DepartmentsCreateOrConnectWithoutDepartmentManagementInput
@@ -13054,6 +12846,20 @@ export namespace Prisma {
     create?: XOR<TitleOfDepartMentsCreateWithoutDepartmentManagementInput, TitleOfDepartMentsUncheckedCreateWithoutDepartmentManagementInput>
     connectOrCreate?: TitleOfDepartMentsCreateOrConnectWithoutDepartmentManagementInput
     connect?: TitleOfDepartMentsWhereUniqueInput
+  }
+
+  export type UserIdentityCreateNestedManyWithoutDepartmentManagementInput = {
+    create?: XOR<UserIdentityCreateWithoutDepartmentManagementInput, UserIdentityUncheckedCreateWithoutDepartmentManagementInput> | UserIdentityCreateWithoutDepartmentManagementInput[] | UserIdentityUncheckedCreateWithoutDepartmentManagementInput[]
+    connectOrCreate?: UserIdentityCreateOrConnectWithoutDepartmentManagementInput | UserIdentityCreateOrConnectWithoutDepartmentManagementInput[]
+    createMany?: UserIdentityCreateManyDepartmentManagementInputEnvelope
+    connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+  }
+
+  export type UserIdentityUncheckedCreateNestedManyWithoutDepartmentManagementInput = {
+    create?: XOR<UserIdentityCreateWithoutDepartmentManagementInput, UserIdentityUncheckedCreateWithoutDepartmentManagementInput> | UserIdentityCreateWithoutDepartmentManagementInput[] | UserIdentityUncheckedCreateWithoutDepartmentManagementInput[]
+    connectOrCreate?: UserIdentityCreateOrConnectWithoutDepartmentManagementInput | UserIdentityCreateOrConnectWithoutDepartmentManagementInput[]
+    createMany?: UserIdentityCreateManyDepartmentManagementInputEnvelope
+    connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
   }
 
   export type DepartmentsUpdateOneRequiredWithoutDepartmentManagementNestedInput = {
@@ -13070,6 +12876,34 @@ export namespace Prisma {
     upsert?: TitleOfDepartMentsUpsertWithoutDepartmentManagementInput
     connect?: TitleOfDepartMentsWhereUniqueInput
     update?: XOR<XOR<TitleOfDepartMentsUpdateToOneWithWhereWithoutDepartmentManagementInput, TitleOfDepartMentsUpdateWithoutDepartmentManagementInput>, TitleOfDepartMentsUncheckedUpdateWithoutDepartmentManagementInput>
+  }
+
+  export type UserIdentityUpdateManyWithoutDepartmentManagementNestedInput = {
+    create?: XOR<UserIdentityCreateWithoutDepartmentManagementInput, UserIdentityUncheckedCreateWithoutDepartmentManagementInput> | UserIdentityCreateWithoutDepartmentManagementInput[] | UserIdentityUncheckedCreateWithoutDepartmentManagementInput[]
+    connectOrCreate?: UserIdentityCreateOrConnectWithoutDepartmentManagementInput | UserIdentityCreateOrConnectWithoutDepartmentManagementInput[]
+    upsert?: UserIdentityUpsertWithWhereUniqueWithoutDepartmentManagementInput | UserIdentityUpsertWithWhereUniqueWithoutDepartmentManagementInput[]
+    createMany?: UserIdentityCreateManyDepartmentManagementInputEnvelope
+    set?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    disconnect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    delete?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    update?: UserIdentityUpdateWithWhereUniqueWithoutDepartmentManagementInput | UserIdentityUpdateWithWhereUniqueWithoutDepartmentManagementInput[]
+    updateMany?: UserIdentityUpdateManyWithWhereWithoutDepartmentManagementInput | UserIdentityUpdateManyWithWhereWithoutDepartmentManagementInput[]
+    deleteMany?: UserIdentityScalarWhereInput | UserIdentityScalarWhereInput[]
+  }
+
+  export type UserIdentityUncheckedUpdateManyWithoutDepartmentManagementNestedInput = {
+    create?: XOR<UserIdentityCreateWithoutDepartmentManagementInput, UserIdentityUncheckedCreateWithoutDepartmentManagementInput> | UserIdentityCreateWithoutDepartmentManagementInput[] | UserIdentityUncheckedCreateWithoutDepartmentManagementInput[]
+    connectOrCreate?: UserIdentityCreateOrConnectWithoutDepartmentManagementInput | UserIdentityCreateOrConnectWithoutDepartmentManagementInput[]
+    upsert?: UserIdentityUpsertWithWhereUniqueWithoutDepartmentManagementInput | UserIdentityUpsertWithWhereUniqueWithoutDepartmentManagementInput[]
+    createMany?: UserIdentityCreateManyDepartmentManagementInputEnvelope
+    set?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    disconnect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    delete?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    update?: UserIdentityUpdateWithWhereUniqueWithoutDepartmentManagementInput | UserIdentityUpdateWithWhereUniqueWithoutDepartmentManagementInput[]
+    updateMany?: UserIdentityUpdateManyWithWhereWithoutDepartmentManagementInput | UserIdentityUpdateManyWithWhereWithoutDepartmentManagementInput[]
+    deleteMany?: UserIdentityScalarWhereInput | UserIdentityScalarWhereInput[]
   }
 
   export type DepartmentManagementsCreateNestedManyWithoutTitleInput = {
@@ -13114,42 +12948,32 @@ export namespace Prisma {
     deleteMany?: DepartmentManagementsScalarWhereInput | DepartmentManagementsScalarWhereInput[]
   }
 
-  export type UserCreateNestedManyWithoutTitleInput = {
-    create?: XOR<UserCreateWithoutTitleInput, UserUncheckedCreateWithoutTitleInput> | UserCreateWithoutTitleInput[] | UserUncheckedCreateWithoutTitleInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutTitleInput | UserCreateOrConnectWithoutTitleInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  export type UserCreateNestedOneWithoutUserIdentityInput = {
+    create?: XOR<UserCreateWithoutUserIdentityInput, UserUncheckedCreateWithoutUserIdentityInput>
+    connectOrCreate?: UserCreateOrConnectWithoutUserIdentityInput
+    connect?: UserWhereUniqueInput
   }
 
-  export type UserUncheckedCreateNestedManyWithoutTitleInput = {
-    create?: XOR<UserCreateWithoutTitleInput, UserUncheckedCreateWithoutTitleInput> | UserCreateWithoutTitleInput[] | UserUncheckedCreateWithoutTitleInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutTitleInput | UserCreateOrConnectWithoutTitleInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
+  export type DepartmentManagementsCreateNestedOneWithoutUserIdentityInput = {
+    create?: XOR<DepartmentManagementsCreateWithoutUserIdentityInput, DepartmentManagementsUncheckedCreateWithoutUserIdentityInput>
+    connectOrCreate?: DepartmentManagementsCreateOrConnectWithoutUserIdentityInput
+    connect?: DepartmentManagementsWhereUniqueInput
   }
 
-  export type UserUpdateManyWithoutTitleNestedInput = {
-    create?: XOR<UserCreateWithoutTitleInput, UserUncheckedCreateWithoutTitleInput> | UserCreateWithoutTitleInput[] | UserUncheckedCreateWithoutTitleInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutTitleInput | UserCreateOrConnectWithoutTitleInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutTitleInput | UserUpsertWithWhereUniqueWithoutTitleInput[]
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutTitleInput | UserUpdateWithWhereUniqueWithoutTitleInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutTitleInput | UserUpdateManyWithWhereWithoutTitleInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  export type UserUpdateOneRequiredWithoutUserIdentityNestedInput = {
+    create?: XOR<UserCreateWithoutUserIdentityInput, UserUncheckedCreateWithoutUserIdentityInput>
+    connectOrCreate?: UserCreateOrConnectWithoutUserIdentityInput
+    upsert?: UserUpsertWithoutUserIdentityInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutUserIdentityInput, UserUpdateWithoutUserIdentityInput>, UserUncheckedUpdateWithoutUserIdentityInput>
   }
 
-  export type UserUncheckedUpdateManyWithoutTitleNestedInput = {
-    create?: XOR<UserCreateWithoutTitleInput, UserUncheckedCreateWithoutTitleInput> | UserCreateWithoutTitleInput[] | UserUncheckedCreateWithoutTitleInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutTitleInput | UserCreateOrConnectWithoutTitleInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutTitleInput | UserUpsertWithWhereUniqueWithoutTitleInput[]
-    set?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-    update?: UserUpdateWithWhereUniqueWithoutTitleInput | UserUpdateWithWhereUniqueWithoutTitleInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutTitleInput | UserUpdateManyWithWhereWithoutTitleInput[]
-    deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
+  export type DepartmentManagementsUpdateOneRequiredWithoutUserIdentityNestedInput = {
+    create?: XOR<DepartmentManagementsCreateWithoutUserIdentityInput, DepartmentManagementsUncheckedCreateWithoutUserIdentityInput>
+    connectOrCreate?: DepartmentManagementsCreateOrConnectWithoutUserIdentityInput
+    upsert?: DepartmentManagementsUpsertWithoutUserIdentityInput
+    connect?: DepartmentManagementsWhereUniqueInput
+    update?: XOR<XOR<DepartmentManagementsUpdateToOneWithWhereWithoutUserIdentityInput, DepartmentManagementsUpdateWithoutUserIdentityInput>, DepartmentManagementsUncheckedUpdateWithoutUserIdentityInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -13366,52 +13190,33 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type DepartmentsCreateWithoutUserInput = {
-    name: string
-    isActive?: boolean
+  export type UserIdentityCreateWithoutUserInput = {
+    divisionId: number
+    titleOfDivisionId: number
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    DepartmentManagement?: DepartmentManagementsCreateNestedManyWithoutDepartmentInput
+    DepartmentManagement: DepartmentManagementsCreateNestedOneWithoutUserIdentityInput
   }
 
-  export type DepartmentsUncheckedCreateWithoutUserInput = {
+  export type UserIdentityUncheckedCreateWithoutUserInput = {
     id?: number
-    name: string
-    isActive?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    deletedAt?: Date | string | null
-    DepartmentManagement?: DepartmentManagementsUncheckedCreateNestedManyWithoutDepartmentInput
-  }
-
-  export type DepartmentsCreateOrConnectWithoutUserInput = {
-    where: DepartmentsWhereUniqueInput
-    create: XOR<DepartmentsCreateWithoutUserInput, DepartmentsUncheckedCreateWithoutUserInput>
-  }
-
-  export type TitleOfUsersCreateWithoutUserInput = {
-    name: string
-    isActive?: boolean
-    isLeader?: boolean
+    divisionId: number
+    titleOfDivisionId: number
+    DepartmentManagementId: number
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
   }
 
-  export type TitleOfUsersUncheckedCreateWithoutUserInput = {
-    id?: number
-    name: string
-    isActive?: boolean
-    isLeader?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    deletedAt?: Date | string | null
+  export type UserIdentityCreateOrConnectWithoutUserInput = {
+    where: UserIdentityWhereUniqueInput
+    create: XOR<UserIdentityCreateWithoutUserInput, UserIdentityUncheckedCreateWithoutUserInput>
   }
 
-  export type TitleOfUsersCreateOrConnectWithoutUserInput = {
-    where: TitleOfUsersWhereUniqueInput
-    create: XOR<TitleOfUsersCreateWithoutUserInput, TitleOfUsersUncheckedCreateWithoutUserInput>
+  export type UserIdentityCreateManyUserInputEnvelope = {
+    data: UserIdentityCreateManyUserInput | UserIdentityCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type RolesUpsertWithWhereUniqueWithoutUserInput = {
@@ -13443,61 +13248,34 @@ export namespace Prisma {
     userId?: StringNullableFilter<"Roles"> | string | null
   }
 
-  export type DepartmentsUpsertWithWhereUniqueWithoutUserInput = {
-    where: DepartmentsWhereUniqueInput
-    update: XOR<DepartmentsUpdateWithoutUserInput, DepartmentsUncheckedUpdateWithoutUserInput>
-    create: XOR<DepartmentsCreateWithoutUserInput, DepartmentsUncheckedCreateWithoutUserInput>
+  export type UserIdentityUpsertWithWhereUniqueWithoutUserInput = {
+    where: UserIdentityWhereUniqueInput
+    update: XOR<UserIdentityUpdateWithoutUserInput, UserIdentityUncheckedUpdateWithoutUserInput>
+    create: XOR<UserIdentityCreateWithoutUserInput, UserIdentityUncheckedCreateWithoutUserInput>
   }
 
-  export type DepartmentsUpdateWithWhereUniqueWithoutUserInput = {
-    where: DepartmentsWhereUniqueInput
-    data: XOR<DepartmentsUpdateWithoutUserInput, DepartmentsUncheckedUpdateWithoutUserInput>
+  export type UserIdentityUpdateWithWhereUniqueWithoutUserInput = {
+    where: UserIdentityWhereUniqueInput
+    data: XOR<UserIdentityUpdateWithoutUserInput, UserIdentityUncheckedUpdateWithoutUserInput>
   }
 
-  export type DepartmentsUpdateManyWithWhereWithoutUserInput = {
-    where: DepartmentsScalarWhereInput
-    data: XOR<DepartmentsUpdateManyMutationInput, DepartmentsUncheckedUpdateManyWithoutUserInput>
+  export type UserIdentityUpdateManyWithWhereWithoutUserInput = {
+    where: UserIdentityScalarWhereInput
+    data: XOR<UserIdentityUpdateManyMutationInput, UserIdentityUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type DepartmentsScalarWhereInput = {
-    AND?: DepartmentsScalarWhereInput | DepartmentsScalarWhereInput[]
-    OR?: DepartmentsScalarWhereInput[]
-    NOT?: DepartmentsScalarWhereInput | DepartmentsScalarWhereInput[]
-    id?: IntFilter<"Departments"> | number
-    name?: StringFilter<"Departments"> | string
-    isActive?: BoolFilter<"Departments"> | boolean
-    createdAt?: DateTimeFilter<"Departments"> | Date | string
-    updatedAt?: DateTimeFilter<"Departments"> | Date | string
-    deletedAt?: DateTimeNullableFilter<"Departments"> | Date | string | null
-  }
-
-  export type TitleOfUsersUpsertWithWhereUniqueWithoutUserInput = {
-    where: TitleOfUsersWhereUniqueInput
-    update: XOR<TitleOfUsersUpdateWithoutUserInput, TitleOfUsersUncheckedUpdateWithoutUserInput>
-    create: XOR<TitleOfUsersCreateWithoutUserInput, TitleOfUsersUncheckedCreateWithoutUserInput>
-  }
-
-  export type TitleOfUsersUpdateWithWhereUniqueWithoutUserInput = {
-    where: TitleOfUsersWhereUniqueInput
-    data: XOR<TitleOfUsersUpdateWithoutUserInput, TitleOfUsersUncheckedUpdateWithoutUserInput>
-  }
-
-  export type TitleOfUsersUpdateManyWithWhereWithoutUserInput = {
-    where: TitleOfUsersScalarWhereInput
-    data: XOR<TitleOfUsersUpdateManyMutationInput, TitleOfUsersUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type TitleOfUsersScalarWhereInput = {
-    AND?: TitleOfUsersScalarWhereInput | TitleOfUsersScalarWhereInput[]
-    OR?: TitleOfUsersScalarWhereInput[]
-    NOT?: TitleOfUsersScalarWhereInput | TitleOfUsersScalarWhereInput[]
-    id?: IntFilter<"TitleOfUsers"> | number
-    name?: StringFilter<"TitleOfUsers"> | string
-    isActive?: BoolFilter<"TitleOfUsers"> | boolean
-    isLeader?: BoolFilter<"TitleOfUsers"> | boolean
-    createdAt?: DateTimeFilter<"TitleOfUsers"> | Date | string
-    updatedAt?: DateTimeFilter<"TitleOfUsers"> | Date | string
-    deletedAt?: DateTimeNullableFilter<"TitleOfUsers"> | Date | string | null
+  export type UserIdentityScalarWhereInput = {
+    AND?: UserIdentityScalarWhereInput | UserIdentityScalarWhereInput[]
+    OR?: UserIdentityScalarWhereInput[]
+    NOT?: UserIdentityScalarWhereInput | UserIdentityScalarWhereInput[]
+    id?: IntFilter<"UserIdentity"> | number
+    userId?: StringFilter<"UserIdentity"> | string
+    divisionId?: IntFilter<"UserIdentity"> | number
+    titleOfDivisionId?: IntFilter<"UserIdentity"> | number
+    DepartmentManagementId?: IntFilter<"UserIdentity"> | number
+    createdAt?: DateTimeFilter<"UserIdentity"> | Date | string
+    updatedAt?: DateTimeFilter<"UserIdentity"> | Date | string
+    deletedAt?: DateTimeNullableFilter<"UserIdentity"> | Date | string | null
   }
 
   export type SubCategoryCreateWithoutCategoryInput = {
@@ -13612,15 +13390,11 @@ export namespace Prisma {
     name: string
     phoneNumber: string
     roleId?: number
-    departmentId?: number
-    divisionId?: number
-    titleId?: number
     isActive?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    Department?: DepartmentsCreateNestedManyWithoutUserInput
-    Title?: TitleOfUsersCreateNestedManyWithoutUserInput
+    UserIdentity?: UserIdentityCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutRolesInput = {
@@ -13629,15 +13403,11 @@ export namespace Prisma {
     name: string
     phoneNumber: string
     roleId?: number
-    departmentId?: number
-    divisionId?: number
-    titleId?: number
     isActive?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    Department?: DepartmentsUncheckedCreateNestedManyWithoutUserInput
-    Title?: TitleOfUsersUncheckedCreateNestedManyWithoutUserInput
+    UserIdentity?: UserIdentityUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutRolesInput = {
@@ -13662,15 +13432,11 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     roleId?: IntFieldUpdateOperationsInput | number
-    departmentId?: IntFieldUpdateOperationsInput | number
-    divisionId?: IntFieldUpdateOperationsInput | number
-    titleId?: IntFieldUpdateOperationsInput | number
     isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    Department?: DepartmentsUpdateManyWithoutUserNestedInput
-    Title?: TitleOfUsersUpdateManyWithoutUserNestedInput
+    UserIdentity?: UserIdentityUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutRolesInput = {
@@ -13679,36 +13445,34 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     roleId?: IntFieldUpdateOperationsInput | number
-    departmentId?: IntFieldUpdateOperationsInput | number
-    divisionId?: IntFieldUpdateOperationsInput | number
-    titleId?: IntFieldUpdateOperationsInput | number
     isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    Department?: DepartmentsUncheckedUpdateManyWithoutUserNestedInput
-    Title?: TitleOfUsersUncheckedUpdateManyWithoutUserNestedInput
+    UserIdentity?: UserIdentityUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type DepartmentManagementsCreateWithoutDepartmentInput = {
     divisionId: number
-    isActive?: boolean
     isProfitCenter?: boolean
+    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
     title: TitleOfDepartMentsCreateNestedOneWithoutDepartmentManagementInput
+    UserIdentity?: UserIdentityCreateNestedManyWithoutDepartmentManagementInput
   }
 
   export type DepartmentManagementsUncheckedCreateWithoutDepartmentInput = {
     id?: number
     divisionId: number
     titleId: number
-    isActive?: boolean
     isProfitCenter?: boolean
+    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
+    UserIdentity?: UserIdentityUncheckedCreateNestedManyWithoutDepartmentManagementInput
   }
 
   export type DepartmentManagementsCreateOrConnectWithoutDepartmentInput = {
@@ -13719,45 +13483,6 @@ export namespace Prisma {
   export type DepartmentManagementsCreateManyDepartmentInputEnvelope = {
     data: DepartmentManagementsCreateManyDepartmentInput | DepartmentManagementsCreateManyDepartmentInput[]
     skipDuplicates?: boolean
-  }
-
-  export type UserCreateWithoutDepartmentInput = {
-    id: string
-    email: string
-    name: string
-    phoneNumber: string
-    roleId?: number
-    departmentId?: number
-    divisionId?: number
-    titleId?: number
-    isActive?: boolean | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    deletedAt?: Date | string | null
-    Roles?: RolesCreateNestedManyWithoutUserInput
-    Title?: TitleOfUsersCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutDepartmentInput = {
-    id: string
-    email: string
-    name: string
-    phoneNumber: string
-    roleId?: number
-    departmentId?: number
-    divisionId?: number
-    titleId?: number
-    isActive?: boolean | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    deletedAt?: Date | string | null
-    Roles?: RolesUncheckedCreateNestedManyWithoutUserInput
-    Title?: TitleOfUsersUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutDepartmentInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutDepartmentInput, UserUncheckedCreateWithoutDepartmentInput>
   }
 
   export type DepartmentManagementsUpsertWithWhereUniqueWithoutDepartmentInput = {
@@ -13781,48 +13506,14 @@ export namespace Prisma {
     OR?: DepartmentManagementsScalarWhereInput[]
     NOT?: DepartmentManagementsScalarWhereInput | DepartmentManagementsScalarWhereInput[]
     id?: IntFilter<"DepartmentManagements"> | number
-    departmentId?: IntFilter<"DepartmentManagements"> | number
     divisionId?: IntFilter<"DepartmentManagements"> | number
+    departmentId?: IntFilter<"DepartmentManagements"> | number
     titleId?: IntFilter<"DepartmentManagements"> | number
-    isActive?: BoolFilter<"DepartmentManagements"> | boolean
     isProfitCenter?: BoolFilter<"DepartmentManagements"> | boolean
+    isActive?: BoolFilter<"DepartmentManagements"> | boolean
     createdAt?: DateTimeFilter<"DepartmentManagements"> | Date | string
     updatedAt?: DateTimeFilter<"DepartmentManagements"> | Date | string
     deletedAt?: DateTimeNullableFilter<"DepartmentManagements"> | Date | string | null
-  }
-
-  export type UserUpsertWithWhereUniqueWithoutDepartmentInput = {
-    where: UserWhereUniqueInput
-    update: XOR<UserUpdateWithoutDepartmentInput, UserUncheckedUpdateWithoutDepartmentInput>
-    create: XOR<UserCreateWithoutDepartmentInput, UserUncheckedCreateWithoutDepartmentInput>
-  }
-
-  export type UserUpdateWithWhereUniqueWithoutDepartmentInput = {
-    where: UserWhereUniqueInput
-    data: XOR<UserUpdateWithoutDepartmentInput, UserUncheckedUpdateWithoutDepartmentInput>
-  }
-
-  export type UserUpdateManyWithWhereWithoutDepartmentInput = {
-    where: UserScalarWhereInput
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutDepartmentInput>
-  }
-
-  export type UserScalarWhereInput = {
-    AND?: UserScalarWhereInput | UserScalarWhereInput[]
-    OR?: UserScalarWhereInput[]
-    NOT?: UserScalarWhereInput | UserScalarWhereInput[]
-    id?: StringFilter<"User"> | string
-    email?: StringFilter<"User"> | string
-    name?: StringFilter<"User"> | string
-    phoneNumber?: StringFilter<"User"> | string
-    roleId?: IntFilter<"User"> | number
-    departmentId?: IntFilter<"User"> | number
-    divisionId?: IntFilter<"User"> | number
-    titleId?: IntFilter<"User"> | number
-    isActive?: BoolNullableFilter<"User"> | boolean | null
-    createdAt?: DateTimeFilter<"User"> | Date | string
-    updatedAt?: DateTimeFilter<"User"> | Date | string
-    deletedAt?: DateTimeNullableFilter<"User"> | Date | string | null
   }
 
   export type DepartmentsCreateWithoutDepartmentManagementInput = {
@@ -13831,7 +13522,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    User?: UserCreateNestedManyWithoutDepartmentInput
   }
 
   export type DepartmentsUncheckedCreateWithoutDepartmentManagementInput = {
@@ -13841,7 +13531,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    User?: UserUncheckedCreateNestedManyWithoutDepartmentInput
   }
 
   export type DepartmentsCreateOrConnectWithoutDepartmentManagementInput = {
@@ -13851,8 +13540,8 @@ export namespace Prisma {
 
   export type TitleOfDepartMentsCreateWithoutDepartmentManagementInput = {
     name: string
-    isActive?: boolean
     isLeader?: boolean
+    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -13861,8 +13550,8 @@ export namespace Prisma {
   export type TitleOfDepartMentsUncheckedCreateWithoutDepartmentManagementInput = {
     id?: number
     name: string
-    isActive?: boolean
     isLeader?: boolean
+    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -13871,6 +13560,35 @@ export namespace Prisma {
   export type TitleOfDepartMentsCreateOrConnectWithoutDepartmentManagementInput = {
     where: TitleOfDepartMentsWhereUniqueInput
     create: XOR<TitleOfDepartMentsCreateWithoutDepartmentManagementInput, TitleOfDepartMentsUncheckedCreateWithoutDepartmentManagementInput>
+  }
+
+  export type UserIdentityCreateWithoutDepartmentManagementInput = {
+    divisionId: number
+    titleOfDivisionId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    User: UserCreateNestedOneWithoutUserIdentityInput
+  }
+
+  export type UserIdentityUncheckedCreateWithoutDepartmentManagementInput = {
+    id?: number
+    userId: string
+    divisionId: number
+    titleOfDivisionId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type UserIdentityCreateOrConnectWithoutDepartmentManagementInput = {
+    where: UserIdentityWhereUniqueInput
+    create: XOR<UserIdentityCreateWithoutDepartmentManagementInput, UserIdentityUncheckedCreateWithoutDepartmentManagementInput>
+  }
+
+  export type UserIdentityCreateManyDepartmentManagementInputEnvelope = {
+    data: UserIdentityCreateManyDepartmentManagementInput | UserIdentityCreateManyDepartmentManagementInput[]
+    skipDuplicates?: boolean
   }
 
   export type DepartmentsUpsertWithoutDepartmentManagementInput = {
@@ -13890,7 +13608,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    User?: UserUpdateManyWithoutDepartmentNestedInput
   }
 
   export type DepartmentsUncheckedUpdateWithoutDepartmentManagementInput = {
@@ -13900,7 +13617,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    User?: UserUncheckedUpdateManyWithoutDepartmentNestedInput
   }
 
   export type TitleOfDepartMentsUpsertWithoutDepartmentManagementInput = {
@@ -13916,8 +13632,8 @@ export namespace Prisma {
 
   export type TitleOfDepartMentsUpdateWithoutDepartmentManagementInput = {
     name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     isLeader?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -13926,32 +13642,50 @@ export namespace Prisma {
   export type TitleOfDepartMentsUncheckedUpdateWithoutDepartmentManagementInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     isLeader?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type UserIdentityUpsertWithWhereUniqueWithoutDepartmentManagementInput = {
+    where: UserIdentityWhereUniqueInput
+    update: XOR<UserIdentityUpdateWithoutDepartmentManagementInput, UserIdentityUncheckedUpdateWithoutDepartmentManagementInput>
+    create: XOR<UserIdentityCreateWithoutDepartmentManagementInput, UserIdentityUncheckedCreateWithoutDepartmentManagementInput>
+  }
+
+  export type UserIdentityUpdateWithWhereUniqueWithoutDepartmentManagementInput = {
+    where: UserIdentityWhereUniqueInput
+    data: XOR<UserIdentityUpdateWithoutDepartmentManagementInput, UserIdentityUncheckedUpdateWithoutDepartmentManagementInput>
+  }
+
+  export type UserIdentityUpdateManyWithWhereWithoutDepartmentManagementInput = {
+    where: UserIdentityScalarWhereInput
+    data: XOR<UserIdentityUpdateManyMutationInput, UserIdentityUncheckedUpdateManyWithoutDepartmentManagementInput>
+  }
+
   export type DepartmentManagementsCreateWithoutTitleInput = {
     divisionId: number
-    isActive?: boolean
     isProfitCenter?: boolean
+    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
     department: DepartmentsCreateNestedOneWithoutDepartmentManagementInput
+    UserIdentity?: UserIdentityCreateNestedManyWithoutDepartmentManagementInput
   }
 
   export type DepartmentManagementsUncheckedCreateWithoutTitleInput = {
     id?: number
-    departmentId: number
     divisionId: number
-    isActive?: boolean
+    departmentId: number
     isProfitCenter?: boolean
+    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
+    UserIdentity?: UserIdentityUncheckedCreateNestedManyWithoutDepartmentManagementInput
   }
 
   export type DepartmentManagementsCreateOrConnectWithoutTitleInput = {
@@ -13980,65 +13714,150 @@ export namespace Prisma {
     data: XOR<DepartmentManagementsUpdateManyMutationInput, DepartmentManagementsUncheckedUpdateManyWithoutTitleInput>
   }
 
-  export type UserCreateWithoutTitleInput = {
+  export type UserCreateWithoutUserIdentityInput = {
     id: string
     email: string
     name: string
     phoneNumber: string
     roleId?: number
-    departmentId?: number
-    divisionId?: number
-    titleId?: number
     isActive?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
     Roles?: RolesCreateNestedManyWithoutUserInput
-    Department?: DepartmentsCreateNestedManyWithoutUserInput
   }
 
-  export type UserUncheckedCreateWithoutTitleInput = {
+  export type UserUncheckedCreateWithoutUserIdentityInput = {
     id: string
     email: string
     name: string
     phoneNumber: string
     roleId?: number
-    departmentId?: number
-    divisionId?: number
-    titleId?: number
     isActive?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
     Roles?: RolesUncheckedCreateNestedManyWithoutUserInput
-    Department?: DepartmentsUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserCreateOrConnectWithoutTitleInput = {
+  export type UserCreateOrConnectWithoutUserIdentityInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutTitleInput, UserUncheckedCreateWithoutTitleInput>
+    create: XOR<UserCreateWithoutUserIdentityInput, UserUncheckedCreateWithoutUserIdentityInput>
   }
 
-  export type UserUpsertWithWhereUniqueWithoutTitleInput = {
-    where: UserWhereUniqueInput
-    update: XOR<UserUpdateWithoutTitleInput, UserUncheckedUpdateWithoutTitleInput>
-    create: XOR<UserCreateWithoutTitleInput, UserUncheckedCreateWithoutTitleInput>
+  export type DepartmentManagementsCreateWithoutUserIdentityInput = {
+    divisionId: number
+    isProfitCenter?: boolean
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    department: DepartmentsCreateNestedOneWithoutDepartmentManagementInput
+    title: TitleOfDepartMentsCreateNestedOneWithoutDepartmentManagementInput
   }
 
-  export type UserUpdateWithWhereUniqueWithoutTitleInput = {
-    where: UserWhereUniqueInput
-    data: XOR<UserUpdateWithoutTitleInput, UserUncheckedUpdateWithoutTitleInput>
+  export type DepartmentManagementsUncheckedCreateWithoutUserIdentityInput = {
+    id?: number
+    divisionId: number
+    departmentId: number
+    titleId: number
+    isProfitCenter?: boolean
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
   }
 
-  export type UserUpdateManyWithWhereWithoutTitleInput = {
-    where: UserScalarWhereInput
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutTitleInput>
+  export type DepartmentManagementsCreateOrConnectWithoutUserIdentityInput = {
+    where: DepartmentManagementsWhereUniqueInput
+    create: XOR<DepartmentManagementsCreateWithoutUserIdentityInput, DepartmentManagementsUncheckedCreateWithoutUserIdentityInput>
+  }
+
+  export type UserUpsertWithoutUserIdentityInput = {
+    update: XOR<UserUpdateWithoutUserIdentityInput, UserUncheckedUpdateWithoutUserIdentityInput>
+    create: XOR<UserCreateWithoutUserIdentityInput, UserUncheckedCreateWithoutUserIdentityInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutUserIdentityInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutUserIdentityInput, UserUncheckedUpdateWithoutUserIdentityInput>
+  }
+
+  export type UserUpdateWithoutUserIdentityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    roleId?: IntFieldUpdateOperationsInput | number
+    isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Roles?: RolesUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutUserIdentityInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    roleId?: IntFieldUpdateOperationsInput | number
+    isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Roles?: RolesUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type DepartmentManagementsUpsertWithoutUserIdentityInput = {
+    update: XOR<DepartmentManagementsUpdateWithoutUserIdentityInput, DepartmentManagementsUncheckedUpdateWithoutUserIdentityInput>
+    create: XOR<DepartmentManagementsCreateWithoutUserIdentityInput, DepartmentManagementsUncheckedCreateWithoutUserIdentityInput>
+    where?: DepartmentManagementsWhereInput
+  }
+
+  export type DepartmentManagementsUpdateToOneWithWhereWithoutUserIdentityInput = {
+    where?: DepartmentManagementsWhereInput
+    data: XOR<DepartmentManagementsUpdateWithoutUserIdentityInput, DepartmentManagementsUncheckedUpdateWithoutUserIdentityInput>
+  }
+
+  export type DepartmentManagementsUpdateWithoutUserIdentityInput = {
+    divisionId?: IntFieldUpdateOperationsInput | number
+    isProfitCenter?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    department?: DepartmentsUpdateOneRequiredWithoutDepartmentManagementNestedInput
+    title?: TitleOfDepartMentsUpdateOneRequiredWithoutDepartmentManagementNestedInput
+  }
+
+  export type DepartmentManagementsUncheckedUpdateWithoutUserIdentityInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    divisionId?: IntFieldUpdateOperationsInput | number
+    departmentId?: IntFieldUpdateOperationsInput | number
+    titleId?: IntFieldUpdateOperationsInput | number
+    isProfitCenter?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type RolesCreateManyUserInput = {
     id?: number
     name: string
     isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type UserIdentityCreateManyUserInput = {
+    id?: number
+    divisionId: number
+    titleOfDivisionId: number
+    DepartmentManagementId: number
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -14070,58 +13889,30 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type DepartmentsUpdateWithoutUserInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
+  export type UserIdentityUpdateWithoutUserInput = {
+    divisionId?: IntFieldUpdateOperationsInput | number
+    titleOfDivisionId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    DepartmentManagement?: DepartmentManagementsUpdateManyWithoutDepartmentNestedInput
+    DepartmentManagement?: DepartmentManagementsUpdateOneRequiredWithoutUserIdentityNestedInput
   }
 
-  export type DepartmentsUncheckedUpdateWithoutUserInput = {
+  export type UserIdentityUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
+    divisionId?: IntFieldUpdateOperationsInput | number
+    titleOfDivisionId?: IntFieldUpdateOperationsInput | number
+    DepartmentManagementId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    DepartmentManagement?: DepartmentManagementsUncheckedUpdateManyWithoutDepartmentNestedInput
   }
 
-  export type DepartmentsUncheckedUpdateManyWithoutUserInput = {
+  export type UserIdentityUncheckedUpdateManyWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type TitleOfUsersUpdateWithoutUserInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
-    isLeader?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type TitleOfUsersUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
-    isLeader?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type TitleOfUsersUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
-    isLeader?: BoolFieldUpdateOperationsInput | boolean
+    divisionId?: IntFieldUpdateOperationsInput | number
+    titleOfDivisionId?: IntFieldUpdateOperationsInput | number
+    DepartmentManagementId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -14166,8 +13957,8 @@ export namespace Prisma {
     id?: number
     divisionId: number
     titleId: number
-    isActive?: boolean
     isProfitCenter?: boolean
+    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -14175,80 +13966,72 @@ export namespace Prisma {
 
   export type DepartmentManagementsUpdateWithoutDepartmentInput = {
     divisionId?: IntFieldUpdateOperationsInput | number
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     isProfitCenter?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     title?: TitleOfDepartMentsUpdateOneRequiredWithoutDepartmentManagementNestedInput
+    UserIdentity?: UserIdentityUpdateManyWithoutDepartmentManagementNestedInput
   }
 
   export type DepartmentManagementsUncheckedUpdateWithoutDepartmentInput = {
     id?: IntFieldUpdateOperationsInput | number
     divisionId?: IntFieldUpdateOperationsInput | number
     titleId?: IntFieldUpdateOperationsInput | number
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     isProfitCenter?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UserIdentity?: UserIdentityUncheckedUpdateManyWithoutDepartmentManagementNestedInput
   }
 
   export type DepartmentManagementsUncheckedUpdateManyWithoutDepartmentInput = {
     id?: IntFieldUpdateOperationsInput | number
     divisionId?: IntFieldUpdateOperationsInput | number
     titleId?: IntFieldUpdateOperationsInput | number
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     isProfitCenter?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type UserUpdateWithoutDepartmentInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    roleId?: IntFieldUpdateOperationsInput | number
-    departmentId?: IntFieldUpdateOperationsInput | number
+  export type UserIdentityCreateManyDepartmentManagementInput = {
+    id?: number
+    userId: string
+    divisionId: number
+    titleOfDivisionId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type UserIdentityUpdateWithoutDepartmentManagementInput = {
     divisionId?: IntFieldUpdateOperationsInput | number
-    titleId?: IntFieldUpdateOperationsInput | number
-    isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    titleOfDivisionId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    Roles?: RolesUpdateManyWithoutUserNestedInput
-    Title?: TitleOfUsersUpdateManyWithoutUserNestedInput
+    User?: UserUpdateOneRequiredWithoutUserIdentityNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutDepartmentInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    roleId?: IntFieldUpdateOperationsInput | number
-    departmentId?: IntFieldUpdateOperationsInput | number
+  export type UserIdentityUncheckedUpdateWithoutDepartmentManagementInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
     divisionId?: IntFieldUpdateOperationsInput | number
-    titleId?: IntFieldUpdateOperationsInput | number
-    isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    titleOfDivisionId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    Roles?: RolesUncheckedUpdateManyWithoutUserNestedInput
-    Title?: TitleOfUsersUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateManyWithoutDepartmentInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    roleId?: IntFieldUpdateOperationsInput | number
-    departmentId?: IntFieldUpdateOperationsInput | number
+  export type UserIdentityUncheckedUpdateManyWithoutDepartmentManagementInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
     divisionId?: IntFieldUpdateOperationsInput | number
-    titleId?: IntFieldUpdateOperationsInput | number
-    isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    titleOfDivisionId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -14256,10 +14039,10 @@ export namespace Prisma {
 
   export type DepartmentManagementsCreateManyTitleInput = {
     id?: number
-    departmentId: number
     divisionId: number
-    isActive?: boolean
+    departmentId: number
     isProfitCenter?: boolean
+    isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
@@ -14267,80 +14050,33 @@ export namespace Prisma {
 
   export type DepartmentManagementsUpdateWithoutTitleInput = {
     divisionId?: IntFieldUpdateOperationsInput | number
-    isActive?: BoolFieldUpdateOperationsInput | boolean
     isProfitCenter?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     department?: DepartmentsUpdateOneRequiredWithoutDepartmentManagementNestedInput
+    UserIdentity?: UserIdentityUpdateManyWithoutDepartmentManagementNestedInput
   }
 
   export type DepartmentManagementsUncheckedUpdateWithoutTitleInput = {
     id?: IntFieldUpdateOperationsInput | number
-    departmentId?: IntFieldUpdateOperationsInput | number
     divisionId?: IntFieldUpdateOperationsInput | number
-    isActive?: BoolFieldUpdateOperationsInput | boolean
+    departmentId?: IntFieldUpdateOperationsInput | number
     isProfitCenter?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UserIdentity?: UserIdentityUncheckedUpdateManyWithoutDepartmentManagementNestedInput
   }
 
   export type DepartmentManagementsUncheckedUpdateManyWithoutTitleInput = {
     id?: IntFieldUpdateOperationsInput | number
-    departmentId?: IntFieldUpdateOperationsInput | number
     divisionId?: IntFieldUpdateOperationsInput | number
-    isActive?: BoolFieldUpdateOperationsInput | boolean
+    departmentId?: IntFieldUpdateOperationsInput | number
     isProfitCenter?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type UserUpdateWithoutTitleInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    roleId?: IntFieldUpdateOperationsInput | number
-    departmentId?: IntFieldUpdateOperationsInput | number
-    divisionId?: IntFieldUpdateOperationsInput | number
-    titleId?: IntFieldUpdateOperationsInput | number
-    isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    Roles?: RolesUpdateManyWithoutUserNestedInput
-    Department?: DepartmentsUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutTitleInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    roleId?: IntFieldUpdateOperationsInput | number
-    departmentId?: IntFieldUpdateOperationsInput | number
-    divisionId?: IntFieldUpdateOperationsInput | number
-    titleId?: IntFieldUpdateOperationsInput | number
-    isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    Roles?: RolesUncheckedUpdateManyWithoutUserNestedInput
-    Department?: DepartmentsUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateManyWithoutTitleInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: StringFieldUpdateOperationsInput | string
-    roleId?: IntFieldUpdateOperationsInput | number
-    departmentId?: IntFieldUpdateOperationsInput | number
-    divisionId?: IntFieldUpdateOperationsInput | number
-    titleId?: IntFieldUpdateOperationsInput | number
-    isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -14364,13 +14100,13 @@ export namespace Prisma {
      */
     export type DepartmentsCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DepartmentsCountOutputTypeDefaultArgs<ExtArgs>
     /**
+     * @deprecated Use DepartmentManagementsCountOutputTypeDefaultArgs instead
+     */
+    export type DepartmentManagementsCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DepartmentManagementsCountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use TitleOfDepartMentsCountOutputTypeDefaultArgs instead
      */
     export type TitleOfDepartMentsCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TitleOfDepartMentsCountOutputTypeDefaultArgs<ExtArgs>
-    /**
-     * @deprecated Use TitleOfUsersCountOutputTypeDefaultArgs instead
-     */
-    export type TitleOfUsersCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TitleOfUsersCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use UserDefaultArgs instead
      */
@@ -14404,9 +14140,9 @@ export namespace Prisma {
      */
     export type TitleOfDepartMentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TitleOfDepartMentsDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use TitleOfUsersDefaultArgs instead
+     * @deprecated Use UserIdentityDefaultArgs instead
      */
-    export type TitleOfUsersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TitleOfUsersDefaultArgs<ExtArgs>
+    export type UserIdentityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserIdentityDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany
