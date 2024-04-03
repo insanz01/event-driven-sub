@@ -1,5 +1,5 @@
 import { type QueryParams } from '../../interface'
-import { PrismaClient, type Departments } from '../../prisma/client'
+import { PrismaClient, type Departments, DepartmentManagements } from '../../prisma/client'
 import { queryStatus } from '../../utils'
 
 const db = new PrismaClient()
@@ -41,12 +41,23 @@ export const getDepartment = async (departmentId: number) => {
 	})
 }
 
-export const createDepartment = async (data: Departments) => {
-	return await db.departments.create({
+export const createDepartment = async (data: any) => {
+	const department = await db.departments.create({
 		data: {
 			name: data.name,
+			isActive: data.isActive,
 		},
 	})
+
+	await db.departmentManagements.create({
+		data: {
+			departmentId: department.id,
+			divisionId: data.divisionId,
+			isActive: data.isActive,
+		},
+	})
+
+	return department
 }
 
 export const updateDepartment = async (departmentId: number, data: Departments) => {

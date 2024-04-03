@@ -1,4 +1,6 @@
 export interface DepartmentDTO {
 	id: number
-	name: string
+	name: string,
+	isActive: boolean,
+	title: string[]
 }

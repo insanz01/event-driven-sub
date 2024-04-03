@@ -7,6 +7,8 @@ export const departmentDTOMapper = (department: Departments): DepartmentDTO => {
 	return {
 		id: department.id,
 		name: department.name,
+		isActive: department.isActive,
+		title: [],
 	}
 }
 
