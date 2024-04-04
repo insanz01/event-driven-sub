@@ -1,16 +1,18 @@
 import { type NextFunction, type Request, type Response, Router } from 'express'
 
 import categoriesRoute from '../app/categories/categories.route'
+import departmentsRoute from '../app/departments/departments.route'
+import loginRoute from '../app/login/login.route'
+import rolesRoute from '../app/roles/roles.route'
 import subCategoriesRoute from '../app/sub-categories/sub-categories.route'
 import usersRoute from '../app/users/users.route'
-import rolesRoute from '../app/roles/roles.route'
-import departmentsRoute from '../app/departments/departments.route'
 import { ERROR_CODE } from '../interface'
 import { AppError } from '../middleware'
 import { ResponseHandler } from '../utils'
 
 const route = Router()
 
+route.use('/login', loginRoute)
 route.use('/categories', categoriesRoute)
 route.use('/sub-categories', subCategoriesRoute)
 route.use('/users', usersRoute)

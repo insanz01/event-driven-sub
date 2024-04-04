@@ -6,3 +6,4 @@ dist/
 api-dev.yaml
 dispatch.yaml
 service-account.json
+src/prisma/
