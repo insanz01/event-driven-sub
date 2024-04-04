@@ -29,15 +29,25 @@ export type Category = $Result.DefaultSelection<Prisma.$CategoryPayload>
  */
 export type SubCategory = $Result.DefaultSelection<Prisma.$SubCategoryPayload>
 /**
+ * Model Applications
+ * 
+ */
+export type Applications = $Result.DefaultSelection<Prisma.$ApplicationsPayload>
+/**
+ * Model ApplicationAccess
+ * 
+ */
+export type ApplicationAccess = $Result.DefaultSelection<Prisma.$ApplicationAccessPayload>
+/**
  * Model Roles
  * 
  */
 export type Roles = $Result.DefaultSelection<Prisma.$RolesPayload>
 /**
- * Model OTP
+ * Model Otp
  * 
  */
-export type OTP = $Result.DefaultSelection<Prisma.$OTPPayload>
+export type Otp = $Result.DefaultSelection<Prisma.$OtpPayload>
 /**
  * Model Departments
  * 
@@ -58,6 +68,21 @@ export type TitleOfDepartments = $Result.DefaultSelection<Prisma.$TitleOfDepartm
  * 
  */
 export type UserIdentity = $Result.DefaultSelection<Prisma.$UserIdentityPayload>
+/**
+ * Model Divisions
+ * 
+ */
+export type Divisions = $Result.DefaultSelection<Prisma.$DivisionsPayload>
+/**
+ * Model DivisionsManagement
+ * 
+ */
+export type DivisionsManagement = $Result.DefaultSelection<Prisma.$DivisionsManagementPayload>
+/**
+ * Model TitleOfDivisions
+ * 
+ */
+export type TitleOfDivisions = $Result.DefaultSelection<Prisma.$TitleOfDivisionsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -212,6 +237,26 @@ export class PrismaClient<
   get subCategory(): Prisma.SubCategoryDelegate<ExtArgs>;
 
   /**
+   * `prisma.applications`: Exposes CRUD operations for the **Applications** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Applications
+    * const applications = await prisma.applications.findMany()
+    * ```
+    */
+  get applications(): Prisma.ApplicationsDelegate<ExtArgs>;
+
+  /**
+   * `prisma.applicationAccess`: Exposes CRUD operations for the **ApplicationAccess** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ApplicationAccesses
+    * const applicationAccesses = await prisma.applicationAccess.findMany()
+    * ```
+    */
+  get applicationAccess(): Prisma.ApplicationAccessDelegate<ExtArgs>;
+
+  /**
    * `prisma.roles`: Exposes CRUD operations for the **Roles** model.
     * Example usage:
     * ```ts
@@ -222,14 +267,14 @@ export class PrismaClient<
   get roles(): Prisma.RolesDelegate<ExtArgs>;
 
   /**
-   * `prisma.oTP`: Exposes CRUD operations for the **OTP** model.
+   * `prisma.otp`: Exposes CRUD operations for the **Otp** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more OTPS
-    * const oTPS = await prisma.oTP.findMany()
+    * // Fetch zero or more Otps
+    * const otps = await prisma.otp.findMany()
     * ```
     */
-  get oTP(): Prisma.OTPDelegate<ExtArgs>;
+  get otp(): Prisma.OtpDelegate<ExtArgs>;
 
   /**
    * `prisma.departments`: Exposes CRUD operations for the **Departments** model.
@@ -270,6 +315,36 @@ export class PrismaClient<
     * ```
     */
   get userIdentity(): Prisma.UserIdentityDelegate<ExtArgs>;
+
+  /**
+   * `prisma.divisions`: Exposes CRUD operations for the **Divisions** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Divisions
+    * const divisions = await prisma.divisions.findMany()
+    * ```
+    */
+  get divisions(): Prisma.DivisionsDelegate<ExtArgs>;
+
+  /**
+   * `prisma.divisionsManagement`: Exposes CRUD operations for the **DivisionsManagement** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DivisionsManagements
+    * const divisionsManagements = await prisma.divisionsManagement.findMany()
+    * ```
+    */
+  get divisionsManagement(): Prisma.DivisionsManagementDelegate<ExtArgs>;
+
+  /**
+   * `prisma.titleOfDivisions`: Exposes CRUD operations for the **TitleOfDivisions** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more TitleOfDivisions
+    * const titleOfDivisions = await prisma.titleOfDivisions.findMany()
+    * ```
+    */
+  get titleOfDivisions(): Prisma.TitleOfDivisionsDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -743,12 +818,17 @@ export namespace Prisma {
     User: 'User',
     Category: 'Category',
     SubCategory: 'SubCategory',
+    Applications: 'Applications',
+    ApplicationAccess: 'ApplicationAccess',
     Roles: 'Roles',
-    OTP: 'OTP',
+    Otp: 'Otp',
     Departments: 'Departments',
     DepartmentManagements: 'DepartmentManagements',
     TitleOfDepartments: 'TitleOfDepartments',
-    UserIdentity: 'UserIdentity'
+    UserIdentity: 'UserIdentity',
+    Divisions: 'Divisions',
+    DivisionsManagement: 'DivisionsManagement',
+    TitleOfDivisions: 'TitleOfDivisions'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -765,7 +845,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     meta: {
-      modelProps: 'user' | 'category' | 'subCategory' | 'roles' | 'oTP' | 'departments' | 'departmentManagements' | 'titleOfDepartments' | 'userIdentity'
+      modelProps: 'user' | 'category' | 'subCategory' | 'applications' | 'applicationAccess' | 'roles' | 'otp' | 'departments' | 'departmentManagements' | 'titleOfDepartments' | 'userIdentity' | 'divisions' | 'divisionsManagement' | 'titleOfDivisions'
       txIsolationLevel: Prisma.TransactionIsolationLevel
     },
     model: {
@@ -967,6 +1047,138 @@ export namespace Prisma {
           }
         }
       }
+      Applications: {
+        payload: Prisma.$ApplicationsPayload<ExtArgs>
+        fields: Prisma.ApplicationsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ApplicationsFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ApplicationsFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationsPayload>
+          }
+          findFirst: {
+            args: Prisma.ApplicationsFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ApplicationsFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationsPayload>
+          }
+          findMany: {
+            args: Prisma.ApplicationsFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationsPayload>[]
+          }
+          create: {
+            args: Prisma.ApplicationsCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationsPayload>
+          }
+          createMany: {
+            args: Prisma.ApplicationsCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.ApplicationsDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationsPayload>
+          }
+          update: {
+            args: Prisma.ApplicationsUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationsPayload>
+          }
+          deleteMany: {
+            args: Prisma.ApplicationsDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ApplicationsUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.ApplicationsUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationsPayload>
+          }
+          aggregate: {
+            args: Prisma.ApplicationsAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateApplications>
+          }
+          groupBy: {
+            args: Prisma.ApplicationsGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<ApplicationsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ApplicationsCountArgs<ExtArgs>,
+            result: $Utils.Optional<ApplicationsCountAggregateOutputType> | number
+          }
+        }
+      }
+      ApplicationAccess: {
+        payload: Prisma.$ApplicationAccessPayload<ExtArgs>
+        fields: Prisma.ApplicationAccessFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ApplicationAccessFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationAccessPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ApplicationAccessFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationAccessPayload>
+          }
+          findFirst: {
+            args: Prisma.ApplicationAccessFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationAccessPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ApplicationAccessFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationAccessPayload>
+          }
+          findMany: {
+            args: Prisma.ApplicationAccessFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationAccessPayload>[]
+          }
+          create: {
+            args: Prisma.ApplicationAccessCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationAccessPayload>
+          }
+          createMany: {
+            args: Prisma.ApplicationAccessCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.ApplicationAccessDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationAccessPayload>
+          }
+          update: {
+            args: Prisma.ApplicationAccessUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationAccessPayload>
+          }
+          deleteMany: {
+            args: Prisma.ApplicationAccessDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ApplicationAccessUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.ApplicationAccessUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$ApplicationAccessPayload>
+          }
+          aggregate: {
+            args: Prisma.ApplicationAccessAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateApplicationAccess>
+          }
+          groupBy: {
+            args: Prisma.ApplicationAccessGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<ApplicationAccessGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ApplicationAccessCountArgs<ExtArgs>,
+            result: $Utils.Optional<ApplicationAccessCountAggregateOutputType> | number
+          }
+        }
+      }
       Roles: {
         payload: Prisma.$RolesPayload<ExtArgs>
         fields: Prisma.RolesFieldRefs
@@ -1033,69 +1245,69 @@ export namespace Prisma {
           }
         }
       }
-      OTP: {
-        payload: Prisma.$OTPPayload<ExtArgs>
-        fields: Prisma.OTPFieldRefs
+      Otp: {
+        payload: Prisma.$OtpPayload<ExtArgs>
+        fields: Prisma.OtpFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.OTPFindUniqueArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OTPPayload> | null
+            args: Prisma.OtpFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$OtpPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.OTPFindUniqueOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OTPPayload>
+            args: Prisma.OtpFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$OtpPayload>
           }
           findFirst: {
-            args: Prisma.OTPFindFirstArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OTPPayload> | null
+            args: Prisma.OtpFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$OtpPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.OTPFindFirstOrThrowArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OTPPayload>
+            args: Prisma.OtpFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$OtpPayload>
           }
           findMany: {
-            args: Prisma.OTPFindManyArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OTPPayload>[]
+            args: Prisma.OtpFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$OtpPayload>[]
           }
           create: {
-            args: Prisma.OTPCreateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OTPPayload>
+            args: Prisma.OtpCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$OtpPayload>
           }
           createMany: {
-            args: Prisma.OTPCreateManyArgs<ExtArgs>,
+            args: Prisma.OtpCreateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           delete: {
-            args: Prisma.OTPDeleteArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OTPPayload>
+            args: Prisma.OtpDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$OtpPayload>
           }
           update: {
-            args: Prisma.OTPUpdateArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OTPPayload>
+            args: Prisma.OtpUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$OtpPayload>
           }
           deleteMany: {
-            args: Prisma.OTPDeleteManyArgs<ExtArgs>,
+            args: Prisma.OtpDeleteManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           updateMany: {
-            args: Prisma.OTPUpdateManyArgs<ExtArgs>,
+            args: Prisma.OtpUpdateManyArgs<ExtArgs>,
             result: Prisma.BatchPayload
           }
           upsert: {
-            args: Prisma.OTPUpsertArgs<ExtArgs>,
-            result: $Utils.PayloadToResult<Prisma.$OTPPayload>
+            args: Prisma.OtpUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$OtpPayload>
           }
           aggregate: {
-            args: Prisma.OTPAggregateArgs<ExtArgs>,
-            result: $Utils.Optional<AggregateOTP>
+            args: Prisma.OtpAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateOtp>
           }
           groupBy: {
-            args: Prisma.OTPGroupByArgs<ExtArgs>,
-            result: $Utils.Optional<OTPGroupByOutputType>[]
+            args: Prisma.OtpGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<OtpGroupByOutputType>[]
           }
           count: {
-            args: Prisma.OTPCountArgs<ExtArgs>,
-            result: $Utils.Optional<OTPCountAggregateOutputType> | number
+            args: Prisma.OtpCountArgs<ExtArgs>,
+            result: $Utils.Optional<OtpCountAggregateOutputType> | number
           }
         }
       }
@@ -1363,6 +1575,204 @@ export namespace Prisma {
           }
         }
       }
+      Divisions: {
+        payload: Prisma.$DivisionsPayload<ExtArgs>
+        fields: Prisma.DivisionsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DivisionsFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DivisionsFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsPayload>
+          }
+          findFirst: {
+            args: Prisma.DivisionsFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DivisionsFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsPayload>
+          }
+          findMany: {
+            args: Prisma.DivisionsFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsPayload>[]
+          }
+          create: {
+            args: Prisma.DivisionsCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsPayload>
+          }
+          createMany: {
+            args: Prisma.DivisionsCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.DivisionsDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsPayload>
+          }
+          update: {
+            args: Prisma.DivisionsUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsPayload>
+          }
+          deleteMany: {
+            args: Prisma.DivisionsDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DivisionsUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.DivisionsUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsPayload>
+          }
+          aggregate: {
+            args: Prisma.DivisionsAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateDivisions>
+          }
+          groupBy: {
+            args: Prisma.DivisionsGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<DivisionsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DivisionsCountArgs<ExtArgs>,
+            result: $Utils.Optional<DivisionsCountAggregateOutputType> | number
+          }
+        }
+      }
+      DivisionsManagement: {
+        payload: Prisma.$DivisionsManagementPayload<ExtArgs>
+        fields: Prisma.DivisionsManagementFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DivisionsManagementFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsManagementPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DivisionsManagementFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsManagementPayload>
+          }
+          findFirst: {
+            args: Prisma.DivisionsManagementFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsManagementPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DivisionsManagementFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsManagementPayload>
+          }
+          findMany: {
+            args: Prisma.DivisionsManagementFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsManagementPayload>[]
+          }
+          create: {
+            args: Prisma.DivisionsManagementCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsManagementPayload>
+          }
+          createMany: {
+            args: Prisma.DivisionsManagementCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.DivisionsManagementDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsManagementPayload>
+          }
+          update: {
+            args: Prisma.DivisionsManagementUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsManagementPayload>
+          }
+          deleteMany: {
+            args: Prisma.DivisionsManagementDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DivisionsManagementUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.DivisionsManagementUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$DivisionsManagementPayload>
+          }
+          aggregate: {
+            args: Prisma.DivisionsManagementAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateDivisionsManagement>
+          }
+          groupBy: {
+            args: Prisma.DivisionsManagementGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<DivisionsManagementGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DivisionsManagementCountArgs<ExtArgs>,
+            result: $Utils.Optional<DivisionsManagementCountAggregateOutputType> | number
+          }
+        }
+      }
+      TitleOfDivisions: {
+        payload: Prisma.$TitleOfDivisionsPayload<ExtArgs>
+        fields: Prisma.TitleOfDivisionsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TitleOfDivisionsFindUniqueArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TitleOfDivisionsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TitleOfDivisionsFindUniqueOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TitleOfDivisionsPayload>
+          }
+          findFirst: {
+            args: Prisma.TitleOfDivisionsFindFirstArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TitleOfDivisionsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TitleOfDivisionsFindFirstOrThrowArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TitleOfDivisionsPayload>
+          }
+          findMany: {
+            args: Prisma.TitleOfDivisionsFindManyArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TitleOfDivisionsPayload>[]
+          }
+          create: {
+            args: Prisma.TitleOfDivisionsCreateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TitleOfDivisionsPayload>
+          }
+          createMany: {
+            args: Prisma.TitleOfDivisionsCreateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          delete: {
+            args: Prisma.TitleOfDivisionsDeleteArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TitleOfDivisionsPayload>
+          }
+          update: {
+            args: Prisma.TitleOfDivisionsUpdateArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TitleOfDivisionsPayload>
+          }
+          deleteMany: {
+            args: Prisma.TitleOfDivisionsDeleteManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TitleOfDivisionsUpdateManyArgs<ExtArgs>,
+            result: Prisma.BatchPayload
+          }
+          upsert: {
+            args: Prisma.TitleOfDivisionsUpsertArgs<ExtArgs>,
+            result: $Utils.PayloadToResult<Prisma.$TitleOfDivisionsPayload>
+          }
+          aggregate: {
+            args: Prisma.TitleOfDivisionsAggregateArgs<ExtArgs>,
+            result: $Utils.Optional<AggregateTitleOfDivisions>
+          }
+          groupBy: {
+            args: Prisma.TitleOfDivisionsGroupByArgs<ExtArgs>,
+            result: $Utils.Optional<TitleOfDivisionsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TitleOfDivisionsCountArgs<ExtArgs>,
+            result: $Utils.Optional<TitleOfDivisionsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1522,13 +1932,13 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    Roles: number
     UserIdentity: number
+    applicationAccess: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Roles?: boolean | UserCountOutputTypeCountRolesArgs
     UserIdentity?: boolean | UserCountOutputTypeCountUserIdentityArgs
+    applicationAccess?: boolean | UserCountOutputTypeCountApplicationAccessArgs
   }
 
   // Custom InputTypes
@@ -1547,16 +1957,16 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountRolesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: RolesWhereInput
+  export type UserCountOutputTypeCountUserIdentityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserIdentityWhereInput
   }
 
 
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountUserIdentityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserIdentityWhereInput
+  export type UserCountOutputTypeCountApplicationAccessArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ApplicationAccessWhereInput
   }
 
 
@@ -1591,6 +2001,74 @@ export namespace Prisma {
    */
   export type CategoryCountOutputTypeCountSubCategoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: SubCategoryWhereInput
+  }
+
+
+
+  /**
+   * Count Type ApplicationsCountOutputType
+   */
+
+  export type ApplicationsCountOutputType = {
+    applicationAccess: number
+  }
+
+  export type ApplicationsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    applicationAccess?: boolean | ApplicationsCountOutputTypeCountApplicationAccessArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * ApplicationsCountOutputType without action
+   */
+  export type ApplicationsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationsCountOutputType
+     */
+    select?: ApplicationsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * ApplicationsCountOutputType without action
+   */
+  export type ApplicationsCountOutputTypeCountApplicationAccessArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ApplicationAccessWhereInput
+  }
+
+
+
+  /**
+   * Count Type RolesCountOutputType
+   */
+
+  export type RolesCountOutputType = {
+    applicationAccess: number
+  }
+
+  export type RolesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    applicationAccess?: boolean | RolesCountOutputTypeCountApplicationAccessArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * RolesCountOutputType without action
+   */
+  export type RolesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the RolesCountOutputType
+     */
+    select?: RolesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * RolesCountOutputType without action
+   */
+  export type RolesCountOutputTypeCountApplicationAccessArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ApplicationAccessWhereInput
   }
 
 
@@ -1698,6 +2176,94 @@ export namespace Prisma {
 
 
   /**
+   * Count Type DivisionsCountOutputType
+   */
+
+  export type DivisionsCountOutputType = {
+    UserIdentity: number
+    DivisionManagement: number
+  }
+
+  export type DivisionsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    UserIdentity?: boolean | DivisionsCountOutputTypeCountUserIdentityArgs
+    DivisionManagement?: boolean | DivisionsCountOutputTypeCountDivisionManagementArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * DivisionsCountOutputType without action
+   */
+  export type DivisionsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DivisionsCountOutputType
+     */
+    select?: DivisionsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * DivisionsCountOutputType without action
+   */
+  export type DivisionsCountOutputTypeCountUserIdentityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserIdentityWhereInput
+  }
+
+
+  /**
+   * DivisionsCountOutputType without action
+   */
+  export type DivisionsCountOutputTypeCountDivisionManagementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DivisionsManagementWhereInput
+  }
+
+
+
+  /**
+   * Count Type TitleOfDivisionsCountOutputType
+   */
+
+  export type TitleOfDivisionsCountOutputType = {
+    DivisionManagement: number
+    UserIdentity: number
+  }
+
+  export type TitleOfDivisionsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    DivisionManagement?: boolean | TitleOfDivisionsCountOutputTypeCountDivisionManagementArgs
+    UserIdentity?: boolean | TitleOfDivisionsCountOutputTypeCountUserIdentityArgs
+  }
+
+  // Custom InputTypes
+
+  /**
+   * TitleOfDivisionsCountOutputType without action
+   */
+  export type TitleOfDivisionsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TitleOfDivisionsCountOutputType
+     */
+    select?: TitleOfDivisionsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * TitleOfDivisionsCountOutputType without action
+   */
+  export type TitleOfDivisionsCountOutputTypeCountDivisionManagementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DivisionsManagementWhereInput
+  }
+
+
+  /**
+   * TitleOfDivisionsCountOutputType without action
+   */
+  export type TitleOfDivisionsCountOutputTypeCountUserIdentityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: UserIdentityWhereInput
+  }
+
+
+
+  /**
    * Models
    */
 
@@ -1707,18 +2273,8 @@ export namespace Prisma {
 
   export type AggregateUser = {
     _count: UserCountAggregateOutputType | null
-    _avg: UserAvgAggregateOutputType | null
-    _sum: UserSumAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
-  }
-
-  export type UserAvgAggregateOutputType = {
-    roleId: number | null
-  }
-
-  export type UserSumAggregateOutputType = {
-    roleId: number | null
   }
 
   export type UserMinAggregateOutputType = {
@@ -1726,7 +2282,6 @@ export namespace Prisma {
     email: string | null
     name: string | null
     phoneNumber: string | null
-    roleId: number | null
     isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -1738,7 +2293,6 @@ export namespace Prisma {
     email: string | null
     name: string | null
     phoneNumber: string | null
-    roleId: number | null
     isActive: boolean | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -1750,7 +2304,6 @@ export namespace Prisma {
     email: number
     name: number
     phoneNumber: number
-    roleId: number
     isActive: number
     createdAt: number
     updatedAt: number
@@ -1759,20 +2312,11 @@ export namespace Prisma {
   }
 
 
-  export type UserAvgAggregateInputType = {
-    roleId?: true
-  }
-
-  export type UserSumAggregateInputType = {
-    roleId?: true
-  }
-
   export type UserMinAggregateInputType = {
     id?: true
     email?: true
     name?: true
     phoneNumber?: true
-    roleId?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -1784,7 +2328,6 @@ export namespace Prisma {
     email?: true
     name?: true
     phoneNumber?: true
-    roleId?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -1796,7 +2339,6 @@ export namespace Prisma {
     email?: true
     name?: true
     phoneNumber?: true
-    roleId?: true
     isActive?: true
     createdAt?: true
     updatedAt?: true
@@ -1842,18 +2384,6 @@ export namespace Prisma {
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Select which fields to average
-    **/
-    _avg?: UserAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: UserSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
      * Select which fields to find the minimum value
     **/
     _min?: UserMinAggregateInputType
@@ -1884,8 +2414,6 @@ export namespace Prisma {
     take?: number
     skip?: number
     _count?: UserCountAggregateInputType | true
-    _avg?: UserAvgAggregateInputType
-    _sum?: UserSumAggregateInputType
     _min?: UserMinAggregateInputType
     _max?: UserMaxAggregateInputType
   }
@@ -1895,14 +2423,11 @@ export namespace Prisma {
     email: string
     name: string
     phoneNumber: string
-    roleId: number
     isActive: boolean | null
     createdAt: Date
     updatedAt: Date
     deletedAt: Date | null
     _count: UserCountAggregateOutputType | null
-    _avg: UserAvgAggregateOutputType | null
-    _sum: UserSumAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
   }
@@ -1926,13 +2451,12 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     phoneNumber?: boolean
-    roleId?: boolean
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
-    Roles?: boolean | User$RolesArgs<ExtArgs>
     UserIdentity?: boolean | User$UserIdentityArgs<ExtArgs>
+    applicationAccess?: boolean | User$applicationAccessArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -1941,7 +2465,6 @@ export namespace Prisma {
     email?: boolean
     name?: boolean
     phoneNumber?: boolean
-    roleId?: boolean
     isActive?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -1949,8 +2472,8 @@ export namespace Prisma {
   }
 
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    Roles?: boolean | User$RolesArgs<ExtArgs>
     UserIdentity?: boolean | User$UserIdentityArgs<ExtArgs>
+    applicationAccess?: boolean | User$applicationAccessArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -1958,15 +2481,14 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      Roles: Prisma.$RolesPayload<ExtArgs>[]
       UserIdentity: Prisma.$UserIdentityPayload<ExtArgs>[]
+      applicationAccess: Prisma.$ApplicationAccessPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       email: string
       name: string
       phoneNumber: string
-      roleId: number
       isActive: boolean | null
       createdAt: Date
       updatedAt: Date
@@ -2336,9 +2858,9 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    Roles<T extends User$RolesArgs<ExtArgs> = {}>(args?: Subset<T, User$RolesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RolesPayload<ExtArgs>, T, 'findMany'> | Null>;
-
     UserIdentity<T extends User$UserIdentityArgs<ExtArgs> = {}>(args?: Subset<T, User$UserIdentityArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserIdentityPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    applicationAccess<T extends User$applicationAccessArgs<ExtArgs> = {}>(args?: Subset<T, User$applicationAccessArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApplicationAccessPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2372,7 +2894,6 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly name: FieldRef<"User", 'String'>
     readonly phoneNumber: FieldRef<"User", 'String'>
-    readonly roleId: FieldRef<"User", 'Int'>
     readonly isActive: FieldRef<"User", 'Boolean'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
@@ -2689,27 +3210,6 @@ export namespace Prisma {
 
 
   /**
-   * User.Roles
-   */
-  export type User$RolesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Roles
-     */
-    select?: RolesSelect<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well.
-     */
-    include?: RolesInclude<ExtArgs> | null
-    where?: RolesWhereInput
-    orderBy?: RolesOrderByWithRelationInput | RolesOrderByWithRelationInput[]
-    cursor?: RolesWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: RolesScalarFieldEnum | RolesScalarFieldEnum[]
-  }
-
-
-  /**
    * User.UserIdentity
    */
   export type User$UserIdentityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2727,6 +3227,27 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: UserIdentityScalarFieldEnum | UserIdentityScalarFieldEnum[]
+  }
+
+
+  /**
+   * User.applicationAccess
+   */
+  export type User$applicationAccessArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationAccess
+     */
+    select?: ApplicationAccessSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationAccessInclude<ExtArgs> | null
+    where?: ApplicationAccessWhereInput
+    orderBy?: ApplicationAccessOrderByWithRelationInput | ApplicationAccessOrderByWithRelationInput[]
+    cursor?: ApplicationAccessWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ApplicationAccessScalarFieldEnum | ApplicationAccessScalarFieldEnum[]
   }
 
 
@@ -4711,6 +5232,1887 @@ export namespace Prisma {
 
 
   /**
+   * Model Applications
+   */
+
+  export type AggregateApplications = {
+    _count: ApplicationsCountAggregateOutputType | null
+    _min: ApplicationsMinAggregateOutputType | null
+    _max: ApplicationsMaxAggregateOutputType | null
+  }
+
+  export type ApplicationsMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    isActive: boolean | null
+  }
+
+  export type ApplicationsMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    isActive: boolean | null
+  }
+
+  export type ApplicationsCountAggregateOutputType = {
+    id: number
+    name: number
+    isActive: number
+    _all: number
+  }
+
+
+  export type ApplicationsMinAggregateInputType = {
+    id?: true
+    name?: true
+    isActive?: true
+  }
+
+  export type ApplicationsMaxAggregateInputType = {
+    id?: true
+    name?: true
+    isActive?: true
+  }
+
+  export type ApplicationsCountAggregateInputType = {
+    id?: true
+    name?: true
+    isActive?: true
+    _all?: true
+  }
+
+  export type ApplicationsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Applications to aggregate.
+     */
+    where?: ApplicationsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Applications to fetch.
+     */
+    orderBy?: ApplicationsOrderByWithRelationInput | ApplicationsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ApplicationsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Applications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Applications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Applications
+    **/
+    _count?: true | ApplicationsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ApplicationsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ApplicationsMaxAggregateInputType
+  }
+
+  export type GetApplicationsAggregateType<T extends ApplicationsAggregateArgs> = {
+        [P in keyof T & keyof AggregateApplications]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateApplications[P]>
+      : GetScalarType<T[P], AggregateApplications[P]>
+  }
+
+
+
+
+  export type ApplicationsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ApplicationsWhereInput
+    orderBy?: ApplicationsOrderByWithAggregationInput | ApplicationsOrderByWithAggregationInput[]
+    by: ApplicationsScalarFieldEnum[] | ApplicationsScalarFieldEnum
+    having?: ApplicationsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ApplicationsCountAggregateInputType | true
+    _min?: ApplicationsMinAggregateInputType
+    _max?: ApplicationsMaxAggregateInputType
+  }
+
+  export type ApplicationsGroupByOutputType = {
+    id: string
+    name: string
+    isActive: boolean
+    _count: ApplicationsCountAggregateOutputType | null
+    _min: ApplicationsMinAggregateOutputType | null
+    _max: ApplicationsMaxAggregateOutputType | null
+  }
+
+  type GetApplicationsGroupByPayload<T extends ApplicationsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ApplicationsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ApplicationsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ApplicationsGroupByOutputType[P]>
+            : GetScalarType<T[P], ApplicationsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ApplicationsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    isActive?: boolean
+    applicationAccess?: boolean | Applications$applicationAccessArgs<ExtArgs>
+    _count?: boolean | ApplicationsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["applications"]>
+
+  export type ApplicationsSelectScalar = {
+    id?: boolean
+    name?: boolean
+    isActive?: boolean
+  }
+
+  export type ApplicationsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    applicationAccess?: boolean | Applications$applicationAccessArgs<ExtArgs>
+    _count?: boolean | ApplicationsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $ApplicationsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Applications"
+    objects: {
+      applicationAccess: Prisma.$ApplicationAccessPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      isActive: boolean
+    }, ExtArgs["result"]["applications"]>
+    composites: {}
+  }
+
+
+  type ApplicationsGetPayload<S extends boolean | null | undefined | ApplicationsDefaultArgs> = $Result.GetResult<Prisma.$ApplicationsPayload, S>
+
+  type ApplicationsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<ApplicationsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: ApplicationsCountAggregateInputType | true
+    }
+
+  export interface ApplicationsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Applications'], meta: { name: 'Applications' } }
+    /**
+     * Find zero or one Applications that matches the filter.
+     * @param {ApplicationsFindUniqueArgs} args - Arguments to find a Applications
+     * @example
+     * // Get one Applications
+     * const applications = await prisma.applications.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends ApplicationsFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, ApplicationsFindUniqueArgs<ExtArgs>>
+    ): Prisma__ApplicationsClient<$Result.GetResult<Prisma.$ApplicationsPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Applications that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {ApplicationsFindUniqueOrThrowArgs} args - Arguments to find a Applications
+     * @example
+     * // Get one Applications
+     * const applications = await prisma.applications.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends ApplicationsFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, ApplicationsFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__ApplicationsClient<$Result.GetResult<Prisma.$ApplicationsPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Applications that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationsFindFirstArgs} args - Arguments to find a Applications
+     * @example
+     * // Get one Applications
+     * const applications = await prisma.applications.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends ApplicationsFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, ApplicationsFindFirstArgs<ExtArgs>>
+    ): Prisma__ApplicationsClient<$Result.GetResult<Prisma.$ApplicationsPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Applications that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationsFindFirstOrThrowArgs} args - Arguments to find a Applications
+     * @example
+     * // Get one Applications
+     * const applications = await prisma.applications.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends ApplicationsFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, ApplicationsFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__ApplicationsClient<$Result.GetResult<Prisma.$ApplicationsPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Applications that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationsFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Applications
+     * const applications = await prisma.applications.findMany()
+     * 
+     * // Get first 10 Applications
+     * const applications = await prisma.applications.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const applicationsWithIdOnly = await prisma.applications.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends ApplicationsFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ApplicationsFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApplicationsPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Applications.
+     * @param {ApplicationsCreateArgs} args - Arguments to create a Applications.
+     * @example
+     * // Create one Applications
+     * const Applications = await prisma.applications.create({
+     *   data: {
+     *     // ... data to create a Applications
+     *   }
+     * })
+     * 
+    **/
+    create<T extends ApplicationsCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, ApplicationsCreateArgs<ExtArgs>>
+    ): Prisma__ApplicationsClient<$Result.GetResult<Prisma.$ApplicationsPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Applications.
+     *     @param {ApplicationsCreateManyArgs} args - Arguments to create many Applications.
+     *     @example
+     *     // Create many Applications
+     *     const applications = await prisma.applications.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends ApplicationsCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ApplicationsCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Applications.
+     * @param {ApplicationsDeleteArgs} args - Arguments to delete one Applications.
+     * @example
+     * // Delete one Applications
+     * const Applications = await prisma.applications.delete({
+     *   where: {
+     *     // ... filter to delete one Applications
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends ApplicationsDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, ApplicationsDeleteArgs<ExtArgs>>
+    ): Prisma__ApplicationsClient<$Result.GetResult<Prisma.$ApplicationsPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Applications.
+     * @param {ApplicationsUpdateArgs} args - Arguments to update one Applications.
+     * @example
+     * // Update one Applications
+     * const applications = await prisma.applications.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends ApplicationsUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, ApplicationsUpdateArgs<ExtArgs>>
+    ): Prisma__ApplicationsClient<$Result.GetResult<Prisma.$ApplicationsPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Applications.
+     * @param {ApplicationsDeleteManyArgs} args - Arguments to filter Applications to delete.
+     * @example
+     * // Delete a few Applications
+     * const { count } = await prisma.applications.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends ApplicationsDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ApplicationsDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Applications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Applications
+     * const applications = await prisma.applications.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends ApplicationsUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, ApplicationsUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Applications.
+     * @param {ApplicationsUpsertArgs} args - Arguments to update or create a Applications.
+     * @example
+     * // Update or create a Applications
+     * const applications = await prisma.applications.upsert({
+     *   create: {
+     *     // ... data to create a Applications
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Applications we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends ApplicationsUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, ApplicationsUpsertArgs<ExtArgs>>
+    ): Prisma__ApplicationsClient<$Result.GetResult<Prisma.$ApplicationsPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Applications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationsCountArgs} args - Arguments to filter Applications to count.
+     * @example
+     * // Count the number of Applications
+     * const count = await prisma.applications.count({
+     *   where: {
+     *     // ... the filter for the Applications we want to count
+     *   }
+     * })
+    **/
+    count<T extends ApplicationsCountArgs>(
+      args?: Subset<T, ApplicationsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ApplicationsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Applications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ApplicationsAggregateArgs>(args: Subset<T, ApplicationsAggregateArgs>): Prisma.PrismaPromise<GetApplicationsAggregateType<T>>
+
+    /**
+     * Group by Applications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ApplicationsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ApplicationsGroupByArgs['orderBy'] }
+        : { orderBy?: ApplicationsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ApplicationsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetApplicationsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Applications model
+   */
+  readonly fields: ApplicationsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Applications.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ApplicationsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    applicationAccess<T extends Applications$applicationAccessArgs<ExtArgs> = {}>(args?: Subset<T, Applications$applicationAccessArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApplicationAccessPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the Applications model
+   */ 
+  interface ApplicationsFieldRefs {
+    readonly id: FieldRef<"Applications", 'String'>
+    readonly name: FieldRef<"Applications", 'String'>
+    readonly isActive: FieldRef<"Applications", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * Applications findUnique
+   */
+  export type ApplicationsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Applications
+     */
+    select?: ApplicationsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationsInclude<ExtArgs> | null
+    /**
+     * Filter, which Applications to fetch.
+     */
+    where: ApplicationsWhereUniqueInput
+  }
+
+
+  /**
+   * Applications findUniqueOrThrow
+   */
+  export type ApplicationsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Applications
+     */
+    select?: ApplicationsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationsInclude<ExtArgs> | null
+    /**
+     * Filter, which Applications to fetch.
+     */
+    where: ApplicationsWhereUniqueInput
+  }
+
+
+  /**
+   * Applications findFirst
+   */
+  export type ApplicationsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Applications
+     */
+    select?: ApplicationsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationsInclude<ExtArgs> | null
+    /**
+     * Filter, which Applications to fetch.
+     */
+    where?: ApplicationsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Applications to fetch.
+     */
+    orderBy?: ApplicationsOrderByWithRelationInput | ApplicationsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Applications.
+     */
+    cursor?: ApplicationsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Applications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Applications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Applications.
+     */
+    distinct?: ApplicationsScalarFieldEnum | ApplicationsScalarFieldEnum[]
+  }
+
+
+  /**
+   * Applications findFirstOrThrow
+   */
+  export type ApplicationsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Applications
+     */
+    select?: ApplicationsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationsInclude<ExtArgs> | null
+    /**
+     * Filter, which Applications to fetch.
+     */
+    where?: ApplicationsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Applications to fetch.
+     */
+    orderBy?: ApplicationsOrderByWithRelationInput | ApplicationsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Applications.
+     */
+    cursor?: ApplicationsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Applications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Applications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Applications.
+     */
+    distinct?: ApplicationsScalarFieldEnum | ApplicationsScalarFieldEnum[]
+  }
+
+
+  /**
+   * Applications findMany
+   */
+  export type ApplicationsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Applications
+     */
+    select?: ApplicationsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationsInclude<ExtArgs> | null
+    /**
+     * Filter, which Applications to fetch.
+     */
+    where?: ApplicationsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Applications to fetch.
+     */
+    orderBy?: ApplicationsOrderByWithRelationInput | ApplicationsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Applications.
+     */
+    cursor?: ApplicationsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Applications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Applications.
+     */
+    skip?: number
+    distinct?: ApplicationsScalarFieldEnum | ApplicationsScalarFieldEnum[]
+  }
+
+
+  /**
+   * Applications create
+   */
+  export type ApplicationsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Applications
+     */
+    select?: ApplicationsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Applications.
+     */
+    data: XOR<ApplicationsCreateInput, ApplicationsUncheckedCreateInput>
+  }
+
+
+  /**
+   * Applications createMany
+   */
+  export type ApplicationsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Applications.
+     */
+    data: ApplicationsCreateManyInput | ApplicationsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * Applications update
+   */
+  export type ApplicationsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Applications
+     */
+    select?: ApplicationsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Applications.
+     */
+    data: XOR<ApplicationsUpdateInput, ApplicationsUncheckedUpdateInput>
+    /**
+     * Choose, which Applications to update.
+     */
+    where: ApplicationsWhereUniqueInput
+  }
+
+
+  /**
+   * Applications updateMany
+   */
+  export type ApplicationsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Applications.
+     */
+    data: XOR<ApplicationsUpdateManyMutationInput, ApplicationsUncheckedUpdateManyInput>
+    /**
+     * Filter which Applications to update
+     */
+    where?: ApplicationsWhereInput
+  }
+
+
+  /**
+   * Applications upsert
+   */
+  export type ApplicationsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Applications
+     */
+    select?: ApplicationsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Applications to update in case it exists.
+     */
+    where: ApplicationsWhereUniqueInput
+    /**
+     * In case the Applications found by the `where` argument doesn't exist, create a new Applications with this data.
+     */
+    create: XOR<ApplicationsCreateInput, ApplicationsUncheckedCreateInput>
+    /**
+     * In case the Applications was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ApplicationsUpdateInput, ApplicationsUncheckedUpdateInput>
+  }
+
+
+  /**
+   * Applications delete
+   */
+  export type ApplicationsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Applications
+     */
+    select?: ApplicationsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationsInclude<ExtArgs> | null
+    /**
+     * Filter which Applications to delete.
+     */
+    where: ApplicationsWhereUniqueInput
+  }
+
+
+  /**
+   * Applications deleteMany
+   */
+  export type ApplicationsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Applications to delete
+     */
+    where?: ApplicationsWhereInput
+  }
+
+
+  /**
+   * Applications.applicationAccess
+   */
+  export type Applications$applicationAccessArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationAccess
+     */
+    select?: ApplicationAccessSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationAccessInclude<ExtArgs> | null
+    where?: ApplicationAccessWhereInput
+    orderBy?: ApplicationAccessOrderByWithRelationInput | ApplicationAccessOrderByWithRelationInput[]
+    cursor?: ApplicationAccessWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ApplicationAccessScalarFieldEnum | ApplicationAccessScalarFieldEnum[]
+  }
+
+
+  /**
+   * Applications without action
+   */
+  export type ApplicationsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Applications
+     */
+    select?: ApplicationsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationsInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model ApplicationAccess
+   */
+
+  export type AggregateApplicationAccess = {
+    _count: ApplicationAccessCountAggregateOutputType | null
+    _avg: ApplicationAccessAvgAggregateOutputType | null
+    _sum: ApplicationAccessSumAggregateOutputType | null
+    _min: ApplicationAccessMinAggregateOutputType | null
+    _max: ApplicationAccessMaxAggregateOutputType | null
+  }
+
+  export type ApplicationAccessAvgAggregateOutputType = {
+    roleId: number | null
+  }
+
+  export type ApplicationAccessSumAggregateOutputType = {
+    roleId: number | null
+  }
+
+  export type ApplicationAccessMinAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    applicationId: string | null
+    roleId: number | null
+    isActive: boolean | null
+  }
+
+  export type ApplicationAccessMaxAggregateOutputType = {
+    id: string | null
+    userId: string | null
+    applicationId: string | null
+    roleId: number | null
+    isActive: boolean | null
+  }
+
+  export type ApplicationAccessCountAggregateOutputType = {
+    id: number
+    userId: number
+    applicationId: number
+    roleId: number
+    isActive: number
+    _all: number
+  }
+
+
+  export type ApplicationAccessAvgAggregateInputType = {
+    roleId?: true
+  }
+
+  export type ApplicationAccessSumAggregateInputType = {
+    roleId?: true
+  }
+
+  export type ApplicationAccessMinAggregateInputType = {
+    id?: true
+    userId?: true
+    applicationId?: true
+    roleId?: true
+    isActive?: true
+  }
+
+  export type ApplicationAccessMaxAggregateInputType = {
+    id?: true
+    userId?: true
+    applicationId?: true
+    roleId?: true
+    isActive?: true
+  }
+
+  export type ApplicationAccessCountAggregateInputType = {
+    id?: true
+    userId?: true
+    applicationId?: true
+    roleId?: true
+    isActive?: true
+    _all?: true
+  }
+
+  export type ApplicationAccessAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ApplicationAccess to aggregate.
+     */
+    where?: ApplicationAccessWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ApplicationAccesses to fetch.
+     */
+    orderBy?: ApplicationAccessOrderByWithRelationInput | ApplicationAccessOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ApplicationAccessWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ApplicationAccesses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ApplicationAccesses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ApplicationAccesses
+    **/
+    _count?: true | ApplicationAccessCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ApplicationAccessAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ApplicationAccessSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ApplicationAccessMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ApplicationAccessMaxAggregateInputType
+  }
+
+  export type GetApplicationAccessAggregateType<T extends ApplicationAccessAggregateArgs> = {
+        [P in keyof T & keyof AggregateApplicationAccess]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateApplicationAccess[P]>
+      : GetScalarType<T[P], AggregateApplicationAccess[P]>
+  }
+
+
+
+
+  export type ApplicationAccessGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ApplicationAccessWhereInput
+    orderBy?: ApplicationAccessOrderByWithAggregationInput | ApplicationAccessOrderByWithAggregationInput[]
+    by: ApplicationAccessScalarFieldEnum[] | ApplicationAccessScalarFieldEnum
+    having?: ApplicationAccessScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ApplicationAccessCountAggregateInputType | true
+    _avg?: ApplicationAccessAvgAggregateInputType
+    _sum?: ApplicationAccessSumAggregateInputType
+    _min?: ApplicationAccessMinAggregateInputType
+    _max?: ApplicationAccessMaxAggregateInputType
+  }
+
+  export type ApplicationAccessGroupByOutputType = {
+    id: string
+    userId: string
+    applicationId: string
+    roleId: number
+    isActive: boolean
+    _count: ApplicationAccessCountAggregateOutputType | null
+    _avg: ApplicationAccessAvgAggregateOutputType | null
+    _sum: ApplicationAccessSumAggregateOutputType | null
+    _min: ApplicationAccessMinAggregateOutputType | null
+    _max: ApplicationAccessMaxAggregateOutputType | null
+  }
+
+  type GetApplicationAccessGroupByPayload<T extends ApplicationAccessGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ApplicationAccessGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ApplicationAccessGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ApplicationAccessGroupByOutputType[P]>
+            : GetScalarType<T[P], ApplicationAccessGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ApplicationAccessSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    userId?: boolean
+    applicationId?: boolean
+    roleId?: boolean
+    isActive?: boolean
+    application?: boolean | ApplicationsDefaultArgs<ExtArgs>
+    role?: boolean | RolesDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["applicationAccess"]>
+
+  export type ApplicationAccessSelectScalar = {
+    id?: boolean
+    userId?: boolean
+    applicationId?: boolean
+    roleId?: boolean
+    isActive?: boolean
+  }
+
+  export type ApplicationAccessInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    application?: boolean | ApplicationsDefaultArgs<ExtArgs>
+    role?: boolean | RolesDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
+  }
+
+
+  export type $ApplicationAccessPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ApplicationAccess"
+    objects: {
+      application: Prisma.$ApplicationsPayload<ExtArgs>
+      role: Prisma.$RolesPayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      userId: string
+      applicationId: string
+      roleId: number
+      isActive: boolean
+    }, ExtArgs["result"]["applicationAccess"]>
+    composites: {}
+  }
+
+
+  type ApplicationAccessGetPayload<S extends boolean | null | undefined | ApplicationAccessDefaultArgs> = $Result.GetResult<Prisma.$ApplicationAccessPayload, S>
+
+  type ApplicationAccessCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<ApplicationAccessFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: ApplicationAccessCountAggregateInputType | true
+    }
+
+  export interface ApplicationAccessDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ApplicationAccess'], meta: { name: 'ApplicationAccess' } }
+    /**
+     * Find zero or one ApplicationAccess that matches the filter.
+     * @param {ApplicationAccessFindUniqueArgs} args - Arguments to find a ApplicationAccess
+     * @example
+     * // Get one ApplicationAccess
+     * const applicationAccess = await prisma.applicationAccess.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends ApplicationAccessFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, ApplicationAccessFindUniqueArgs<ExtArgs>>
+    ): Prisma__ApplicationAccessClient<$Result.GetResult<Prisma.$ApplicationAccessPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one ApplicationAccess that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {ApplicationAccessFindUniqueOrThrowArgs} args - Arguments to find a ApplicationAccess
+     * @example
+     * // Get one ApplicationAccess
+     * const applicationAccess = await prisma.applicationAccess.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends ApplicationAccessFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, ApplicationAccessFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__ApplicationAccessClient<$Result.GetResult<Prisma.$ApplicationAccessPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first ApplicationAccess that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationAccessFindFirstArgs} args - Arguments to find a ApplicationAccess
+     * @example
+     * // Get one ApplicationAccess
+     * const applicationAccess = await prisma.applicationAccess.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends ApplicationAccessFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, ApplicationAccessFindFirstArgs<ExtArgs>>
+    ): Prisma__ApplicationAccessClient<$Result.GetResult<Prisma.$ApplicationAccessPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first ApplicationAccess that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationAccessFindFirstOrThrowArgs} args - Arguments to find a ApplicationAccess
+     * @example
+     * // Get one ApplicationAccess
+     * const applicationAccess = await prisma.applicationAccess.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends ApplicationAccessFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, ApplicationAccessFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__ApplicationAccessClient<$Result.GetResult<Prisma.$ApplicationAccessPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more ApplicationAccesses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationAccessFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ApplicationAccesses
+     * const applicationAccesses = await prisma.applicationAccess.findMany()
+     * 
+     * // Get first 10 ApplicationAccesses
+     * const applicationAccesses = await prisma.applicationAccess.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const applicationAccessWithIdOnly = await prisma.applicationAccess.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends ApplicationAccessFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ApplicationAccessFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApplicationAccessPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a ApplicationAccess.
+     * @param {ApplicationAccessCreateArgs} args - Arguments to create a ApplicationAccess.
+     * @example
+     * // Create one ApplicationAccess
+     * const ApplicationAccess = await prisma.applicationAccess.create({
+     *   data: {
+     *     // ... data to create a ApplicationAccess
+     *   }
+     * })
+     * 
+    **/
+    create<T extends ApplicationAccessCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, ApplicationAccessCreateArgs<ExtArgs>>
+    ): Prisma__ApplicationAccessClient<$Result.GetResult<Prisma.$ApplicationAccessPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many ApplicationAccesses.
+     *     @param {ApplicationAccessCreateManyArgs} args - Arguments to create many ApplicationAccesses.
+     *     @example
+     *     // Create many ApplicationAccesses
+     *     const applicationAccess = await prisma.applicationAccess.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends ApplicationAccessCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ApplicationAccessCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a ApplicationAccess.
+     * @param {ApplicationAccessDeleteArgs} args - Arguments to delete one ApplicationAccess.
+     * @example
+     * // Delete one ApplicationAccess
+     * const ApplicationAccess = await prisma.applicationAccess.delete({
+     *   where: {
+     *     // ... filter to delete one ApplicationAccess
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends ApplicationAccessDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, ApplicationAccessDeleteArgs<ExtArgs>>
+    ): Prisma__ApplicationAccessClient<$Result.GetResult<Prisma.$ApplicationAccessPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one ApplicationAccess.
+     * @param {ApplicationAccessUpdateArgs} args - Arguments to update one ApplicationAccess.
+     * @example
+     * // Update one ApplicationAccess
+     * const applicationAccess = await prisma.applicationAccess.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends ApplicationAccessUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, ApplicationAccessUpdateArgs<ExtArgs>>
+    ): Prisma__ApplicationAccessClient<$Result.GetResult<Prisma.$ApplicationAccessPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more ApplicationAccesses.
+     * @param {ApplicationAccessDeleteManyArgs} args - Arguments to filter ApplicationAccesses to delete.
+     * @example
+     * // Delete a few ApplicationAccesses
+     * const { count } = await prisma.applicationAccess.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends ApplicationAccessDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, ApplicationAccessDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ApplicationAccesses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationAccessUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ApplicationAccesses
+     * const applicationAccess = await prisma.applicationAccess.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends ApplicationAccessUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, ApplicationAccessUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one ApplicationAccess.
+     * @param {ApplicationAccessUpsertArgs} args - Arguments to update or create a ApplicationAccess.
+     * @example
+     * // Update or create a ApplicationAccess
+     * const applicationAccess = await prisma.applicationAccess.upsert({
+     *   create: {
+     *     // ... data to create a ApplicationAccess
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ApplicationAccess we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends ApplicationAccessUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, ApplicationAccessUpsertArgs<ExtArgs>>
+    ): Prisma__ApplicationAccessClient<$Result.GetResult<Prisma.$ApplicationAccessPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of ApplicationAccesses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationAccessCountArgs} args - Arguments to filter ApplicationAccesses to count.
+     * @example
+     * // Count the number of ApplicationAccesses
+     * const count = await prisma.applicationAccess.count({
+     *   where: {
+     *     // ... the filter for the ApplicationAccesses we want to count
+     *   }
+     * })
+    **/
+    count<T extends ApplicationAccessCountArgs>(
+      args?: Subset<T, ApplicationAccessCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ApplicationAccessCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ApplicationAccess.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationAccessAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ApplicationAccessAggregateArgs>(args: Subset<T, ApplicationAccessAggregateArgs>): Prisma.PrismaPromise<GetApplicationAccessAggregateType<T>>
+
+    /**
+     * Group by ApplicationAccess.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ApplicationAccessGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ApplicationAccessGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ApplicationAccessGroupByArgs['orderBy'] }
+        : { orderBy?: ApplicationAccessGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ApplicationAccessGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetApplicationAccessGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ApplicationAccess model
+   */
+  readonly fields: ApplicationAccessFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ApplicationAccess.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ApplicationAccessClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    application<T extends ApplicationsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ApplicationsDefaultArgs<ExtArgs>>): Prisma__ApplicationsClient<$Result.GetResult<Prisma.$ApplicationsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    role<T extends RolesDefaultArgs<ExtArgs> = {}>(args?: Subset<T, RolesDefaultArgs<ExtArgs>>): Prisma__RolesClient<$Result.GetResult<Prisma.$RolesPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the ApplicationAccess model
+   */ 
+  interface ApplicationAccessFieldRefs {
+    readonly id: FieldRef<"ApplicationAccess", 'String'>
+    readonly userId: FieldRef<"ApplicationAccess", 'String'>
+    readonly applicationId: FieldRef<"ApplicationAccess", 'String'>
+    readonly roleId: FieldRef<"ApplicationAccess", 'Int'>
+    readonly isActive: FieldRef<"ApplicationAccess", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * ApplicationAccess findUnique
+   */
+  export type ApplicationAccessFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationAccess
+     */
+    select?: ApplicationAccessSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationAccessInclude<ExtArgs> | null
+    /**
+     * Filter, which ApplicationAccess to fetch.
+     */
+    where: ApplicationAccessWhereUniqueInput
+  }
+
+
+  /**
+   * ApplicationAccess findUniqueOrThrow
+   */
+  export type ApplicationAccessFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationAccess
+     */
+    select?: ApplicationAccessSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationAccessInclude<ExtArgs> | null
+    /**
+     * Filter, which ApplicationAccess to fetch.
+     */
+    where: ApplicationAccessWhereUniqueInput
+  }
+
+
+  /**
+   * ApplicationAccess findFirst
+   */
+  export type ApplicationAccessFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationAccess
+     */
+    select?: ApplicationAccessSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationAccessInclude<ExtArgs> | null
+    /**
+     * Filter, which ApplicationAccess to fetch.
+     */
+    where?: ApplicationAccessWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ApplicationAccesses to fetch.
+     */
+    orderBy?: ApplicationAccessOrderByWithRelationInput | ApplicationAccessOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ApplicationAccesses.
+     */
+    cursor?: ApplicationAccessWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ApplicationAccesses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ApplicationAccesses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ApplicationAccesses.
+     */
+    distinct?: ApplicationAccessScalarFieldEnum | ApplicationAccessScalarFieldEnum[]
+  }
+
+
+  /**
+   * ApplicationAccess findFirstOrThrow
+   */
+  export type ApplicationAccessFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationAccess
+     */
+    select?: ApplicationAccessSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationAccessInclude<ExtArgs> | null
+    /**
+     * Filter, which ApplicationAccess to fetch.
+     */
+    where?: ApplicationAccessWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ApplicationAccesses to fetch.
+     */
+    orderBy?: ApplicationAccessOrderByWithRelationInput | ApplicationAccessOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ApplicationAccesses.
+     */
+    cursor?: ApplicationAccessWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ApplicationAccesses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ApplicationAccesses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ApplicationAccesses.
+     */
+    distinct?: ApplicationAccessScalarFieldEnum | ApplicationAccessScalarFieldEnum[]
+  }
+
+
+  /**
+   * ApplicationAccess findMany
+   */
+  export type ApplicationAccessFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationAccess
+     */
+    select?: ApplicationAccessSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationAccessInclude<ExtArgs> | null
+    /**
+     * Filter, which ApplicationAccesses to fetch.
+     */
+    where?: ApplicationAccessWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ApplicationAccesses to fetch.
+     */
+    orderBy?: ApplicationAccessOrderByWithRelationInput | ApplicationAccessOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ApplicationAccesses.
+     */
+    cursor?: ApplicationAccessWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ApplicationAccesses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ApplicationAccesses.
+     */
+    skip?: number
+    distinct?: ApplicationAccessScalarFieldEnum | ApplicationAccessScalarFieldEnum[]
+  }
+
+
+  /**
+   * ApplicationAccess create
+   */
+  export type ApplicationAccessCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationAccess
+     */
+    select?: ApplicationAccessSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationAccessInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ApplicationAccess.
+     */
+    data: XOR<ApplicationAccessCreateInput, ApplicationAccessUncheckedCreateInput>
+  }
+
+
+  /**
+   * ApplicationAccess createMany
+   */
+  export type ApplicationAccessCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ApplicationAccesses.
+     */
+    data: ApplicationAccessCreateManyInput | ApplicationAccessCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * ApplicationAccess update
+   */
+  export type ApplicationAccessUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationAccess
+     */
+    select?: ApplicationAccessSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationAccessInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ApplicationAccess.
+     */
+    data: XOR<ApplicationAccessUpdateInput, ApplicationAccessUncheckedUpdateInput>
+    /**
+     * Choose, which ApplicationAccess to update.
+     */
+    where: ApplicationAccessWhereUniqueInput
+  }
+
+
+  /**
+   * ApplicationAccess updateMany
+   */
+  export type ApplicationAccessUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ApplicationAccesses.
+     */
+    data: XOR<ApplicationAccessUpdateManyMutationInput, ApplicationAccessUncheckedUpdateManyInput>
+    /**
+     * Filter which ApplicationAccesses to update
+     */
+    where?: ApplicationAccessWhereInput
+  }
+
+
+  /**
+   * ApplicationAccess upsert
+   */
+  export type ApplicationAccessUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationAccess
+     */
+    select?: ApplicationAccessSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationAccessInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ApplicationAccess to update in case it exists.
+     */
+    where: ApplicationAccessWhereUniqueInput
+    /**
+     * In case the ApplicationAccess found by the `where` argument doesn't exist, create a new ApplicationAccess with this data.
+     */
+    create: XOR<ApplicationAccessCreateInput, ApplicationAccessUncheckedCreateInput>
+    /**
+     * In case the ApplicationAccess was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ApplicationAccessUpdateInput, ApplicationAccessUncheckedUpdateInput>
+  }
+
+
+  /**
+   * ApplicationAccess delete
+   */
+  export type ApplicationAccessDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationAccess
+     */
+    select?: ApplicationAccessSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationAccessInclude<ExtArgs> | null
+    /**
+     * Filter which ApplicationAccess to delete.
+     */
+    where: ApplicationAccessWhereUniqueInput
+  }
+
+
+  /**
+   * ApplicationAccess deleteMany
+   */
+  export type ApplicationAccessDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ApplicationAccesses to delete
+     */
+    where?: ApplicationAccessWhereInput
+  }
+
+
+  /**
+   * ApplicationAccess without action
+   */
+  export type ApplicationAccessDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ApplicationAccess
+     */
+    select?: ApplicationAccessSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: ApplicationAccessInclude<ExtArgs> | null
+  }
+
+
+
+  /**
    * Model Roles
    */
 
@@ -4737,7 +7139,6 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
-    userId: string | null
   }
 
   export type RolesMaxAggregateOutputType = {
@@ -4747,7 +7148,6 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     deletedAt: Date | null
-    userId: string | null
   }
 
   export type RolesCountAggregateOutputType = {
@@ -4757,7 +7157,6 @@ export namespace Prisma {
     createdAt: number
     updatedAt: number
     deletedAt: number
-    userId: number
     _all: number
   }
 
@@ -4777,7 +7176,6 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
-    userId?: true
   }
 
   export type RolesMaxAggregateInputType = {
@@ -4787,7 +7185,6 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
-    userId?: true
   }
 
   export type RolesCountAggregateInputType = {
@@ -4797,7 +7194,6 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     deletedAt?: true
-    userId?: true
     _all?: true
   }
 
@@ -4894,7 +7290,6 @@ export namespace Prisma {
     createdAt: Date
     updatedAt: Date
     deletedAt: Date | null
-    userId: string | null
     _count: RolesCountAggregateOutputType | null
     _avg: RolesAvgAggregateOutputType | null
     _sum: RolesSumAggregateOutputType | null
@@ -4923,8 +7318,8 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
-    userId?: boolean
-    User?: boolean | Roles$UserArgs<ExtArgs>
+    applicationAccess?: boolean | Roles$applicationAccessArgs<ExtArgs>
+    _count?: boolean | RolesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["roles"]>
 
   export type RolesSelectScalar = {
@@ -4934,18 +7329,18 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     deletedAt?: boolean
-    userId?: boolean
   }
 
   export type RolesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    User?: boolean | Roles$UserArgs<ExtArgs>
+    applicationAccess?: boolean | Roles$applicationAccessArgs<ExtArgs>
+    _count?: boolean | RolesCountOutputTypeDefaultArgs<ExtArgs>
   }
 
 
   export type $RolesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Roles"
     objects: {
-      User: Prisma.$UserPayload<ExtArgs> | null
+      applicationAccess: Prisma.$ApplicationAccessPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4954,7 +7349,6 @@ export namespace Prisma {
       createdAt: Date
       updatedAt: Date
       deletedAt: Date | null
-      userId: string | null
     }, ExtArgs["result"]["roles"]>
     composites: {}
   }
@@ -5320,7 +7714,7 @@ export namespace Prisma {
   export interface Prisma__RolesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
-    User<T extends Roles$UserArgs<ExtArgs> = {}>(args?: Subset<T, Roles$UserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, 'findUniqueOrThrow'> | null, null, ExtArgs>;
+    applicationAccess<T extends Roles$applicationAccessArgs<ExtArgs> = {}>(args?: Subset<T, Roles$applicationAccessArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ApplicationAccessPayload<ExtArgs>, T, 'findMany'> | Null>;
 
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -5356,7 +7750,6 @@ export namespace Prisma {
     readonly createdAt: FieldRef<"Roles", 'DateTime'>
     readonly updatedAt: FieldRef<"Roles", 'DateTime'>
     readonly deletedAt: FieldRef<"Roles", 'DateTime'>
-    readonly userId: FieldRef<"Roles", 'String'>
   }
     
 
@@ -5669,18 +8062,23 @@ export namespace Prisma {
 
 
   /**
-   * Roles.User
+   * Roles.applicationAccess
    */
-  export type Roles$UserArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Roles$applicationAccessArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the ApplicationAccess
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: ApplicationAccessSelect<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well.
      */
-    include?: UserInclude<ExtArgs> | null
-    where?: UserWhereInput
+    include?: ApplicationAccessInclude<ExtArgs> | null
+    where?: ApplicationAccessWhereInput
+    orderBy?: ApplicationAccessOrderByWithRelationInput | ApplicationAccessOrderByWithRelationInput[]
+    cursor?: ApplicationAccessWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ApplicationAccessScalarFieldEnum | ApplicationAccessScalarFieldEnum[]
   }
 
 
@@ -5701,333 +8099,343 @@ export namespace Prisma {
 
 
   /**
-   * Model OTP
+   * Model Otp
    */
 
-  export type AggregateOTP = {
-    _count: OTPCountAggregateOutputType | null
-    _min: OTPMinAggregateOutputType | null
-    _max: OTPMaxAggregateOutputType | null
+  export type AggregateOtp = {
+    _count: OtpCountAggregateOutputType | null
+    _min: OtpMinAggregateOutputType | null
+    _max: OtpMaxAggregateOutputType | null
   }
 
-  export type OTPMinAggregateOutputType = {
+  export type OtpMinAggregateOutputType = {
     token: string | null
     email: string | null
+    phoneNumber: string | null
     otp: string | null
     expiry: Date | null
   }
 
-  export type OTPMaxAggregateOutputType = {
+  export type OtpMaxAggregateOutputType = {
     token: string | null
     email: string | null
+    phoneNumber: string | null
     otp: string | null
     expiry: Date | null
   }
 
-  export type OTPCountAggregateOutputType = {
+  export type OtpCountAggregateOutputType = {
     token: number
     email: number
+    phoneNumber: number
     otp: number
     expiry: number
     _all: number
   }
 
 
-  export type OTPMinAggregateInputType = {
+  export type OtpMinAggregateInputType = {
     token?: true
     email?: true
+    phoneNumber?: true
     otp?: true
     expiry?: true
   }
 
-  export type OTPMaxAggregateInputType = {
+  export type OtpMaxAggregateInputType = {
     token?: true
     email?: true
+    phoneNumber?: true
     otp?: true
     expiry?: true
   }
 
-  export type OTPCountAggregateInputType = {
+  export type OtpCountAggregateInputType = {
     token?: true
     email?: true
+    phoneNumber?: true
     otp?: true
     expiry?: true
     _all?: true
   }
 
-  export type OTPAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OtpAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which OTP to aggregate.
+     * Filter which Otp to aggregate.
      */
-    where?: OTPWhereInput
+    where?: OtpWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OTPS to fetch.
+     * Determine the order of Otps to fetch.
      */
-    orderBy?: OTPOrderByWithRelationInput | OTPOrderByWithRelationInput[]
+    orderBy?: OtpOrderByWithRelationInput | OtpOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: OTPWhereUniqueInput
+    cursor?: OtpWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` OTPS from the position of the cursor.
+     * Take `±n` Otps from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` OTPS.
+     * Skip the first `n` Otps.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned OTPS
+     * Count returned Otps
     **/
-    _count?: true | OTPCountAggregateInputType
+    _count?: true | OtpCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: OTPMinAggregateInputType
+    _min?: OtpMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: OTPMaxAggregateInputType
+    _max?: OtpMaxAggregateInputType
   }
 
-  export type GetOTPAggregateType<T extends OTPAggregateArgs> = {
-        [P in keyof T & keyof AggregateOTP]: P extends '_count' | 'count'
+  export type GetOtpAggregateType<T extends OtpAggregateArgs> = {
+        [P in keyof T & keyof AggregateOtp]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateOTP[P]>
-      : GetScalarType<T[P], AggregateOTP[P]>
+        : GetScalarType<T[P], AggregateOtp[P]>
+      : GetScalarType<T[P], AggregateOtp[P]>
   }
 
 
 
 
-  export type OTPGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: OTPWhereInput
-    orderBy?: OTPOrderByWithAggregationInput | OTPOrderByWithAggregationInput[]
-    by: OTPScalarFieldEnum[] | OTPScalarFieldEnum
-    having?: OTPScalarWhereWithAggregatesInput
+  export type OtpGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OtpWhereInput
+    orderBy?: OtpOrderByWithAggregationInput | OtpOrderByWithAggregationInput[]
+    by: OtpScalarFieldEnum[] | OtpScalarFieldEnum
+    having?: OtpScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: OTPCountAggregateInputType | true
-    _min?: OTPMinAggregateInputType
-    _max?: OTPMaxAggregateInputType
+    _count?: OtpCountAggregateInputType | true
+    _min?: OtpMinAggregateInputType
+    _max?: OtpMaxAggregateInputType
   }
 
-  export type OTPGroupByOutputType = {
-    token: string | null
+  export type OtpGroupByOutputType = {
+    token: string
     email: string
+    phoneNumber: string
     otp: string
     expiry: Date | null
-    _count: OTPCountAggregateOutputType | null
-    _min: OTPMinAggregateOutputType | null
-    _max: OTPMaxAggregateOutputType | null
+    _count: OtpCountAggregateOutputType | null
+    _min: OtpMinAggregateOutputType | null
+    _max: OtpMaxAggregateOutputType | null
   }
 
-  type GetOTPGroupByPayload<T extends OTPGroupByArgs> = Prisma.PrismaPromise<
+  type GetOtpGroupByPayload<T extends OtpGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<OTPGroupByOutputType, T['by']> &
+      PickEnumerable<OtpGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof OTPGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof OtpGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], OTPGroupByOutputType[P]>
-            : GetScalarType<T[P], OTPGroupByOutputType[P]>
+              : GetScalarType<T[P], OtpGroupByOutputType[P]>
+            : GetScalarType<T[P], OtpGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type OTPSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type OtpSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     token?: boolean
     email?: boolean
+    phoneNumber?: boolean
     otp?: boolean
     expiry?: boolean
-  }, ExtArgs["result"]["oTP"]>
+  }, ExtArgs["result"]["otp"]>
 
-  export type OTPSelectScalar = {
+  export type OtpSelectScalar = {
     token?: boolean
     email?: boolean
+    phoneNumber?: boolean
     otp?: boolean
     expiry?: boolean
   }
 
 
-  export type $OTPPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "OTP"
+  export type $OtpPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Otp"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
-      token: string | null
+      token: string
       email: string
+      phoneNumber: string
       otp: string
       expiry: Date | null
-    }, ExtArgs["result"]["oTP"]>
+    }, ExtArgs["result"]["otp"]>
     composites: {}
   }
 
 
-  type OTPGetPayload<S extends boolean | null | undefined | OTPDefaultArgs> = $Result.GetResult<Prisma.$OTPPayload, S>
+  type OtpGetPayload<S extends boolean | null | undefined | OtpDefaultArgs> = $Result.GetResult<Prisma.$OtpPayload, S>
 
-  type OTPCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
-    Omit<OTPFindManyArgs, 'select' | 'include' | 'distinct'> & {
-      select?: OTPCountAggregateInputType | true
+  type OtpCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<OtpFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: OtpCountAggregateInputType | true
     }
 
-  export interface OTPDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['OTP'], meta: { name: 'OTP' } }
+  export interface OtpDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Otp'], meta: { name: 'Otp' } }
     /**
-     * Find zero or one OTP that matches the filter.
-     * @param {OTPFindUniqueArgs} args - Arguments to find a OTP
+     * Find zero or one Otp that matches the filter.
+     * @param {OtpFindUniqueArgs} args - Arguments to find a Otp
      * @example
-     * // Get one OTP
-     * const oTP = await prisma.oTP.findUnique({
+     * // Get one Otp
+     * const otp = await prisma.otp.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUnique<T extends OTPFindUniqueArgs<ExtArgs>>(
-      args: SelectSubset<T, OTPFindUniqueArgs<ExtArgs>>
-    ): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+    findUnique<T extends OtpFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, OtpFindUniqueArgs<ExtArgs>>
+    ): Prisma__OtpClient<$Result.GetResult<Prisma.$OtpPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
 
     /**
-     * Find one OTP that matches the filter or throw an error  with `error.code='P2025'` 
+     * Find one Otp that matches the filter or throw an error  with `error.code='P2025'` 
      *     if no matches were found.
-     * @param {OTPFindUniqueOrThrowArgs} args - Arguments to find a OTP
+     * @param {OtpFindUniqueOrThrowArgs} args - Arguments to find a Otp
      * @example
-     * // Get one OTP
-     * const oTP = await prisma.oTP.findUniqueOrThrow({
+     * // Get one Otp
+     * const otp = await prisma.otp.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findUniqueOrThrow<T extends OTPFindUniqueOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, OTPFindUniqueOrThrowArgs<ExtArgs>>
-    ): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+    findUniqueOrThrow<T extends OtpFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, OtpFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__OtpClient<$Result.GetResult<Prisma.$OtpPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
 
     /**
-     * Find the first OTP that matches the filter.
+     * Find the first Otp that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OTPFindFirstArgs} args - Arguments to find a OTP
+     * @param {OtpFindFirstArgs} args - Arguments to find a Otp
      * @example
-     * // Get one OTP
-     * const oTP = await prisma.oTP.findFirst({
+     * // Get one Otp
+     * const otp = await prisma.otp.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirst<T extends OTPFindFirstArgs<ExtArgs>>(
-      args?: SelectSubset<T, OTPFindFirstArgs<ExtArgs>>
-    ): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+    findFirst<T extends OtpFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, OtpFindFirstArgs<ExtArgs>>
+    ): Prisma__OtpClient<$Result.GetResult<Prisma.$OtpPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
 
     /**
-     * Find the first OTP that matches the filter or
+     * Find the first Otp that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OTPFindFirstOrThrowArgs} args - Arguments to find a OTP
+     * @param {OtpFindFirstOrThrowArgs} args - Arguments to find a Otp
      * @example
-     * // Get one OTP
-     * const oTP = await prisma.oTP.findFirstOrThrow({
+     * // Get one Otp
+     * const otp = await prisma.otp.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
     **/
-    findFirstOrThrow<T extends OTPFindFirstOrThrowArgs<ExtArgs>>(
-      args?: SelectSubset<T, OTPFindFirstOrThrowArgs<ExtArgs>>
-    ): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+    findFirstOrThrow<T extends OtpFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, OtpFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__OtpClient<$Result.GetResult<Prisma.$OtpPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
 
     /**
-     * Find zero or more OTPS that matches the filter.
+     * Find zero or more Otps that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OTPFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @param {OtpFindManyArgs=} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all OTPS
-     * const oTPS = await prisma.oTP.findMany()
+     * // Get all Otps
+     * const otps = await prisma.otp.findMany()
      * 
-     * // Get first 10 OTPS
-     * const oTPS = await prisma.oTP.findMany({ take: 10 })
+     * // Get first 10 Otps
+     * const otps = await prisma.otp.findMany({ take: 10 })
      * 
      * // Only select the `token`
-     * const oTPWithTokenOnly = await prisma.oTP.findMany({ select: { token: true } })
+     * const otpWithTokenOnly = await prisma.otp.findMany({ select: { token: true } })
      * 
     **/
-    findMany<T extends OTPFindManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, OTPFindManyArgs<ExtArgs>>
-    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, 'findMany'>>
+    findMany<T extends OtpFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, OtpFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OtpPayload<ExtArgs>, T, 'findMany'>>
 
     /**
-     * Create a OTP.
-     * @param {OTPCreateArgs} args - Arguments to create a OTP.
+     * Create a Otp.
+     * @param {OtpCreateArgs} args - Arguments to create a Otp.
      * @example
-     * // Create one OTP
-     * const OTP = await prisma.oTP.create({
+     * // Create one Otp
+     * const Otp = await prisma.otp.create({
      *   data: {
-     *     // ... data to create a OTP
+     *     // ... data to create a Otp
      *   }
      * })
      * 
     **/
-    create<T extends OTPCreateArgs<ExtArgs>>(
-      args: SelectSubset<T, OTPCreateArgs<ExtArgs>>
-    ): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+    create<T extends OtpCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, OtpCreateArgs<ExtArgs>>
+    ): Prisma__OtpClient<$Result.GetResult<Prisma.$OtpPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
 
     /**
-     * Create many OTPS.
-     *     @param {OTPCreateManyArgs} args - Arguments to create many OTPS.
+     * Create many Otps.
+     *     @param {OtpCreateManyArgs} args - Arguments to create many Otps.
      *     @example
-     *     // Create many OTPS
-     *     const oTP = await prisma.oTP.createMany({
+     *     // Create many Otps
+     *     const otp = await prisma.otp.createMany({
      *       data: {
      *         // ... provide data here
      *       }
      *     })
      *     
     **/
-    createMany<T extends OTPCreateManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, OTPCreateManyArgs<ExtArgs>>
+    createMany<T extends OtpCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, OtpCreateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Delete a OTP.
-     * @param {OTPDeleteArgs} args - Arguments to delete one OTP.
+     * Delete a Otp.
+     * @param {OtpDeleteArgs} args - Arguments to delete one Otp.
      * @example
-     * // Delete one OTP
-     * const OTP = await prisma.oTP.delete({
+     * // Delete one Otp
+     * const Otp = await prisma.otp.delete({
      *   where: {
-     *     // ... filter to delete one OTP
+     *     // ... filter to delete one Otp
      *   }
      * })
      * 
     **/
-    delete<T extends OTPDeleteArgs<ExtArgs>>(
-      args: SelectSubset<T, OTPDeleteArgs<ExtArgs>>
-    ): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+    delete<T extends OtpDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, OtpDeleteArgs<ExtArgs>>
+    ): Prisma__OtpClient<$Result.GetResult<Prisma.$OtpPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
 
     /**
-     * Update one OTP.
-     * @param {OTPUpdateArgs} args - Arguments to update one OTP.
+     * Update one Otp.
+     * @param {OtpUpdateArgs} args - Arguments to update one Otp.
      * @example
-     * // Update one OTP
-     * const oTP = await prisma.oTP.update({
+     * // Update one Otp
+     * const otp = await prisma.otp.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6037,34 +8445,34 @@ export namespace Prisma {
      * })
      * 
     **/
-    update<T extends OTPUpdateArgs<ExtArgs>>(
-      args: SelectSubset<T, OTPUpdateArgs<ExtArgs>>
-    ): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+    update<T extends OtpUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, OtpUpdateArgs<ExtArgs>>
+    ): Prisma__OtpClient<$Result.GetResult<Prisma.$OtpPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
 
     /**
-     * Delete zero or more OTPS.
-     * @param {OTPDeleteManyArgs} args - Arguments to filter OTPS to delete.
+     * Delete zero or more Otps.
+     * @param {OtpDeleteManyArgs} args - Arguments to filter Otps to delete.
      * @example
-     * // Delete a few OTPS
-     * const { count } = await prisma.oTP.deleteMany({
+     * // Delete a few Otps
+     * const { count } = await prisma.otp.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
     **/
-    deleteMany<T extends OTPDeleteManyArgs<ExtArgs>>(
-      args?: SelectSubset<T, OTPDeleteManyArgs<ExtArgs>>
+    deleteMany<T extends OtpDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, OtpDeleteManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more OTPS.
+     * Update zero or more Otps.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OTPUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {OtpUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many OTPS
-     * const oTP = await prisma.oTP.updateMany({
+     * // Update many Otps
+     * const otp = await prisma.otp.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6074,59 +8482,59 @@ export namespace Prisma {
      * })
      * 
     **/
-    updateMany<T extends OTPUpdateManyArgs<ExtArgs>>(
-      args: SelectSubset<T, OTPUpdateManyArgs<ExtArgs>>
+    updateMany<T extends OtpUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, OtpUpdateManyArgs<ExtArgs>>
     ): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create or update one OTP.
-     * @param {OTPUpsertArgs} args - Arguments to update or create a OTP.
+     * Create or update one Otp.
+     * @param {OtpUpsertArgs} args - Arguments to update or create a Otp.
      * @example
-     * // Update or create a OTP
-     * const oTP = await prisma.oTP.upsert({
+     * // Update or create a Otp
+     * const otp = await prisma.otp.upsert({
      *   create: {
-     *     // ... data to create a OTP
+     *     // ... data to create a Otp
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the OTP we want to update
+     *     // ... the filter for the Otp we want to update
      *   }
      * })
     **/
-    upsert<T extends OTPUpsertArgs<ExtArgs>>(
-      args: SelectSubset<T, OTPUpsertArgs<ExtArgs>>
-    ): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+    upsert<T extends OtpUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, OtpUpsertArgs<ExtArgs>>
+    ): Prisma__OtpClient<$Result.GetResult<Prisma.$OtpPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
 
     /**
-     * Count the number of OTPS.
+     * Count the number of Otps.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OTPCountArgs} args - Arguments to filter OTPS to count.
+     * @param {OtpCountArgs} args - Arguments to filter Otps to count.
      * @example
-     * // Count the number of OTPS
-     * const count = await prisma.oTP.count({
+     * // Count the number of Otps
+     * const count = await prisma.otp.count({
      *   where: {
-     *     // ... the filter for the OTPS we want to count
+     *     // ... the filter for the Otps we want to count
      *   }
      * })
     **/
-    count<T extends OTPCountArgs>(
-      args?: Subset<T, OTPCountArgs>,
+    count<T extends OtpCountArgs>(
+      args?: Subset<T, OtpCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], OTPCountAggregateOutputType>
+          : GetScalarType<T['select'], OtpCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a OTP.
+     * Allows you to perform aggregations operations on a Otp.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OTPAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {OtpAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -6146,13 +8554,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends OTPAggregateArgs>(args: Subset<T, OTPAggregateArgs>): Prisma.PrismaPromise<GetOTPAggregateType<T>>
+    aggregate<T extends OtpAggregateArgs>(args: Subset<T, OtpAggregateArgs>): Prisma.PrismaPromise<GetOtpAggregateType<T>>
 
     /**
-     * Group by OTP.
+     * Group by Otp.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {OTPGroupByArgs} args - Group by arguments.
+     * @param {OtpGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -6167,14 +8575,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends OTPGroupByArgs,
+      T extends OtpGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: OTPGroupByArgs['orderBy'] }
-        : { orderBy?: OTPGroupByArgs['orderBy'] },
+        ? { orderBy: OtpGroupByArgs['orderBy'] }
+        : { orderBy?: OtpGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -6223,20 +8631,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, OTPGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOTPGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, OtpGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOtpGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the OTP model
+   * Fields of the Otp model
    */
-  readonly fields: OTPFieldRefs;
+  readonly fields: OtpFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for OTP.
+   * The delegate class that acts as a "Promise-like" for Otp.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__OTPClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__OtpClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: 'PrismaPromise';
 
 
@@ -6265,296 +8673,297 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the OTP model
+   * Fields of the Otp model
    */ 
-  interface OTPFieldRefs {
-    readonly token: FieldRef<"OTP", 'String'>
-    readonly email: FieldRef<"OTP", 'String'>
-    readonly otp: FieldRef<"OTP", 'String'>
-    readonly expiry: FieldRef<"OTP", 'DateTime'>
+  interface OtpFieldRefs {
+    readonly token: FieldRef<"Otp", 'String'>
+    readonly email: FieldRef<"Otp", 'String'>
+    readonly phoneNumber: FieldRef<"Otp", 'String'>
+    readonly otp: FieldRef<"Otp", 'String'>
+    readonly expiry: FieldRef<"Otp", 'DateTime'>
   }
     
 
   // Custom InputTypes
 
   /**
-   * OTP findUnique
+   * Otp findUnique
    */
-  export type OTPFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OtpFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OTP
+     * Select specific fields to fetch from the Otp
      */
-    select?: OTPSelect<ExtArgs> | null
+    select?: OtpSelect<ExtArgs> | null
     /**
-     * Filter, which OTP to fetch.
+     * Filter, which Otp to fetch.
      */
-    where: OTPWhereUniqueInput
+    where: OtpWhereUniqueInput
   }
 
 
   /**
-   * OTP findUniqueOrThrow
+   * Otp findUniqueOrThrow
    */
-  export type OTPFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OtpFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OTP
+     * Select specific fields to fetch from the Otp
      */
-    select?: OTPSelect<ExtArgs> | null
+    select?: OtpSelect<ExtArgs> | null
     /**
-     * Filter, which OTP to fetch.
+     * Filter, which Otp to fetch.
      */
-    where: OTPWhereUniqueInput
+    where: OtpWhereUniqueInput
   }
 
 
   /**
-   * OTP findFirst
+   * Otp findFirst
    */
-  export type OTPFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OtpFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OTP
+     * Select specific fields to fetch from the Otp
      */
-    select?: OTPSelect<ExtArgs> | null
+    select?: OtpSelect<ExtArgs> | null
     /**
-     * Filter, which OTP to fetch.
+     * Filter, which Otp to fetch.
      */
-    where?: OTPWhereInput
+    where?: OtpWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OTPS to fetch.
+     * Determine the order of Otps to fetch.
      */
-    orderBy?: OTPOrderByWithRelationInput | OTPOrderByWithRelationInput[]
+    orderBy?: OtpOrderByWithRelationInput | OtpOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for OTPS.
+     * Sets the position for searching for Otps.
      */
-    cursor?: OTPWhereUniqueInput
+    cursor?: OtpWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` OTPS from the position of the cursor.
+     * Take `±n` Otps from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` OTPS.
+     * Skip the first `n` Otps.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of OTPS.
+     * Filter by unique combinations of Otps.
      */
-    distinct?: OTPScalarFieldEnum | OTPScalarFieldEnum[]
+    distinct?: OtpScalarFieldEnum | OtpScalarFieldEnum[]
   }
 
 
   /**
-   * OTP findFirstOrThrow
+   * Otp findFirstOrThrow
    */
-  export type OTPFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OtpFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OTP
+     * Select specific fields to fetch from the Otp
      */
-    select?: OTPSelect<ExtArgs> | null
+    select?: OtpSelect<ExtArgs> | null
     /**
-     * Filter, which OTP to fetch.
+     * Filter, which Otp to fetch.
      */
-    where?: OTPWhereInput
+    where?: OtpWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OTPS to fetch.
+     * Determine the order of Otps to fetch.
      */
-    orderBy?: OTPOrderByWithRelationInput | OTPOrderByWithRelationInput[]
+    orderBy?: OtpOrderByWithRelationInput | OtpOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for OTPS.
+     * Sets the position for searching for Otps.
      */
-    cursor?: OTPWhereUniqueInput
+    cursor?: OtpWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` OTPS from the position of the cursor.
+     * Take `±n` Otps from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` OTPS.
+     * Skip the first `n` Otps.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of OTPS.
+     * Filter by unique combinations of Otps.
      */
-    distinct?: OTPScalarFieldEnum | OTPScalarFieldEnum[]
+    distinct?: OtpScalarFieldEnum | OtpScalarFieldEnum[]
   }
 
 
   /**
-   * OTP findMany
+   * Otp findMany
    */
-  export type OTPFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OtpFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OTP
+     * Select specific fields to fetch from the Otp
      */
-    select?: OTPSelect<ExtArgs> | null
+    select?: OtpSelect<ExtArgs> | null
     /**
-     * Filter, which OTPS to fetch.
+     * Filter, which Otps to fetch.
      */
-    where?: OTPWhereInput
+    where?: OtpWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of OTPS to fetch.
+     * Determine the order of Otps to fetch.
      */
-    orderBy?: OTPOrderByWithRelationInput | OTPOrderByWithRelationInput[]
+    orderBy?: OtpOrderByWithRelationInput | OtpOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing OTPS.
+     * Sets the position for listing Otps.
      */
-    cursor?: OTPWhereUniqueInput
+    cursor?: OtpWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` OTPS from the position of the cursor.
+     * Take `±n` Otps from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` OTPS.
+     * Skip the first `n` Otps.
      */
     skip?: number
-    distinct?: OTPScalarFieldEnum | OTPScalarFieldEnum[]
+    distinct?: OtpScalarFieldEnum | OtpScalarFieldEnum[]
   }
 
 
   /**
-   * OTP create
+   * Otp create
    */
-  export type OTPCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OtpCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OTP
+     * Select specific fields to fetch from the Otp
      */
-    select?: OTPSelect<ExtArgs> | null
+    select?: OtpSelect<ExtArgs> | null
     /**
-     * The data needed to create a OTP.
+     * The data needed to create a Otp.
      */
-    data: XOR<OTPCreateInput, OTPUncheckedCreateInput>
+    data: XOR<OtpCreateInput, OtpUncheckedCreateInput>
   }
 
 
   /**
-   * OTP createMany
+   * Otp createMany
    */
-  export type OTPCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OtpCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many OTPS.
+     * The data used to create many Otps.
      */
-    data: OTPCreateManyInput | OTPCreateManyInput[]
+    data: OtpCreateManyInput | OtpCreateManyInput[]
     skipDuplicates?: boolean
   }
 
 
   /**
-   * OTP update
+   * Otp update
    */
-  export type OTPUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OtpUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OTP
+     * Select specific fields to fetch from the Otp
      */
-    select?: OTPSelect<ExtArgs> | null
+    select?: OtpSelect<ExtArgs> | null
     /**
-     * The data needed to update a OTP.
+     * The data needed to update a Otp.
      */
-    data: XOR<OTPUpdateInput, OTPUncheckedUpdateInput>
+    data: XOR<OtpUpdateInput, OtpUncheckedUpdateInput>
     /**
-     * Choose, which OTP to update.
+     * Choose, which Otp to update.
      */
-    where: OTPWhereUniqueInput
+    where: OtpWhereUniqueInput
   }
 
 
   /**
-   * OTP updateMany
+   * Otp updateMany
    */
-  export type OTPUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OtpUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update OTPS.
+     * The data used to update Otps.
      */
-    data: XOR<OTPUpdateManyMutationInput, OTPUncheckedUpdateManyInput>
+    data: XOR<OtpUpdateManyMutationInput, OtpUncheckedUpdateManyInput>
     /**
-     * Filter which OTPS to update
+     * Filter which Otps to update
      */
-    where?: OTPWhereInput
+    where?: OtpWhereInput
   }
 
 
   /**
-   * OTP upsert
+   * Otp upsert
    */
-  export type OTPUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OtpUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OTP
+     * Select specific fields to fetch from the Otp
      */
-    select?: OTPSelect<ExtArgs> | null
+    select?: OtpSelect<ExtArgs> | null
     /**
-     * The filter to search for the OTP to update in case it exists.
+     * The filter to search for the Otp to update in case it exists.
      */
-    where: OTPWhereUniqueInput
+    where: OtpWhereUniqueInput
     /**
-     * In case the OTP found by the `where` argument doesn't exist, create a new OTP with this data.
+     * In case the Otp found by the `where` argument doesn't exist, create a new Otp with this data.
      */
-    create: XOR<OTPCreateInput, OTPUncheckedCreateInput>
+    create: XOR<OtpCreateInput, OtpUncheckedCreateInput>
     /**
-     * In case the OTP was found with the provided `where` argument, update it with this data.
+     * In case the Otp was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<OTPUpdateInput, OTPUncheckedUpdateInput>
+    update: XOR<OtpUpdateInput, OtpUncheckedUpdateInput>
   }
 
 
   /**
-   * OTP delete
+   * Otp delete
    */
-  export type OTPDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OtpDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OTP
+     * Select specific fields to fetch from the Otp
      */
-    select?: OTPSelect<ExtArgs> | null
+    select?: OtpSelect<ExtArgs> | null
     /**
-     * Filter which OTP to delete.
+     * Filter which Otp to delete.
      */
-    where: OTPWhereUniqueInput
+    where: OtpWhereUniqueInput
   }
 
 
   /**
-   * OTP deleteMany
+   * Otp deleteMany
    */
-  export type OTPDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OtpDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which OTPS to delete
+     * Filter which Otps to delete
      */
-    where?: OTPWhereInput
+    where?: OtpWhereInput
   }
 
 
   /**
-   * OTP without action
+   * Otp without action
    */
-  export type OTPDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type OtpDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the OTP
+     * Select specific fields to fetch from the Otp
      */
-    select?: OTPSelect<ExtArgs> | null
+    select?: OtpSelect<ExtArgs> | null
   }
 
 
@@ -9819,6 +12228,8 @@ export namespace Prisma {
     deletedAt?: boolean
     User?: boolean | UserDefaultArgs<ExtArgs>
     DepartmentManagement?: boolean | DepartmentManagementsDefaultArgs<ExtArgs>
+    division?: boolean | DivisionsDefaultArgs<ExtArgs>
+    titleOfDivision?: boolean | TitleOfDivisionsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["userIdentity"]>
 
   export type UserIdentitySelectScalar = {
@@ -9835,6 +12246,8 @@ export namespace Prisma {
   export type UserIdentityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     User?: boolean | UserDefaultArgs<ExtArgs>
     DepartmentManagement?: boolean | DepartmentManagementsDefaultArgs<ExtArgs>
+    division?: boolean | DivisionsDefaultArgs<ExtArgs>
+    titleOfDivision?: boolean | TitleOfDivisionsDefaultArgs<ExtArgs>
   }
 
 
@@ -9843,6 +12256,8 @@ export namespace Prisma {
     objects: {
       User: Prisma.$UserPayload<ExtArgs>
       DepartmentManagement: Prisma.$DepartmentManagementsPayload<ExtArgs>
+      division: Prisma.$DivisionsPayload<ExtArgs>
+      titleOfDivision: Prisma.$TitleOfDivisionsPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -10222,6 +12637,10 @@ export namespace Prisma {
 
     DepartmentManagement<T extends DepartmentManagementsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DepartmentManagementsDefaultArgs<ExtArgs>>): Prisma__DepartmentManagementsClient<$Result.GetResult<Prisma.$DepartmentManagementsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
 
+    division<T extends DivisionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DivisionsDefaultArgs<ExtArgs>>): Prisma__DivisionsClient<$Result.GetResult<Prisma.$DivisionsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    titleOfDivision<T extends TitleOfDivisionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TitleOfDivisionsDefaultArgs<ExtArgs>>): Prisma__TitleOfDivisionsClient<$Result.GetResult<Prisma.$TitleOfDivisionsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10586,6 +13005,3028 @@ export namespace Prisma {
 
 
   /**
+   * Model Divisions
+   */
+
+  export type AggregateDivisions = {
+    _count: DivisionsCountAggregateOutputType | null
+    _avg: DivisionsAvgAggregateOutputType | null
+    _sum: DivisionsSumAggregateOutputType | null
+    _min: DivisionsMinAggregateOutputType | null
+    _max: DivisionsMaxAggregateOutputType | null
+  }
+
+  export type DivisionsAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type DivisionsSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type DivisionsMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    deletedAt: Date | null
+  }
+
+  export type DivisionsMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    deletedAt: Date | null
+  }
+
+  export type DivisionsCountAggregateOutputType = {
+    id: number
+    name: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    deletedAt: number
+    _all: number
+  }
+
+
+  export type DivisionsAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type DivisionsSumAggregateInputType = {
+    id?: true
+  }
+
+  export type DivisionsMinAggregateInputType = {
+    id?: true
+    name?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+  }
+
+  export type DivisionsMaxAggregateInputType = {
+    id?: true
+    name?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+  }
+
+  export type DivisionsCountAggregateInputType = {
+    id?: true
+    name?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+    _all?: true
+  }
+
+  export type DivisionsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Divisions to aggregate.
+     */
+    where?: DivisionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Divisions to fetch.
+     */
+    orderBy?: DivisionsOrderByWithRelationInput | DivisionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DivisionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Divisions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Divisions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Divisions
+    **/
+    _count?: true | DivisionsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DivisionsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DivisionsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DivisionsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DivisionsMaxAggregateInputType
+  }
+
+  export type GetDivisionsAggregateType<T extends DivisionsAggregateArgs> = {
+        [P in keyof T & keyof AggregateDivisions]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDivisions[P]>
+      : GetScalarType<T[P], AggregateDivisions[P]>
+  }
+
+
+
+
+  export type DivisionsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DivisionsWhereInput
+    orderBy?: DivisionsOrderByWithAggregationInput | DivisionsOrderByWithAggregationInput[]
+    by: DivisionsScalarFieldEnum[] | DivisionsScalarFieldEnum
+    having?: DivisionsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DivisionsCountAggregateInputType | true
+    _avg?: DivisionsAvgAggregateInputType
+    _sum?: DivisionsSumAggregateInputType
+    _min?: DivisionsMinAggregateInputType
+    _max?: DivisionsMaxAggregateInputType
+  }
+
+  export type DivisionsGroupByOutputType = {
+    id: number
+    name: string
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    deletedAt: Date | null
+    _count: DivisionsCountAggregateOutputType | null
+    _avg: DivisionsAvgAggregateOutputType | null
+    _sum: DivisionsSumAggregateOutputType | null
+    _min: DivisionsMinAggregateOutputType | null
+    _max: DivisionsMaxAggregateOutputType | null
+  }
+
+  type GetDivisionsGroupByPayload<T extends DivisionsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DivisionsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DivisionsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DivisionsGroupByOutputType[P]>
+            : GetScalarType<T[P], DivisionsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DivisionsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    UserIdentity?: boolean | Divisions$UserIdentityArgs<ExtArgs>
+    DivisionManagement?: boolean | Divisions$DivisionManagementArgs<ExtArgs>
+    _count?: boolean | DivisionsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["divisions"]>
+
+  export type DivisionsSelectScalar = {
+    id?: boolean
+    name?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+  }
+
+  export type DivisionsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    UserIdentity?: boolean | Divisions$UserIdentityArgs<ExtArgs>
+    DivisionManagement?: boolean | Divisions$DivisionManagementArgs<ExtArgs>
+    _count?: boolean | DivisionsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $DivisionsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Divisions"
+    objects: {
+      UserIdentity: Prisma.$UserIdentityPayload<ExtArgs>[]
+      DivisionManagement: Prisma.$DivisionsManagementPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+      deletedAt: Date | null
+    }, ExtArgs["result"]["divisions"]>
+    composites: {}
+  }
+
+
+  type DivisionsGetPayload<S extends boolean | null | undefined | DivisionsDefaultArgs> = $Result.GetResult<Prisma.$DivisionsPayload, S>
+
+  type DivisionsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<DivisionsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: DivisionsCountAggregateInputType | true
+    }
+
+  export interface DivisionsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Divisions'], meta: { name: 'Divisions' } }
+    /**
+     * Find zero or one Divisions that matches the filter.
+     * @param {DivisionsFindUniqueArgs} args - Arguments to find a Divisions
+     * @example
+     * // Get one Divisions
+     * const divisions = await prisma.divisions.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends DivisionsFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionsFindUniqueArgs<ExtArgs>>
+    ): Prisma__DivisionsClient<$Result.GetResult<Prisma.$DivisionsPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one Divisions that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {DivisionsFindUniqueOrThrowArgs} args - Arguments to find a Divisions
+     * @example
+     * // Get one Divisions
+     * const divisions = await prisma.divisions.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends DivisionsFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionsFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__DivisionsClient<$Result.GetResult<Prisma.$DivisionsPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first Divisions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionsFindFirstArgs} args - Arguments to find a Divisions
+     * @example
+     * // Get one Divisions
+     * const divisions = await prisma.divisions.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends DivisionsFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionsFindFirstArgs<ExtArgs>>
+    ): Prisma__DivisionsClient<$Result.GetResult<Prisma.$DivisionsPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first Divisions that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionsFindFirstOrThrowArgs} args - Arguments to find a Divisions
+     * @example
+     * // Get one Divisions
+     * const divisions = await prisma.divisions.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends DivisionsFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionsFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__DivisionsClient<$Result.GetResult<Prisma.$DivisionsPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more Divisions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionsFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Divisions
+     * const divisions = await prisma.divisions.findMany()
+     * 
+     * // Get first 10 Divisions
+     * const divisions = await prisma.divisions.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const divisionsWithIdOnly = await prisma.divisions.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends DivisionsFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionsFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DivisionsPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a Divisions.
+     * @param {DivisionsCreateArgs} args - Arguments to create a Divisions.
+     * @example
+     * // Create one Divisions
+     * const Divisions = await prisma.divisions.create({
+     *   data: {
+     *     // ... data to create a Divisions
+     *   }
+     * })
+     * 
+    **/
+    create<T extends DivisionsCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionsCreateArgs<ExtArgs>>
+    ): Prisma__DivisionsClient<$Result.GetResult<Prisma.$DivisionsPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many Divisions.
+     *     @param {DivisionsCreateManyArgs} args - Arguments to create many Divisions.
+     *     @example
+     *     // Create many Divisions
+     *     const divisions = await prisma.divisions.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends DivisionsCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionsCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Divisions.
+     * @param {DivisionsDeleteArgs} args - Arguments to delete one Divisions.
+     * @example
+     * // Delete one Divisions
+     * const Divisions = await prisma.divisions.delete({
+     *   where: {
+     *     // ... filter to delete one Divisions
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends DivisionsDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionsDeleteArgs<ExtArgs>>
+    ): Prisma__DivisionsClient<$Result.GetResult<Prisma.$DivisionsPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one Divisions.
+     * @param {DivisionsUpdateArgs} args - Arguments to update one Divisions.
+     * @example
+     * // Update one Divisions
+     * const divisions = await prisma.divisions.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends DivisionsUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionsUpdateArgs<ExtArgs>>
+    ): Prisma__DivisionsClient<$Result.GetResult<Prisma.$DivisionsPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more Divisions.
+     * @param {DivisionsDeleteManyArgs} args - Arguments to filter Divisions to delete.
+     * @example
+     * // Delete a few Divisions
+     * const { count } = await prisma.divisions.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends DivisionsDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionsDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Divisions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Divisions
+     * const divisions = await prisma.divisions.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends DivisionsUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionsUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Divisions.
+     * @param {DivisionsUpsertArgs} args - Arguments to update or create a Divisions.
+     * @example
+     * // Update or create a Divisions
+     * const divisions = await prisma.divisions.upsert({
+     *   create: {
+     *     // ... data to create a Divisions
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Divisions we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends DivisionsUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionsUpsertArgs<ExtArgs>>
+    ): Prisma__DivisionsClient<$Result.GetResult<Prisma.$DivisionsPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of Divisions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionsCountArgs} args - Arguments to filter Divisions to count.
+     * @example
+     * // Count the number of Divisions
+     * const count = await prisma.divisions.count({
+     *   where: {
+     *     // ... the filter for the Divisions we want to count
+     *   }
+     * })
+    **/
+    count<T extends DivisionsCountArgs>(
+      args?: Subset<T, DivisionsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DivisionsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Divisions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DivisionsAggregateArgs>(args: Subset<T, DivisionsAggregateArgs>): Prisma.PrismaPromise<GetDivisionsAggregateType<T>>
+
+    /**
+     * Group by Divisions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DivisionsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DivisionsGroupByArgs['orderBy'] }
+        : { orderBy?: DivisionsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DivisionsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDivisionsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Divisions model
+   */
+  readonly fields: DivisionsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Divisions.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DivisionsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    UserIdentity<T extends Divisions$UserIdentityArgs<ExtArgs> = {}>(args?: Subset<T, Divisions$UserIdentityArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserIdentityPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    DivisionManagement<T extends Divisions$DivisionManagementArgs<ExtArgs> = {}>(args?: Subset<T, Divisions$DivisionManagementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DivisionsManagementPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the Divisions model
+   */ 
+  interface DivisionsFieldRefs {
+    readonly id: FieldRef<"Divisions", 'Int'>
+    readonly name: FieldRef<"Divisions", 'String'>
+    readonly isActive: FieldRef<"Divisions", 'Boolean'>
+    readonly createdAt: FieldRef<"Divisions", 'DateTime'>
+    readonly updatedAt: FieldRef<"Divisions", 'DateTime'>
+    readonly deletedAt: FieldRef<"Divisions", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * Divisions findUnique
+   */
+  export type DivisionsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Divisions
+     */
+    select?: DivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsInclude<ExtArgs> | null
+    /**
+     * Filter, which Divisions to fetch.
+     */
+    where: DivisionsWhereUniqueInput
+  }
+
+
+  /**
+   * Divisions findUniqueOrThrow
+   */
+  export type DivisionsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Divisions
+     */
+    select?: DivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsInclude<ExtArgs> | null
+    /**
+     * Filter, which Divisions to fetch.
+     */
+    where: DivisionsWhereUniqueInput
+  }
+
+
+  /**
+   * Divisions findFirst
+   */
+  export type DivisionsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Divisions
+     */
+    select?: DivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsInclude<ExtArgs> | null
+    /**
+     * Filter, which Divisions to fetch.
+     */
+    where?: DivisionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Divisions to fetch.
+     */
+    orderBy?: DivisionsOrderByWithRelationInput | DivisionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Divisions.
+     */
+    cursor?: DivisionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Divisions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Divisions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Divisions.
+     */
+    distinct?: DivisionsScalarFieldEnum | DivisionsScalarFieldEnum[]
+  }
+
+
+  /**
+   * Divisions findFirstOrThrow
+   */
+  export type DivisionsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Divisions
+     */
+    select?: DivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsInclude<ExtArgs> | null
+    /**
+     * Filter, which Divisions to fetch.
+     */
+    where?: DivisionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Divisions to fetch.
+     */
+    orderBy?: DivisionsOrderByWithRelationInput | DivisionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Divisions.
+     */
+    cursor?: DivisionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Divisions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Divisions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Divisions.
+     */
+    distinct?: DivisionsScalarFieldEnum | DivisionsScalarFieldEnum[]
+  }
+
+
+  /**
+   * Divisions findMany
+   */
+  export type DivisionsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Divisions
+     */
+    select?: DivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsInclude<ExtArgs> | null
+    /**
+     * Filter, which Divisions to fetch.
+     */
+    where?: DivisionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Divisions to fetch.
+     */
+    orderBy?: DivisionsOrderByWithRelationInput | DivisionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Divisions.
+     */
+    cursor?: DivisionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Divisions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Divisions.
+     */
+    skip?: number
+    distinct?: DivisionsScalarFieldEnum | DivisionsScalarFieldEnum[]
+  }
+
+
+  /**
+   * Divisions create
+   */
+  export type DivisionsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Divisions
+     */
+    select?: DivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Divisions.
+     */
+    data: XOR<DivisionsCreateInput, DivisionsUncheckedCreateInput>
+  }
+
+
+  /**
+   * Divisions createMany
+   */
+  export type DivisionsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Divisions.
+     */
+    data: DivisionsCreateManyInput | DivisionsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * Divisions update
+   */
+  export type DivisionsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Divisions
+     */
+    select?: DivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Divisions.
+     */
+    data: XOR<DivisionsUpdateInput, DivisionsUncheckedUpdateInput>
+    /**
+     * Choose, which Divisions to update.
+     */
+    where: DivisionsWhereUniqueInput
+  }
+
+
+  /**
+   * Divisions updateMany
+   */
+  export type DivisionsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Divisions.
+     */
+    data: XOR<DivisionsUpdateManyMutationInput, DivisionsUncheckedUpdateManyInput>
+    /**
+     * Filter which Divisions to update
+     */
+    where?: DivisionsWhereInput
+  }
+
+
+  /**
+   * Divisions upsert
+   */
+  export type DivisionsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Divisions
+     */
+    select?: DivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Divisions to update in case it exists.
+     */
+    where: DivisionsWhereUniqueInput
+    /**
+     * In case the Divisions found by the `where` argument doesn't exist, create a new Divisions with this data.
+     */
+    create: XOR<DivisionsCreateInput, DivisionsUncheckedCreateInput>
+    /**
+     * In case the Divisions was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DivisionsUpdateInput, DivisionsUncheckedUpdateInput>
+  }
+
+
+  /**
+   * Divisions delete
+   */
+  export type DivisionsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Divisions
+     */
+    select?: DivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsInclude<ExtArgs> | null
+    /**
+     * Filter which Divisions to delete.
+     */
+    where: DivisionsWhereUniqueInput
+  }
+
+
+  /**
+   * Divisions deleteMany
+   */
+  export type DivisionsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Divisions to delete
+     */
+    where?: DivisionsWhereInput
+  }
+
+
+  /**
+   * Divisions.UserIdentity
+   */
+  export type Divisions$UserIdentityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserIdentity
+     */
+    select?: UserIdentitySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserIdentityInclude<ExtArgs> | null
+    where?: UserIdentityWhereInput
+    orderBy?: UserIdentityOrderByWithRelationInput | UserIdentityOrderByWithRelationInput[]
+    cursor?: UserIdentityWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserIdentityScalarFieldEnum | UserIdentityScalarFieldEnum[]
+  }
+
+
+  /**
+   * Divisions.DivisionManagement
+   */
+  export type Divisions$DivisionManagementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DivisionsManagement
+     */
+    select?: DivisionsManagementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsManagementInclude<ExtArgs> | null
+    where?: DivisionsManagementWhereInput
+    orderBy?: DivisionsManagementOrderByWithRelationInput | DivisionsManagementOrderByWithRelationInput[]
+    cursor?: DivisionsManagementWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DivisionsManagementScalarFieldEnum | DivisionsManagementScalarFieldEnum[]
+  }
+
+
+  /**
+   * Divisions without action
+   */
+  export type DivisionsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Divisions
+     */
+    select?: DivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model DivisionsManagement
+   */
+
+  export type AggregateDivisionsManagement = {
+    _count: DivisionsManagementCountAggregateOutputType | null
+    _avg: DivisionsManagementAvgAggregateOutputType | null
+    _sum: DivisionsManagementSumAggregateOutputType | null
+    _min: DivisionsManagementMinAggregateOutputType | null
+    _max: DivisionsManagementMaxAggregateOutputType | null
+  }
+
+  export type DivisionsManagementAvgAggregateOutputType = {
+    id: number | null
+    divisionId: number | null
+    titleId: number | null
+  }
+
+  export type DivisionsManagementSumAggregateOutputType = {
+    id: number | null
+    divisionId: number | null
+    titleId: number | null
+  }
+
+  export type DivisionsManagementMinAggregateOutputType = {
+    id: number | null
+    divisionId: number | null
+    titleId: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    deletedAt: Date | null
+  }
+
+  export type DivisionsManagementMaxAggregateOutputType = {
+    id: number | null
+    divisionId: number | null
+    titleId: number | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    deletedAt: Date | null
+  }
+
+  export type DivisionsManagementCountAggregateOutputType = {
+    id: number
+    divisionId: number
+    titleId: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    deletedAt: number
+    _all: number
+  }
+
+
+  export type DivisionsManagementAvgAggregateInputType = {
+    id?: true
+    divisionId?: true
+    titleId?: true
+  }
+
+  export type DivisionsManagementSumAggregateInputType = {
+    id?: true
+    divisionId?: true
+    titleId?: true
+  }
+
+  export type DivisionsManagementMinAggregateInputType = {
+    id?: true
+    divisionId?: true
+    titleId?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+  }
+
+  export type DivisionsManagementMaxAggregateInputType = {
+    id?: true
+    divisionId?: true
+    titleId?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+  }
+
+  export type DivisionsManagementCountAggregateInputType = {
+    id?: true
+    divisionId?: true
+    titleId?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+    _all?: true
+  }
+
+  export type DivisionsManagementAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DivisionsManagement to aggregate.
+     */
+    where?: DivisionsManagementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DivisionsManagements to fetch.
+     */
+    orderBy?: DivisionsManagementOrderByWithRelationInput | DivisionsManagementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DivisionsManagementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DivisionsManagements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DivisionsManagements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DivisionsManagements
+    **/
+    _count?: true | DivisionsManagementCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DivisionsManagementAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DivisionsManagementSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DivisionsManagementMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DivisionsManagementMaxAggregateInputType
+  }
+
+  export type GetDivisionsManagementAggregateType<T extends DivisionsManagementAggregateArgs> = {
+        [P in keyof T & keyof AggregateDivisionsManagement]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDivisionsManagement[P]>
+      : GetScalarType<T[P], AggregateDivisionsManagement[P]>
+  }
+
+
+
+
+  export type DivisionsManagementGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DivisionsManagementWhereInput
+    orderBy?: DivisionsManagementOrderByWithAggregationInput | DivisionsManagementOrderByWithAggregationInput[]
+    by: DivisionsManagementScalarFieldEnum[] | DivisionsManagementScalarFieldEnum
+    having?: DivisionsManagementScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DivisionsManagementCountAggregateInputType | true
+    _avg?: DivisionsManagementAvgAggregateInputType
+    _sum?: DivisionsManagementSumAggregateInputType
+    _min?: DivisionsManagementMinAggregateInputType
+    _max?: DivisionsManagementMaxAggregateInputType
+  }
+
+  export type DivisionsManagementGroupByOutputType = {
+    id: number
+    divisionId: number
+    titleId: number
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    deletedAt: Date | null
+    _count: DivisionsManagementCountAggregateOutputType | null
+    _avg: DivisionsManagementAvgAggregateOutputType | null
+    _sum: DivisionsManagementSumAggregateOutputType | null
+    _min: DivisionsManagementMinAggregateOutputType | null
+    _max: DivisionsManagementMaxAggregateOutputType | null
+  }
+
+  type GetDivisionsManagementGroupByPayload<T extends DivisionsManagementGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DivisionsManagementGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DivisionsManagementGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DivisionsManagementGroupByOutputType[P]>
+            : GetScalarType<T[P], DivisionsManagementGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DivisionsManagementSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    divisionId?: boolean
+    titleId?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    division?: boolean | DivisionsDefaultArgs<ExtArgs>
+    title?: boolean | TitleOfDivisionsDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["divisionsManagement"]>
+
+  export type DivisionsManagementSelectScalar = {
+    id?: boolean
+    divisionId?: boolean
+    titleId?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+  }
+
+  export type DivisionsManagementInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    division?: boolean | DivisionsDefaultArgs<ExtArgs>
+    title?: boolean | TitleOfDivisionsDefaultArgs<ExtArgs>
+  }
+
+
+  export type $DivisionsManagementPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DivisionsManagement"
+    objects: {
+      division: Prisma.$DivisionsPayload<ExtArgs>
+      title: Prisma.$TitleOfDivisionsPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      divisionId: number
+      titleId: number
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+      deletedAt: Date | null
+    }, ExtArgs["result"]["divisionsManagement"]>
+    composites: {}
+  }
+
+
+  type DivisionsManagementGetPayload<S extends boolean | null | undefined | DivisionsManagementDefaultArgs> = $Result.GetResult<Prisma.$DivisionsManagementPayload, S>
+
+  type DivisionsManagementCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<DivisionsManagementFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: DivisionsManagementCountAggregateInputType | true
+    }
+
+  export interface DivisionsManagementDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DivisionsManagement'], meta: { name: 'DivisionsManagement' } }
+    /**
+     * Find zero or one DivisionsManagement that matches the filter.
+     * @param {DivisionsManagementFindUniqueArgs} args - Arguments to find a DivisionsManagement
+     * @example
+     * // Get one DivisionsManagement
+     * const divisionsManagement = await prisma.divisionsManagement.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends DivisionsManagementFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionsManagementFindUniqueArgs<ExtArgs>>
+    ): Prisma__DivisionsManagementClient<$Result.GetResult<Prisma.$DivisionsManagementPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one DivisionsManagement that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {DivisionsManagementFindUniqueOrThrowArgs} args - Arguments to find a DivisionsManagement
+     * @example
+     * // Get one DivisionsManagement
+     * const divisionsManagement = await prisma.divisionsManagement.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends DivisionsManagementFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionsManagementFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__DivisionsManagementClient<$Result.GetResult<Prisma.$DivisionsManagementPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first DivisionsManagement that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionsManagementFindFirstArgs} args - Arguments to find a DivisionsManagement
+     * @example
+     * // Get one DivisionsManagement
+     * const divisionsManagement = await prisma.divisionsManagement.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends DivisionsManagementFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionsManagementFindFirstArgs<ExtArgs>>
+    ): Prisma__DivisionsManagementClient<$Result.GetResult<Prisma.$DivisionsManagementPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first DivisionsManagement that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionsManagementFindFirstOrThrowArgs} args - Arguments to find a DivisionsManagement
+     * @example
+     * // Get one DivisionsManagement
+     * const divisionsManagement = await prisma.divisionsManagement.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends DivisionsManagementFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionsManagementFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__DivisionsManagementClient<$Result.GetResult<Prisma.$DivisionsManagementPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more DivisionsManagements that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionsManagementFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DivisionsManagements
+     * const divisionsManagements = await prisma.divisionsManagement.findMany()
+     * 
+     * // Get first 10 DivisionsManagements
+     * const divisionsManagements = await prisma.divisionsManagement.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const divisionsManagementWithIdOnly = await prisma.divisionsManagement.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends DivisionsManagementFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionsManagementFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DivisionsManagementPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a DivisionsManagement.
+     * @param {DivisionsManagementCreateArgs} args - Arguments to create a DivisionsManagement.
+     * @example
+     * // Create one DivisionsManagement
+     * const DivisionsManagement = await prisma.divisionsManagement.create({
+     *   data: {
+     *     // ... data to create a DivisionsManagement
+     *   }
+     * })
+     * 
+    **/
+    create<T extends DivisionsManagementCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionsManagementCreateArgs<ExtArgs>>
+    ): Prisma__DivisionsManagementClient<$Result.GetResult<Prisma.$DivisionsManagementPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many DivisionsManagements.
+     *     @param {DivisionsManagementCreateManyArgs} args - Arguments to create many DivisionsManagements.
+     *     @example
+     *     // Create many DivisionsManagements
+     *     const divisionsManagement = await prisma.divisionsManagement.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends DivisionsManagementCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionsManagementCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a DivisionsManagement.
+     * @param {DivisionsManagementDeleteArgs} args - Arguments to delete one DivisionsManagement.
+     * @example
+     * // Delete one DivisionsManagement
+     * const DivisionsManagement = await prisma.divisionsManagement.delete({
+     *   where: {
+     *     // ... filter to delete one DivisionsManagement
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends DivisionsManagementDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionsManagementDeleteArgs<ExtArgs>>
+    ): Prisma__DivisionsManagementClient<$Result.GetResult<Prisma.$DivisionsManagementPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one DivisionsManagement.
+     * @param {DivisionsManagementUpdateArgs} args - Arguments to update one DivisionsManagement.
+     * @example
+     * // Update one DivisionsManagement
+     * const divisionsManagement = await prisma.divisionsManagement.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends DivisionsManagementUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionsManagementUpdateArgs<ExtArgs>>
+    ): Prisma__DivisionsManagementClient<$Result.GetResult<Prisma.$DivisionsManagementPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more DivisionsManagements.
+     * @param {DivisionsManagementDeleteManyArgs} args - Arguments to filter DivisionsManagements to delete.
+     * @example
+     * // Delete a few DivisionsManagements
+     * const { count } = await prisma.divisionsManagement.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends DivisionsManagementDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, DivisionsManagementDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DivisionsManagements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionsManagementUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DivisionsManagements
+     * const divisionsManagement = await prisma.divisionsManagement.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends DivisionsManagementUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionsManagementUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one DivisionsManagement.
+     * @param {DivisionsManagementUpsertArgs} args - Arguments to update or create a DivisionsManagement.
+     * @example
+     * // Update or create a DivisionsManagement
+     * const divisionsManagement = await prisma.divisionsManagement.upsert({
+     *   create: {
+     *     // ... data to create a DivisionsManagement
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DivisionsManagement we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends DivisionsManagementUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, DivisionsManagementUpsertArgs<ExtArgs>>
+    ): Prisma__DivisionsManagementClient<$Result.GetResult<Prisma.$DivisionsManagementPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of DivisionsManagements.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionsManagementCountArgs} args - Arguments to filter DivisionsManagements to count.
+     * @example
+     * // Count the number of DivisionsManagements
+     * const count = await prisma.divisionsManagement.count({
+     *   where: {
+     *     // ... the filter for the DivisionsManagements we want to count
+     *   }
+     * })
+    **/
+    count<T extends DivisionsManagementCountArgs>(
+      args?: Subset<T, DivisionsManagementCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DivisionsManagementCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DivisionsManagement.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionsManagementAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DivisionsManagementAggregateArgs>(args: Subset<T, DivisionsManagementAggregateArgs>): Prisma.PrismaPromise<GetDivisionsManagementAggregateType<T>>
+
+    /**
+     * Group by DivisionsManagement.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DivisionsManagementGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DivisionsManagementGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DivisionsManagementGroupByArgs['orderBy'] }
+        : { orderBy?: DivisionsManagementGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DivisionsManagementGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDivisionsManagementGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the DivisionsManagement model
+   */
+  readonly fields: DivisionsManagementFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DivisionsManagement.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DivisionsManagementClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    division<T extends DivisionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DivisionsDefaultArgs<ExtArgs>>): Prisma__DivisionsClient<$Result.GetResult<Prisma.$DivisionsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    title<T extends TitleOfDivisionsDefaultArgs<ExtArgs> = {}>(args?: Subset<T, TitleOfDivisionsDefaultArgs<ExtArgs>>): Prisma__TitleOfDivisionsClient<$Result.GetResult<Prisma.$TitleOfDivisionsPayload<ExtArgs>, T, 'findUniqueOrThrow'> | Null, Null, ExtArgs>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the DivisionsManagement model
+   */ 
+  interface DivisionsManagementFieldRefs {
+    readonly id: FieldRef<"DivisionsManagement", 'Int'>
+    readonly divisionId: FieldRef<"DivisionsManagement", 'Int'>
+    readonly titleId: FieldRef<"DivisionsManagement", 'Int'>
+    readonly isActive: FieldRef<"DivisionsManagement", 'Boolean'>
+    readonly createdAt: FieldRef<"DivisionsManagement", 'DateTime'>
+    readonly updatedAt: FieldRef<"DivisionsManagement", 'DateTime'>
+    readonly deletedAt: FieldRef<"DivisionsManagement", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * DivisionsManagement findUnique
+   */
+  export type DivisionsManagementFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DivisionsManagement
+     */
+    select?: DivisionsManagementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsManagementInclude<ExtArgs> | null
+    /**
+     * Filter, which DivisionsManagement to fetch.
+     */
+    where: DivisionsManagementWhereUniqueInput
+  }
+
+
+  /**
+   * DivisionsManagement findUniqueOrThrow
+   */
+  export type DivisionsManagementFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DivisionsManagement
+     */
+    select?: DivisionsManagementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsManagementInclude<ExtArgs> | null
+    /**
+     * Filter, which DivisionsManagement to fetch.
+     */
+    where: DivisionsManagementWhereUniqueInput
+  }
+
+
+  /**
+   * DivisionsManagement findFirst
+   */
+  export type DivisionsManagementFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DivisionsManagement
+     */
+    select?: DivisionsManagementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsManagementInclude<ExtArgs> | null
+    /**
+     * Filter, which DivisionsManagement to fetch.
+     */
+    where?: DivisionsManagementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DivisionsManagements to fetch.
+     */
+    orderBy?: DivisionsManagementOrderByWithRelationInput | DivisionsManagementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DivisionsManagements.
+     */
+    cursor?: DivisionsManagementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DivisionsManagements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DivisionsManagements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DivisionsManagements.
+     */
+    distinct?: DivisionsManagementScalarFieldEnum | DivisionsManagementScalarFieldEnum[]
+  }
+
+
+  /**
+   * DivisionsManagement findFirstOrThrow
+   */
+  export type DivisionsManagementFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DivisionsManagement
+     */
+    select?: DivisionsManagementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsManagementInclude<ExtArgs> | null
+    /**
+     * Filter, which DivisionsManagement to fetch.
+     */
+    where?: DivisionsManagementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DivisionsManagements to fetch.
+     */
+    orderBy?: DivisionsManagementOrderByWithRelationInput | DivisionsManagementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DivisionsManagements.
+     */
+    cursor?: DivisionsManagementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DivisionsManagements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DivisionsManagements.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DivisionsManagements.
+     */
+    distinct?: DivisionsManagementScalarFieldEnum | DivisionsManagementScalarFieldEnum[]
+  }
+
+
+  /**
+   * DivisionsManagement findMany
+   */
+  export type DivisionsManagementFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DivisionsManagement
+     */
+    select?: DivisionsManagementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsManagementInclude<ExtArgs> | null
+    /**
+     * Filter, which DivisionsManagements to fetch.
+     */
+    where?: DivisionsManagementWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DivisionsManagements to fetch.
+     */
+    orderBy?: DivisionsManagementOrderByWithRelationInput | DivisionsManagementOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DivisionsManagements.
+     */
+    cursor?: DivisionsManagementWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DivisionsManagements from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DivisionsManagements.
+     */
+    skip?: number
+    distinct?: DivisionsManagementScalarFieldEnum | DivisionsManagementScalarFieldEnum[]
+  }
+
+
+  /**
+   * DivisionsManagement create
+   */
+  export type DivisionsManagementCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DivisionsManagement
+     */
+    select?: DivisionsManagementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsManagementInclude<ExtArgs> | null
+    /**
+     * The data needed to create a DivisionsManagement.
+     */
+    data: XOR<DivisionsManagementCreateInput, DivisionsManagementUncheckedCreateInput>
+  }
+
+
+  /**
+   * DivisionsManagement createMany
+   */
+  export type DivisionsManagementCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DivisionsManagements.
+     */
+    data: DivisionsManagementCreateManyInput | DivisionsManagementCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * DivisionsManagement update
+   */
+  export type DivisionsManagementUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DivisionsManagement
+     */
+    select?: DivisionsManagementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsManagementInclude<ExtArgs> | null
+    /**
+     * The data needed to update a DivisionsManagement.
+     */
+    data: XOR<DivisionsManagementUpdateInput, DivisionsManagementUncheckedUpdateInput>
+    /**
+     * Choose, which DivisionsManagement to update.
+     */
+    where: DivisionsManagementWhereUniqueInput
+  }
+
+
+  /**
+   * DivisionsManagement updateMany
+   */
+  export type DivisionsManagementUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DivisionsManagements.
+     */
+    data: XOR<DivisionsManagementUpdateManyMutationInput, DivisionsManagementUncheckedUpdateManyInput>
+    /**
+     * Filter which DivisionsManagements to update
+     */
+    where?: DivisionsManagementWhereInput
+  }
+
+
+  /**
+   * DivisionsManagement upsert
+   */
+  export type DivisionsManagementUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DivisionsManagement
+     */
+    select?: DivisionsManagementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsManagementInclude<ExtArgs> | null
+    /**
+     * The filter to search for the DivisionsManagement to update in case it exists.
+     */
+    where: DivisionsManagementWhereUniqueInput
+    /**
+     * In case the DivisionsManagement found by the `where` argument doesn't exist, create a new DivisionsManagement with this data.
+     */
+    create: XOR<DivisionsManagementCreateInput, DivisionsManagementUncheckedCreateInput>
+    /**
+     * In case the DivisionsManagement was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DivisionsManagementUpdateInput, DivisionsManagementUncheckedUpdateInput>
+  }
+
+
+  /**
+   * DivisionsManagement delete
+   */
+  export type DivisionsManagementDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DivisionsManagement
+     */
+    select?: DivisionsManagementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsManagementInclude<ExtArgs> | null
+    /**
+     * Filter which DivisionsManagement to delete.
+     */
+    where: DivisionsManagementWhereUniqueInput
+  }
+
+
+  /**
+   * DivisionsManagement deleteMany
+   */
+  export type DivisionsManagementDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DivisionsManagements to delete
+     */
+    where?: DivisionsManagementWhereInput
+  }
+
+
+  /**
+   * DivisionsManagement without action
+   */
+  export type DivisionsManagementDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DivisionsManagement
+     */
+    select?: DivisionsManagementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsManagementInclude<ExtArgs> | null
+  }
+
+
+
+  /**
+   * Model TitleOfDivisions
+   */
+
+  export type AggregateTitleOfDivisions = {
+    _count: TitleOfDivisionsCountAggregateOutputType | null
+    _avg: TitleOfDivisionsAvgAggregateOutputType | null
+    _sum: TitleOfDivisionsSumAggregateOutputType | null
+    _min: TitleOfDivisionsMinAggregateOutputType | null
+    _max: TitleOfDivisionsMaxAggregateOutputType | null
+  }
+
+  export type TitleOfDivisionsAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type TitleOfDivisionsSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type TitleOfDivisionsMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    isLeader: boolean | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    deletedAt: Date | null
+  }
+
+  export type TitleOfDivisionsMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    isLeader: boolean | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    deletedAt: Date | null
+  }
+
+  export type TitleOfDivisionsCountAggregateOutputType = {
+    id: number
+    name: number
+    isLeader: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    deletedAt: number
+    _all: number
+  }
+
+
+  export type TitleOfDivisionsAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type TitleOfDivisionsSumAggregateInputType = {
+    id?: true
+  }
+
+  export type TitleOfDivisionsMinAggregateInputType = {
+    id?: true
+    name?: true
+    isLeader?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+  }
+
+  export type TitleOfDivisionsMaxAggregateInputType = {
+    id?: true
+    name?: true
+    isLeader?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+  }
+
+  export type TitleOfDivisionsCountAggregateInputType = {
+    id?: true
+    name?: true
+    isLeader?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    deletedAt?: true
+    _all?: true
+  }
+
+  export type TitleOfDivisionsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TitleOfDivisions to aggregate.
+     */
+    where?: TitleOfDivisionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TitleOfDivisions to fetch.
+     */
+    orderBy?: TitleOfDivisionsOrderByWithRelationInput | TitleOfDivisionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TitleOfDivisionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TitleOfDivisions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TitleOfDivisions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned TitleOfDivisions
+    **/
+    _count?: true | TitleOfDivisionsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TitleOfDivisionsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TitleOfDivisionsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TitleOfDivisionsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TitleOfDivisionsMaxAggregateInputType
+  }
+
+  export type GetTitleOfDivisionsAggregateType<T extends TitleOfDivisionsAggregateArgs> = {
+        [P in keyof T & keyof AggregateTitleOfDivisions]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTitleOfDivisions[P]>
+      : GetScalarType<T[P], AggregateTitleOfDivisions[P]>
+  }
+
+
+
+
+  export type TitleOfDivisionsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TitleOfDivisionsWhereInput
+    orderBy?: TitleOfDivisionsOrderByWithAggregationInput | TitleOfDivisionsOrderByWithAggregationInput[]
+    by: TitleOfDivisionsScalarFieldEnum[] | TitleOfDivisionsScalarFieldEnum
+    having?: TitleOfDivisionsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TitleOfDivisionsCountAggregateInputType | true
+    _avg?: TitleOfDivisionsAvgAggregateInputType
+    _sum?: TitleOfDivisionsSumAggregateInputType
+    _min?: TitleOfDivisionsMinAggregateInputType
+    _max?: TitleOfDivisionsMaxAggregateInputType
+  }
+
+  export type TitleOfDivisionsGroupByOutputType = {
+    id: number
+    name: string
+    isLeader: boolean
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    deletedAt: Date | null
+    _count: TitleOfDivisionsCountAggregateOutputType | null
+    _avg: TitleOfDivisionsAvgAggregateOutputType | null
+    _sum: TitleOfDivisionsSumAggregateOutputType | null
+    _min: TitleOfDivisionsMinAggregateOutputType | null
+    _max: TitleOfDivisionsMaxAggregateOutputType | null
+  }
+
+  type GetTitleOfDivisionsGroupByPayload<T extends TitleOfDivisionsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TitleOfDivisionsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TitleOfDivisionsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TitleOfDivisionsGroupByOutputType[P]>
+            : GetScalarType<T[P], TitleOfDivisionsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TitleOfDivisionsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    isLeader?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+    DivisionManagement?: boolean | TitleOfDivisions$DivisionManagementArgs<ExtArgs>
+    UserIdentity?: boolean | TitleOfDivisions$UserIdentityArgs<ExtArgs>
+    _count?: boolean | TitleOfDivisionsCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["titleOfDivisions"]>
+
+  export type TitleOfDivisionsSelectScalar = {
+    id?: boolean
+    name?: boolean
+    isLeader?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    deletedAt?: boolean
+  }
+
+  export type TitleOfDivisionsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    DivisionManagement?: boolean | TitleOfDivisions$DivisionManagementArgs<ExtArgs>
+    UserIdentity?: boolean | TitleOfDivisions$UserIdentityArgs<ExtArgs>
+    _count?: boolean | TitleOfDivisionsCountOutputTypeDefaultArgs<ExtArgs>
+  }
+
+
+  export type $TitleOfDivisionsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "TitleOfDivisions"
+    objects: {
+      DivisionManagement: Prisma.$DivisionsManagementPayload<ExtArgs>[]
+      UserIdentity: Prisma.$UserIdentityPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      isLeader: boolean
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+      deletedAt: Date | null
+    }, ExtArgs["result"]["titleOfDivisions"]>
+    composites: {}
+  }
+
+
+  type TitleOfDivisionsGetPayload<S extends boolean | null | undefined | TitleOfDivisionsDefaultArgs> = $Result.GetResult<Prisma.$TitleOfDivisionsPayload, S>
+
+  type TitleOfDivisionsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<TitleOfDivisionsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: TitleOfDivisionsCountAggregateInputType | true
+    }
+
+  export interface TitleOfDivisionsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['TitleOfDivisions'], meta: { name: 'TitleOfDivisions' } }
+    /**
+     * Find zero or one TitleOfDivisions that matches the filter.
+     * @param {TitleOfDivisionsFindUniqueArgs} args - Arguments to find a TitleOfDivisions
+     * @example
+     * // Get one TitleOfDivisions
+     * const titleOfDivisions = await prisma.titleOfDivisions.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUnique<T extends TitleOfDivisionsFindUniqueArgs<ExtArgs>>(
+      args: SelectSubset<T, TitleOfDivisionsFindUniqueArgs<ExtArgs>>
+    ): Prisma__TitleOfDivisionsClient<$Result.GetResult<Prisma.$TitleOfDivisionsPayload<ExtArgs>, T, 'findUnique'> | null, null, ExtArgs>
+
+    /**
+     * Find one TitleOfDivisions that matches the filter or throw an error  with `error.code='P2025'` 
+     *     if no matches were found.
+     * @param {TitleOfDivisionsFindUniqueOrThrowArgs} args - Arguments to find a TitleOfDivisions
+     * @example
+     * // Get one TitleOfDivisions
+     * const titleOfDivisions = await prisma.titleOfDivisions.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findUniqueOrThrow<T extends TitleOfDivisionsFindUniqueOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, TitleOfDivisionsFindUniqueOrThrowArgs<ExtArgs>>
+    ): Prisma__TitleOfDivisionsClient<$Result.GetResult<Prisma.$TitleOfDivisionsPayload<ExtArgs>, T, 'findUniqueOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find the first TitleOfDivisions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TitleOfDivisionsFindFirstArgs} args - Arguments to find a TitleOfDivisions
+     * @example
+     * // Get one TitleOfDivisions
+     * const titleOfDivisions = await prisma.titleOfDivisions.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirst<T extends TitleOfDivisionsFindFirstArgs<ExtArgs>>(
+      args?: SelectSubset<T, TitleOfDivisionsFindFirstArgs<ExtArgs>>
+    ): Prisma__TitleOfDivisionsClient<$Result.GetResult<Prisma.$TitleOfDivisionsPayload<ExtArgs>, T, 'findFirst'> | null, null, ExtArgs>
+
+    /**
+     * Find the first TitleOfDivisions that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TitleOfDivisionsFindFirstOrThrowArgs} args - Arguments to find a TitleOfDivisions
+     * @example
+     * // Get one TitleOfDivisions
+     * const titleOfDivisions = await prisma.titleOfDivisions.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+    **/
+    findFirstOrThrow<T extends TitleOfDivisionsFindFirstOrThrowArgs<ExtArgs>>(
+      args?: SelectSubset<T, TitleOfDivisionsFindFirstOrThrowArgs<ExtArgs>>
+    ): Prisma__TitleOfDivisionsClient<$Result.GetResult<Prisma.$TitleOfDivisionsPayload<ExtArgs>, T, 'findFirstOrThrow'>, never, ExtArgs>
+
+    /**
+     * Find zero or more TitleOfDivisions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TitleOfDivisionsFindManyArgs=} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all TitleOfDivisions
+     * const titleOfDivisions = await prisma.titleOfDivisions.findMany()
+     * 
+     * // Get first 10 TitleOfDivisions
+     * const titleOfDivisions = await prisma.titleOfDivisions.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const titleOfDivisionsWithIdOnly = await prisma.titleOfDivisions.findMany({ select: { id: true } })
+     * 
+    **/
+    findMany<T extends TitleOfDivisionsFindManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, TitleOfDivisionsFindManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TitleOfDivisionsPayload<ExtArgs>, T, 'findMany'>>
+
+    /**
+     * Create a TitleOfDivisions.
+     * @param {TitleOfDivisionsCreateArgs} args - Arguments to create a TitleOfDivisions.
+     * @example
+     * // Create one TitleOfDivisions
+     * const TitleOfDivisions = await prisma.titleOfDivisions.create({
+     *   data: {
+     *     // ... data to create a TitleOfDivisions
+     *   }
+     * })
+     * 
+    **/
+    create<T extends TitleOfDivisionsCreateArgs<ExtArgs>>(
+      args: SelectSubset<T, TitleOfDivisionsCreateArgs<ExtArgs>>
+    ): Prisma__TitleOfDivisionsClient<$Result.GetResult<Prisma.$TitleOfDivisionsPayload<ExtArgs>, T, 'create'>, never, ExtArgs>
+
+    /**
+     * Create many TitleOfDivisions.
+     *     @param {TitleOfDivisionsCreateManyArgs} args - Arguments to create many TitleOfDivisions.
+     *     @example
+     *     // Create many TitleOfDivisions
+     *     const titleOfDivisions = await prisma.titleOfDivisions.createMany({
+     *       data: {
+     *         // ... provide data here
+     *       }
+     *     })
+     *     
+    **/
+    createMany<T extends TitleOfDivisionsCreateManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, TitleOfDivisionsCreateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a TitleOfDivisions.
+     * @param {TitleOfDivisionsDeleteArgs} args - Arguments to delete one TitleOfDivisions.
+     * @example
+     * // Delete one TitleOfDivisions
+     * const TitleOfDivisions = await prisma.titleOfDivisions.delete({
+     *   where: {
+     *     // ... filter to delete one TitleOfDivisions
+     *   }
+     * })
+     * 
+    **/
+    delete<T extends TitleOfDivisionsDeleteArgs<ExtArgs>>(
+      args: SelectSubset<T, TitleOfDivisionsDeleteArgs<ExtArgs>>
+    ): Prisma__TitleOfDivisionsClient<$Result.GetResult<Prisma.$TitleOfDivisionsPayload<ExtArgs>, T, 'delete'>, never, ExtArgs>
+
+    /**
+     * Update one TitleOfDivisions.
+     * @param {TitleOfDivisionsUpdateArgs} args - Arguments to update one TitleOfDivisions.
+     * @example
+     * // Update one TitleOfDivisions
+     * const titleOfDivisions = await prisma.titleOfDivisions.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    update<T extends TitleOfDivisionsUpdateArgs<ExtArgs>>(
+      args: SelectSubset<T, TitleOfDivisionsUpdateArgs<ExtArgs>>
+    ): Prisma__TitleOfDivisionsClient<$Result.GetResult<Prisma.$TitleOfDivisionsPayload<ExtArgs>, T, 'update'>, never, ExtArgs>
+
+    /**
+     * Delete zero or more TitleOfDivisions.
+     * @param {TitleOfDivisionsDeleteManyArgs} args - Arguments to filter TitleOfDivisions to delete.
+     * @example
+     * // Delete a few TitleOfDivisions
+     * const { count } = await prisma.titleOfDivisions.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+    **/
+    deleteMany<T extends TitleOfDivisionsDeleteManyArgs<ExtArgs>>(
+      args?: SelectSubset<T, TitleOfDivisionsDeleteManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more TitleOfDivisions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TitleOfDivisionsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many TitleOfDivisions
+     * const titleOfDivisions = await prisma.titleOfDivisions.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+    **/
+    updateMany<T extends TitleOfDivisionsUpdateManyArgs<ExtArgs>>(
+      args: SelectSubset<T, TitleOfDivisionsUpdateManyArgs<ExtArgs>>
+    ): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one TitleOfDivisions.
+     * @param {TitleOfDivisionsUpsertArgs} args - Arguments to update or create a TitleOfDivisions.
+     * @example
+     * // Update or create a TitleOfDivisions
+     * const titleOfDivisions = await prisma.titleOfDivisions.upsert({
+     *   create: {
+     *     // ... data to create a TitleOfDivisions
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the TitleOfDivisions we want to update
+     *   }
+     * })
+    **/
+    upsert<T extends TitleOfDivisionsUpsertArgs<ExtArgs>>(
+      args: SelectSubset<T, TitleOfDivisionsUpsertArgs<ExtArgs>>
+    ): Prisma__TitleOfDivisionsClient<$Result.GetResult<Prisma.$TitleOfDivisionsPayload<ExtArgs>, T, 'upsert'>, never, ExtArgs>
+
+    /**
+     * Count the number of TitleOfDivisions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TitleOfDivisionsCountArgs} args - Arguments to filter TitleOfDivisions to count.
+     * @example
+     * // Count the number of TitleOfDivisions
+     * const count = await prisma.titleOfDivisions.count({
+     *   where: {
+     *     // ... the filter for the TitleOfDivisions we want to count
+     *   }
+     * })
+    **/
+    count<T extends TitleOfDivisionsCountArgs>(
+      args?: Subset<T, TitleOfDivisionsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TitleOfDivisionsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a TitleOfDivisions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TitleOfDivisionsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TitleOfDivisionsAggregateArgs>(args: Subset<T, TitleOfDivisionsAggregateArgs>): Prisma.PrismaPromise<GetTitleOfDivisionsAggregateType<T>>
+
+    /**
+     * Group by TitleOfDivisions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TitleOfDivisionsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TitleOfDivisionsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TitleOfDivisionsGroupByArgs['orderBy'] }
+        : { orderBy?: TitleOfDivisionsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TitleOfDivisionsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTitleOfDivisionsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the TitleOfDivisions model
+   */
+  readonly fields: TitleOfDivisionsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for TitleOfDivisions.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TitleOfDivisionsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: 'PrismaPromise';
+
+    DivisionManagement<T extends TitleOfDivisions$DivisionManagementArgs<ExtArgs> = {}>(args?: Subset<T, TitleOfDivisions$DivisionManagementArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DivisionsManagementPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    UserIdentity<T extends TitleOfDivisions$UserIdentityArgs<ExtArgs> = {}>(args?: Subset<T, TitleOfDivisions$UserIdentityArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserIdentityPayload<ExtArgs>, T, 'findMany'> | Null>;
+
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>;
+  }
+
+
+
+  /**
+   * Fields of the TitleOfDivisions model
+   */ 
+  interface TitleOfDivisionsFieldRefs {
+    readonly id: FieldRef<"TitleOfDivisions", 'Int'>
+    readonly name: FieldRef<"TitleOfDivisions", 'String'>
+    readonly isLeader: FieldRef<"TitleOfDivisions", 'Boolean'>
+    readonly isActive: FieldRef<"TitleOfDivisions", 'Boolean'>
+    readonly createdAt: FieldRef<"TitleOfDivisions", 'DateTime'>
+    readonly updatedAt: FieldRef<"TitleOfDivisions", 'DateTime'>
+    readonly deletedAt: FieldRef<"TitleOfDivisions", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+
+  /**
+   * TitleOfDivisions findUnique
+   */
+  export type TitleOfDivisionsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TitleOfDivisions
+     */
+    select?: TitleOfDivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TitleOfDivisionsInclude<ExtArgs> | null
+    /**
+     * Filter, which TitleOfDivisions to fetch.
+     */
+    where: TitleOfDivisionsWhereUniqueInput
+  }
+
+
+  /**
+   * TitleOfDivisions findUniqueOrThrow
+   */
+  export type TitleOfDivisionsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TitleOfDivisions
+     */
+    select?: TitleOfDivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TitleOfDivisionsInclude<ExtArgs> | null
+    /**
+     * Filter, which TitleOfDivisions to fetch.
+     */
+    where: TitleOfDivisionsWhereUniqueInput
+  }
+
+
+  /**
+   * TitleOfDivisions findFirst
+   */
+  export type TitleOfDivisionsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TitleOfDivisions
+     */
+    select?: TitleOfDivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TitleOfDivisionsInclude<ExtArgs> | null
+    /**
+     * Filter, which TitleOfDivisions to fetch.
+     */
+    where?: TitleOfDivisionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TitleOfDivisions to fetch.
+     */
+    orderBy?: TitleOfDivisionsOrderByWithRelationInput | TitleOfDivisionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TitleOfDivisions.
+     */
+    cursor?: TitleOfDivisionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TitleOfDivisions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TitleOfDivisions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TitleOfDivisions.
+     */
+    distinct?: TitleOfDivisionsScalarFieldEnum | TitleOfDivisionsScalarFieldEnum[]
+  }
+
+
+  /**
+   * TitleOfDivisions findFirstOrThrow
+   */
+  export type TitleOfDivisionsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TitleOfDivisions
+     */
+    select?: TitleOfDivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TitleOfDivisionsInclude<ExtArgs> | null
+    /**
+     * Filter, which TitleOfDivisions to fetch.
+     */
+    where?: TitleOfDivisionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TitleOfDivisions to fetch.
+     */
+    orderBy?: TitleOfDivisionsOrderByWithRelationInput | TitleOfDivisionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for TitleOfDivisions.
+     */
+    cursor?: TitleOfDivisionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TitleOfDivisions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TitleOfDivisions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of TitleOfDivisions.
+     */
+    distinct?: TitleOfDivisionsScalarFieldEnum | TitleOfDivisionsScalarFieldEnum[]
+  }
+
+
+  /**
+   * TitleOfDivisions findMany
+   */
+  export type TitleOfDivisionsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TitleOfDivisions
+     */
+    select?: TitleOfDivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TitleOfDivisionsInclude<ExtArgs> | null
+    /**
+     * Filter, which TitleOfDivisions to fetch.
+     */
+    where?: TitleOfDivisionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of TitleOfDivisions to fetch.
+     */
+    orderBy?: TitleOfDivisionsOrderByWithRelationInput | TitleOfDivisionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing TitleOfDivisions.
+     */
+    cursor?: TitleOfDivisionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` TitleOfDivisions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` TitleOfDivisions.
+     */
+    skip?: number
+    distinct?: TitleOfDivisionsScalarFieldEnum | TitleOfDivisionsScalarFieldEnum[]
+  }
+
+
+  /**
+   * TitleOfDivisions create
+   */
+  export type TitleOfDivisionsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TitleOfDivisions
+     */
+    select?: TitleOfDivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TitleOfDivisionsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a TitleOfDivisions.
+     */
+    data: XOR<TitleOfDivisionsCreateInput, TitleOfDivisionsUncheckedCreateInput>
+  }
+
+
+  /**
+   * TitleOfDivisions createMany
+   */
+  export type TitleOfDivisionsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many TitleOfDivisions.
+     */
+    data: TitleOfDivisionsCreateManyInput | TitleOfDivisionsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+
+  /**
+   * TitleOfDivisions update
+   */
+  export type TitleOfDivisionsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TitleOfDivisions
+     */
+    select?: TitleOfDivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TitleOfDivisionsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a TitleOfDivisions.
+     */
+    data: XOR<TitleOfDivisionsUpdateInput, TitleOfDivisionsUncheckedUpdateInput>
+    /**
+     * Choose, which TitleOfDivisions to update.
+     */
+    where: TitleOfDivisionsWhereUniqueInput
+  }
+
+
+  /**
+   * TitleOfDivisions updateMany
+   */
+  export type TitleOfDivisionsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update TitleOfDivisions.
+     */
+    data: XOR<TitleOfDivisionsUpdateManyMutationInput, TitleOfDivisionsUncheckedUpdateManyInput>
+    /**
+     * Filter which TitleOfDivisions to update
+     */
+    where?: TitleOfDivisionsWhereInput
+  }
+
+
+  /**
+   * TitleOfDivisions upsert
+   */
+  export type TitleOfDivisionsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TitleOfDivisions
+     */
+    select?: TitleOfDivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TitleOfDivisionsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the TitleOfDivisions to update in case it exists.
+     */
+    where: TitleOfDivisionsWhereUniqueInput
+    /**
+     * In case the TitleOfDivisions found by the `where` argument doesn't exist, create a new TitleOfDivisions with this data.
+     */
+    create: XOR<TitleOfDivisionsCreateInput, TitleOfDivisionsUncheckedCreateInput>
+    /**
+     * In case the TitleOfDivisions was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TitleOfDivisionsUpdateInput, TitleOfDivisionsUncheckedUpdateInput>
+  }
+
+
+  /**
+   * TitleOfDivisions delete
+   */
+  export type TitleOfDivisionsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TitleOfDivisions
+     */
+    select?: TitleOfDivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TitleOfDivisionsInclude<ExtArgs> | null
+    /**
+     * Filter which TitleOfDivisions to delete.
+     */
+    where: TitleOfDivisionsWhereUniqueInput
+  }
+
+
+  /**
+   * TitleOfDivisions deleteMany
+   */
+  export type TitleOfDivisionsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which TitleOfDivisions to delete
+     */
+    where?: TitleOfDivisionsWhereInput
+  }
+
+
+  /**
+   * TitleOfDivisions.DivisionManagement
+   */
+  export type TitleOfDivisions$DivisionManagementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DivisionsManagement
+     */
+    select?: DivisionsManagementSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: DivisionsManagementInclude<ExtArgs> | null
+    where?: DivisionsManagementWhereInput
+    orderBy?: DivisionsManagementOrderByWithRelationInput | DivisionsManagementOrderByWithRelationInput[]
+    cursor?: DivisionsManagementWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DivisionsManagementScalarFieldEnum | DivisionsManagementScalarFieldEnum[]
+  }
+
+
+  /**
+   * TitleOfDivisions.UserIdentity
+   */
+  export type TitleOfDivisions$UserIdentityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the UserIdentity
+     */
+    select?: UserIdentitySelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: UserIdentityInclude<ExtArgs> | null
+    where?: UserIdentityWhereInput
+    orderBy?: UserIdentityOrderByWithRelationInput | UserIdentityOrderByWithRelationInput[]
+    cursor?: UserIdentityWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: UserIdentityScalarFieldEnum | UserIdentityScalarFieldEnum[]
+  }
+
+
+  /**
+   * TitleOfDivisions without action
+   */
+  export type TitleOfDivisionsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the TitleOfDivisions
+     */
+    select?: TitleOfDivisionsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well.
+     */
+    include?: TitleOfDivisionsInclude<ExtArgs> | null
+  }
+
+
+
+  /**
    * Enums
    */
 
@@ -10604,7 +16045,6 @@ export namespace Prisma {
     email: 'email',
     name: 'name',
     phoneNumber: 'phoneNumber',
-    roleId: 'roleId',
     isActive: 'isActive',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
@@ -10639,27 +16079,47 @@ export namespace Prisma {
   export type SubCategoryScalarFieldEnum = (typeof SubCategoryScalarFieldEnum)[keyof typeof SubCategoryScalarFieldEnum]
 
 
+  export const ApplicationsScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    isActive: 'isActive'
+  };
+
+  export type ApplicationsScalarFieldEnum = (typeof ApplicationsScalarFieldEnum)[keyof typeof ApplicationsScalarFieldEnum]
+
+
+  export const ApplicationAccessScalarFieldEnum: {
+    id: 'id',
+    userId: 'userId',
+    applicationId: 'applicationId',
+    roleId: 'roleId',
+    isActive: 'isActive'
+  };
+
+  export type ApplicationAccessScalarFieldEnum = (typeof ApplicationAccessScalarFieldEnum)[keyof typeof ApplicationAccessScalarFieldEnum]
+
+
   export const RolesScalarFieldEnum: {
     id: 'id',
     name: 'name',
     isActive: 'isActive',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    deletedAt: 'deletedAt',
-    userId: 'userId'
+    deletedAt: 'deletedAt'
   };
 
   export type RolesScalarFieldEnum = (typeof RolesScalarFieldEnum)[keyof typeof RolesScalarFieldEnum]
 
 
-  export const OTPScalarFieldEnum: {
+  export const OtpScalarFieldEnum: {
     token: 'token',
     email: 'email',
+    phoneNumber: 'phoneNumber',
     otp: 'otp',
     expiry: 'expiry'
   };
 
-  export type OTPScalarFieldEnum = (typeof OTPScalarFieldEnum)[keyof typeof OTPScalarFieldEnum]
+  export type OtpScalarFieldEnum = (typeof OtpScalarFieldEnum)[keyof typeof OtpScalarFieldEnum]
 
 
   export const DepartmentsScalarFieldEnum: {
@@ -10716,6 +16176,44 @@ export namespace Prisma {
   export type UserIdentityScalarFieldEnum = (typeof UserIdentityScalarFieldEnum)[keyof typeof UserIdentityScalarFieldEnum]
 
 
+  export const DivisionsScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    deletedAt: 'deletedAt'
+  };
+
+  export type DivisionsScalarFieldEnum = (typeof DivisionsScalarFieldEnum)[keyof typeof DivisionsScalarFieldEnum]
+
+
+  export const DivisionsManagementScalarFieldEnum: {
+    id: 'id',
+    divisionId: 'divisionId',
+    titleId: 'titleId',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    deletedAt: 'deletedAt'
+  };
+
+  export type DivisionsManagementScalarFieldEnum = (typeof DivisionsManagementScalarFieldEnum)[keyof typeof DivisionsManagementScalarFieldEnum]
+
+
+  export const TitleOfDivisionsScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    isLeader: 'isLeader',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    deletedAt: 'deletedAt'
+  };
+
+  export type TitleOfDivisionsScalarFieldEnum = (typeof TitleOfDivisionsScalarFieldEnum)[keyof typeof TitleOfDivisionsScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -10745,13 +16243,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'Int'
-   */
-  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
-    
-
-
-  /**
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
@@ -10762,6 +16253,13 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'Int'
+   */
+  export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
     
 
 
@@ -10783,13 +16281,12 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     name?: StringFilter<"User"> | string
     phoneNumber?: StringFilter<"User"> | string
-    roleId?: IntFilter<"User"> | number
     isActive?: BoolNullableFilter<"User"> | boolean | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     deletedAt?: DateTimeNullableFilter<"User"> | Date | string | null
-    Roles?: RolesListRelationFilter
     UserIdentity?: UserIdentityListRelationFilter
+    applicationAccess?: ApplicationAccessListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -10797,13 +16294,12 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     phoneNumber?: SortOrder
-    roleId?: SortOrder
     isActive?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
-    Roles?: RolesOrderByRelationAggregateInput
     UserIdentity?: UserIdentityOrderByRelationAggregateInput
+    applicationAccess?: ApplicationAccessOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -10814,13 +16310,12 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     name?: StringFilter<"User"> | string
     phoneNumber?: StringFilter<"User"> | string
-    roleId?: IntFilter<"User"> | number
     isActive?: BoolNullableFilter<"User"> | boolean | null
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     deletedAt?: DateTimeNullableFilter<"User"> | Date | string | null
-    Roles?: RolesListRelationFilter
     UserIdentity?: UserIdentityListRelationFilter
+    applicationAccess?: ApplicationAccessListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -10828,16 +16323,13 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     phoneNumber?: SortOrder
-    roleId?: SortOrder
     isActive?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
     _count?: UserCountOrderByAggregateInput
-    _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
-    _sum?: UserSumOrderByAggregateInput
   }
 
   export type UserScalarWhereWithAggregatesInput = {
@@ -10848,7 +16340,6 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     name?: StringWithAggregatesFilter<"User"> | string
     phoneNumber?: StringWithAggregatesFilter<"User"> | string
-    roleId?: IntWithAggregatesFilter<"User"> | number
     isActive?: BoolNullableWithAggregatesFilter<"User"> | boolean | null
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -10985,6 +16476,114 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableWithAggregatesFilter<"SubCategory"> | Date | string | null
   }
 
+  export type ApplicationsWhereInput = {
+    AND?: ApplicationsWhereInput | ApplicationsWhereInput[]
+    OR?: ApplicationsWhereInput[]
+    NOT?: ApplicationsWhereInput | ApplicationsWhereInput[]
+    id?: StringFilter<"Applications"> | string
+    name?: StringFilter<"Applications"> | string
+    isActive?: BoolFilter<"Applications"> | boolean
+    applicationAccess?: ApplicationAccessListRelationFilter
+  }
+
+  export type ApplicationsOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isActive?: SortOrder
+    applicationAccess?: ApplicationAccessOrderByRelationAggregateInput
+  }
+
+  export type ApplicationsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ApplicationsWhereInput | ApplicationsWhereInput[]
+    OR?: ApplicationsWhereInput[]
+    NOT?: ApplicationsWhereInput | ApplicationsWhereInput[]
+    name?: StringFilter<"Applications"> | string
+    isActive?: BoolFilter<"Applications"> | boolean
+    applicationAccess?: ApplicationAccessListRelationFilter
+  }, "id">
+
+  export type ApplicationsOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isActive?: SortOrder
+    _count?: ApplicationsCountOrderByAggregateInput
+    _max?: ApplicationsMaxOrderByAggregateInput
+    _min?: ApplicationsMinOrderByAggregateInput
+  }
+
+  export type ApplicationsScalarWhereWithAggregatesInput = {
+    AND?: ApplicationsScalarWhereWithAggregatesInput | ApplicationsScalarWhereWithAggregatesInput[]
+    OR?: ApplicationsScalarWhereWithAggregatesInput[]
+    NOT?: ApplicationsScalarWhereWithAggregatesInput | ApplicationsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Applications"> | string
+    name?: StringWithAggregatesFilter<"Applications"> | string
+    isActive?: BoolWithAggregatesFilter<"Applications"> | boolean
+  }
+
+  export type ApplicationAccessWhereInput = {
+    AND?: ApplicationAccessWhereInput | ApplicationAccessWhereInput[]
+    OR?: ApplicationAccessWhereInput[]
+    NOT?: ApplicationAccessWhereInput | ApplicationAccessWhereInput[]
+    id?: StringFilter<"ApplicationAccess"> | string
+    userId?: StringFilter<"ApplicationAccess"> | string
+    applicationId?: StringFilter<"ApplicationAccess"> | string
+    roleId?: IntFilter<"ApplicationAccess"> | number
+    isActive?: BoolFilter<"ApplicationAccess"> | boolean
+    application?: XOR<ApplicationsRelationFilter, ApplicationsWhereInput>
+    role?: XOR<RolesRelationFilter, RolesWhereInput>
+    user?: XOR<UserRelationFilter, UserWhereInput>
+  }
+
+  export type ApplicationAccessOrderByWithRelationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    applicationId?: SortOrder
+    roleId?: SortOrder
+    isActive?: SortOrder
+    application?: ApplicationsOrderByWithRelationInput
+    role?: RolesOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
+  }
+
+  export type ApplicationAccessWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ApplicationAccessWhereInput | ApplicationAccessWhereInput[]
+    OR?: ApplicationAccessWhereInput[]
+    NOT?: ApplicationAccessWhereInput | ApplicationAccessWhereInput[]
+    userId?: StringFilter<"ApplicationAccess"> | string
+    applicationId?: StringFilter<"ApplicationAccess"> | string
+    roleId?: IntFilter<"ApplicationAccess"> | number
+    isActive?: BoolFilter<"ApplicationAccess"> | boolean
+    application?: XOR<ApplicationsRelationFilter, ApplicationsWhereInput>
+    role?: XOR<RolesRelationFilter, RolesWhereInput>
+    user?: XOR<UserRelationFilter, UserWhereInput>
+  }, "id">
+
+  export type ApplicationAccessOrderByWithAggregationInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    applicationId?: SortOrder
+    roleId?: SortOrder
+    isActive?: SortOrder
+    _count?: ApplicationAccessCountOrderByAggregateInput
+    _avg?: ApplicationAccessAvgOrderByAggregateInput
+    _max?: ApplicationAccessMaxOrderByAggregateInput
+    _min?: ApplicationAccessMinOrderByAggregateInput
+    _sum?: ApplicationAccessSumOrderByAggregateInput
+  }
+
+  export type ApplicationAccessScalarWhereWithAggregatesInput = {
+    AND?: ApplicationAccessScalarWhereWithAggregatesInput | ApplicationAccessScalarWhereWithAggregatesInput[]
+    OR?: ApplicationAccessScalarWhereWithAggregatesInput[]
+    NOT?: ApplicationAccessScalarWhereWithAggregatesInput | ApplicationAccessScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ApplicationAccess"> | string
+    userId?: StringWithAggregatesFilter<"ApplicationAccess"> | string
+    applicationId?: StringWithAggregatesFilter<"ApplicationAccess"> | string
+    roleId?: IntWithAggregatesFilter<"ApplicationAccess"> | number
+    isActive?: BoolWithAggregatesFilter<"ApplicationAccess"> | boolean
+  }
+
   export type RolesWhereInput = {
     AND?: RolesWhereInput | RolesWhereInput[]
     OR?: RolesWhereInput[]
@@ -10995,8 +16594,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Roles"> | Date | string
     updatedAt?: DateTimeFilter<"Roles"> | Date | string
     deletedAt?: DateTimeNullableFilter<"Roles"> | Date | string | null
-    userId?: StringNullableFilter<"Roles"> | string | null
-    User?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    applicationAccess?: ApplicationAccessListRelationFilter
   }
 
   export type RolesOrderByWithRelationInput = {
@@ -11006,8 +16604,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
-    userId?: SortOrderInput | SortOrder
-    User?: UserOrderByWithRelationInput
+    applicationAccess?: ApplicationAccessOrderByRelationAggregateInput
   }
 
   export type RolesWhereUniqueInput = Prisma.AtLeast<{
@@ -11020,8 +16617,7 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Roles"> | Date | string
     updatedAt?: DateTimeFilter<"Roles"> | Date | string
     deletedAt?: DateTimeNullableFilter<"Roles"> | Date | string | null
-    userId?: StringNullableFilter<"Roles"> | string | null
-    User?: XOR<UserNullableRelationFilter, UserWhereInput> | null
+    applicationAccess?: ApplicationAccessListRelationFilter
   }, "id" | "name">
 
   export type RolesOrderByWithAggregationInput = {
@@ -11031,7 +16627,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrderInput | SortOrder
-    userId?: SortOrderInput | SortOrder
     _count?: RolesCountOrderByAggregateInput
     _avg?: RolesAvgOrderByAggregateInput
     _max?: RolesMaxOrderByAggregateInput
@@ -11049,54 +16644,58 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"Roles"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Roles"> | Date | string
     deletedAt?: DateTimeNullableWithAggregatesFilter<"Roles"> | Date | string | null
-    userId?: StringNullableWithAggregatesFilter<"Roles"> | string | null
   }
 
-  export type OTPWhereInput = {
-    AND?: OTPWhereInput | OTPWhereInput[]
-    OR?: OTPWhereInput[]
-    NOT?: OTPWhereInput | OTPWhereInput[]
-    token?: StringNullableFilter<"OTP"> | string | null
-    email?: StringFilter<"OTP"> | string
-    otp?: StringFilter<"OTP"> | string
-    expiry?: DateTimeNullableFilter<"OTP"> | Date | string | null
+  export type OtpWhereInput = {
+    AND?: OtpWhereInput | OtpWhereInput[]
+    OR?: OtpWhereInput[]
+    NOT?: OtpWhereInput | OtpWhereInput[]
+    token?: StringFilter<"Otp"> | string
+    email?: StringFilter<"Otp"> | string
+    phoneNumber?: StringFilter<"Otp"> | string
+    otp?: StringFilter<"Otp"> | string
+    expiry?: DateTimeNullableFilter<"Otp"> | Date | string | null
   }
 
-  export type OTPOrderByWithRelationInput = {
-    token?: SortOrderInput | SortOrder
+  export type OtpOrderByWithRelationInput = {
+    token?: SortOrder
     email?: SortOrder
+    phoneNumber?: SortOrder
     otp?: SortOrder
     expiry?: SortOrderInput | SortOrder
   }
 
-  export type OTPWhereUniqueInput = Prisma.AtLeast<{
+  export type OtpWhereUniqueInput = Prisma.AtLeast<{
     token?: string
     otp?: string
-    AND?: OTPWhereInput | OTPWhereInput[]
-    OR?: OTPWhereInput[]
-    NOT?: OTPWhereInput | OTPWhereInput[]
-    email?: StringFilter<"OTP"> | string
-    expiry?: DateTimeNullableFilter<"OTP"> | Date | string | null
+    AND?: OtpWhereInput | OtpWhereInput[]
+    OR?: OtpWhereInput[]
+    NOT?: OtpWhereInput | OtpWhereInput[]
+    email?: StringFilter<"Otp"> | string
+    phoneNumber?: StringFilter<"Otp"> | string
+    expiry?: DateTimeNullableFilter<"Otp"> | Date | string | null
   }, "otp" | "token">
 
-  export type OTPOrderByWithAggregationInput = {
-    token?: SortOrderInput | SortOrder
+  export type OtpOrderByWithAggregationInput = {
+    token?: SortOrder
     email?: SortOrder
+    phoneNumber?: SortOrder
     otp?: SortOrder
     expiry?: SortOrderInput | SortOrder
-    _count?: OTPCountOrderByAggregateInput
-    _max?: OTPMaxOrderByAggregateInput
-    _min?: OTPMinOrderByAggregateInput
+    _count?: OtpCountOrderByAggregateInput
+    _max?: OtpMaxOrderByAggregateInput
+    _min?: OtpMinOrderByAggregateInput
   }
 
-  export type OTPScalarWhereWithAggregatesInput = {
-    AND?: OTPScalarWhereWithAggregatesInput | OTPScalarWhereWithAggregatesInput[]
-    OR?: OTPScalarWhereWithAggregatesInput[]
-    NOT?: OTPScalarWhereWithAggregatesInput | OTPScalarWhereWithAggregatesInput[]
-    token?: StringNullableWithAggregatesFilter<"OTP"> | string | null
-    email?: StringWithAggregatesFilter<"OTP"> | string
-    otp?: StringWithAggregatesFilter<"OTP"> | string
-    expiry?: DateTimeNullableWithAggregatesFilter<"OTP"> | Date | string | null
+  export type OtpScalarWhereWithAggregatesInput = {
+    AND?: OtpScalarWhereWithAggregatesInput | OtpScalarWhereWithAggregatesInput[]
+    OR?: OtpScalarWhereWithAggregatesInput[]
+    NOT?: OtpScalarWhereWithAggregatesInput | OtpScalarWhereWithAggregatesInput[]
+    token?: StringWithAggregatesFilter<"Otp"> | string
+    email?: StringWithAggregatesFilter<"Otp"> | string
+    phoneNumber?: StringWithAggregatesFilter<"Otp"> | string
+    otp?: StringWithAggregatesFilter<"Otp"> | string
+    expiry?: DateTimeNullableWithAggregatesFilter<"Otp"> | Date | string | null
   }
 
   export type DepartmentsWhereInput = {
@@ -11325,6 +16924,8 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableFilter<"UserIdentity"> | Date | string | null
     User?: XOR<UserRelationFilter, UserWhereInput>
     DepartmentManagement?: XOR<DepartmentManagementsRelationFilter, DepartmentManagementsWhereInput>
+    division?: XOR<DivisionsRelationFilter, DivisionsWhereInput>
+    titleOfDivision?: XOR<TitleOfDivisionsRelationFilter, TitleOfDivisionsWhereInput>
   }
 
   export type UserIdentityOrderByWithRelationInput = {
@@ -11338,6 +16939,8 @@ export namespace Prisma {
     deletedAt?: SortOrderInput | SortOrder
     User?: UserOrderByWithRelationInput
     DepartmentManagement?: DepartmentManagementsOrderByWithRelationInput
+    division?: DivisionsOrderByWithRelationInput
+    titleOfDivision?: TitleOfDivisionsOrderByWithRelationInput
   }
 
   export type UserIdentityWhereUniqueInput = Prisma.AtLeast<{
@@ -11354,6 +16957,8 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableFilter<"UserIdentity"> | Date | string | null
     User?: XOR<UserRelationFilter, UserWhereInput>
     DepartmentManagement?: XOR<DepartmentManagementsRelationFilter, DepartmentManagementsWhereInput>
+    division?: XOR<DivisionsRelationFilter, DivisionsWhereInput>
+    titleOfDivision?: XOR<TitleOfDivisionsRelationFilter, TitleOfDivisionsWhereInput>
   }, "id">
 
   export type UserIdentityOrderByWithAggregationInput = {
@@ -11386,32 +16991,235 @@ export namespace Prisma {
     deletedAt?: DateTimeNullableWithAggregatesFilter<"UserIdentity"> | Date | string | null
   }
 
+  export type DivisionsWhereInput = {
+    AND?: DivisionsWhereInput | DivisionsWhereInput[]
+    OR?: DivisionsWhereInput[]
+    NOT?: DivisionsWhereInput | DivisionsWhereInput[]
+    id?: IntFilter<"Divisions"> | number
+    name?: StringFilter<"Divisions"> | string
+    isActive?: BoolFilter<"Divisions"> | boolean
+    createdAt?: DateTimeFilter<"Divisions"> | Date | string
+    updatedAt?: DateTimeFilter<"Divisions"> | Date | string
+    deletedAt?: DateTimeNullableFilter<"Divisions"> | Date | string | null
+    UserIdentity?: UserIdentityListRelationFilter
+    DivisionManagement?: DivisionsManagementListRelationFilter
+  }
+
+  export type DivisionsOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    UserIdentity?: UserIdentityOrderByRelationAggregateInput
+    DivisionManagement?: DivisionsManagementOrderByRelationAggregateInput
+  }
+
+  export type DivisionsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: DivisionsWhereInput | DivisionsWhereInput[]
+    OR?: DivisionsWhereInput[]
+    NOT?: DivisionsWhereInput | DivisionsWhereInput[]
+    name?: StringFilter<"Divisions"> | string
+    isActive?: BoolFilter<"Divisions"> | boolean
+    createdAt?: DateTimeFilter<"Divisions"> | Date | string
+    updatedAt?: DateTimeFilter<"Divisions"> | Date | string
+    deletedAt?: DateTimeNullableFilter<"Divisions"> | Date | string | null
+    UserIdentity?: UserIdentityListRelationFilter
+    DivisionManagement?: DivisionsManagementListRelationFilter
+  }, "id">
+
+  export type DivisionsOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    _count?: DivisionsCountOrderByAggregateInput
+    _avg?: DivisionsAvgOrderByAggregateInput
+    _max?: DivisionsMaxOrderByAggregateInput
+    _min?: DivisionsMinOrderByAggregateInput
+    _sum?: DivisionsSumOrderByAggregateInput
+  }
+
+  export type DivisionsScalarWhereWithAggregatesInput = {
+    AND?: DivisionsScalarWhereWithAggregatesInput | DivisionsScalarWhereWithAggregatesInput[]
+    OR?: DivisionsScalarWhereWithAggregatesInput[]
+    NOT?: DivisionsScalarWhereWithAggregatesInput | DivisionsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Divisions"> | number
+    name?: StringWithAggregatesFilter<"Divisions"> | string
+    isActive?: BoolWithAggregatesFilter<"Divisions"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Divisions"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Divisions"> | Date | string
+    deletedAt?: DateTimeNullableWithAggregatesFilter<"Divisions"> | Date | string | null
+  }
+
+  export type DivisionsManagementWhereInput = {
+    AND?: DivisionsManagementWhereInput | DivisionsManagementWhereInput[]
+    OR?: DivisionsManagementWhereInput[]
+    NOT?: DivisionsManagementWhereInput | DivisionsManagementWhereInput[]
+    id?: IntFilter<"DivisionsManagement"> | number
+    divisionId?: IntFilter<"DivisionsManagement"> | number
+    titleId?: IntFilter<"DivisionsManagement"> | number
+    isActive?: BoolFilter<"DivisionsManagement"> | boolean
+    createdAt?: DateTimeFilter<"DivisionsManagement"> | Date | string
+    updatedAt?: DateTimeFilter<"DivisionsManagement"> | Date | string
+    deletedAt?: DateTimeNullableFilter<"DivisionsManagement"> | Date | string | null
+    division?: XOR<DivisionsRelationFilter, DivisionsWhereInput>
+    title?: XOR<TitleOfDivisionsRelationFilter, TitleOfDivisionsWhereInput>
+  }
+
+  export type DivisionsManagementOrderByWithRelationInput = {
+    id?: SortOrder
+    divisionId?: SortOrder
+    titleId?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    division?: DivisionsOrderByWithRelationInput
+    title?: TitleOfDivisionsOrderByWithRelationInput
+  }
+
+  export type DivisionsManagementWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: DivisionsManagementWhereInput | DivisionsManagementWhereInput[]
+    OR?: DivisionsManagementWhereInput[]
+    NOT?: DivisionsManagementWhereInput | DivisionsManagementWhereInput[]
+    divisionId?: IntFilter<"DivisionsManagement"> | number
+    titleId?: IntFilter<"DivisionsManagement"> | number
+    isActive?: BoolFilter<"DivisionsManagement"> | boolean
+    createdAt?: DateTimeFilter<"DivisionsManagement"> | Date | string
+    updatedAt?: DateTimeFilter<"DivisionsManagement"> | Date | string
+    deletedAt?: DateTimeNullableFilter<"DivisionsManagement"> | Date | string | null
+    division?: XOR<DivisionsRelationFilter, DivisionsWhereInput>
+    title?: XOR<TitleOfDivisionsRelationFilter, TitleOfDivisionsWhereInput>
+  }, "id">
+
+  export type DivisionsManagementOrderByWithAggregationInput = {
+    id?: SortOrder
+    divisionId?: SortOrder
+    titleId?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    _count?: DivisionsManagementCountOrderByAggregateInput
+    _avg?: DivisionsManagementAvgOrderByAggregateInput
+    _max?: DivisionsManagementMaxOrderByAggregateInput
+    _min?: DivisionsManagementMinOrderByAggregateInput
+    _sum?: DivisionsManagementSumOrderByAggregateInput
+  }
+
+  export type DivisionsManagementScalarWhereWithAggregatesInput = {
+    AND?: DivisionsManagementScalarWhereWithAggregatesInput | DivisionsManagementScalarWhereWithAggregatesInput[]
+    OR?: DivisionsManagementScalarWhereWithAggregatesInput[]
+    NOT?: DivisionsManagementScalarWhereWithAggregatesInput | DivisionsManagementScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"DivisionsManagement"> | number
+    divisionId?: IntWithAggregatesFilter<"DivisionsManagement"> | number
+    titleId?: IntWithAggregatesFilter<"DivisionsManagement"> | number
+    isActive?: BoolWithAggregatesFilter<"DivisionsManagement"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"DivisionsManagement"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"DivisionsManagement"> | Date | string
+    deletedAt?: DateTimeNullableWithAggregatesFilter<"DivisionsManagement"> | Date | string | null
+  }
+
+  export type TitleOfDivisionsWhereInput = {
+    AND?: TitleOfDivisionsWhereInput | TitleOfDivisionsWhereInput[]
+    OR?: TitleOfDivisionsWhereInput[]
+    NOT?: TitleOfDivisionsWhereInput | TitleOfDivisionsWhereInput[]
+    id?: IntFilter<"TitleOfDivisions"> | number
+    name?: StringFilter<"TitleOfDivisions"> | string
+    isLeader?: BoolFilter<"TitleOfDivisions"> | boolean
+    isActive?: BoolFilter<"TitleOfDivisions"> | boolean
+    createdAt?: DateTimeFilter<"TitleOfDivisions"> | Date | string
+    updatedAt?: DateTimeFilter<"TitleOfDivisions"> | Date | string
+    deletedAt?: DateTimeNullableFilter<"TitleOfDivisions"> | Date | string | null
+    DivisionManagement?: DivisionsManagementListRelationFilter
+    UserIdentity?: UserIdentityListRelationFilter
+  }
+
+  export type TitleOfDivisionsOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isLeader?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    DivisionManagement?: DivisionsManagementOrderByRelationAggregateInput
+    UserIdentity?: UserIdentityOrderByRelationAggregateInput
+  }
+
+  export type TitleOfDivisionsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    name?: string
+    AND?: TitleOfDivisionsWhereInput | TitleOfDivisionsWhereInput[]
+    OR?: TitleOfDivisionsWhereInput[]
+    NOT?: TitleOfDivisionsWhereInput | TitleOfDivisionsWhereInput[]
+    isLeader?: BoolFilter<"TitleOfDivisions"> | boolean
+    isActive?: BoolFilter<"TitleOfDivisions"> | boolean
+    createdAt?: DateTimeFilter<"TitleOfDivisions"> | Date | string
+    updatedAt?: DateTimeFilter<"TitleOfDivisions"> | Date | string
+    deletedAt?: DateTimeNullableFilter<"TitleOfDivisions"> | Date | string | null
+    DivisionManagement?: DivisionsManagementListRelationFilter
+    UserIdentity?: UserIdentityListRelationFilter
+  }, "id" | "name">
+
+  export type TitleOfDivisionsOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isLeader?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    _count?: TitleOfDivisionsCountOrderByAggregateInput
+    _avg?: TitleOfDivisionsAvgOrderByAggregateInput
+    _max?: TitleOfDivisionsMaxOrderByAggregateInput
+    _min?: TitleOfDivisionsMinOrderByAggregateInput
+    _sum?: TitleOfDivisionsSumOrderByAggregateInput
+  }
+
+  export type TitleOfDivisionsScalarWhereWithAggregatesInput = {
+    AND?: TitleOfDivisionsScalarWhereWithAggregatesInput | TitleOfDivisionsScalarWhereWithAggregatesInput[]
+    OR?: TitleOfDivisionsScalarWhereWithAggregatesInput[]
+    NOT?: TitleOfDivisionsScalarWhereWithAggregatesInput | TitleOfDivisionsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"TitleOfDivisions"> | number
+    name?: StringWithAggregatesFilter<"TitleOfDivisions"> | string
+    isLeader?: BoolWithAggregatesFilter<"TitleOfDivisions"> | boolean
+    isActive?: BoolWithAggregatesFilter<"TitleOfDivisions"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"TitleOfDivisions"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"TitleOfDivisions"> | Date | string
+    deletedAt?: DateTimeNullableWithAggregatesFilter<"TitleOfDivisions"> | Date | string | null
+  }
+
   export type UserCreateInput = {
     id: string
     email: string
     name: string
-    phoneNumber: string
-    roleId?: number
+    phoneNumber?: string
     isActive?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    Roles?: RolesCreateNestedManyWithoutUserInput
     UserIdentity?: UserIdentityCreateNestedManyWithoutUserInput
+    applicationAccess?: ApplicationAccessCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
     id: string
     email: string
     name: string
-    phoneNumber: string
-    roleId?: number
+    phoneNumber?: string
     isActive?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    Roles?: RolesUncheckedCreateNestedManyWithoutUserInput
     UserIdentity?: UserIdentityUncheckedCreateNestedManyWithoutUserInput
+    applicationAccess?: ApplicationAccessUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -11419,13 +17227,12 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
-    roleId?: IntFieldUpdateOperationsInput | number
     isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    Roles?: RolesUpdateManyWithoutUserNestedInput
     UserIdentity?: UserIdentityUpdateManyWithoutUserNestedInput
+    applicationAccess?: ApplicationAccessUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -11433,21 +17240,19 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
-    roleId?: IntFieldUpdateOperationsInput | number
     isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    Roles?: RolesUncheckedUpdateManyWithoutUserNestedInput
     UserIdentity?: UserIdentityUncheckedUpdateManyWithoutUserNestedInput
+    applicationAccess?: ApplicationAccessUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
     id: string
     email: string
     name: string
-    phoneNumber: string
-    roleId?: number
+    phoneNumber?: string
     isActive?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11459,7 +17264,6 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
-    roleId?: IntFieldUpdateOperationsInput | number
     isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11471,7 +17275,6 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
-    roleId?: IntFieldUpdateOperationsInput | number
     isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11608,13 +17411,112 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type ApplicationsCreateInput = {
+    id: string
+    name: string
+    isActive: boolean
+    applicationAccess?: ApplicationAccessCreateNestedManyWithoutApplicationInput
+  }
+
+  export type ApplicationsUncheckedCreateInput = {
+    id: string
+    name: string
+    isActive: boolean
+    applicationAccess?: ApplicationAccessUncheckedCreateNestedManyWithoutApplicationInput
+  }
+
+  export type ApplicationsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    applicationAccess?: ApplicationAccessUpdateManyWithoutApplicationNestedInput
+  }
+
+  export type ApplicationsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    applicationAccess?: ApplicationAccessUncheckedUpdateManyWithoutApplicationNestedInput
+  }
+
+  export type ApplicationsCreateManyInput = {
+    id: string
+    name: string
+    isActive: boolean
+  }
+
+  export type ApplicationsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ApplicationsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ApplicationAccessCreateInput = {
+    id: string
+    isActive: boolean
+    application: ApplicationsCreateNestedOneWithoutApplicationAccessInput
+    role: RolesCreateNestedOneWithoutApplicationAccessInput
+    user: UserCreateNestedOneWithoutApplicationAccessInput
+  }
+
+  export type ApplicationAccessUncheckedCreateInput = {
+    id: string
+    userId: string
+    applicationId: string
+    roleId: number
+    isActive: boolean
+  }
+
+  export type ApplicationAccessUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    application?: ApplicationsUpdateOneRequiredWithoutApplicationAccessNestedInput
+    role?: RolesUpdateOneRequiredWithoutApplicationAccessNestedInput
+    user?: UserUpdateOneRequiredWithoutApplicationAccessNestedInput
+  }
+
+  export type ApplicationAccessUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    applicationId?: StringFieldUpdateOperationsInput | string
+    roleId?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ApplicationAccessCreateManyInput = {
+    id: string
+    userId: string
+    applicationId: string
+    roleId: number
+    isActive: boolean
+  }
+
+  export type ApplicationAccessUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ApplicationAccessUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    applicationId?: StringFieldUpdateOperationsInput | string
+    roleId?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+  }
+
   export type RolesCreateInput = {
     name: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    User?: UserCreateNestedOneWithoutRolesInput
+    applicationAccess?: ApplicationAccessCreateNestedManyWithoutRoleInput
   }
 
   export type RolesUncheckedCreateInput = {
@@ -11624,7 +17526,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    userId?: string | null
+    applicationAccess?: ApplicationAccessUncheckedCreateNestedManyWithoutRoleInput
   }
 
   export type RolesUpdateInput = {
@@ -11633,7 +17535,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    User?: UserUpdateOneWithoutRolesNestedInput
+    applicationAccess?: ApplicationAccessUpdateManyWithoutRoleNestedInput
   }
 
   export type RolesUncheckedUpdateInput = {
@@ -11643,7 +17545,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    applicationAccess?: ApplicationAccessUncheckedUpdateManyWithoutRoleNestedInput
   }
 
   export type RolesCreateManyInput = {
@@ -11653,7 +17555,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    userId?: string | null
   }
 
   export type RolesUpdateManyMutationInput = {
@@ -11671,54 +17572,60 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    userId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
-  export type OTPCreateInput = {
-    token?: string | null
+  export type OtpCreateInput = {
+    token: string
     email: string
+    phoneNumber: string
     otp: string
     expiry?: Date | string | null
   }
 
-  export type OTPUncheckedCreateInput = {
-    token?: string | null
+  export type OtpUncheckedCreateInput = {
+    token: string
     email: string
+    phoneNumber: string
     otp: string
     expiry?: Date | string | null
   }
 
-  export type OTPUpdateInput = {
-    token?: NullableStringFieldUpdateOperationsInput | string | null
+  export type OtpUpdateInput = {
+    token?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
     otp?: StringFieldUpdateOperationsInput | string
     expiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type OTPUncheckedUpdateInput = {
-    token?: NullableStringFieldUpdateOperationsInput | string | null
+  export type OtpUncheckedUpdateInput = {
+    token?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
     otp?: StringFieldUpdateOperationsInput | string
     expiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type OTPCreateManyInput = {
-    token?: string | null
+  export type OtpCreateManyInput = {
+    token: string
     email: string
+    phoneNumber: string
     otp: string
     expiry?: Date | string | null
   }
 
-  export type OTPUpdateManyMutationInput = {
-    token?: NullableStringFieldUpdateOperationsInput | string | null
+  export type OtpUpdateManyMutationInput = {
+    token?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
     otp?: StringFieldUpdateOperationsInput | string
     expiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type OTPUncheckedUpdateManyInput = {
-    token?: NullableStringFieldUpdateOperationsInput | string | null
+  export type OtpUncheckedUpdateManyInput = {
+    token?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
     otp?: StringFieldUpdateOperationsInput | string
     expiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -11942,13 +17849,13 @@ export namespace Prisma {
   }
 
   export type UserIdentityCreateInput = {
-    divisionId: number
-    titleOfDivisionId: number
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
     User: UserCreateNestedOneWithoutUserIdentityInput
     DepartmentManagement: DepartmentManagementsCreateNestedOneWithoutUserIdentityInput
+    division: DivisionsCreateNestedOneWithoutUserIdentityInput
+    titleOfDivision: TitleOfDivisionsCreateNestedOneWithoutUserIdentityInput
   }
 
   export type UserIdentityUncheckedCreateInput = {
@@ -11963,13 +17870,13 @@ export namespace Prisma {
   }
 
   export type UserIdentityUpdateInput = {
-    divisionId?: IntFieldUpdateOperationsInput | number
-    titleOfDivisionId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     User?: UserUpdateOneRequiredWithoutUserIdentityNestedInput
     DepartmentManagement?: DepartmentManagementsUpdateOneRequiredWithoutUserIdentityNestedInput
+    division?: DivisionsUpdateOneRequiredWithoutUserIdentityNestedInput
+    titleOfDivision?: TitleOfDivisionsUpdateOneRequiredWithoutUserIdentityNestedInput
   }
 
   export type UserIdentityUncheckedUpdateInput = {
@@ -11995,8 +17902,6 @@ export namespace Prisma {
   }
 
   export type UserIdentityUpdateManyMutationInput = {
-    divisionId?: IntFieldUpdateOperationsInput | number
-    titleOfDivisionId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -12008,6 +17913,214 @@ export namespace Prisma {
     divisionId?: IntFieldUpdateOperationsInput | number
     titleOfDivisionId?: IntFieldUpdateOperationsInput | number
     DepartmentManagementId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DivisionsCreateInput = {
+    name: string
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    UserIdentity?: UserIdentityCreateNestedManyWithoutDivisionInput
+    DivisionManagement?: DivisionsManagementCreateNestedManyWithoutDivisionInput
+  }
+
+  export type DivisionsUncheckedCreateInput = {
+    id?: number
+    name: string
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    UserIdentity?: UserIdentityUncheckedCreateNestedManyWithoutDivisionInput
+    DivisionManagement?: DivisionsManagementUncheckedCreateNestedManyWithoutDivisionInput
+  }
+
+  export type DivisionsUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UserIdentity?: UserIdentityUpdateManyWithoutDivisionNestedInput
+    DivisionManagement?: DivisionsManagementUpdateManyWithoutDivisionNestedInput
+  }
+
+  export type DivisionsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UserIdentity?: UserIdentityUncheckedUpdateManyWithoutDivisionNestedInput
+    DivisionManagement?: DivisionsManagementUncheckedUpdateManyWithoutDivisionNestedInput
+  }
+
+  export type DivisionsCreateManyInput = {
+    id?: number
+    name: string
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type DivisionsUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DivisionsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DivisionsManagementCreateInput = {
+    isActive: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    division: DivisionsCreateNestedOneWithoutDivisionManagementInput
+    title: TitleOfDivisionsCreateNestedOneWithoutDivisionManagementInput
+  }
+
+  export type DivisionsManagementUncheckedCreateInput = {
+    id?: number
+    divisionId: number
+    titleId: number
+    isActive: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type DivisionsManagementUpdateInput = {
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    division?: DivisionsUpdateOneRequiredWithoutDivisionManagementNestedInput
+    title?: TitleOfDivisionsUpdateOneRequiredWithoutDivisionManagementNestedInput
+  }
+
+  export type DivisionsManagementUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    divisionId?: IntFieldUpdateOperationsInput | number
+    titleId?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DivisionsManagementCreateManyInput = {
+    id?: number
+    divisionId: number
+    titleId: number
+    isActive: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type DivisionsManagementUpdateManyMutationInput = {
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DivisionsManagementUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    divisionId?: IntFieldUpdateOperationsInput | number
+    titleId?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type TitleOfDivisionsCreateInput = {
+    name: string
+    isLeader?: boolean
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    DivisionManagement?: DivisionsManagementCreateNestedManyWithoutTitleInput
+    UserIdentity?: UserIdentityCreateNestedManyWithoutTitleOfDivisionInput
+  }
+
+  export type TitleOfDivisionsUncheckedCreateInput = {
+    id?: number
+    name: string
+    isLeader?: boolean
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    DivisionManagement?: DivisionsManagementUncheckedCreateNestedManyWithoutTitleInput
+    UserIdentity?: UserIdentityUncheckedCreateNestedManyWithoutTitleOfDivisionInput
+  }
+
+  export type TitleOfDivisionsUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    isLeader?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    DivisionManagement?: DivisionsManagementUpdateManyWithoutTitleNestedInput
+    UserIdentity?: UserIdentityUpdateManyWithoutTitleOfDivisionNestedInput
+  }
+
+  export type TitleOfDivisionsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    isLeader?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    DivisionManagement?: DivisionsManagementUncheckedUpdateManyWithoutTitleNestedInput
+    UserIdentity?: UserIdentityUncheckedUpdateManyWithoutTitleOfDivisionNestedInput
+  }
+
+  export type TitleOfDivisionsCreateManyInput = {
+    id?: number
+    name: string
+    isLeader?: boolean
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type TitleOfDivisionsUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    isLeader?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type TitleOfDivisionsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    isLeader?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -12025,17 +18138,6 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
-  }
-
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type BoolNullableFilter<$PrismaModel = never> = {
@@ -12065,16 +18167,16 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type RolesListRelationFilter = {
-    every?: RolesWhereInput
-    some?: RolesWhereInput
-    none?: RolesWhereInput
-  }
-
   export type UserIdentityListRelationFilter = {
     every?: UserIdentityWhereInput
     some?: UserIdentityWhereInput
     none?: UserIdentityWhereInput
+  }
+
+  export type ApplicationAccessListRelationFilter = {
+    every?: ApplicationAccessWhereInput
+    some?: ApplicationAccessWhereInput
+    none?: ApplicationAccessWhereInput
   }
 
   export type SortOrderInput = {
@@ -12082,11 +18184,11 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
-  export type RolesOrderByRelationAggregateInput = {
+  export type UserIdentityOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
-  export type UserIdentityOrderByRelationAggregateInput = {
+  export type ApplicationAccessOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -12095,15 +18197,10 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     phoneNumber?: SortOrder
-    roleId?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
-  }
-
-  export type UserAvgOrderByAggregateInput = {
-    roleId?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -12111,7 +18208,6 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     phoneNumber?: SortOrder
-    roleId?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -12123,15 +18219,10 @@ export namespace Prisma {
     email?: SortOrder
     name?: SortOrder
     phoneNumber?: SortOrder
-    roleId?: SortOrder
     isActive?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
-  }
-
-  export type UserSumOrderByAggregateInput = {
-    roleId?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -12149,22 +18240,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -12201,6 +18276,17 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedDateTimeNullableFilter<$PrismaModel>
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type BoolFilter<$PrismaModel = never> = {
@@ -12251,6 +18337,22 @@ export namespace Prisma {
 
   export type CategorySumOrderByAggregateInput = {
     id?: SortOrder
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -12311,23 +18413,69 @@ export namespace Prisma {
     categoryId?: SortOrder
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  export type ApplicationsCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isActive?: SortOrder
   }
 
-  export type UserNullableRelationFilter = {
-    is?: UserWhereInput | null
-    isNot?: UserWhereInput | null
+  export type ApplicationsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isActive?: SortOrder
+  }
+
+  export type ApplicationsMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isActive?: SortOrder
+  }
+
+  export type ApplicationsRelationFilter = {
+    is?: ApplicationsWhereInput
+    isNot?: ApplicationsWhereInput
+  }
+
+  export type RolesRelationFilter = {
+    is?: RolesWhereInput
+    isNot?: RolesWhereInput
+  }
+
+  export type UserRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
+  }
+
+  export type ApplicationAccessCountOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    applicationId?: SortOrder
+    roleId?: SortOrder
+    isActive?: SortOrder
+  }
+
+  export type ApplicationAccessAvgOrderByAggregateInput = {
+    roleId?: SortOrder
+  }
+
+  export type ApplicationAccessMaxOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    applicationId?: SortOrder
+    roleId?: SortOrder
+    isActive?: SortOrder
+  }
+
+  export type ApplicationAccessMinOrderByAggregateInput = {
+    id?: SortOrder
+    userId?: SortOrder
+    applicationId?: SortOrder
+    roleId?: SortOrder
+    isActive?: SortOrder
+  }
+
+  export type ApplicationAccessSumOrderByAggregateInput = {
+    roleId?: SortOrder
   }
 
   export type RolesCountOrderByAggregateInput = {
@@ -12337,7 +18485,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
-    userId?: SortOrder
   }
 
   export type RolesAvgOrderByAggregateInput = {
@@ -12351,7 +18498,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
-    userId?: SortOrder
   }
 
   export type RolesMinOrderByAggregateInput = {
@@ -12361,47 +18507,32 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     deletedAt?: SortOrder
-    userId?: SortOrder
   }
 
   export type RolesSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type OTPCountOrderByAggregateInput = {
+  export type OtpCountOrderByAggregateInput = {
     token?: SortOrder
     email?: SortOrder
+    phoneNumber?: SortOrder
     otp?: SortOrder
     expiry?: SortOrder
   }
 
-  export type OTPMaxOrderByAggregateInput = {
+  export type OtpMaxOrderByAggregateInput = {
     token?: SortOrder
     email?: SortOrder
+    phoneNumber?: SortOrder
     otp?: SortOrder
     expiry?: SortOrder
   }
 
-  export type OTPMinOrderByAggregateInput = {
+  export type OtpMinOrderByAggregateInput = {
     token?: SortOrder
     email?: SortOrder
+    phoneNumber?: SortOrder
     otp?: SortOrder
     expiry?: SortOrder
   }
@@ -12549,14 +18680,19 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-  export type UserRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
-  }
-
   export type DepartmentManagementsRelationFilter = {
     is?: DepartmentManagementsWhereInput
     isNot?: DepartmentManagementsWhereInput
+  }
+
+  export type DivisionsRelationFilter = {
+    is?: DivisionsWhereInput
+    isNot?: DivisionsWhereInput
+  }
+
+  export type TitleOfDivisionsRelationFilter = {
+    is?: TitleOfDivisionsWhereInput
+    isNot?: TitleOfDivisionsWhereInput
   }
 
   export type UserIdentityCountOrderByAggregateInput = {
@@ -12606,11 +18742,129 @@ export namespace Prisma {
     DepartmentManagementId?: SortOrder
   }
 
-  export type RolesCreateNestedManyWithoutUserInput = {
-    create?: XOR<RolesCreateWithoutUserInput, RolesUncheckedCreateWithoutUserInput> | RolesCreateWithoutUserInput[] | RolesUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: RolesCreateOrConnectWithoutUserInput | RolesCreateOrConnectWithoutUserInput[]
-    createMany?: RolesCreateManyUserInputEnvelope
-    connect?: RolesWhereUniqueInput | RolesWhereUniqueInput[]
+  export type DivisionsManagementListRelationFilter = {
+    every?: DivisionsManagementWhereInput
+    some?: DivisionsManagementWhereInput
+    none?: DivisionsManagementWhereInput
+  }
+
+  export type DivisionsManagementOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DivisionsCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+  }
+
+  export type DivisionsAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type DivisionsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+  }
+
+  export type DivisionsMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+  }
+
+  export type DivisionsSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type DivisionsManagementCountOrderByAggregateInput = {
+    id?: SortOrder
+    divisionId?: SortOrder
+    titleId?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+  }
+
+  export type DivisionsManagementAvgOrderByAggregateInput = {
+    id?: SortOrder
+    divisionId?: SortOrder
+    titleId?: SortOrder
+  }
+
+  export type DivisionsManagementMaxOrderByAggregateInput = {
+    id?: SortOrder
+    divisionId?: SortOrder
+    titleId?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+  }
+
+  export type DivisionsManagementMinOrderByAggregateInput = {
+    id?: SortOrder
+    divisionId?: SortOrder
+    titleId?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+  }
+
+  export type DivisionsManagementSumOrderByAggregateInput = {
+    id?: SortOrder
+    divisionId?: SortOrder
+    titleId?: SortOrder
+  }
+
+  export type TitleOfDivisionsCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isLeader?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+  }
+
+  export type TitleOfDivisionsAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type TitleOfDivisionsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isLeader?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+  }
+
+  export type TitleOfDivisionsMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    isLeader?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    deletedAt?: SortOrder
+  }
+
+  export type TitleOfDivisionsSumOrderByAggregateInput = {
+    id?: SortOrder
   }
 
   export type UserIdentityCreateNestedManyWithoutUserInput = {
@@ -12620,11 +18874,11 @@ export namespace Prisma {
     connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
   }
 
-  export type RolesUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<RolesCreateWithoutUserInput, RolesUncheckedCreateWithoutUserInput> | RolesCreateWithoutUserInput[] | RolesUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: RolesCreateOrConnectWithoutUserInput | RolesCreateOrConnectWithoutUserInput[]
-    createMany?: RolesCreateManyUserInputEnvelope
-    connect?: RolesWhereUniqueInput | RolesWhereUniqueInput[]
+  export type ApplicationAccessCreateNestedManyWithoutUserInput = {
+    create?: XOR<ApplicationAccessCreateWithoutUserInput, ApplicationAccessUncheckedCreateWithoutUserInput> | ApplicationAccessCreateWithoutUserInput[] | ApplicationAccessUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ApplicationAccessCreateOrConnectWithoutUserInput | ApplicationAccessCreateOrConnectWithoutUserInput[]
+    createMany?: ApplicationAccessCreateManyUserInputEnvelope
+    connect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
   }
 
   export type UserIdentityUncheckedCreateNestedManyWithoutUserInput = {
@@ -12634,16 +18888,15 @@ export namespace Prisma {
     connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
   }
 
-  export type StringFieldUpdateOperationsInput = {
-    set?: string
+  export type ApplicationAccessUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<ApplicationAccessCreateWithoutUserInput, ApplicationAccessUncheckedCreateWithoutUserInput> | ApplicationAccessCreateWithoutUserInput[] | ApplicationAccessUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ApplicationAccessCreateOrConnectWithoutUserInput | ApplicationAccessCreateOrConnectWithoutUserInput[]
+    createMany?: ApplicationAccessCreateManyUserInputEnvelope
+    connect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
+  export type StringFieldUpdateOperationsInput = {
+    set?: string
   }
 
   export type NullableBoolFieldUpdateOperationsInput = {
@@ -12656,20 +18909,6 @@ export namespace Prisma {
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
     set?: Date | string | null
-  }
-
-  export type RolesUpdateManyWithoutUserNestedInput = {
-    create?: XOR<RolesCreateWithoutUserInput, RolesUncheckedCreateWithoutUserInput> | RolesCreateWithoutUserInput[] | RolesUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: RolesCreateOrConnectWithoutUserInput | RolesCreateOrConnectWithoutUserInput[]
-    upsert?: RolesUpsertWithWhereUniqueWithoutUserInput | RolesUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: RolesCreateManyUserInputEnvelope
-    set?: RolesWhereUniqueInput | RolesWhereUniqueInput[]
-    disconnect?: RolesWhereUniqueInput | RolesWhereUniqueInput[]
-    delete?: RolesWhereUniqueInput | RolesWhereUniqueInput[]
-    connect?: RolesWhereUniqueInput | RolesWhereUniqueInput[]
-    update?: RolesUpdateWithWhereUniqueWithoutUserInput | RolesUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: RolesUpdateManyWithWhereWithoutUserInput | RolesUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: RolesScalarWhereInput | RolesScalarWhereInput[]
   }
 
   export type UserIdentityUpdateManyWithoutUserNestedInput = {
@@ -12686,18 +18925,18 @@ export namespace Prisma {
     deleteMany?: UserIdentityScalarWhereInput | UserIdentityScalarWhereInput[]
   }
 
-  export type RolesUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<RolesCreateWithoutUserInput, RolesUncheckedCreateWithoutUserInput> | RolesCreateWithoutUserInput[] | RolesUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: RolesCreateOrConnectWithoutUserInput | RolesCreateOrConnectWithoutUserInput[]
-    upsert?: RolesUpsertWithWhereUniqueWithoutUserInput | RolesUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: RolesCreateManyUserInputEnvelope
-    set?: RolesWhereUniqueInput | RolesWhereUniqueInput[]
-    disconnect?: RolesWhereUniqueInput | RolesWhereUniqueInput[]
-    delete?: RolesWhereUniqueInput | RolesWhereUniqueInput[]
-    connect?: RolesWhereUniqueInput | RolesWhereUniqueInput[]
-    update?: RolesUpdateWithWhereUniqueWithoutUserInput | RolesUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: RolesUpdateManyWithWhereWithoutUserInput | RolesUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: RolesScalarWhereInput | RolesScalarWhereInput[]
+  export type ApplicationAccessUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ApplicationAccessCreateWithoutUserInput, ApplicationAccessUncheckedCreateWithoutUserInput> | ApplicationAccessCreateWithoutUserInput[] | ApplicationAccessUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ApplicationAccessCreateOrConnectWithoutUserInput | ApplicationAccessCreateOrConnectWithoutUserInput[]
+    upsert?: ApplicationAccessUpsertWithWhereUniqueWithoutUserInput | ApplicationAccessUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ApplicationAccessCreateManyUserInputEnvelope
+    set?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    disconnect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    delete?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    connect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    update?: ApplicationAccessUpdateWithWhereUniqueWithoutUserInput | ApplicationAccessUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ApplicationAccessUpdateManyWithWhereWithoutUserInput | ApplicationAccessUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ApplicationAccessScalarWhereInput | ApplicationAccessScalarWhereInput[]
   }
 
   export type UserIdentityUncheckedUpdateManyWithoutUserNestedInput = {
@@ -12712,6 +18951,20 @@ export namespace Prisma {
     update?: UserIdentityUpdateWithWhereUniqueWithoutUserInput | UserIdentityUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: UserIdentityUpdateManyWithWhereWithoutUserInput | UserIdentityUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: UserIdentityScalarWhereInput | UserIdentityScalarWhereInput[]
+  }
+
+  export type ApplicationAccessUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ApplicationAccessCreateWithoutUserInput, ApplicationAccessUncheckedCreateWithoutUserInput> | ApplicationAccessCreateWithoutUserInput[] | ApplicationAccessUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ApplicationAccessCreateOrConnectWithoutUserInput | ApplicationAccessCreateOrConnectWithoutUserInput[]
+    upsert?: ApplicationAccessUpsertWithWhereUniqueWithoutUserInput | ApplicationAccessUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ApplicationAccessCreateManyUserInputEnvelope
+    set?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    disconnect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    delete?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    connect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    update?: ApplicationAccessUpdateWithWhereUniqueWithoutUserInput | ApplicationAccessUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ApplicationAccessUpdateManyWithWhereWithoutUserInput | ApplicationAccessUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ApplicationAccessScalarWhereInput | ApplicationAccessScalarWhereInput[]
   }
 
   export type SubCategoryCreateNestedManyWithoutCategoryInput = {
@@ -12746,6 +18999,14 @@ export namespace Prisma {
     deleteMany?: SubCategoryScalarWhereInput | SubCategoryScalarWhereInput[]
   }
 
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type SubCategoryUncheckedUpdateManyWithoutCategoryNestedInput = {
     create?: XOR<SubCategoryCreateWithoutCategoryInput, SubCategoryUncheckedCreateWithoutCategoryInput> | SubCategoryCreateWithoutCategoryInput[] | SubCategoryUncheckedCreateWithoutCategoryInput[]
     connectOrCreate?: SubCategoryCreateOrConnectWithoutCategoryInput | SubCategoryCreateOrConnectWithoutCategoryInput[]
@@ -12774,24 +19035,130 @@ export namespace Prisma {
     update?: XOR<XOR<CategoryUpdateToOneWithWhereWithoutSubCategoriesInput, CategoryUpdateWithoutSubCategoriesInput>, CategoryUncheckedUpdateWithoutSubCategoriesInput>
   }
 
-  export type UserCreateNestedOneWithoutRolesInput = {
-    create?: XOR<UserCreateWithoutRolesInput, UserUncheckedCreateWithoutRolesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutRolesInput
+  export type ApplicationAccessCreateNestedManyWithoutApplicationInput = {
+    create?: XOR<ApplicationAccessCreateWithoutApplicationInput, ApplicationAccessUncheckedCreateWithoutApplicationInput> | ApplicationAccessCreateWithoutApplicationInput[] | ApplicationAccessUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: ApplicationAccessCreateOrConnectWithoutApplicationInput | ApplicationAccessCreateOrConnectWithoutApplicationInput[]
+    createMany?: ApplicationAccessCreateManyApplicationInputEnvelope
+    connect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+  }
+
+  export type ApplicationAccessUncheckedCreateNestedManyWithoutApplicationInput = {
+    create?: XOR<ApplicationAccessCreateWithoutApplicationInput, ApplicationAccessUncheckedCreateWithoutApplicationInput> | ApplicationAccessCreateWithoutApplicationInput[] | ApplicationAccessUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: ApplicationAccessCreateOrConnectWithoutApplicationInput | ApplicationAccessCreateOrConnectWithoutApplicationInput[]
+    createMany?: ApplicationAccessCreateManyApplicationInputEnvelope
+    connect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+  }
+
+  export type ApplicationAccessUpdateManyWithoutApplicationNestedInput = {
+    create?: XOR<ApplicationAccessCreateWithoutApplicationInput, ApplicationAccessUncheckedCreateWithoutApplicationInput> | ApplicationAccessCreateWithoutApplicationInput[] | ApplicationAccessUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: ApplicationAccessCreateOrConnectWithoutApplicationInput | ApplicationAccessCreateOrConnectWithoutApplicationInput[]
+    upsert?: ApplicationAccessUpsertWithWhereUniqueWithoutApplicationInput | ApplicationAccessUpsertWithWhereUniqueWithoutApplicationInput[]
+    createMany?: ApplicationAccessCreateManyApplicationInputEnvelope
+    set?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    disconnect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    delete?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    connect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    update?: ApplicationAccessUpdateWithWhereUniqueWithoutApplicationInput | ApplicationAccessUpdateWithWhereUniqueWithoutApplicationInput[]
+    updateMany?: ApplicationAccessUpdateManyWithWhereWithoutApplicationInput | ApplicationAccessUpdateManyWithWhereWithoutApplicationInput[]
+    deleteMany?: ApplicationAccessScalarWhereInput | ApplicationAccessScalarWhereInput[]
+  }
+
+  export type ApplicationAccessUncheckedUpdateManyWithoutApplicationNestedInput = {
+    create?: XOR<ApplicationAccessCreateWithoutApplicationInput, ApplicationAccessUncheckedCreateWithoutApplicationInput> | ApplicationAccessCreateWithoutApplicationInput[] | ApplicationAccessUncheckedCreateWithoutApplicationInput[]
+    connectOrCreate?: ApplicationAccessCreateOrConnectWithoutApplicationInput | ApplicationAccessCreateOrConnectWithoutApplicationInput[]
+    upsert?: ApplicationAccessUpsertWithWhereUniqueWithoutApplicationInput | ApplicationAccessUpsertWithWhereUniqueWithoutApplicationInput[]
+    createMany?: ApplicationAccessCreateManyApplicationInputEnvelope
+    set?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    disconnect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    delete?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    connect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    update?: ApplicationAccessUpdateWithWhereUniqueWithoutApplicationInput | ApplicationAccessUpdateWithWhereUniqueWithoutApplicationInput[]
+    updateMany?: ApplicationAccessUpdateManyWithWhereWithoutApplicationInput | ApplicationAccessUpdateManyWithWhereWithoutApplicationInput[]
+    deleteMany?: ApplicationAccessScalarWhereInput | ApplicationAccessScalarWhereInput[]
+  }
+
+  export type ApplicationsCreateNestedOneWithoutApplicationAccessInput = {
+    create?: XOR<ApplicationsCreateWithoutApplicationAccessInput, ApplicationsUncheckedCreateWithoutApplicationAccessInput>
+    connectOrCreate?: ApplicationsCreateOrConnectWithoutApplicationAccessInput
+    connect?: ApplicationsWhereUniqueInput
+  }
+
+  export type RolesCreateNestedOneWithoutApplicationAccessInput = {
+    create?: XOR<RolesCreateWithoutApplicationAccessInput, RolesUncheckedCreateWithoutApplicationAccessInput>
+    connectOrCreate?: RolesCreateOrConnectWithoutApplicationAccessInput
+    connect?: RolesWhereUniqueInput
+  }
+
+  export type UserCreateNestedOneWithoutApplicationAccessInput = {
+    create?: XOR<UserCreateWithoutApplicationAccessInput, UserUncheckedCreateWithoutApplicationAccessInput>
+    connectOrCreate?: UserCreateOrConnectWithoutApplicationAccessInput
     connect?: UserWhereUniqueInput
   }
 
-  export type UserUpdateOneWithoutRolesNestedInput = {
-    create?: XOR<UserCreateWithoutRolesInput, UserUncheckedCreateWithoutRolesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutRolesInput
-    upsert?: UserUpsertWithoutRolesInput
-    disconnect?: UserWhereInput | boolean
-    delete?: UserWhereInput | boolean
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutRolesInput, UserUpdateWithoutRolesInput>, UserUncheckedUpdateWithoutRolesInput>
+  export type ApplicationsUpdateOneRequiredWithoutApplicationAccessNestedInput = {
+    create?: XOR<ApplicationsCreateWithoutApplicationAccessInput, ApplicationsUncheckedCreateWithoutApplicationAccessInput>
+    connectOrCreate?: ApplicationsCreateOrConnectWithoutApplicationAccessInput
+    upsert?: ApplicationsUpsertWithoutApplicationAccessInput
+    connect?: ApplicationsWhereUniqueInput
+    update?: XOR<XOR<ApplicationsUpdateToOneWithWhereWithoutApplicationAccessInput, ApplicationsUpdateWithoutApplicationAccessInput>, ApplicationsUncheckedUpdateWithoutApplicationAccessInput>
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
+  export type RolesUpdateOneRequiredWithoutApplicationAccessNestedInput = {
+    create?: XOR<RolesCreateWithoutApplicationAccessInput, RolesUncheckedCreateWithoutApplicationAccessInput>
+    connectOrCreate?: RolesCreateOrConnectWithoutApplicationAccessInput
+    upsert?: RolesUpsertWithoutApplicationAccessInput
+    connect?: RolesWhereUniqueInput
+    update?: XOR<XOR<RolesUpdateToOneWithWhereWithoutApplicationAccessInput, RolesUpdateWithoutApplicationAccessInput>, RolesUncheckedUpdateWithoutApplicationAccessInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutApplicationAccessNestedInput = {
+    create?: XOR<UserCreateWithoutApplicationAccessInput, UserUncheckedCreateWithoutApplicationAccessInput>
+    connectOrCreate?: UserCreateOrConnectWithoutApplicationAccessInput
+    upsert?: UserUpsertWithoutApplicationAccessInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutApplicationAccessInput, UserUpdateWithoutApplicationAccessInput>, UserUncheckedUpdateWithoutApplicationAccessInput>
+  }
+
+  export type ApplicationAccessCreateNestedManyWithoutRoleInput = {
+    create?: XOR<ApplicationAccessCreateWithoutRoleInput, ApplicationAccessUncheckedCreateWithoutRoleInput> | ApplicationAccessCreateWithoutRoleInput[] | ApplicationAccessUncheckedCreateWithoutRoleInput[]
+    connectOrCreate?: ApplicationAccessCreateOrConnectWithoutRoleInput | ApplicationAccessCreateOrConnectWithoutRoleInput[]
+    createMany?: ApplicationAccessCreateManyRoleInputEnvelope
+    connect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+  }
+
+  export type ApplicationAccessUncheckedCreateNestedManyWithoutRoleInput = {
+    create?: XOR<ApplicationAccessCreateWithoutRoleInput, ApplicationAccessUncheckedCreateWithoutRoleInput> | ApplicationAccessCreateWithoutRoleInput[] | ApplicationAccessUncheckedCreateWithoutRoleInput[]
+    connectOrCreate?: ApplicationAccessCreateOrConnectWithoutRoleInput | ApplicationAccessCreateOrConnectWithoutRoleInput[]
+    createMany?: ApplicationAccessCreateManyRoleInputEnvelope
+    connect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+  }
+
+  export type ApplicationAccessUpdateManyWithoutRoleNestedInput = {
+    create?: XOR<ApplicationAccessCreateWithoutRoleInput, ApplicationAccessUncheckedCreateWithoutRoleInput> | ApplicationAccessCreateWithoutRoleInput[] | ApplicationAccessUncheckedCreateWithoutRoleInput[]
+    connectOrCreate?: ApplicationAccessCreateOrConnectWithoutRoleInput | ApplicationAccessCreateOrConnectWithoutRoleInput[]
+    upsert?: ApplicationAccessUpsertWithWhereUniqueWithoutRoleInput | ApplicationAccessUpsertWithWhereUniqueWithoutRoleInput[]
+    createMany?: ApplicationAccessCreateManyRoleInputEnvelope
+    set?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    disconnect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    delete?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    connect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    update?: ApplicationAccessUpdateWithWhereUniqueWithoutRoleInput | ApplicationAccessUpdateWithWhereUniqueWithoutRoleInput[]
+    updateMany?: ApplicationAccessUpdateManyWithWhereWithoutRoleInput | ApplicationAccessUpdateManyWithWhereWithoutRoleInput[]
+    deleteMany?: ApplicationAccessScalarWhereInput | ApplicationAccessScalarWhereInput[]
+  }
+
+  export type ApplicationAccessUncheckedUpdateManyWithoutRoleNestedInput = {
+    create?: XOR<ApplicationAccessCreateWithoutRoleInput, ApplicationAccessUncheckedCreateWithoutRoleInput> | ApplicationAccessCreateWithoutRoleInput[] | ApplicationAccessUncheckedCreateWithoutRoleInput[]
+    connectOrCreate?: ApplicationAccessCreateOrConnectWithoutRoleInput | ApplicationAccessCreateOrConnectWithoutRoleInput[]
+    upsert?: ApplicationAccessUpsertWithWhereUniqueWithoutRoleInput | ApplicationAccessUpsertWithWhereUniqueWithoutRoleInput[]
+    createMany?: ApplicationAccessCreateManyRoleInputEnvelope
+    set?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    disconnect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    delete?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    connect?: ApplicationAccessWhereUniqueInput | ApplicationAccessWhereUniqueInput[]
+    update?: ApplicationAccessUpdateWithWhereUniqueWithoutRoleInput | ApplicationAccessUpdateWithWhereUniqueWithoutRoleInput[]
+    updateMany?: ApplicationAccessUpdateManyWithWhereWithoutRoleInput | ApplicationAccessUpdateManyWithWhereWithoutRoleInput[]
+    deleteMany?: ApplicationAccessScalarWhereInput | ApplicationAccessScalarWhereInput[]
   }
 
   export type DepartmentManagementsCreateNestedManyWithoutDepartmentInput = {
@@ -12960,6 +19327,18 @@ export namespace Prisma {
     connect?: DepartmentManagementsWhereUniqueInput
   }
 
+  export type DivisionsCreateNestedOneWithoutUserIdentityInput = {
+    create?: XOR<DivisionsCreateWithoutUserIdentityInput, DivisionsUncheckedCreateWithoutUserIdentityInput>
+    connectOrCreate?: DivisionsCreateOrConnectWithoutUserIdentityInput
+    connect?: DivisionsWhereUniqueInput
+  }
+
+  export type TitleOfDivisionsCreateNestedOneWithoutUserIdentityInput = {
+    create?: XOR<TitleOfDivisionsCreateWithoutUserIdentityInput, TitleOfDivisionsUncheckedCreateWithoutUserIdentityInput>
+    connectOrCreate?: TitleOfDivisionsCreateOrConnectWithoutUserIdentityInput
+    connect?: TitleOfDivisionsWhereUniqueInput
+  }
+
   export type UserUpdateOneRequiredWithoutUserIdentityNestedInput = {
     create?: XOR<UserCreateWithoutUserIdentityInput, UserUncheckedCreateWithoutUserIdentityInput>
     connectOrCreate?: UserCreateOrConnectWithoutUserIdentityInput
@@ -12976,6 +19355,218 @@ export namespace Prisma {
     update?: XOR<XOR<DepartmentManagementsUpdateToOneWithWhereWithoutUserIdentityInput, DepartmentManagementsUpdateWithoutUserIdentityInput>, DepartmentManagementsUncheckedUpdateWithoutUserIdentityInput>
   }
 
+  export type DivisionsUpdateOneRequiredWithoutUserIdentityNestedInput = {
+    create?: XOR<DivisionsCreateWithoutUserIdentityInput, DivisionsUncheckedCreateWithoutUserIdentityInput>
+    connectOrCreate?: DivisionsCreateOrConnectWithoutUserIdentityInput
+    upsert?: DivisionsUpsertWithoutUserIdentityInput
+    connect?: DivisionsWhereUniqueInput
+    update?: XOR<XOR<DivisionsUpdateToOneWithWhereWithoutUserIdentityInput, DivisionsUpdateWithoutUserIdentityInput>, DivisionsUncheckedUpdateWithoutUserIdentityInput>
+  }
+
+  export type TitleOfDivisionsUpdateOneRequiredWithoutUserIdentityNestedInput = {
+    create?: XOR<TitleOfDivisionsCreateWithoutUserIdentityInput, TitleOfDivisionsUncheckedCreateWithoutUserIdentityInput>
+    connectOrCreate?: TitleOfDivisionsCreateOrConnectWithoutUserIdentityInput
+    upsert?: TitleOfDivisionsUpsertWithoutUserIdentityInput
+    connect?: TitleOfDivisionsWhereUniqueInput
+    update?: XOR<XOR<TitleOfDivisionsUpdateToOneWithWhereWithoutUserIdentityInput, TitleOfDivisionsUpdateWithoutUserIdentityInput>, TitleOfDivisionsUncheckedUpdateWithoutUserIdentityInput>
+  }
+
+  export type UserIdentityCreateNestedManyWithoutDivisionInput = {
+    create?: XOR<UserIdentityCreateWithoutDivisionInput, UserIdentityUncheckedCreateWithoutDivisionInput> | UserIdentityCreateWithoutDivisionInput[] | UserIdentityUncheckedCreateWithoutDivisionInput[]
+    connectOrCreate?: UserIdentityCreateOrConnectWithoutDivisionInput | UserIdentityCreateOrConnectWithoutDivisionInput[]
+    createMany?: UserIdentityCreateManyDivisionInputEnvelope
+    connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+  }
+
+  export type DivisionsManagementCreateNestedManyWithoutDivisionInput = {
+    create?: XOR<DivisionsManagementCreateWithoutDivisionInput, DivisionsManagementUncheckedCreateWithoutDivisionInput> | DivisionsManagementCreateWithoutDivisionInput[] | DivisionsManagementUncheckedCreateWithoutDivisionInput[]
+    connectOrCreate?: DivisionsManagementCreateOrConnectWithoutDivisionInput | DivisionsManagementCreateOrConnectWithoutDivisionInput[]
+    createMany?: DivisionsManagementCreateManyDivisionInputEnvelope
+    connect?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+  }
+
+  export type UserIdentityUncheckedCreateNestedManyWithoutDivisionInput = {
+    create?: XOR<UserIdentityCreateWithoutDivisionInput, UserIdentityUncheckedCreateWithoutDivisionInput> | UserIdentityCreateWithoutDivisionInput[] | UserIdentityUncheckedCreateWithoutDivisionInput[]
+    connectOrCreate?: UserIdentityCreateOrConnectWithoutDivisionInput | UserIdentityCreateOrConnectWithoutDivisionInput[]
+    createMany?: UserIdentityCreateManyDivisionInputEnvelope
+    connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+  }
+
+  export type DivisionsManagementUncheckedCreateNestedManyWithoutDivisionInput = {
+    create?: XOR<DivisionsManagementCreateWithoutDivisionInput, DivisionsManagementUncheckedCreateWithoutDivisionInput> | DivisionsManagementCreateWithoutDivisionInput[] | DivisionsManagementUncheckedCreateWithoutDivisionInput[]
+    connectOrCreate?: DivisionsManagementCreateOrConnectWithoutDivisionInput | DivisionsManagementCreateOrConnectWithoutDivisionInput[]
+    createMany?: DivisionsManagementCreateManyDivisionInputEnvelope
+    connect?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+  }
+
+  export type UserIdentityUpdateManyWithoutDivisionNestedInput = {
+    create?: XOR<UserIdentityCreateWithoutDivisionInput, UserIdentityUncheckedCreateWithoutDivisionInput> | UserIdentityCreateWithoutDivisionInput[] | UserIdentityUncheckedCreateWithoutDivisionInput[]
+    connectOrCreate?: UserIdentityCreateOrConnectWithoutDivisionInput | UserIdentityCreateOrConnectWithoutDivisionInput[]
+    upsert?: UserIdentityUpsertWithWhereUniqueWithoutDivisionInput | UserIdentityUpsertWithWhereUniqueWithoutDivisionInput[]
+    createMany?: UserIdentityCreateManyDivisionInputEnvelope
+    set?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    disconnect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    delete?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    update?: UserIdentityUpdateWithWhereUniqueWithoutDivisionInput | UserIdentityUpdateWithWhereUniqueWithoutDivisionInput[]
+    updateMany?: UserIdentityUpdateManyWithWhereWithoutDivisionInput | UserIdentityUpdateManyWithWhereWithoutDivisionInput[]
+    deleteMany?: UserIdentityScalarWhereInput | UserIdentityScalarWhereInput[]
+  }
+
+  export type DivisionsManagementUpdateManyWithoutDivisionNestedInput = {
+    create?: XOR<DivisionsManagementCreateWithoutDivisionInput, DivisionsManagementUncheckedCreateWithoutDivisionInput> | DivisionsManagementCreateWithoutDivisionInput[] | DivisionsManagementUncheckedCreateWithoutDivisionInput[]
+    connectOrCreate?: DivisionsManagementCreateOrConnectWithoutDivisionInput | DivisionsManagementCreateOrConnectWithoutDivisionInput[]
+    upsert?: DivisionsManagementUpsertWithWhereUniqueWithoutDivisionInput | DivisionsManagementUpsertWithWhereUniqueWithoutDivisionInput[]
+    createMany?: DivisionsManagementCreateManyDivisionInputEnvelope
+    set?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+    disconnect?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+    delete?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+    connect?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+    update?: DivisionsManagementUpdateWithWhereUniqueWithoutDivisionInput | DivisionsManagementUpdateWithWhereUniqueWithoutDivisionInput[]
+    updateMany?: DivisionsManagementUpdateManyWithWhereWithoutDivisionInput | DivisionsManagementUpdateManyWithWhereWithoutDivisionInput[]
+    deleteMany?: DivisionsManagementScalarWhereInput | DivisionsManagementScalarWhereInput[]
+  }
+
+  export type UserIdentityUncheckedUpdateManyWithoutDivisionNestedInput = {
+    create?: XOR<UserIdentityCreateWithoutDivisionInput, UserIdentityUncheckedCreateWithoutDivisionInput> | UserIdentityCreateWithoutDivisionInput[] | UserIdentityUncheckedCreateWithoutDivisionInput[]
+    connectOrCreate?: UserIdentityCreateOrConnectWithoutDivisionInput | UserIdentityCreateOrConnectWithoutDivisionInput[]
+    upsert?: UserIdentityUpsertWithWhereUniqueWithoutDivisionInput | UserIdentityUpsertWithWhereUniqueWithoutDivisionInput[]
+    createMany?: UserIdentityCreateManyDivisionInputEnvelope
+    set?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    disconnect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    delete?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    update?: UserIdentityUpdateWithWhereUniqueWithoutDivisionInput | UserIdentityUpdateWithWhereUniqueWithoutDivisionInput[]
+    updateMany?: UserIdentityUpdateManyWithWhereWithoutDivisionInput | UserIdentityUpdateManyWithWhereWithoutDivisionInput[]
+    deleteMany?: UserIdentityScalarWhereInput | UserIdentityScalarWhereInput[]
+  }
+
+  export type DivisionsManagementUncheckedUpdateManyWithoutDivisionNestedInput = {
+    create?: XOR<DivisionsManagementCreateWithoutDivisionInput, DivisionsManagementUncheckedCreateWithoutDivisionInput> | DivisionsManagementCreateWithoutDivisionInput[] | DivisionsManagementUncheckedCreateWithoutDivisionInput[]
+    connectOrCreate?: DivisionsManagementCreateOrConnectWithoutDivisionInput | DivisionsManagementCreateOrConnectWithoutDivisionInput[]
+    upsert?: DivisionsManagementUpsertWithWhereUniqueWithoutDivisionInput | DivisionsManagementUpsertWithWhereUniqueWithoutDivisionInput[]
+    createMany?: DivisionsManagementCreateManyDivisionInputEnvelope
+    set?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+    disconnect?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+    delete?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+    connect?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+    update?: DivisionsManagementUpdateWithWhereUniqueWithoutDivisionInput | DivisionsManagementUpdateWithWhereUniqueWithoutDivisionInput[]
+    updateMany?: DivisionsManagementUpdateManyWithWhereWithoutDivisionInput | DivisionsManagementUpdateManyWithWhereWithoutDivisionInput[]
+    deleteMany?: DivisionsManagementScalarWhereInput | DivisionsManagementScalarWhereInput[]
+  }
+
+  export type DivisionsCreateNestedOneWithoutDivisionManagementInput = {
+    create?: XOR<DivisionsCreateWithoutDivisionManagementInput, DivisionsUncheckedCreateWithoutDivisionManagementInput>
+    connectOrCreate?: DivisionsCreateOrConnectWithoutDivisionManagementInput
+    connect?: DivisionsWhereUniqueInput
+  }
+
+  export type TitleOfDivisionsCreateNestedOneWithoutDivisionManagementInput = {
+    create?: XOR<TitleOfDivisionsCreateWithoutDivisionManagementInput, TitleOfDivisionsUncheckedCreateWithoutDivisionManagementInput>
+    connectOrCreate?: TitleOfDivisionsCreateOrConnectWithoutDivisionManagementInput
+    connect?: TitleOfDivisionsWhereUniqueInput
+  }
+
+  export type DivisionsUpdateOneRequiredWithoutDivisionManagementNestedInput = {
+    create?: XOR<DivisionsCreateWithoutDivisionManagementInput, DivisionsUncheckedCreateWithoutDivisionManagementInput>
+    connectOrCreate?: DivisionsCreateOrConnectWithoutDivisionManagementInput
+    upsert?: DivisionsUpsertWithoutDivisionManagementInput
+    connect?: DivisionsWhereUniqueInput
+    update?: XOR<XOR<DivisionsUpdateToOneWithWhereWithoutDivisionManagementInput, DivisionsUpdateWithoutDivisionManagementInput>, DivisionsUncheckedUpdateWithoutDivisionManagementInput>
+  }
+
+  export type TitleOfDivisionsUpdateOneRequiredWithoutDivisionManagementNestedInput = {
+    create?: XOR<TitleOfDivisionsCreateWithoutDivisionManagementInput, TitleOfDivisionsUncheckedCreateWithoutDivisionManagementInput>
+    connectOrCreate?: TitleOfDivisionsCreateOrConnectWithoutDivisionManagementInput
+    upsert?: TitleOfDivisionsUpsertWithoutDivisionManagementInput
+    connect?: TitleOfDivisionsWhereUniqueInput
+    update?: XOR<XOR<TitleOfDivisionsUpdateToOneWithWhereWithoutDivisionManagementInput, TitleOfDivisionsUpdateWithoutDivisionManagementInput>, TitleOfDivisionsUncheckedUpdateWithoutDivisionManagementInput>
+  }
+
+  export type DivisionsManagementCreateNestedManyWithoutTitleInput = {
+    create?: XOR<DivisionsManagementCreateWithoutTitleInput, DivisionsManagementUncheckedCreateWithoutTitleInput> | DivisionsManagementCreateWithoutTitleInput[] | DivisionsManagementUncheckedCreateWithoutTitleInput[]
+    connectOrCreate?: DivisionsManagementCreateOrConnectWithoutTitleInput | DivisionsManagementCreateOrConnectWithoutTitleInput[]
+    createMany?: DivisionsManagementCreateManyTitleInputEnvelope
+    connect?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+  }
+
+  export type UserIdentityCreateNestedManyWithoutTitleOfDivisionInput = {
+    create?: XOR<UserIdentityCreateWithoutTitleOfDivisionInput, UserIdentityUncheckedCreateWithoutTitleOfDivisionInput> | UserIdentityCreateWithoutTitleOfDivisionInput[] | UserIdentityUncheckedCreateWithoutTitleOfDivisionInput[]
+    connectOrCreate?: UserIdentityCreateOrConnectWithoutTitleOfDivisionInput | UserIdentityCreateOrConnectWithoutTitleOfDivisionInput[]
+    createMany?: UserIdentityCreateManyTitleOfDivisionInputEnvelope
+    connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+  }
+
+  export type DivisionsManagementUncheckedCreateNestedManyWithoutTitleInput = {
+    create?: XOR<DivisionsManagementCreateWithoutTitleInput, DivisionsManagementUncheckedCreateWithoutTitleInput> | DivisionsManagementCreateWithoutTitleInput[] | DivisionsManagementUncheckedCreateWithoutTitleInput[]
+    connectOrCreate?: DivisionsManagementCreateOrConnectWithoutTitleInput | DivisionsManagementCreateOrConnectWithoutTitleInput[]
+    createMany?: DivisionsManagementCreateManyTitleInputEnvelope
+    connect?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+  }
+
+  export type UserIdentityUncheckedCreateNestedManyWithoutTitleOfDivisionInput = {
+    create?: XOR<UserIdentityCreateWithoutTitleOfDivisionInput, UserIdentityUncheckedCreateWithoutTitleOfDivisionInput> | UserIdentityCreateWithoutTitleOfDivisionInput[] | UserIdentityUncheckedCreateWithoutTitleOfDivisionInput[]
+    connectOrCreate?: UserIdentityCreateOrConnectWithoutTitleOfDivisionInput | UserIdentityCreateOrConnectWithoutTitleOfDivisionInput[]
+    createMany?: UserIdentityCreateManyTitleOfDivisionInputEnvelope
+    connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+  }
+
+  export type DivisionsManagementUpdateManyWithoutTitleNestedInput = {
+    create?: XOR<DivisionsManagementCreateWithoutTitleInput, DivisionsManagementUncheckedCreateWithoutTitleInput> | DivisionsManagementCreateWithoutTitleInput[] | DivisionsManagementUncheckedCreateWithoutTitleInput[]
+    connectOrCreate?: DivisionsManagementCreateOrConnectWithoutTitleInput | DivisionsManagementCreateOrConnectWithoutTitleInput[]
+    upsert?: DivisionsManagementUpsertWithWhereUniqueWithoutTitleInput | DivisionsManagementUpsertWithWhereUniqueWithoutTitleInput[]
+    createMany?: DivisionsManagementCreateManyTitleInputEnvelope
+    set?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+    disconnect?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+    delete?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+    connect?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+    update?: DivisionsManagementUpdateWithWhereUniqueWithoutTitleInput | DivisionsManagementUpdateWithWhereUniqueWithoutTitleInput[]
+    updateMany?: DivisionsManagementUpdateManyWithWhereWithoutTitleInput | DivisionsManagementUpdateManyWithWhereWithoutTitleInput[]
+    deleteMany?: DivisionsManagementScalarWhereInput | DivisionsManagementScalarWhereInput[]
+  }
+
+  export type UserIdentityUpdateManyWithoutTitleOfDivisionNestedInput = {
+    create?: XOR<UserIdentityCreateWithoutTitleOfDivisionInput, UserIdentityUncheckedCreateWithoutTitleOfDivisionInput> | UserIdentityCreateWithoutTitleOfDivisionInput[] | UserIdentityUncheckedCreateWithoutTitleOfDivisionInput[]
+    connectOrCreate?: UserIdentityCreateOrConnectWithoutTitleOfDivisionInput | UserIdentityCreateOrConnectWithoutTitleOfDivisionInput[]
+    upsert?: UserIdentityUpsertWithWhereUniqueWithoutTitleOfDivisionInput | UserIdentityUpsertWithWhereUniqueWithoutTitleOfDivisionInput[]
+    createMany?: UserIdentityCreateManyTitleOfDivisionInputEnvelope
+    set?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    disconnect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    delete?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    update?: UserIdentityUpdateWithWhereUniqueWithoutTitleOfDivisionInput | UserIdentityUpdateWithWhereUniqueWithoutTitleOfDivisionInput[]
+    updateMany?: UserIdentityUpdateManyWithWhereWithoutTitleOfDivisionInput | UserIdentityUpdateManyWithWhereWithoutTitleOfDivisionInput[]
+    deleteMany?: UserIdentityScalarWhereInput | UserIdentityScalarWhereInput[]
+  }
+
+  export type DivisionsManagementUncheckedUpdateManyWithoutTitleNestedInput = {
+    create?: XOR<DivisionsManagementCreateWithoutTitleInput, DivisionsManagementUncheckedCreateWithoutTitleInput> | DivisionsManagementCreateWithoutTitleInput[] | DivisionsManagementUncheckedCreateWithoutTitleInput[]
+    connectOrCreate?: DivisionsManagementCreateOrConnectWithoutTitleInput | DivisionsManagementCreateOrConnectWithoutTitleInput[]
+    upsert?: DivisionsManagementUpsertWithWhereUniqueWithoutTitleInput | DivisionsManagementUpsertWithWhereUniqueWithoutTitleInput[]
+    createMany?: DivisionsManagementCreateManyTitleInputEnvelope
+    set?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+    disconnect?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+    delete?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+    connect?: DivisionsManagementWhereUniqueInput | DivisionsManagementWhereUniqueInput[]
+    update?: DivisionsManagementUpdateWithWhereUniqueWithoutTitleInput | DivisionsManagementUpdateWithWhereUniqueWithoutTitleInput[]
+    updateMany?: DivisionsManagementUpdateManyWithWhereWithoutTitleInput | DivisionsManagementUpdateManyWithWhereWithoutTitleInput[]
+    deleteMany?: DivisionsManagementScalarWhereInput | DivisionsManagementScalarWhereInput[]
+  }
+
+  export type UserIdentityUncheckedUpdateManyWithoutTitleOfDivisionNestedInput = {
+    create?: XOR<UserIdentityCreateWithoutTitleOfDivisionInput, UserIdentityUncheckedCreateWithoutTitleOfDivisionInput> | UserIdentityCreateWithoutTitleOfDivisionInput[] | UserIdentityUncheckedCreateWithoutTitleOfDivisionInput[]
+    connectOrCreate?: UserIdentityCreateOrConnectWithoutTitleOfDivisionInput | UserIdentityCreateOrConnectWithoutTitleOfDivisionInput[]
+    upsert?: UserIdentityUpsertWithWhereUniqueWithoutTitleOfDivisionInput | UserIdentityUpsertWithWhereUniqueWithoutTitleOfDivisionInput[]
+    createMany?: UserIdentityCreateManyTitleOfDivisionInputEnvelope
+    set?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    disconnect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    delete?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    connect?: UserIdentityWhereUniqueInput | UserIdentityWhereUniqueInput[]
+    update?: UserIdentityUpdateWithWhereUniqueWithoutTitleOfDivisionInput | UserIdentityUpdateWithWhereUniqueWithoutTitleOfDivisionInput[]
+    updateMany?: UserIdentityUpdateManyWithWhereWithoutTitleOfDivisionInput | UserIdentityUpdateManyWithWhereWithoutTitleOfDivisionInput[]
+    deleteMany?: UserIdentityScalarWhereInput | UserIdentityScalarWhereInput[]
+  }
+
   export type NestedStringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[]
@@ -12988,17 +19579,6 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
-  }
-
-  export type NestedIntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedBoolNullableFilter<$PrismaModel = never> = {
@@ -13045,7 +19625,7 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+  export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
     notIn?: number[]
@@ -13053,23 +19633,7 @@ export namespace Prisma {
     lte?: number | IntFieldRefInput<$PrismaModel>
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type NestedFloatFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel>
-    in?: number[]
-    notIn?: number[]
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatFilter<$PrismaModel> | number
+    not?: NestedIntFilter<$PrismaModel> | number
   }
 
   export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -13124,6 +19688,33 @@ export namespace Prisma {
     not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type NestedFloatFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel>
+    in?: number[]
+    notIn?: number[]
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatFilter<$PrismaModel> | number
+  }
+
   export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
@@ -13132,71 +19723,13 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type RolesCreateWithoutUserInput = {
-    name: string
-    isActive?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    deletedAt?: Date | string | null
-  }
-
-  export type RolesUncheckedCreateWithoutUserInput = {
-    id?: number
-    name: string
-    isActive?: boolean
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    deletedAt?: Date | string | null
-  }
-
-  export type RolesCreateOrConnectWithoutUserInput = {
-    where: RolesWhereUniqueInput
-    create: XOR<RolesCreateWithoutUserInput, RolesUncheckedCreateWithoutUserInput>
-  }
-
-  export type RolesCreateManyUserInputEnvelope = {
-    data: RolesCreateManyUserInput | RolesCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
   export type UserIdentityCreateWithoutUserInput = {
-    divisionId: number
-    titleOfDivisionId: number
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
     DepartmentManagement: DepartmentManagementsCreateNestedOneWithoutUserIdentityInput
+    division: DivisionsCreateNestedOneWithoutUserIdentityInput
+    titleOfDivision: TitleOfDivisionsCreateNestedOneWithoutUserIdentityInput
   }
 
   export type UserIdentityUncheckedCreateWithoutUserInput = {
@@ -13219,33 +19752,28 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type RolesUpsertWithWhereUniqueWithoutUserInput = {
-    where: RolesWhereUniqueInput
-    update: XOR<RolesUpdateWithoutUserInput, RolesUncheckedUpdateWithoutUserInput>
-    create: XOR<RolesCreateWithoutUserInput, RolesUncheckedCreateWithoutUserInput>
+  export type ApplicationAccessCreateWithoutUserInput = {
+    id: string
+    isActive: boolean
+    application: ApplicationsCreateNestedOneWithoutApplicationAccessInput
+    role: RolesCreateNestedOneWithoutApplicationAccessInput
   }
 
-  export type RolesUpdateWithWhereUniqueWithoutUserInput = {
-    where: RolesWhereUniqueInput
-    data: XOR<RolesUpdateWithoutUserInput, RolesUncheckedUpdateWithoutUserInput>
+  export type ApplicationAccessUncheckedCreateWithoutUserInput = {
+    id: string
+    applicationId: string
+    roleId: number
+    isActive: boolean
   }
 
-  export type RolesUpdateManyWithWhereWithoutUserInput = {
-    where: RolesScalarWhereInput
-    data: XOR<RolesUpdateManyMutationInput, RolesUncheckedUpdateManyWithoutUserInput>
+  export type ApplicationAccessCreateOrConnectWithoutUserInput = {
+    where: ApplicationAccessWhereUniqueInput
+    create: XOR<ApplicationAccessCreateWithoutUserInput, ApplicationAccessUncheckedCreateWithoutUserInput>
   }
 
-  export type RolesScalarWhereInput = {
-    AND?: RolesScalarWhereInput | RolesScalarWhereInput[]
-    OR?: RolesScalarWhereInput[]
-    NOT?: RolesScalarWhereInput | RolesScalarWhereInput[]
-    id?: IntFilter<"Roles"> | number
-    name?: StringFilter<"Roles"> | string
-    isActive?: BoolFilter<"Roles"> | boolean
-    createdAt?: DateTimeFilter<"Roles"> | Date | string
-    updatedAt?: DateTimeFilter<"Roles"> | Date | string
-    deletedAt?: DateTimeNullableFilter<"Roles"> | Date | string | null
-    userId?: StringNullableFilter<"Roles"> | string | null
+  export type ApplicationAccessCreateManyUserInputEnvelope = {
+    data: ApplicationAccessCreateManyUserInput | ApplicationAccessCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserIdentityUpsertWithWhereUniqueWithoutUserInput = {
@@ -13276,6 +19804,33 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"UserIdentity"> | Date | string
     updatedAt?: DateTimeFilter<"UserIdentity"> | Date | string
     deletedAt?: DateTimeNullableFilter<"UserIdentity"> | Date | string | null
+  }
+
+  export type ApplicationAccessUpsertWithWhereUniqueWithoutUserInput = {
+    where: ApplicationAccessWhereUniqueInput
+    update: XOR<ApplicationAccessUpdateWithoutUserInput, ApplicationAccessUncheckedUpdateWithoutUserInput>
+    create: XOR<ApplicationAccessCreateWithoutUserInput, ApplicationAccessUncheckedCreateWithoutUserInput>
+  }
+
+  export type ApplicationAccessUpdateWithWhereUniqueWithoutUserInput = {
+    where: ApplicationAccessWhereUniqueInput
+    data: XOR<ApplicationAccessUpdateWithoutUserInput, ApplicationAccessUncheckedUpdateWithoutUserInput>
+  }
+
+  export type ApplicationAccessUpdateManyWithWhereWithoutUserInput = {
+    where: ApplicationAccessScalarWhereInput
+    data: XOR<ApplicationAccessUpdateManyMutationInput, ApplicationAccessUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type ApplicationAccessScalarWhereInput = {
+    AND?: ApplicationAccessScalarWhereInput | ApplicationAccessScalarWhereInput[]
+    OR?: ApplicationAccessScalarWhereInput[]
+    NOT?: ApplicationAccessScalarWhereInput | ApplicationAccessScalarWhereInput[]
+    id?: StringFilter<"ApplicationAccess"> | string
+    userId?: StringFilter<"ApplicationAccess"> | string
+    applicationId?: StringFilter<"ApplicationAccess"> | string
+    roleId?: IntFilter<"ApplicationAccess"> | number
+    isActive?: BoolFilter<"ApplicationAccess"> | boolean
   }
 
   export type SubCategoryCreateWithoutCategoryInput = {
@@ -13384,12 +19939,90 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type UserCreateWithoutRolesInput = {
+  export type ApplicationAccessCreateWithoutApplicationInput = {
+    id: string
+    isActive: boolean
+    role: RolesCreateNestedOneWithoutApplicationAccessInput
+    user: UserCreateNestedOneWithoutApplicationAccessInput
+  }
+
+  export type ApplicationAccessUncheckedCreateWithoutApplicationInput = {
+    id: string
+    userId: string
+    roleId: number
+    isActive: boolean
+  }
+
+  export type ApplicationAccessCreateOrConnectWithoutApplicationInput = {
+    where: ApplicationAccessWhereUniqueInput
+    create: XOR<ApplicationAccessCreateWithoutApplicationInput, ApplicationAccessUncheckedCreateWithoutApplicationInput>
+  }
+
+  export type ApplicationAccessCreateManyApplicationInputEnvelope = {
+    data: ApplicationAccessCreateManyApplicationInput | ApplicationAccessCreateManyApplicationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ApplicationAccessUpsertWithWhereUniqueWithoutApplicationInput = {
+    where: ApplicationAccessWhereUniqueInput
+    update: XOR<ApplicationAccessUpdateWithoutApplicationInput, ApplicationAccessUncheckedUpdateWithoutApplicationInput>
+    create: XOR<ApplicationAccessCreateWithoutApplicationInput, ApplicationAccessUncheckedCreateWithoutApplicationInput>
+  }
+
+  export type ApplicationAccessUpdateWithWhereUniqueWithoutApplicationInput = {
+    where: ApplicationAccessWhereUniqueInput
+    data: XOR<ApplicationAccessUpdateWithoutApplicationInput, ApplicationAccessUncheckedUpdateWithoutApplicationInput>
+  }
+
+  export type ApplicationAccessUpdateManyWithWhereWithoutApplicationInput = {
+    where: ApplicationAccessScalarWhereInput
+    data: XOR<ApplicationAccessUpdateManyMutationInput, ApplicationAccessUncheckedUpdateManyWithoutApplicationInput>
+  }
+
+  export type ApplicationsCreateWithoutApplicationAccessInput = {
+    id: string
+    name: string
+    isActive: boolean
+  }
+
+  export type ApplicationsUncheckedCreateWithoutApplicationAccessInput = {
+    id: string
+    name: string
+    isActive: boolean
+  }
+
+  export type ApplicationsCreateOrConnectWithoutApplicationAccessInput = {
+    where: ApplicationsWhereUniqueInput
+    create: XOR<ApplicationsCreateWithoutApplicationAccessInput, ApplicationsUncheckedCreateWithoutApplicationAccessInput>
+  }
+
+  export type RolesCreateWithoutApplicationAccessInput = {
+    name: string
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type RolesUncheckedCreateWithoutApplicationAccessInput = {
+    id?: number
+    name: string
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type RolesCreateOrConnectWithoutApplicationAccessInput = {
+    where: RolesWhereUniqueInput
+    create: XOR<RolesCreateWithoutApplicationAccessInput, RolesUncheckedCreateWithoutApplicationAccessInput>
+  }
+
+  export type UserCreateWithoutApplicationAccessInput = {
     id: string
     email: string
     name: string
-    phoneNumber: string
-    roleId?: number
+    phoneNumber?: string
     isActive?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -13397,12 +20030,11 @@ export namespace Prisma {
     UserIdentity?: UserIdentityCreateNestedManyWithoutUserInput
   }
 
-  export type UserUncheckedCreateWithoutRolesInput = {
+  export type UserUncheckedCreateWithoutApplicationAccessInput = {
     id: string
     email: string
     name: string
-    phoneNumber: string
-    roleId?: number
+    phoneNumber?: string
     isActive?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -13410,28 +20042,78 @@ export namespace Prisma {
     UserIdentity?: UserIdentityUncheckedCreateNestedManyWithoutUserInput
   }
 
-  export type UserCreateOrConnectWithoutRolesInput = {
+  export type UserCreateOrConnectWithoutApplicationAccessInput = {
     where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutRolesInput, UserUncheckedCreateWithoutRolesInput>
+    create: XOR<UserCreateWithoutApplicationAccessInput, UserUncheckedCreateWithoutApplicationAccessInput>
   }
 
-  export type UserUpsertWithoutRolesInput = {
-    update: XOR<UserUpdateWithoutRolesInput, UserUncheckedUpdateWithoutRolesInput>
-    create: XOR<UserCreateWithoutRolesInput, UserUncheckedCreateWithoutRolesInput>
+  export type ApplicationsUpsertWithoutApplicationAccessInput = {
+    update: XOR<ApplicationsUpdateWithoutApplicationAccessInput, ApplicationsUncheckedUpdateWithoutApplicationAccessInput>
+    create: XOR<ApplicationsCreateWithoutApplicationAccessInput, ApplicationsUncheckedCreateWithoutApplicationAccessInput>
+    where?: ApplicationsWhereInput
+  }
+
+  export type ApplicationsUpdateToOneWithWhereWithoutApplicationAccessInput = {
+    where?: ApplicationsWhereInput
+    data: XOR<ApplicationsUpdateWithoutApplicationAccessInput, ApplicationsUncheckedUpdateWithoutApplicationAccessInput>
+  }
+
+  export type ApplicationsUpdateWithoutApplicationAccessInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ApplicationsUncheckedUpdateWithoutApplicationAccessInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type RolesUpsertWithoutApplicationAccessInput = {
+    update: XOR<RolesUpdateWithoutApplicationAccessInput, RolesUncheckedUpdateWithoutApplicationAccessInput>
+    create: XOR<RolesCreateWithoutApplicationAccessInput, RolesUncheckedCreateWithoutApplicationAccessInput>
+    where?: RolesWhereInput
+  }
+
+  export type RolesUpdateToOneWithWhereWithoutApplicationAccessInput = {
+    where?: RolesWhereInput
+    data: XOR<RolesUpdateWithoutApplicationAccessInput, RolesUncheckedUpdateWithoutApplicationAccessInput>
+  }
+
+  export type RolesUpdateWithoutApplicationAccessInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type RolesUncheckedUpdateWithoutApplicationAccessInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type UserUpsertWithoutApplicationAccessInput = {
+    update: XOR<UserUpdateWithoutApplicationAccessInput, UserUncheckedUpdateWithoutApplicationAccessInput>
+    create: XOR<UserCreateWithoutApplicationAccessInput, UserUncheckedCreateWithoutApplicationAccessInput>
     where?: UserWhereInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutRolesInput = {
+  export type UserUpdateToOneWithWhereWithoutApplicationAccessInput = {
     where?: UserWhereInput
-    data: XOR<UserUpdateWithoutRolesInput, UserUncheckedUpdateWithoutRolesInput>
+    data: XOR<UserUpdateWithoutApplicationAccessInput, UserUncheckedUpdateWithoutApplicationAccessInput>
   }
 
-  export type UserUpdateWithoutRolesInput = {
+  export type UserUpdateWithoutApplicationAccessInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
-    roleId?: IntFieldUpdateOperationsInput | number
     isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13439,17 +20121,56 @@ export namespace Prisma {
     UserIdentity?: UserIdentityUpdateManyWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutRolesInput = {
+  export type UserUncheckedUpdateWithoutApplicationAccessInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
-    roleId?: IntFieldUpdateOperationsInput | number
     isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     UserIdentity?: UserIdentityUncheckedUpdateManyWithoutUserNestedInput
+  }
+
+  export type ApplicationAccessCreateWithoutRoleInput = {
+    id: string
+    isActive: boolean
+    application: ApplicationsCreateNestedOneWithoutApplicationAccessInput
+    user: UserCreateNestedOneWithoutApplicationAccessInput
+  }
+
+  export type ApplicationAccessUncheckedCreateWithoutRoleInput = {
+    id: string
+    userId: string
+    applicationId: string
+    isActive: boolean
+  }
+
+  export type ApplicationAccessCreateOrConnectWithoutRoleInput = {
+    where: ApplicationAccessWhereUniqueInput
+    create: XOR<ApplicationAccessCreateWithoutRoleInput, ApplicationAccessUncheckedCreateWithoutRoleInput>
+  }
+
+  export type ApplicationAccessCreateManyRoleInputEnvelope = {
+    data: ApplicationAccessCreateManyRoleInput | ApplicationAccessCreateManyRoleInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ApplicationAccessUpsertWithWhereUniqueWithoutRoleInput = {
+    where: ApplicationAccessWhereUniqueInput
+    update: XOR<ApplicationAccessUpdateWithoutRoleInput, ApplicationAccessUncheckedUpdateWithoutRoleInput>
+    create: XOR<ApplicationAccessCreateWithoutRoleInput, ApplicationAccessUncheckedCreateWithoutRoleInput>
+  }
+
+  export type ApplicationAccessUpdateWithWhereUniqueWithoutRoleInput = {
+    where: ApplicationAccessWhereUniqueInput
+    data: XOR<ApplicationAccessUpdateWithoutRoleInput, ApplicationAccessUncheckedUpdateWithoutRoleInput>
+  }
+
+  export type ApplicationAccessUpdateManyWithWhereWithoutRoleInput = {
+    where: ApplicationAccessScalarWhereInput
+    data: XOR<ApplicationAccessUpdateManyMutationInput, ApplicationAccessUncheckedUpdateManyWithoutRoleInput>
   }
 
   export type DepartmentManagementsCreateWithoutDepartmentInput = {
@@ -13563,12 +20284,12 @@ export namespace Prisma {
   }
 
   export type UserIdentityCreateWithoutDepartmentManagementInput = {
-    divisionId: number
-    titleOfDivisionId: number
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
     User: UserCreateNestedOneWithoutUserIdentityInput
+    division: DivisionsCreateNestedOneWithoutUserIdentityInput
+    titleOfDivision: TitleOfDivisionsCreateNestedOneWithoutUserIdentityInput
   }
 
   export type UserIdentityUncheckedCreateWithoutDepartmentManagementInput = {
@@ -13718,26 +20439,24 @@ export namespace Prisma {
     id: string
     email: string
     name: string
-    phoneNumber: string
-    roleId?: number
+    phoneNumber?: string
     isActive?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    Roles?: RolesCreateNestedManyWithoutUserInput
+    applicationAccess?: ApplicationAccessCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutUserIdentityInput = {
     id: string
     email: string
     name: string
-    phoneNumber: string
-    roleId?: number
+    phoneNumber?: string
     isActive?: boolean | null
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
-    Roles?: RolesUncheckedCreateNestedManyWithoutUserInput
+    applicationAccess?: ApplicationAccessUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutUserIdentityInput = {
@@ -13773,6 +20492,56 @@ export namespace Prisma {
     create: XOR<DepartmentManagementsCreateWithoutUserIdentityInput, DepartmentManagementsUncheckedCreateWithoutUserIdentityInput>
   }
 
+  export type DivisionsCreateWithoutUserIdentityInput = {
+    name: string
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    DivisionManagement?: DivisionsManagementCreateNestedManyWithoutDivisionInput
+  }
+
+  export type DivisionsUncheckedCreateWithoutUserIdentityInput = {
+    id?: number
+    name: string
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    DivisionManagement?: DivisionsManagementUncheckedCreateNestedManyWithoutDivisionInput
+  }
+
+  export type DivisionsCreateOrConnectWithoutUserIdentityInput = {
+    where: DivisionsWhereUniqueInput
+    create: XOR<DivisionsCreateWithoutUserIdentityInput, DivisionsUncheckedCreateWithoutUserIdentityInput>
+  }
+
+  export type TitleOfDivisionsCreateWithoutUserIdentityInput = {
+    name: string
+    isLeader?: boolean
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    DivisionManagement?: DivisionsManagementCreateNestedManyWithoutTitleInput
+  }
+
+  export type TitleOfDivisionsUncheckedCreateWithoutUserIdentityInput = {
+    id?: number
+    name: string
+    isLeader?: boolean
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    DivisionManagement?: DivisionsManagementUncheckedCreateNestedManyWithoutTitleInput
+  }
+
+  export type TitleOfDivisionsCreateOrConnectWithoutUserIdentityInput = {
+    where: TitleOfDivisionsWhereUniqueInput
+    create: XOR<TitleOfDivisionsCreateWithoutUserIdentityInput, TitleOfDivisionsUncheckedCreateWithoutUserIdentityInput>
+  }
+
   export type UserUpsertWithoutUserIdentityInput = {
     update: XOR<UserUpdateWithoutUserIdentityInput, UserUncheckedUpdateWithoutUserIdentityInput>
     create: XOR<UserCreateWithoutUserIdentityInput, UserUncheckedCreateWithoutUserIdentityInput>
@@ -13789,12 +20558,11 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
-    roleId?: IntFieldUpdateOperationsInput | number
     isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    Roles?: RolesUpdateManyWithoutUserNestedInput
+    applicationAccess?: ApplicationAccessUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutUserIdentityInput = {
@@ -13802,12 +20570,11 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
-    roleId?: IntFieldUpdateOperationsInput | number
     isActive?: NullableBoolFieldUpdateOperationsInput | boolean | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    Roles?: RolesUncheckedUpdateManyWithoutUserNestedInput
+    applicationAccess?: ApplicationAccessUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type DepartmentManagementsUpsertWithoutUserIdentityInput = {
@@ -13844,13 +20611,367 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
-  export type RolesCreateManyUserInput = {
+  export type DivisionsUpsertWithoutUserIdentityInput = {
+    update: XOR<DivisionsUpdateWithoutUserIdentityInput, DivisionsUncheckedUpdateWithoutUserIdentityInput>
+    create: XOR<DivisionsCreateWithoutUserIdentityInput, DivisionsUncheckedCreateWithoutUserIdentityInput>
+    where?: DivisionsWhereInput
+  }
+
+  export type DivisionsUpdateToOneWithWhereWithoutUserIdentityInput = {
+    where?: DivisionsWhereInput
+    data: XOR<DivisionsUpdateWithoutUserIdentityInput, DivisionsUncheckedUpdateWithoutUserIdentityInput>
+  }
+
+  export type DivisionsUpdateWithoutUserIdentityInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    DivisionManagement?: DivisionsManagementUpdateManyWithoutDivisionNestedInput
+  }
+
+  export type DivisionsUncheckedUpdateWithoutUserIdentityInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    DivisionManagement?: DivisionsManagementUncheckedUpdateManyWithoutDivisionNestedInput
+  }
+
+  export type TitleOfDivisionsUpsertWithoutUserIdentityInput = {
+    update: XOR<TitleOfDivisionsUpdateWithoutUserIdentityInput, TitleOfDivisionsUncheckedUpdateWithoutUserIdentityInput>
+    create: XOR<TitleOfDivisionsCreateWithoutUserIdentityInput, TitleOfDivisionsUncheckedCreateWithoutUserIdentityInput>
+    where?: TitleOfDivisionsWhereInput
+  }
+
+  export type TitleOfDivisionsUpdateToOneWithWhereWithoutUserIdentityInput = {
+    where?: TitleOfDivisionsWhereInput
+    data: XOR<TitleOfDivisionsUpdateWithoutUserIdentityInput, TitleOfDivisionsUncheckedUpdateWithoutUserIdentityInput>
+  }
+
+  export type TitleOfDivisionsUpdateWithoutUserIdentityInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    isLeader?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    DivisionManagement?: DivisionsManagementUpdateManyWithoutTitleNestedInput
+  }
+
+  export type TitleOfDivisionsUncheckedUpdateWithoutUserIdentityInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    isLeader?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    DivisionManagement?: DivisionsManagementUncheckedUpdateManyWithoutTitleNestedInput
+  }
+
+  export type UserIdentityCreateWithoutDivisionInput = {
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    User: UserCreateNestedOneWithoutUserIdentityInput
+    DepartmentManagement: DepartmentManagementsCreateNestedOneWithoutUserIdentityInput
+    titleOfDivision: TitleOfDivisionsCreateNestedOneWithoutUserIdentityInput
+  }
+
+  export type UserIdentityUncheckedCreateWithoutDivisionInput = {
+    id?: number
+    userId: string
+    titleOfDivisionId: number
+    DepartmentManagementId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type UserIdentityCreateOrConnectWithoutDivisionInput = {
+    where: UserIdentityWhereUniqueInput
+    create: XOR<UserIdentityCreateWithoutDivisionInput, UserIdentityUncheckedCreateWithoutDivisionInput>
+  }
+
+  export type UserIdentityCreateManyDivisionInputEnvelope = {
+    data: UserIdentityCreateManyDivisionInput | UserIdentityCreateManyDivisionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DivisionsManagementCreateWithoutDivisionInput = {
+    isActive: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    title: TitleOfDivisionsCreateNestedOneWithoutDivisionManagementInput
+  }
+
+  export type DivisionsManagementUncheckedCreateWithoutDivisionInput = {
+    id?: number
+    titleId: number
+    isActive: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type DivisionsManagementCreateOrConnectWithoutDivisionInput = {
+    where: DivisionsManagementWhereUniqueInput
+    create: XOR<DivisionsManagementCreateWithoutDivisionInput, DivisionsManagementUncheckedCreateWithoutDivisionInput>
+  }
+
+  export type DivisionsManagementCreateManyDivisionInputEnvelope = {
+    data: DivisionsManagementCreateManyDivisionInput | DivisionsManagementCreateManyDivisionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserIdentityUpsertWithWhereUniqueWithoutDivisionInput = {
+    where: UserIdentityWhereUniqueInput
+    update: XOR<UserIdentityUpdateWithoutDivisionInput, UserIdentityUncheckedUpdateWithoutDivisionInput>
+    create: XOR<UserIdentityCreateWithoutDivisionInput, UserIdentityUncheckedCreateWithoutDivisionInput>
+  }
+
+  export type UserIdentityUpdateWithWhereUniqueWithoutDivisionInput = {
+    where: UserIdentityWhereUniqueInput
+    data: XOR<UserIdentityUpdateWithoutDivisionInput, UserIdentityUncheckedUpdateWithoutDivisionInput>
+  }
+
+  export type UserIdentityUpdateManyWithWhereWithoutDivisionInput = {
+    where: UserIdentityScalarWhereInput
+    data: XOR<UserIdentityUpdateManyMutationInput, UserIdentityUncheckedUpdateManyWithoutDivisionInput>
+  }
+
+  export type DivisionsManagementUpsertWithWhereUniqueWithoutDivisionInput = {
+    where: DivisionsManagementWhereUniqueInput
+    update: XOR<DivisionsManagementUpdateWithoutDivisionInput, DivisionsManagementUncheckedUpdateWithoutDivisionInput>
+    create: XOR<DivisionsManagementCreateWithoutDivisionInput, DivisionsManagementUncheckedCreateWithoutDivisionInput>
+  }
+
+  export type DivisionsManagementUpdateWithWhereUniqueWithoutDivisionInput = {
+    where: DivisionsManagementWhereUniqueInput
+    data: XOR<DivisionsManagementUpdateWithoutDivisionInput, DivisionsManagementUncheckedUpdateWithoutDivisionInput>
+  }
+
+  export type DivisionsManagementUpdateManyWithWhereWithoutDivisionInput = {
+    where: DivisionsManagementScalarWhereInput
+    data: XOR<DivisionsManagementUpdateManyMutationInput, DivisionsManagementUncheckedUpdateManyWithoutDivisionInput>
+  }
+
+  export type DivisionsManagementScalarWhereInput = {
+    AND?: DivisionsManagementScalarWhereInput | DivisionsManagementScalarWhereInput[]
+    OR?: DivisionsManagementScalarWhereInput[]
+    NOT?: DivisionsManagementScalarWhereInput | DivisionsManagementScalarWhereInput[]
+    id?: IntFilter<"DivisionsManagement"> | number
+    divisionId?: IntFilter<"DivisionsManagement"> | number
+    titleId?: IntFilter<"DivisionsManagement"> | number
+    isActive?: BoolFilter<"DivisionsManagement"> | boolean
+    createdAt?: DateTimeFilter<"DivisionsManagement"> | Date | string
+    updatedAt?: DateTimeFilter<"DivisionsManagement"> | Date | string
+    deletedAt?: DateTimeNullableFilter<"DivisionsManagement"> | Date | string | null
+  }
+
+  export type DivisionsCreateWithoutDivisionManagementInput = {
+    name: string
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    UserIdentity?: UserIdentityCreateNestedManyWithoutDivisionInput
+  }
+
+  export type DivisionsUncheckedCreateWithoutDivisionManagementInput = {
     id?: number
     name: string
     isActive?: boolean
     createdAt?: Date | string
     updatedAt?: Date | string
     deletedAt?: Date | string | null
+    UserIdentity?: UserIdentityUncheckedCreateNestedManyWithoutDivisionInput
+  }
+
+  export type DivisionsCreateOrConnectWithoutDivisionManagementInput = {
+    where: DivisionsWhereUniqueInput
+    create: XOR<DivisionsCreateWithoutDivisionManagementInput, DivisionsUncheckedCreateWithoutDivisionManagementInput>
+  }
+
+  export type TitleOfDivisionsCreateWithoutDivisionManagementInput = {
+    name: string
+    isLeader?: boolean
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    UserIdentity?: UserIdentityCreateNestedManyWithoutTitleOfDivisionInput
+  }
+
+  export type TitleOfDivisionsUncheckedCreateWithoutDivisionManagementInput = {
+    id?: number
+    name: string
+    isLeader?: boolean
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    UserIdentity?: UserIdentityUncheckedCreateNestedManyWithoutTitleOfDivisionInput
+  }
+
+  export type TitleOfDivisionsCreateOrConnectWithoutDivisionManagementInput = {
+    where: TitleOfDivisionsWhereUniqueInput
+    create: XOR<TitleOfDivisionsCreateWithoutDivisionManagementInput, TitleOfDivisionsUncheckedCreateWithoutDivisionManagementInput>
+  }
+
+  export type DivisionsUpsertWithoutDivisionManagementInput = {
+    update: XOR<DivisionsUpdateWithoutDivisionManagementInput, DivisionsUncheckedUpdateWithoutDivisionManagementInput>
+    create: XOR<DivisionsCreateWithoutDivisionManagementInput, DivisionsUncheckedCreateWithoutDivisionManagementInput>
+    where?: DivisionsWhereInput
+  }
+
+  export type DivisionsUpdateToOneWithWhereWithoutDivisionManagementInput = {
+    where?: DivisionsWhereInput
+    data: XOR<DivisionsUpdateWithoutDivisionManagementInput, DivisionsUncheckedUpdateWithoutDivisionManagementInput>
+  }
+
+  export type DivisionsUpdateWithoutDivisionManagementInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UserIdentity?: UserIdentityUpdateManyWithoutDivisionNestedInput
+  }
+
+  export type DivisionsUncheckedUpdateWithoutDivisionManagementInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UserIdentity?: UserIdentityUncheckedUpdateManyWithoutDivisionNestedInput
+  }
+
+  export type TitleOfDivisionsUpsertWithoutDivisionManagementInput = {
+    update: XOR<TitleOfDivisionsUpdateWithoutDivisionManagementInput, TitleOfDivisionsUncheckedUpdateWithoutDivisionManagementInput>
+    create: XOR<TitleOfDivisionsCreateWithoutDivisionManagementInput, TitleOfDivisionsUncheckedCreateWithoutDivisionManagementInput>
+    where?: TitleOfDivisionsWhereInput
+  }
+
+  export type TitleOfDivisionsUpdateToOneWithWhereWithoutDivisionManagementInput = {
+    where?: TitleOfDivisionsWhereInput
+    data: XOR<TitleOfDivisionsUpdateWithoutDivisionManagementInput, TitleOfDivisionsUncheckedUpdateWithoutDivisionManagementInput>
+  }
+
+  export type TitleOfDivisionsUpdateWithoutDivisionManagementInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    isLeader?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UserIdentity?: UserIdentityUpdateManyWithoutTitleOfDivisionNestedInput
+  }
+
+  export type TitleOfDivisionsUncheckedUpdateWithoutDivisionManagementInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    isLeader?: BoolFieldUpdateOperationsInput | boolean
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    UserIdentity?: UserIdentityUncheckedUpdateManyWithoutTitleOfDivisionNestedInput
+  }
+
+  export type DivisionsManagementCreateWithoutTitleInput = {
+    isActive: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    division: DivisionsCreateNestedOneWithoutDivisionManagementInput
+  }
+
+  export type DivisionsManagementUncheckedCreateWithoutTitleInput = {
+    id?: number
+    divisionId: number
+    isActive: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type DivisionsManagementCreateOrConnectWithoutTitleInput = {
+    where: DivisionsManagementWhereUniqueInput
+    create: XOR<DivisionsManagementCreateWithoutTitleInput, DivisionsManagementUncheckedCreateWithoutTitleInput>
+  }
+
+  export type DivisionsManagementCreateManyTitleInputEnvelope = {
+    data: DivisionsManagementCreateManyTitleInput | DivisionsManagementCreateManyTitleInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserIdentityCreateWithoutTitleOfDivisionInput = {
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+    User: UserCreateNestedOneWithoutUserIdentityInput
+    DepartmentManagement: DepartmentManagementsCreateNestedOneWithoutUserIdentityInput
+    division: DivisionsCreateNestedOneWithoutUserIdentityInput
+  }
+
+  export type UserIdentityUncheckedCreateWithoutTitleOfDivisionInput = {
+    id?: number
+    userId: string
+    divisionId: number
+    DepartmentManagementId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type UserIdentityCreateOrConnectWithoutTitleOfDivisionInput = {
+    where: UserIdentityWhereUniqueInput
+    create: XOR<UserIdentityCreateWithoutTitleOfDivisionInput, UserIdentityUncheckedCreateWithoutTitleOfDivisionInput>
+  }
+
+  export type UserIdentityCreateManyTitleOfDivisionInputEnvelope = {
+    data: UserIdentityCreateManyTitleOfDivisionInput | UserIdentityCreateManyTitleOfDivisionInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DivisionsManagementUpsertWithWhereUniqueWithoutTitleInput = {
+    where: DivisionsManagementWhereUniqueInput
+    update: XOR<DivisionsManagementUpdateWithoutTitleInput, DivisionsManagementUncheckedUpdateWithoutTitleInput>
+    create: XOR<DivisionsManagementCreateWithoutTitleInput, DivisionsManagementUncheckedCreateWithoutTitleInput>
+  }
+
+  export type DivisionsManagementUpdateWithWhereUniqueWithoutTitleInput = {
+    where: DivisionsManagementWhereUniqueInput
+    data: XOR<DivisionsManagementUpdateWithoutTitleInput, DivisionsManagementUncheckedUpdateWithoutTitleInput>
+  }
+
+  export type DivisionsManagementUpdateManyWithWhereWithoutTitleInput = {
+    where: DivisionsManagementScalarWhereInput
+    data: XOR<DivisionsManagementUpdateManyMutationInput, DivisionsManagementUncheckedUpdateManyWithoutTitleInput>
+  }
+
+  export type UserIdentityUpsertWithWhereUniqueWithoutTitleOfDivisionInput = {
+    where: UserIdentityWhereUniqueInput
+    update: XOR<UserIdentityUpdateWithoutTitleOfDivisionInput, UserIdentityUncheckedUpdateWithoutTitleOfDivisionInput>
+    create: XOR<UserIdentityCreateWithoutTitleOfDivisionInput, UserIdentityUncheckedCreateWithoutTitleOfDivisionInput>
+  }
+
+  export type UserIdentityUpdateWithWhereUniqueWithoutTitleOfDivisionInput = {
+    where: UserIdentityWhereUniqueInput
+    data: XOR<UserIdentityUpdateWithoutTitleOfDivisionInput, UserIdentityUncheckedUpdateWithoutTitleOfDivisionInput>
+  }
+
+  export type UserIdentityUpdateManyWithWhereWithoutTitleOfDivisionInput = {
+    where: UserIdentityScalarWhereInput
+    data: XOR<UserIdentityUpdateManyMutationInput, UserIdentityUncheckedUpdateManyWithoutTitleOfDivisionInput>
   }
 
   export type UserIdentityCreateManyUserInput = {
@@ -13863,39 +20984,20 @@ export namespace Prisma {
     deletedAt?: Date | string | null
   }
 
-  export type RolesUpdateWithoutUserInput = {
-    name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type RolesUncheckedUpdateWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  }
-
-  export type RolesUncheckedUpdateManyWithoutUserInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    name?: StringFieldUpdateOperationsInput | string
-    isActive?: BoolFieldUpdateOperationsInput | boolean
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  export type ApplicationAccessCreateManyUserInput = {
+    id: string
+    applicationId: string
+    roleId: number
+    isActive: boolean
   }
 
   export type UserIdentityUpdateWithoutUserInput = {
-    divisionId?: IntFieldUpdateOperationsInput | number
-    titleOfDivisionId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     DepartmentManagement?: DepartmentManagementsUpdateOneRequiredWithoutUserIdentityNestedInput
+    division?: DivisionsUpdateOneRequiredWithoutUserIdentityNestedInput
+    titleOfDivision?: TitleOfDivisionsUpdateOneRequiredWithoutUserIdentityNestedInput
   }
 
   export type UserIdentityUncheckedUpdateWithoutUserInput = {
@@ -13916,6 +21018,27 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ApplicationAccessUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    application?: ApplicationsUpdateOneRequiredWithoutApplicationAccessNestedInput
+    role?: RolesUpdateOneRequiredWithoutApplicationAccessNestedInput
+  }
+
+  export type ApplicationAccessUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    applicationId?: StringFieldUpdateOperationsInput | string
+    roleId?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ApplicationAccessUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    applicationId?: StringFieldUpdateOperationsInput | string
+    roleId?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type SubCategoryCreateManyCategoryInput = {
@@ -13951,6 +21074,62 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ApplicationAccessCreateManyApplicationInput = {
+    id: string
+    userId: string
+    roleId: number
+    isActive: boolean
+  }
+
+  export type ApplicationAccessUpdateWithoutApplicationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    role?: RolesUpdateOneRequiredWithoutApplicationAccessNestedInput
+    user?: UserUpdateOneRequiredWithoutApplicationAccessNestedInput
+  }
+
+  export type ApplicationAccessUncheckedUpdateWithoutApplicationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    roleId?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ApplicationAccessUncheckedUpdateManyWithoutApplicationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    roleId?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ApplicationAccessCreateManyRoleInput = {
+    id: string
+    userId: string
+    applicationId: string
+    isActive: boolean
+  }
+
+  export type ApplicationAccessUpdateWithoutRoleInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    application?: ApplicationsUpdateOneRequiredWithoutApplicationAccessNestedInput
+    user?: UserUpdateOneRequiredWithoutApplicationAccessNestedInput
+  }
+
+  export type ApplicationAccessUncheckedUpdateWithoutRoleInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    applicationId?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type ApplicationAccessUncheckedUpdateManyWithoutRoleInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    applicationId?: StringFieldUpdateOperationsInput | string
+    isActive?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type DepartmentManagementsCreateManyDepartmentInput = {
@@ -14009,12 +21188,12 @@ export namespace Prisma {
   }
 
   export type UserIdentityUpdateWithoutDepartmentManagementInput = {
-    divisionId?: IntFieldUpdateOperationsInput | number
-    titleOfDivisionId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     User?: UserUpdateOneRequiredWithoutUserIdentityNestedInput
+    division?: DivisionsUpdateOneRequiredWithoutUserIdentityNestedInput
+    titleOfDivision?: TitleOfDivisionsUpdateOneRequiredWithoutUserIdentityNestedInput
   }
 
   export type UserIdentityUncheckedUpdateWithoutDepartmentManagementInput = {
@@ -14082,6 +21261,154 @@ export namespace Prisma {
     deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
+  export type UserIdentityCreateManyDivisionInput = {
+    id?: number
+    userId: string
+    titleOfDivisionId: number
+    DepartmentManagementId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type DivisionsManagementCreateManyDivisionInput = {
+    id?: number
+    titleId: number
+    isActive: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type UserIdentityUpdateWithoutDivisionInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    User?: UserUpdateOneRequiredWithoutUserIdentityNestedInput
+    DepartmentManagement?: DepartmentManagementsUpdateOneRequiredWithoutUserIdentityNestedInput
+    titleOfDivision?: TitleOfDivisionsUpdateOneRequiredWithoutUserIdentityNestedInput
+  }
+
+  export type UserIdentityUncheckedUpdateWithoutDivisionInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    titleOfDivisionId?: IntFieldUpdateOperationsInput | number
+    DepartmentManagementId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type UserIdentityUncheckedUpdateManyWithoutDivisionInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    titleOfDivisionId?: IntFieldUpdateOperationsInput | number
+    DepartmentManagementId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DivisionsManagementUpdateWithoutDivisionInput = {
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    title?: TitleOfDivisionsUpdateOneRequiredWithoutDivisionManagementNestedInput
+  }
+
+  export type DivisionsManagementUncheckedUpdateWithoutDivisionInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    titleId?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DivisionsManagementUncheckedUpdateManyWithoutDivisionInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    titleId?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DivisionsManagementCreateManyTitleInput = {
+    id?: number
+    divisionId: number
+    isActive: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type UserIdentityCreateManyTitleOfDivisionInput = {
+    id?: number
+    userId: string
+    divisionId: number
+    DepartmentManagementId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deletedAt?: Date | string | null
+  }
+
+  export type DivisionsManagementUpdateWithoutTitleInput = {
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    division?: DivisionsUpdateOneRequiredWithoutDivisionManagementNestedInput
+  }
+
+  export type DivisionsManagementUncheckedUpdateWithoutTitleInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    divisionId?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type DivisionsManagementUncheckedUpdateManyWithoutTitleInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    divisionId?: IntFieldUpdateOperationsInput | number
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type UserIdentityUpdateWithoutTitleOfDivisionInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    User?: UserUpdateOneRequiredWithoutUserIdentityNestedInput
+    DepartmentManagement?: DepartmentManagementsUpdateOneRequiredWithoutUserIdentityNestedInput
+    division?: DivisionsUpdateOneRequiredWithoutUserIdentityNestedInput
+  }
+
+  export type UserIdentityUncheckedUpdateWithoutTitleOfDivisionInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    divisionId?: IntFieldUpdateOperationsInput | number
+    DepartmentManagementId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type UserIdentityUncheckedUpdateManyWithoutTitleOfDivisionInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    divisionId?: IntFieldUpdateOperationsInput | number
+    DepartmentManagementId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
 
 
   /**
@@ -14096,6 +21423,14 @@ export namespace Prisma {
      */
     export type CategoryCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = CategoryCountOutputTypeDefaultArgs<ExtArgs>
     /**
+     * @deprecated Use ApplicationsCountOutputTypeDefaultArgs instead
+     */
+    export type ApplicationsCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ApplicationsCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use RolesCountOutputTypeDefaultArgs instead
+     */
+    export type RolesCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = RolesCountOutputTypeDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use DepartmentsCountOutputTypeDefaultArgs instead
      */
     export type DepartmentsCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DepartmentsCountOutputTypeDefaultArgs<ExtArgs>
@@ -14107,6 +21442,14 @@ export namespace Prisma {
      * @deprecated Use TitleOfDepartmentsCountOutputTypeDefaultArgs instead
      */
     export type TitleOfDepartmentsCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TitleOfDepartmentsCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use DivisionsCountOutputTypeDefaultArgs instead
+     */
+    export type DivisionsCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DivisionsCountOutputTypeDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use TitleOfDivisionsCountOutputTypeDefaultArgs instead
+     */
+    export type TitleOfDivisionsCountOutputTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TitleOfDivisionsCountOutputTypeDefaultArgs<ExtArgs>
     /**
      * @deprecated Use UserDefaultArgs instead
      */
@@ -14120,13 +21463,21 @@ export namespace Prisma {
      */
     export type SubCategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = SubCategoryDefaultArgs<ExtArgs>
     /**
+     * @deprecated Use ApplicationsDefaultArgs instead
+     */
+    export type ApplicationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ApplicationsDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use ApplicationAccessDefaultArgs instead
+     */
+    export type ApplicationAccessArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ApplicationAccessDefaultArgs<ExtArgs>
+    /**
      * @deprecated Use RolesDefaultArgs instead
      */
     export type RolesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = RolesDefaultArgs<ExtArgs>
     /**
-     * @deprecated Use OTPDefaultArgs instead
+     * @deprecated Use OtpDefaultArgs instead
      */
-    export type OTPArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = OTPDefaultArgs<ExtArgs>
+    export type OtpArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = OtpDefaultArgs<ExtArgs>
     /**
      * @deprecated Use DepartmentsDefaultArgs instead
      */
@@ -14143,6 +21494,18 @@ export namespace Prisma {
      * @deprecated Use UserIdentityDefaultArgs instead
      */
     export type UserIdentityArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = UserIdentityDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use DivisionsDefaultArgs instead
+     */
+    export type DivisionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DivisionsDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use DivisionsManagementDefaultArgs instead
+     */
+    export type DivisionsManagementArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DivisionsManagementDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use TitleOfDivisionsDefaultArgs instead
+     */
+    export type TitleOfDivisionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TitleOfDivisionsDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

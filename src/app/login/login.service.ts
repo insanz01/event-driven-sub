@@ -40,7 +40,7 @@ export const loginOtpWhatsapp = async (phoneNumber: string) => {
 	const expiry = new Date(Date.now() + 5 * 60 * 1000) // 5 minute
 	const hashedOtp = await hashOtp(otp.toString())
 
-	await otpRepository.setOtp(phoneNumber, hashedOtp, token, expiry)
+	await otpRepository.setOtp('', phoneNumber, hashedOtp, token, expiry)
 
 	const message = `TUV NORD CENTRAL OTP \nKODE OTP : *${otp}* \nDemi keamanan, jangan bagikan kode ini.`
 	await apiSendToWhatsApp(user.phoneNumber, message)

@@ -124,7 +124,6 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   name: 'name',
   phoneNumber: 'phoneNumber',
-  roleId: 'roleId',
   isActive: 'isActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
@@ -150,19 +149,33 @@ exports.Prisma.SubCategoryScalarFieldEnum = {
   deletedAt: 'deletedAt'
 };
 
+exports.Prisma.ApplicationsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  isActive: 'isActive'
+};
+
+exports.Prisma.ApplicationAccessScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  applicationId: 'applicationId',
+  roleId: 'roleId',
+  isActive: 'isActive'
+};
+
 exports.Prisma.RolesScalarFieldEnum = {
   id: 'id',
   name: 'name',
   isActive: 'isActive',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  deletedAt: 'deletedAt',
-  userId: 'userId'
+  deletedAt: 'deletedAt'
 };
 
-exports.Prisma.OTPScalarFieldEnum = {
+exports.Prisma.OtpScalarFieldEnum = {
   token: 'token',
   email: 'email',
+  phoneNumber: 'phoneNumber',
   otp: 'otp',
   expiry: 'expiry'
 };
@@ -209,6 +222,35 @@ exports.Prisma.UserIdentityScalarFieldEnum = {
   deletedAt: 'deletedAt'
 };
 
+exports.Prisma.DivisionsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+};
+
+exports.Prisma.DivisionsManagementScalarFieldEnum = {
+  id: 'id',
+  divisionId: 'divisionId',
+  titleId: 'titleId',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+};
+
+exports.Prisma.TitleOfDivisionsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  isLeader: 'isLeader',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  deletedAt: 'deletedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -224,12 +266,17 @@ exports.Prisma.ModelName = {
   User: 'User',
   Category: 'Category',
   SubCategory: 'SubCategory',
+  Applications: 'Applications',
+  ApplicationAccess: 'ApplicationAccess',
   Roles: 'Roles',
-  OTP: 'OTP',
+  Otp: 'Otp',
   Departments: 'Departments',
   DepartmentManagements: 'DepartmentManagements',
   TitleOfDepartments: 'TitleOfDepartments',
-  UserIdentity: 'UserIdentity'
+  UserIdentity: 'UserIdentity',
+  Divisions: 'Divisions',
+  DivisionsManagement: 'DivisionsManagement',
+  TitleOfDivisions: 'TitleOfDivisions'
 };
 
 /**
