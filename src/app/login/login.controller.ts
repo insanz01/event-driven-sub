@@ -10,10 +10,6 @@ export const loginOtp = async (
 	response: Response,
 	next: NextFunction,
 ) => {
-	// const data = {
-	// 	message: 'Berjayang masuk',
-	// 	status: 200,
-	// }
 	const data = await authService.loginWithOtp(request.body)
 	if (data instanceof AppError) {
 		next(data)
