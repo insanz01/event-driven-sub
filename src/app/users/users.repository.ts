@@ -10,6 +10,7 @@ export const createUser = async (data: User) => {
 			id: uuid(),
 			name: data.name,
 			email: data.email,
+			phoneNumber: data.phoneNumber,
 			isActive: data.isActive,
 		},
 	})
@@ -29,6 +30,22 @@ export const getUsers = async (query: QueryParams) => {
 		},
 		skip: (Number(page) - 1) * Number(perPage),
 		take: Number(perPage),
+	})
+}
+
+export const getUserByEmail = async (email: string) => {
+	return await db.user.findUnique({
+		where: {
+			email,
+		},
+	})
+}
+
+export const getUserByPhoneNumber = async (phoneNumber: string) => {
+	return await db.user.findFirst({
+		where: {
+			phoneNumber,
+		},
 	})
 }
 
