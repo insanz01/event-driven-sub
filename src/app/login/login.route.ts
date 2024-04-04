@@ -2,8 +2,8 @@ import { Router } from 'express'
 import { validateRequest } from 'src/middleware'
 import { catchAsync, limiter } from 'src/utils'
 
-import { loginOtp } from './login.controller'
-import { loginOtpSchema } from './login.request'
+import { loginOtp, loginOtpCheck } from './login.controller'
+import { loginOtpCheckSchema, loginOtpSchema } from './login.request'
 const route = Router()
 
 route.post(
@@ -11,6 +11,12 @@ route.post(
 	limiter,
 	validateRequest(loginOtpSchema),
 	catchAsync(loginOtp),
+)
+
+route.post(
+	'/otp/check',
+	validateRequest(loginOtpCheckSchema),
+	catchAsync(loginOtpCheck),
 )
 
 export default route

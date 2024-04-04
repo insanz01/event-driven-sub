@@ -84,8 +84,12 @@ export const loginOtpCheck = async ({ token, otp }: LoginOtpCheck) => {
 	}
 
 	const email = result.email
+	const phoneNumber = result.phoneNumber
 
-	const user = await userRepository.getUserByEmail(email)
+	const user = await userRepository.getUserByEmailOrPhoneNumber(
+		email,
+		phoneNumber,
+	)
 	if (!user) {
 		return new AppError(
 			ERROR_CODE.NOT_FOUND.code,
