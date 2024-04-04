@@ -10,8 +10,10 @@ import {
 	updateDepartment,
 	deleteDepartment,
 } from './departments.controller'
-
-import { createDepartmentSchema, updateDepartmentSchema } from './departments.request';
+import {
+	createDepartmentSchema,
+	updateDepartmentSchema,
+} from './departments.request'
 
 const route = Router()
 
