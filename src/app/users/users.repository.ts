@@ -49,6 +49,24 @@ export const getUserByPhoneNumber = async (phoneNumber: string) => {
 	})
 }
 
+export const getUserByEmailOrPhoneNumber = async (
+	email: string,
+	phoneNumber: string,
+) => {
+	return await db.user.findFirst({
+		where: {
+			OR: [
+				{
+					email,
+				},
+				{
+					phoneNumber,
+				},
+			],
+		},
+	})
+}
+
 export const getCountUsers = async (query: QueryParams) => {
 	const { search = '', status } = query
 	const isActive = queryStatus(status)
