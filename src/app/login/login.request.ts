@@ -7,5 +7,6 @@ export const loginOtpSchema = Joi.object({
 		.valid('WHATSAPP', 'SMS')
 		.required()
 		.messages(generalMessage),
-	phoneNumber: Joi.string().required().messages(generalMessage),
+	phoneNumber: Joi.string().empty('').messages(generalMessage),
+	email: Joi.string().empty('').messages(generalMessage),
 })
