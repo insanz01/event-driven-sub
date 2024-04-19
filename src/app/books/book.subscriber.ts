@@ -1,16 +1,16 @@
 import * as bookRepository from 'src/app/books/book.repository'
-import { channel } from 'src/config/amqp'
+import { AMQP } from 'src/config/amqp'
 
 export const subscribeBookStore = async () => {
 	try {
-		await channel
+		await AMQP.channel
 			.consume('books:store', async (data: any) => {
 				console.log('Data received :', Buffer.from(data.content).toString())
 
 				const book = JSON.parse(Buffer.from(data.content).toString())
 				await bookRepository.save(book)
 
-				channel.ack(data)
+				AMQP.channel.ack(data)
 			})
 			.catch((error) => {
 				console.log('error', error)
@@ -22,14 +22,14 @@ export const subscribeBookStore = async () => {
 
 export const subscribeBookUpdate = async () => {
 	try {
-		await channel
+		await AMQP.channel
 			.consume('books:update', async (data: any) => {
 				console.log('Data received :', Buffer.from(data.content).toString())
 
 				const book = JSON.parse(Buffer.from(data.content).toString())
 				await bookRepository.update(book)
 
-				channel.ack(data)
+				AMQP.channel.ack(data)
 			})
 			.catch((error) => {
 				console.log('error_1', error)
